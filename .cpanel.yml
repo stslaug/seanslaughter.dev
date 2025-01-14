@@ -13,7 +13,3 @@ deployment:
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R scripts $DEPLOYPATH
     - /bin/cp -R styles $DEPLOYPATH
-
-    # (Optional) If you also have index.html or other top-level HTML files,
-    # you can copy them similarly:
-    # - /bin/cp index.html $DEPLOYPATH
