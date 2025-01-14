@@ -4,9 +4,10 @@ deployment:
     - export DEPLOYPATH="/home/seanljvy/repositories/seants.me"
 
     # Copy individual files
-    - /bin/cp index.js $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
     - /bin/cp general.css $DEPLOYPATH
     - /bin/cp general.js $DEPLOYPATH
+    - /bin/cp icon.jpg $DEPLOYPATH
 
     # Copy entire directories
     - /bin/cp -R assets $DEPLOYPATH
