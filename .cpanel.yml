@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH="/home/seanljvy/public_html/"
+    - export DEPLOYPATH="/home/seanljvy/repositories/seants.me"
 
     # Copy individual files
     - /bin/cp index.js $DEPLOYPATH
