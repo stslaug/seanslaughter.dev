@@ -11,9 +11,13 @@
     font-weight: normal;
     font-style: normal;
 }
-
+html
+{
+    scroll-behavior: smooth;
+}
 body {
     font-family: 'Roboto', sans-serif;
+
 }
 
 
@@ -66,17 +70,40 @@ body {
 {
     min-height: 90vh;
     min-width: 100%;
-    background-color: var(--purple);
-    margin-left: -8px;
-    margin-right: -8px;
-    margin-top: -22px;
+
     display: flex;
+    margin: -22px -8px 0 -8px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
+
     color: white;
+    background-color: var(--purple);
+
 }
+
+#welcome-continue
+{
+    margin-top: 25px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
 
 .welcome-splash h1
 {
