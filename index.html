@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
         <!-- Character encoding -->
         <meta charset="utf-8">
 
@@ -18,9 +19,9 @@
         <title>Sean Tyler Slaughter | Web Development</title>
 
         <!-- Favicon and app icons -->
-        <link rel="icon" type="image/png" href="./icon.jpg" sizes="32x32">
-        <link rel="icon" type="image/png" href="./icon.jpg" sizes="16x16">
-        <link rel="apple-touch-icon" href="./icon.jpg">
+        <link rel="icon" type="image/svg" href="./icon.svg" sizes="32x32">
+        <link rel="icon" type="image/svg" href="./icon.svg" sizes="16x16">
+        <link rel="apple-touch-icon" href="./icon.svg">
 
         <!-- External CSS or script links -->
         <link rel="stylesheet" href="./general.css">
@@ -28,6 +29,41 @@
     </head>
 
     <body>
-        <h1>Hello World!!</h1>
+        <div class="menu-bubble-wrapper">
+            <div class="menu-bubble">
+                <a class="menu-bubble-item" href="#">Home</a>
+                <a class="menu-bubble-item" href="#about">About</a>
+            </div>
+        </div>
+
+
+        <div class="welcome-splash" id="welcome-splash">
+            <h2>My name is</h2>
+            <h1>Sean Tyler Slaughter</h1>
+            <h2>This is my website for CPSC 3750 Spring 2025.</h2>
+            <a class="menu-bubble-item" href="#about">Continue</a>
+        </div>
+
+        <div class="about-me" id="about">
+            <div class="side-image">
+                <img src="./assets/images/headshot.png"></img>
+            </div>
+            <div>
+                <h1>
+                    Interesting Things
+                </h1>
+                <p> OOOOOO AAHHHH here is some text... This will get filled out.... Lorem Ipsum or whatever</p>
+                <p> The FitnessGram Pacer test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter Pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal *boop*. A single lap should be completed each time you hear this sound *ding*. Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.</p>
+            </div>
+
+        </div>
+
+
+        <div class="other-splash">
+            <div>
+                <p>Boop</p>
+            </div>
+        </div>
+
     </body>
 </html>

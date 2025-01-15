@@ -1,0 +1,123 @@
+:root
+{
+    --purple: rgb(115, 32, 255);
+    --grey: #eae3ff;
+}
+
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.menu-bubble-wrapper {
+    position: sticky;
+    background-color: white;
+    margin: -8px;
+    top: 0;
+    overflow: hidden;
+}
+
+.menu-bubble
+{
+
+    align-self: center;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    border: 3px var(--purple);
+    border-style: none none solid none;
+
+
+}
+.menu-bubble-item
+{
+    padding: 10px;
+    min-width: 100px;
+    margin: 10px 0 10px 0;
+    transition: 0.3s;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+
+    border-radius: 25px;
+    border: 1px solid var(--grey);
+
+    background-color: var(--grey);
+
+}
+.menu-bubble-item:hover
+{
+    cursor: pointer;
+    background-color: var(--purple);
+    color: white;
+    border: 1px solid white;
+}
+
+.welcome-splash
+{
+    min-height: 90vh;
+    min-width: 100%;
+    background-color: var(--purple);
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-top: -22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
+
+.welcome-splash h1
+{
+    margin: -5px 0 -5px 0;
+    font-size: 48px;
+}
+.welcome-splash h2
+{
+    font-size: 20px;
+}
+
+
+.about-me
+{
+    display: grid;
+    grid-template-columns: 48% 48%;
+    margin: auto;
+    align-self: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.about-me p
+{
+    overflow: auto;
+}
+.side-image img
+{
+    width: 450px;
+    height: 450px;
+    margin: auto;
+    align-self: center;
+    border-radius: 500%;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+
+.other-splash
+{
+    background-color: var(--purple);
+    margin: -5px 0 -5px 0;
+
+}
