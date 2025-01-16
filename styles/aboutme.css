@@ -1,0 +1,23 @@
+.about-me
+{
+    display: grid;
+    grid-template-columns: 48% 48%;
+    margin: auto 4rem auto 4rem;
+
+    align-self: center;
+    padding-top: 5rem;
+    height: 100%;
+}
+
+.about-me p
+{
+    overflow: auto;
+}
+.side-image img
+{
+    width: 450px;
+    height: 450px;
+    margin: auto;
+    align-self: center;
+    display: flex;
+}

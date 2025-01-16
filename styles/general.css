@@ -65,79 +65,8 @@ body {
     border: 1px solid white;
 }
 
-.welcome-splash
-{
-    min-height: 95vh;
-    min-width: 100%;
-
-    display: flex;
-    margin: -22px -8px 0 -8px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-
-    color: white;
-    background-color: var(--purple);
-
-}
-
-#welcome-continue
-{
-    margin-top: 25px;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
-}
 
 
-.welcome-splash h1
-{
-    margin: -5px 0 -5px 0;
-    font-size: 48px;
-}
-
-.welcome-splash h2
-{
-    font-size: 20px;
-}
-
-.about-me
-{
-    display: grid;
-    grid-template-columns: 48% 48%;
-    margin: auto;
-    align-self: center;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-}
-
-.about-me p
-{
-    overflow: auto;
-}
-.side-image img
-{
-    width: 450px;
-    height: 450px;
-    margin: auto;
-    align-self: center;
-    border-radius: 500%;
-    border: 3px solid rgba(0, 0, 0, 0.1);
-    display: flex;
-}
 
 
 .other-splash

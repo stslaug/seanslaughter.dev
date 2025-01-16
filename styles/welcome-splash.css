@@ -1,0 +1,63 @@
+.welcome-splash
+{
+    min-height: 96vh;
+    min-width: 100%;
+
+    display: flex;
+    margin: -22px -8px 0 -8px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+
+    color: white;
+    background-color: var(--purple);
+
+}
+
+#welcome-continue
+{
+    margin-top: 25px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.welcome-splash h1
+{
+    margin: -5px 0 -5px 0;
+    font-size: 48px;
+}
+
+.welcome-splash h2
+{
+    font-size: 20px;
+}
+
+#arrow
+{
+    position: absolute;
+    top: 93vh;
+    height: 35px;
+    animation: float 3s ease-in-out infinite;
+
+}
+
+#arrow:hover
+{
+    cursor: pointer;
+}
+
+
