@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- Page description and author -->
         <meta name="description" content="Website Portfolio for Sean Tyler Slaughter. This Was Developed During Spring 2025 in CPSC 3750 Web Development">
         <meta name="author" content="Sean Tyler Slaughter">
@@ -18,24 +18,32 @@
         <link rel="stylesheet" href="styles/general.css">
         <link rel="stylesheet" href="styles/welcome-splash.css">
         <link rel="stylesheet" href="styles/aboutme.css">
+        <link rel="stylesheet" href="styles/skill.css">
         <script src="scripts/general.js"></script>
 
     </head>
 
     <body>
+    <section>
         <div class="menu-bubble-wrapper">
             <div class="menu-bubble">
                 <a class="menu-bubble-item" href="#">Home</a>
                 <a class="menu-bubble-item" href="#about">About</a>
             </div>
         </div>
+    </section>
+
 
         <!-- The Welcome Splash -->
+    <section>
         <div class="welcome-splash" id="welcome-splash">
+            <div class="welcome-text">
                 <h2>My name is</h2>
                 <h1>Sean Tyler Slaughter</h1>
                 <h2>This is my website for CPSC 3750 Spring 2025.</h2>
+            </div>
                 <a id="welcome-continue" class="menu-bubble-item" href="#about">About Me</a>
+
 
 
                 <a id="arrow" href="#about">
@@ -43,12 +51,16 @@
                          src="assets/images/homepage/arrow-white.png">
                 </a>
         </div>
+    </section>
+
+
 
         <!-- About me Section -->
-        <div style="height: 50vh;">
-            <div class="about-me" id="about">
+    <section>
+        <div>
+            <div style="grid-template-columns: 48% 48%" class="about-me" id="about">
                 <div class="side-image">
-                    <img  style="border: 3px solid rgba(0, 0, 0, 0.1); border-radius: 100%;" alt="Image of Sean Tyler Slaughter smiling in a Black Shirt, with a white background" src="assets/images/homepage/headshot.png">
+                    <img alt="Image of Sean Tyler Slaughter smiling in a Black Shirt, with a white background" src="assets/images/homepage/headshot.png">
                 </div>
                 <div>
                     <h1>
@@ -57,29 +69,67 @@
                     <p> OOOOOO AAHHHH here is some text... This will get filled out.... Lorem Ipsum or whatever</p>
                     <p> I might as well introduce myself sorta. Hey! I am <b>Sean</b>! I am a Computer Science Major at Clemson University, and will be graduating this May!</p>
                     <p> Here are some things that I enjoy!</p>
+
                     <ul>
                         <li>Dungeons and Dragons</li>
                         <li>Code Development</li>
                         <li>Kayaking</li>
                         <li>Video and Board Games</li>
                         <li>Rock Climbing</li>
-
                     </ul>
+
+                    <h1 class="purple-bar"> </h1>
                 </div>
             </div>
-            <div class="about-me">
-                <div style="margin-left: 7rem">
-                    <h1>
-                        Woaaaah More Stuff
-                    </h1>
-                    <p> I have even more to type about? No? Oh okay... Uhhh.. I should get on that.
-                    <p> The FitnessGram Pacer test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter Pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal *boop*. A single lap should be completed each time you hear this sound *ding*. Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.</p>
+
+            <h1 class="skill-title">Languages Known</h1>
+            <div class="skill-wrapper">
+
+                <div class="skill">
+                    <img class="skill-img" src="./assets/images/aboutme/icon.svg" alt="Language Icon">
+                    <p>C++ | C# | C</p>
                 </div>
-                <div class="side-image">
-                    <img alt="Image of Sean Tyler Slaughter Smiling in a Black Shirt" src="assets/images/icon.svg">
+                <div class="skill">
+                    <img class="skill-img" src="./assets/images/aboutme/icon.svg" alt="Language Icon">
+                    <p>Java</p>
+                </div>
+                <div class="skill">
+                    <img class="skill-img" src="./assets/images/aboutme/icon.svg" alt="Language Icon">
+                    <p>MySql</p>
+                </div>
+                <div class="skill">
+                    <img class="skill-img" src="./assets/images/aboutme/icon.svg" alt="Language Icon">
+                    <p>HTML | CSS | JavaScript</p>
                 </div>
             </div>
+
+            <h1 class="skill-title">Skills and Technologies Useds</h1>
+            <div class="skill-wrapper">
+
+
+                <div class="skill">
+                    <img class="skill-img" src="./assets/images/aboutme/icon.svg" alt="Language Icon">
+                    <p>RESTful APIs</p>
+                </div>
+                <div class="skill">
+                    <img class="skill-img" src="./assets/images/aboutme/icon.svg" alt="Language Icon">
+                    <p>Amazon Web Services</p>
+                </div>
+                <div class="skill">
+                    <img class="skill-img" src="./assets/images/aboutme/icon.svg" alt="Language Icon">
+                    <p>Agile Workflow</p>
+                </div>
+            </div>
+
         </div>
+    </section>
+
+    <!-- Footer -->
+    <section>
+        <div class="footer-wrapper">
+            <p >  </p>
+        </div>
+    </section>
 
 
     </body>

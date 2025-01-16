@@ -1,12 +1,10 @@
 .about-me
 {
     display: grid;
-    grid-template-columns: 48% 48%;
+    grid-auto-columns: auto;
     margin: auto 4rem auto 4rem;
-
-    align-self: center;
     padding-top: 5rem;
-    height: 100%;
+
 }
 
 .about-me p
@@ -17,7 +15,13 @@
 {
     width: 450px;
     height: 450px;
+    min-height: 200px;
     margin: auto;
     align-self: center;
     display: flex;
+    border: 10px solid var(--purple);
+    border-radius: 100%;
+
 }
+
+
