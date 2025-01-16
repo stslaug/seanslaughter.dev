@@ -4,7 +4,6 @@
     --grey: #eae3ff;
 }
 
-
 @font-face {
     font-family: 'Roboto';
     src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
@@ -17,6 +16,7 @@ html
 }
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: white;
 }
 
 
@@ -27,17 +27,20 @@ body {
     top: 0;
     z-index: 10;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .menu-bubble
 {
     align-self: center;
-    justify-content: center;
+    justify-content: right;
     display: grid;
     grid-template-columns: auto auto;
     gap: 10px;
     border: 3px var(--purple);
     border-style: none none solid none;
+
+
 }
 
 .menu-bubble-item
@@ -51,27 +54,46 @@ body {
     text-decoration: none;
 
     border-radius: 25px;
-    border: 1px solid var(--grey);
+    border: 3px solid transparent;
 
     background-color: var(--grey);
+}
+
+.menu-bubble-item:last-child {
+    margin-right: 1rem;
 
 }
+
 
 .menu-bubble-item:hover
 {
     cursor: pointer;
     background-color: var(--purple);
     color: white;
-    border: 1px solid white;
+    border: 3px solid white;
 }
-
-
-
-
 
 .other-splash
 {
     background-color: var(--purple);
     margin: -5px 0 -5px 0;
+}
 
+.footer-wrapper
+{
+    margin: 1rem -8px -10px -8px;
+    padding: 10px;
+    background-color: var(--purple);
+}
+
+
+.purple-bar
+{
+    background-color: var(--purple);
+    padding: 2rem 0 1rem 0;
+    margin: auto;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: -10;
 }
