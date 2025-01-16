@@ -5,7 +5,6 @@ deployment:
 
     # Copy individual files
     - /bin/cp index.html $DEPLOYPATH
-    -
 
     # Copy entire directories
     - /bin/cp -R assets $DEPLOYPATH

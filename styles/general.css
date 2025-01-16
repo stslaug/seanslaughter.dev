@@ -33,7 +33,7 @@ body {
 .menu-bubble
 {
     align-self: center;
-    justify-content: right;
+    justify-content: end;
     display: grid;
     grid-template-columns: auto auto;
     gap: 10px;
