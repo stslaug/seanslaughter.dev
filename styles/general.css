@@ -85,6 +85,7 @@ body {
     padding: 10px;
     background-color: var(--purple);
     color: white;
+    display: flex;
 }
 
 
@@ -97,4 +98,13 @@ body {
     position: absolute;
     left: 0;
     z-index: -10;
+}
+
+#latest-commit
+{
+     margin: auto;
+}
+#commit
+{
+    color: white;
 }
