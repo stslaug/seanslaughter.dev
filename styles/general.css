@@ -1,118 +1,86 @@
 :root
 {
-    --purple: rgb(115, 32, 255); /* --purple: #7320FF */
-    --grey: #eae3ff;
+	--purple: rgb(115, 32, 255); /* --purple: #7320FF */
+	--grey: #eae3ff;
 }
 
 
-@font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+@font-face
+{
+	font-family: 'Roboto';
+	src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
-html, body{
-    height: 100%;
-    margin: 0;
+html, body
+{
+	height: 100%;
+	margin: 0;
 }
 
 html
 {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: white;
+
+body
+{
+	font-family: 'Roboto', sans-serif;
+	background-color: white;
 }
 
 .span-page
 {
-    min-height: 96vh;
-    min-width: 100%;
-    position: relative;
+	min-height: 96vh;
+	min-width: 100%;
+	position: relative;
 
 }
 
 
-
-
-
-
-
+footer
+{
+	position: relative;
+}
 
 .footer-wrapper
 {
-    margin: 1rem 0 -10px 0;
-    padding: 10px;
-    background-color: var(--purple);
-    color: white;
-    display: flex;
+	position: absolute;
+	bottom: 0;
+	color: white;
+	background-color: var(--purple);
+	width: 100%;
+
 }
 
-
-.purple-bar
+#commit
 {
-    background-color: var(--purple);
-    padding: 1rem 0 1rem 0;
-    margin: auto;
-    width: 100%;
-    left: 0;
-    z-index: -10;
+	color: white;
 }
 
 #latest-commit
 {
-     margin: auto;
-}
-#commit
-{
-    color: white;
+	margin: auto;
 }
 
 
 
 .arrow
 {
-    animation: float 3s ease-in-out infinite;
-    position: absolute;
-    margin: 0 0 2rem 0;
+	animation: float 3s ease-in-out infinite;
+	position: absolute;
+	margin: 0 0 2rem 0;
 
 }
 
 .arrow:hover
 {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .arrow-img
 {
-    height: 2rem;
+	height: 2rem;
 }
 
-
-
-.class-env-button-wrapper
-{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    margin: 0 3rem 3rem 0;
-
-}
-
-.class-env-button {
-
-    padding: 2rem;
-    border-radius: 50px;
-    background-color: white;
-
-}
-.class-env-button:hover {
-
-    padding: 2rem;
-    border-radius: 50px;
-    background-color: white;
-
-}

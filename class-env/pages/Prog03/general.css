@@ -1,0 +1,135 @@
+@font-face
+{
+	font-family: 'Roboto';
+	src: url('../../../assets/fonts/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+head, body
+{
+	margin: 0;
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+}
+
+main
+{
+	width: 70%;
+	position: relative;
+	margin: auto;
+}
+
+header
+{
+	position: relative;
+	margin: auto;
+	width: 90%;
+	border-style: none none solid none;
+	border-radius: 3px;
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav-bubble-wrapper
+{
+	background-color: white;
+	top: 0;
+	z-index: 10;
+	box-sizing: border-box;
+}
+
+.nav-bubble
+{
+	align-self: center;
+	justify-content: flex-end;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	border: 3px #fa713f;
+	border-style: none none solid none;
+}
+
+.nav-bubble-item
+{
+	padding: 10px 2rem 10px 2rem;
+	min-width: 1rem;
+	margin: 10px 0 10px 0;
+	transition: 0.3s;
+	text-align: center;
+	color: black;
+	text-decoration: none;
+	border-radius: 25px;
+	border: 3px solid transparent;
+}
+
+.nav-bubble-item:last-child
+{
+	margin-right: 1rem;
+}
+
+.nav-bubble-item:hover
+{
+	cursor: pointer;
+	background-color: #e6e6e6;
+	color: #fa713f;
+}
+
+
+article
+{
+	width: 80%;
+	margin: 1rem auto auto auto;
+	display: flex;
+
+
+}
+article p
+{
+	text-indent: 3rem;
+}
+.paragraph-with-div
+{
+	display: flex;
+}
+.paragraph-with-div p
+{
+	flex: 3;
+}
+
+.paragraph-with-div aside
+{
+	flex: 1;
+	width: 100%;
+	background-color: #f6f6f6;
+	border-radius: 10px;
+	padding: 1rem;
+	margin: auto 1rem auto 1rem;
+}
+
+
+footer
+{
+	margin: 1rem auto auto auto;
+	padding: 1rem;
+	border-top: 3px #fa713f solid;
+}
+.footer-wrapper
+{
+	bottom: auto;
+	color: black;
+	background-color: var(--purple);
+	width: 100%;
+}
+
+
+
+main section
+{
+	border: 1px solid;
+	margin: auto;
+	padding: 2rem;
+}
+
+
+
+

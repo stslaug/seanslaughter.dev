@@ -1,50 +1,54 @@
 .welcome-splash
 {
 
-    display: flex;
-    margin: -22px 0 0 0;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
+	display: flex;
+	margin: -22px 0 0 0;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
 
-    color: white;
+	color: white;
 
 
-    background-color: var(--purple);
+	background-color: var(--purple);
 
 
 }
 
 #welcome-continue
 {
-    margin-top: 25px;
+	margin-top: 25px;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
+@keyframes float
+{
+	0%
+	{
+		transform: translateY(0);
+	}
 
-    50% {
-        transform: translateY(-10px);
-    }
+	50%
+	{
+		transform: translateY(-10px);
+	}
 
-    100% {
-        transform: translateY(0);
-    }
+	100%
+	{
+		transform: translateY(0);
+	}
 }
 
 
 .welcome-splash h1
 {
-    margin: -5px 0 -5px 0;
-    font-size: 48px;
+	margin: -5px 0 -5px 0;
+	font-size: 48px;
 }
 
 .welcome-splash h2
 {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 
