@@ -11,3 +11,5 @@ deployment:
     - /bin/cp -R pages $DEPLOYPATH
     - /bin/cp -R scripts $DEPLOYPATH
     - /bin/cp -R styles $DEPLOYPATH
+    - /bin/cp -R class-env $DEPLOYPATH
+
