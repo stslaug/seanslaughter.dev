@@ -35,56 +35,6 @@ body {
 }
 
 
-.menu-bubble-wrapper {
-    position: sticky;
-    background-color: white;
-    top: 0;
-    z-index: 10;
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-.menu-bubble
-{
-    align-self: center;
-    justify-content: end;
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 10px;
-    border: 3px var(--purple);
-    border-style: none none solid none;
-
-
-}
-
-.menu-bubble-item
-{
-    padding: 10px;
-    min-width: 100px;
-    margin: 10px 0 10px 0;
-    transition: 0.3s;
-    text-align: center;
-    color: black;
-    text-decoration: none;
-
-    border-radius: 25px;
-    border: 3px solid transparent;
-
-    background-color: var(--grey);
-}
-
-.menu-bubble-item:last-child {
-    margin-right: 1rem;
-
-}
-
-.menu-bubble-item:hover
-{
-    cursor: pointer;
-    background-color: var(--purple);
-    color: white;
-    border: 3px solid white;
-}
 
 
 
@@ -143,3 +93,27 @@ body {
 
 
 
+.class-env-button-wrapper
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    margin: 0 3rem 3rem 0;
+
+}
+
+.class-env-button {
+
+    padding: 2rem;
+    border-radius: 50px;
+    background-color: white;
+
+}
+.class-env-button:hover {
+
+    padding: 2rem;
+    border-radius: 50px;
+    background-color: white;
+
+}

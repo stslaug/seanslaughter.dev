@@ -1,0 +1,50 @@
+.nav-bubble-wrapper {
+    position: sticky;
+    background-color: white;
+    top: 0;
+    z-index: 10;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.nav-bubble
+{
+    align-self: center;
+    justify-content: end;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    border: 3px var(--purple);
+    border-style: none none solid none;
+
+
+}
+
+.nav-bubble-item
+{
+    padding: 10px;
+    min-width: 100px;
+    margin: 10px 0 10px 0;
+    transition: 0.3s;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+
+    border-radius: 25px;
+    border: 3px solid transparent;
+
+
+}
+
+.nav-bubble-item:last-child {
+    margin-right: 1rem;
+
+}
+
+.nav-bubble-item:hover
+{
+    cursor: pointer;
+    background-color: var(--grey);
+    color: var(--purple);
+    border: 3px solid white;
+}
