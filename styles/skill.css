@@ -1,7 +1,16 @@
-
+#skills
+{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto auto auto auto;
+    position: relative;
+    padding-top: 2rem;
+}
 .skill-wrapper
 {
-    margin: auto;
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 30rem));
     justify-content: center; /* Centers the whole grid */
@@ -45,4 +54,26 @@
 .skill-img
 {
     max-height: 3rem;
+    margin: 13px 0 0 0;
+
+    }
+
+@media (max-width: 1160px) {
+    .skill-wrapper{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 30rem));
+    }
+    .skill
+    {
+        display: flex;
+        gap: 30px;
+        font-size: 20px;
+        margin: auto;
+        padding: 10px;
+        min-width: 10rem;
+        width: 100%;
+        height: 100%;
+
+    }
+
 }

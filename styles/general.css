@@ -1,8 +1,9 @@
 :root
 {
-    --purple: rgb(115, 32, 255);
+    --purple: rgb(115, 32, 255); /* --purple: #7320FF */
     --grey: #eae3ff;
 }
+
 
 @font-face {
     font-family: 'Roboto';
@@ -10,6 +11,12 @@
     font-weight: normal;
     font-style: normal;
 }
+
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
 html
 {
     scroll-behavior: smooth;
@@ -19,11 +26,18 @@ body {
     background-color: white;
 }
 
+.span-page
+{
+    min-height: 96vh;
+    min-width: 100%;
+    position: relative;
+
+}
+
 
 .menu-bubble-wrapper {
     position: sticky;
     background-color: white;
-    margin: -8px;
     top: 0;
     z-index: 10;
     overflow: hidden;
@@ -64,7 +78,6 @@ body {
 
 }
 
-
 .menu-bubble-item:hover
 {
     cursor: pointer;
@@ -73,15 +86,14 @@ body {
     border: 3px solid white;
 }
 
-.other-splash
-{
-    background-color: var(--purple);
-    margin: -5px 0 -5px 0;
-}
+
+
+
+
 
 .footer-wrapper
 {
-    margin: 1rem -8px -10px -8px;
+    margin: 1rem 0 -10px 0;
     padding: 10px;
     background-color: var(--purple);
     color: white;
@@ -92,10 +104,9 @@ body {
 .purple-bar
 {
     background-color: var(--purple);
-    padding: 2rem 0 1rem 0;
+    padding: 1rem 0 1rem 0;
     margin: auto;
     width: 100%;
-    position: absolute;
     left: 0;
     z-index: -10;
 }
@@ -109,8 +120,26 @@ body {
     color: white;
 }
 
-#arrow-img
+
+
+.arrow
 {
-    height: 35px;
+    animation: float 3s ease-in-out infinite;
+    position: absolute;
+    bottom: 0;
+    margin: 0 0 2rem 0;
 
 }
+
+.arrow:hover
+{
+    cursor: pointer;
+}
+
+.arrow-img
+{
+    height: 2rem;
+}
+
+
+

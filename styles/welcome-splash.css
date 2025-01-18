@@ -1,10 +1,8 @@
 .welcome-splash
 {
-    min-height: 96vh;
-    min-width: 100%;
 
     display: flex;
-    margin: -22px -8px 0 -8px;
+    margin: -22px 0 0 0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -49,18 +47,9 @@
     font-size: 20px;
 }
 
-#arrow
-{
-    position: absolute;
-    top: 93vh;
-    height: 35px;
-    animation: float 3s ease-in-out infinite;
 
-}
 
-#arrow:hover
-{
-    cursor: pointer;
-}
+
+
 
 

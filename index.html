@@ -36,7 +36,7 @@
 
         <!-- The Welcome Splash -->
     <section>
-        <div class="welcome-splash" id="welcome-splash">
+        <div class="welcome-splash span-page" id="welcome-splash">
             <div class="welcome-text">
                 <h2>My name is</h2>
                 <h1>Sean Tyler Slaughter</h1>
@@ -45,11 +45,11 @@
                 <a id="welcome-continue" class="menu-bubble-item" href="#about">About Me</a>
 
 
+            <a class="arrow" href="#about">
+                <img class="arrow-img" alt="Image of a white arrow, made of smaller white dots pointing downwards"
+                     src="assets/images/homepage/down-arrow-white.png">
+            </a>
 
-                <a id="arrow" href="#about">
-                    <img id="arrow-img" alt="Image of a white arrow, made of smaller white dots pointing downwards"
-                         src="assets/images/homepage/arrow-white.png">
-                </a>
         </div>
     </section>
 
@@ -57,8 +57,12 @@
 
         <!-- About me Section -->
     <section>
-        <div>
-            <div style="grid-template-columns: 48% 48%" class="about-me" id="about">
+            <div class="about-me span-page" id="about" >
+                <a class="arrow" style="top: 0; margin-top: 3rem; " href="#">
+                    <img class="arrow-img" alt="Image of a white arrow, made of smaller white dots pointing downwards"
+                         src="assets/images/homepage/up-arrow-purple.png">
+                </a>
+
                 <div class="side-image">
                     <img alt="Image of Sean Tyler Slaughter smiling in a Black Shirt, with a white background" src="assets/images/homepage/headshot.png">
                 </div>
@@ -70,19 +74,50 @@
                     <p> I might as well introduce myself sorta. Hey! I am <b>Sean</b>! I am a Computer Science Major at Clemson University, and will be graduating this May!</p>
                     <p> Here are some things that I enjoy!</p>
 
-                    <ul>
-                        <li>Dungeons and Dragons</li>
-                        <li>Code Development</li>
-                        <li>Kayaking</li>
-                        <li>Video and Board Games</li>
-                        <li>Rock Climbing</li>
-                    </ul>
+                    <div class="skill-wrapper" style="grid-template-columns: auto auto auto;">
 
-                    <h1 class="purple-bar"> </h1>
+                        <div class="skill">
+                            <p>Dungeons and Dragons</p>
+                        </div>
+                        <div class="skill">
+                            <p>Code Development</p>
+                        </div>
+                        <div class="skill">
+                            <p>Kayaking</p>
+                        </div>
+                        <div class="skill">
+                            <p>Video Games</p>
+                        </div>
+                        <div class="skill">
+                            <p>Rock Climbing</p>
+                        </div>
+                        <div class="skill">
+                            <p>Board Games</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <h1 class="skill-title">Languages Known</h1>
+                    <a class="arrow" href="#skills">
+                        <img class="arrow-img" alt="Image of a white arrow, made of smaller white dots pointing downwards"
+                             src="assets/images/homepage/down-arrow-purple.png">
+                    </a>
+
+
+            </div>
+    </section>
+
+
+    <section>
+        <div class="span-page" id="skills">
+
+            <a class="arrow" style="top: 0; margin-top: 3rem; " href="#about">
+                <img class="arrow-img" alt="Image of a white arrow, made of smaller white dots pointing downwards"
+                     src="assets/images/homepage/up-arrow-purple.png">
+            </a>
+
+
+            <div> <h1 class="skill-title">Languages Known</h1> </div>
+
             <div class="skill-wrapper">
 
                 <div class="skill">
@@ -103,10 +138,8 @@
                 </div>
             </div>
 
-            <h1 class="skill-title">Skills and Technologies Useds</h1>
+           <div><h1 class="skill-title">Skills and Technologies Useds</h1></div>
             <div class="skill-wrapper">
-
-
                 <div class="skill">
                     <img class="skill-img" src="./assets/images/aboutme/icon.svg" alt="Language Icon">
                     <p>RESTful APIs</p>
@@ -124,9 +157,9 @@
                     <p>GIT</p>
                 </div>
             </div>
-
         </div>
     </section>
+
 
     <!-- Footer -->
     <section>
