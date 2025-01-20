@@ -1,9 +1,9 @@
 :root
 {
 	--purple: rgb(115, 32, 255); /* --purple: #7320FF */
+	--dark-purple: #4e357f;
 	--grey: #eae3ff;
 }
-
 
 @font-face
 {
@@ -13,31 +13,42 @@
 	font-style: normal;
 }
 
+*
+{
+	box-sizing: border-box;
+}
+
 html, body
 {
 	height: 100%;
 	margin: 0;
-}
-
-html
-{
 	scroll-behavior: smooth;
-}
-
-body
-{
 	font-family: 'Roboto', sans-serif;
 	background-color: white;
+	position: relative;
 }
 
 .span-page
 {
 	min-height: 96vh;
-	min-width: 100%;
-	position: relative;
-
 }
 
+.arrow
+{
+	animation: float 3s ease-in-out infinite;
+	position: absolute;
+	margin: 0 0 2rem 0;
+}
+
+.arrow:hover
+{
+	cursor: pointer;
+}
+
+.arrow-img
+{
+	height: 2rem;
+}
 
 footer
 {
@@ -51,36 +62,13 @@ footer
 	color: white;
 	background-color: var(--purple);
 	width: 100%;
-
 }
 
-#commit
+
+@media (max-width: 1160px) /* Smaller Devices */
 {
-	color: white;
+	.arrow
+	{
+		display: none;
+	}
 }
-
-#latest-commit
-{
-	margin: auto;
-}
-
-
-
-.arrow
-{
-	animation: float 3s ease-in-out infinite;
-	position: absolute;
-	margin: 0 0 2rem 0;
-
-}
-
-.arrow:hover
-{
-	cursor: pointer;
-}
-
-.arrow-img
-{
-	height: 2rem;
-}
-

@@ -11,7 +11,7 @@ fetch(apiUrl)
 
         document.getElementById('latest-commit').innerHTML = `
         <p id="commit">
-           Latest Commit: <a id="commit" href="${commitUrl}" target="_blank">${commitSha}</a>
+           Latest Commit: <a style="color:white;" href="${commitUrl}" target="_blank">${commitSha}</a>
         </p>
       `;
     })

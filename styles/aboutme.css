@@ -1,55 +1,80 @@
-.about-me
-{
-	width: 75%;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	margin: auto auto auto auto;
+.about-me-panel {
 	position: relative;
-	padding-top: 2rem;
-
-}
-
-.side-image
-{
-	margin: 3rem;
-}
-
-
-.about-me p
-{
-	overflow: auto;
-}
-
-.side-image img
-{
-	width: 450px;
-	height: 450px;
-	min-height: 200px;
-	margin: auto;
-	align-self: center;
 	display: flex;
-	border: 10px solid var(--purple);
-	border-radius: 100%;
-
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background: linear-gradient(to bottom, var(--purple
+	), #9f5ee5, #f5e8ff, rgba(255, 255, 255, 0));
+	padding: 4rem 2rem;
 }
 
+.about-me-panel h1 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	color: var(--dark-purple);
+}
 
-@media (max-width: 1160px)
+.about-me-panel p {
+	font-size: 1rem;
+	line-height: 1.6;
+	margin-bottom: 1rem;
+	color: var(--dark-purple);
+}
+
+#about-me-wrapper {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	align-items: center;
+	justify-content: center;
+}
+
+.side-image {
+	flex: 0 0 15rem;
+	width: 100%;
+	max-width: 300px;
+	height: auto;
+	border-radius: 50%;
+	box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.about-me-text {
+	flex: 1 1 400px;
+	min-width: 300px;
+	padding: 1rem 2rem;
+	background-color: rgba(0, 0, 0, 0.05);
+	border-radius: 15px;
+}
+
+#passions p
 {
-	.about-me
-	{
-		display: block;
-		margin: auto;
+	color: var(--dark-purple);
+}
+
+@media(max-width: 1160px) {
+	.about-me-panel {
+		padding: 2rem 1rem;
 	}
 
-	.about-me p
-	{
-		justify-content: center;
+	#about-me-wrapper {
+		flex-direction: row;
 		align-items: center;
 		margin: auto;
-		width: 100%;
-		text-align: center;
+		flex: auto;
+	}
+	#passions p:first-child
+	{
+		color: black;
 	}
 
+	.about-me-text {
+		padding: 1rem;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		min-width: auto;
+		flex: auto;
+
+	}
 }
