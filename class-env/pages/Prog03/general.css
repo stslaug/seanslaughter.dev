@@ -120,7 +120,13 @@ footer
 }
 
 
-
+@media (max-width: 1160px){
+	main
+	{
+		width: 100%;
+		text-wrap: wrap;
+	}
+}
 main section
 {
 	border: 1px solid;

@@ -2,126 +2,91 @@
 <html lang = "en">
 <head>
 	<meta charset = "UTF-8">
-	<title>Title</title>
+	<title>Navbar</title>
+	<script rel = "text/javascript"
+	        src = "./general.js"></script>
+	<style>
+		  @font-face
+		  {
+			  font-family: 'Roboto';
+			  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+			  font-weight: normal;
+			  font-style: normal;
+		  }
 
+		  head, body
+		  {
+			  margin: 0;
+			  height: 100%;
+			  font-family: 'Roboto', sans-serif;
+
+		  }
+
+		  .assignment-wrapper
+		  {
+			  background-color: #efefef;
+			  margin: auto;
+			  border-radius: 10px;
+			  padding: 1rem;
+			  width: 100%;
+		  }
+
+		  .assignment-section
+		  {
+			  width: 80%;
+			  display: grid;
+			  grid-template-columns: auto auto;
+			  gap: 3rem;
+			  justify-content: center;
+			  margin: auto;
+			  align-content: center;
+		  }
+	.assignment-section h2
+	  {
+	    text-wrap: nowrap;
+	}
+		  @media (max-width: 1160px){
+		      .assignment-section
+			  {
+		      width: 90%;
+		  }
+			  }
+	</style>
 
 </head>
 
-<style>
-	@font-face
-	{
-		font-family: 'Roboto';
-		src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
-		font-weight: normal;
-		font-style: normal;
-	}
-
-	head, body
-	{
-		margin: 0;
-		height: 100%;
-		width: 100%;
-		font-family: 'Roboto', sans-serif;
-	}
-
-	/*   Color Codes for my scheme
-	--orange: #FA713F rgb(250, 113, 63)
-	 --grey: #eae3ff;
-	 */
-	.nav-bubble-wrapper
-	{
-		position: sticky;
-		background-color: white;
-		top: 0;
-		z-index: 10;
-		overflow: hidden;
-		box-sizing: border-box;
-	}
-
-	.nav-bubble
-	{
-		align-self: center;
-		justify-content: end;
-		display: grid;
-		grid-template-columns: auto auto;
-		gap: 10px;
-		border: 3px #fa713f;
-		border-style: none none solid none;
-	}
-
-	.nav-bubble-item
-	{
-		padding: 10px 2rem 10px 2rem;
-		min-width: 1rem;
-		margin: 10px 0 10px 0;
-		transition: 0.3s;
-		text-align: center;
-		color: black;
-		text-decoration: none;
-		border-radius: 25px;
-		border: 3px solid transparent;
-	}
-
-	.nav-bubble-item:last-child
-	{
-		margin-right: 1rem;
-	}
-
-	.nav-bubble-item:hover
-	{
-		cursor: pointer;
-		background-color: #e6e6e6;
-		color: #fa713f;
-	}
-
-	.assignment-wrapper
-	{
-		background-color: #efefef;
-		margin: auto;
-		border-radius: 10px;
-		padding: 1rem;
-	}
-</style>
 
 <body>
 
-<section>
-	<div class = "nav-bubble-wrapper">
-		<div class = "nav-bubble">
-			<a class = "nav-bubble-item"
-			   href = "../index.html">Home</a>
-			<a class = "nav-bubble-item"
-			   href = "#">3750 Assignments</a>
-		</div>
-	</div>
-</section>
+	<div id = "navbar"></div>
 
-<!-- Assignment Selection -->
-<nav style = "display: flex; width: 60%; margin: auto;">
-	<div style = "margin: auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-		<h2>Independent Assignments</h2>
-		<div class = "assignment-list-wrapper">
-			<div class = "assignment-wrapper">
-				<a href = "pages/Prog03/prog03-home.html"><h3 class = "assignment-header">Prog03 | HTML & CSS
-				                                                                       Demo</h3></a>
-				<p class = "assignment-date">Due Date: 1/18/2025 </p>
-				<p class = "assignment-date">Contributers: Sean Slaughter </p>
+	<!-- Assignment Selection -->
+	<div class = "assignment-section">
+		<div class = "assignment-column">
+			<h2>Independent Assignments</h2>
+			<div class = "assignment-list-wrapper">
+				<div class = "assignment-wrapper">
+					<a href = "./pages/Prog03/prog03-home.html">
+						<h3 class = "assignment-header">Prog03 | HTML & CSS Demo</h3></a>
+					<p class = "assignment-date">Due Date: 1/18/2025 </p>
+					<p class = "assignment-date">Contributers: Sean Slaughter </p>
+				</div>
 			</div>
-		</div>
 
-	</div>
-	<div style = "margin: auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-		<h2>Group Assignments</h2>
-		<div class = "assignment-list-wrapper">
-			<div class = "assignment-wrapper">
-				<a href = "pages/Prog03/GroupCSS1/GroupCSS1.html"><h3 class = "assignment-header">Group CSS 1</h3></a>
-				<p class = "assignment-date">Due Date: 1/18/2025</p>
-				<p class = "assignment-date">Contributers: Sean Slaughter</p>
+		</div>
+		<div>
+			<h2>Group Assignments</h2>
+			<div class = "assignment-list-wrapper">
+				<div class = "assignment-wrapper">
+					<a href = "./pages/Prog03/GroupCSS1/GroupCSS1.html"><h3 class = "assignment-header">Group
+						CSS 1</h3></a>
+					<p class = "assignment-date">Due Date: 1/18/2025</p>
+					<p class = "assignment-date">Contributers: Sean Slaughter</p>
+				</div>
 			</div>
-		</div>
 
+		</div>
 	</div>
-</nav>
 
 </body>
 </html>

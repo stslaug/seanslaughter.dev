@@ -40,6 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('../components/welcome-splash.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('welcome-splash').innerHTML = data;
+            document.getElementById('welcome-splash').outerHTML = data;
         });
 });

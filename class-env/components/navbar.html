@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<script>
+          function myFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                  x.className += " responsive";
+              } else {
+                  x.className = "topnav";
+              }
+          }
+	</script>
+	<style>
+
+		  .navbar
+		  {
+
+			  width: 100%;
+			  align-self: center;
+			  display: flex;
+			  justify-content: flex-end;
+			  gap: 10px;
+			  border: 3px #fa713f;
+			  border-style: none none solid none;
+			  margin: auto;
+		  }
+
+		  .nav-item
+		  {
+			  padding: 10px 2rem 10px 2rem;
+			  min-width: 1rem;
+			  margin: 10px 0 10px 0;
+			  transition: 0.3s;
+			  text-align: center;
+			  color: black;
+			  text-decoration: none;
+			  border-radius: 25px;
+			  border: 3px solid transparent;
+		  }
+
+		  .nav-item:last-child
+		  {
+			  margin-right: 1rem;
+		  }
+
+		  .nav-item:hover
+		  {
+			  cursor: pointer;
+			  background-color: #e6e6e6;
+			  color: #fa713f;
+		  }
+
+
+	</style>
+
+	<title>Navbar</title>
+</head>
+<body>
+	<nav>
+		<div class = "navbar">
+			<a class = "nav-item"
+			   href = "../index.html">Home</a> <a class = "nav-item"
+			                                      href = "./assignment-page.html">3750 Assignments</a>
+		</div>
+	</nav>
+
+
+</body>
+</html>

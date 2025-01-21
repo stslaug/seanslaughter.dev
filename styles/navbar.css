@@ -1,52 +1,76 @@
-.nav-bubble-wrapper
+nav
 {
-	position: sticky;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+.navbar
+{
+
+	display: flex;
+	position: absolute;
+	justify-content: center;
+	gap: 2rem;
 	background-color: white;
-	top: 0;
-	z-index: 10;
+	padding: 2rem;
+	border-radius: 10px;
+	margin: -10px 0 0 0;
+}
+
+.nav-item
+{
 	overflow: hidden;
-	box-sizing: border-box;
-}
-
-.nav-bubble
-{
-	align-self: center;
-	justify-content: end;
-	display: grid;
-	grid-template-columns: auto auto;
-	gap: 10px;
-	border: 3px var(--purple);
-	border-style: none none solid none;
-
-
-}
-
-.nav-bubble-item
-{
-	padding: 10px;
-	min-width: 100px;
-	margin: 10px 0 10px 0;
-	transition: 0.3s;
-	text-align: center;
-	color: black;
 	text-decoration: none;
+	color: black;
+	margin: 0 0 0 0;
 
-	border-radius: 25px;
-	border: 3px solid transparent;
-
-
-}
-
-.nav-bubble-item:last-child
-{
-	margin-right: 1rem;
 
 }
 
-.nav-bubble-item:hover
+.nav-item:hover
 {
-	cursor: pointer;
-	background-color: var(--grey);
+	text-decoration: auto;
 	color: var(--purple);
-	border: 3px solid white;
+}
+
+
+/*
+ *
+ *   CSS For Dropdown Menus
+ *
+  */
+.dropdown-content
+{
+	display: none;
+	position: absolute;
+	background-color: var(--dark-purple);
+	min-width: 120px;
+	z-index: 1;
+	text-align: left;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-content
+{
+	display: block;
+
+}
+
+.dropdown-item
+{
+	color: white;
+	padding: 1rem 1rem;
+	display: block;
+	text-wrap: nowrap;
+	text-decoration: none;
+}
+
+.dropdown-item:hover
+{
+	background-color: var(--purple);
 }
