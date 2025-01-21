@@ -7,13 +7,30 @@
 	align-items: center;
 	flex-direction: column;
 	text-align: center;
-
 	color: white;
+	background: var(--purple);
+}
 
+.welcome-splash:before
+{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 
-	background-color: var(--purple);
+	/* Put your background image here */
+	background: var(--grey) url("/assets/images/homepage/welcome-splash-wallpaper.jpeg") no-repeat center center;
+	background-size: cover;
 
+	opacity: 0.2;
+	z-index: 0;
+}
 
+#welcome-splash
+{
+	z-index: 1;
 }
 
 #welcome-continue
@@ -39,15 +56,26 @@
 	}
 }
 
+.welcome-text
+{
+	opacity: 1;
+	z-index: 1;
+
+
+}
 
 .welcome-splash h1
 {
 	margin: -5px 0 -5px 0;
 	font-size: 48px;
+	z-index: 1;
+	opacity: 1;
 }
 
 .welcome-splash h2
 {
+	z-index: 1;
+	opacity: 1;
 	font-size: 20px;
 }
 
