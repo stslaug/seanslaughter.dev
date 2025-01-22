@@ -2,7 +2,7 @@
 // Dynamically Load the Navbar
 document.addEventListener('DOMContentLoaded', () => {
     // Change the path if your folder structure differs.
-    fetch('../components/navbar.html')
+    fetch('/components/navbar.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch the navbar.');
@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Change the path if your folder structure differs.
-    fetch('../components/about.html')
+    fetch('/components/about.html')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Failed to fetch the navbar.');
+                throw new Error('Failed to fetch the about.');
             }
             return response.text();
         })
@@ -53,10 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     // Change the path if your folder structure differs.
-    fetch('../components/skills.html')
+    fetch('/components/skills.html')
         .then(response => {
             if (!response.ok) {
-                throw new Error('Failed to fetch the navbar.');
+                throw new Error('Failed to fetch the skills.');
             }
             return response.text();
         })

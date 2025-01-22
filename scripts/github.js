@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // First, fetch and insert the footer.
-    fetch('../components/footer.html')
+    fetch('/components/footer.html')
         .then(response => response.text())
         .then(data => {
             // Insert the footer HTML into the element with id="footer"
