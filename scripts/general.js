@@ -14,7 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('components/about.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('aboutme').innerHTML = data;
+            if(data) {
+                document.getElementById('aboutme').innerHTML = data;
+            }
         });
 });
 
