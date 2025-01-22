@@ -1,4 +1,3 @@
-
 // Dynamically Load the Navbar
 document.addEventListener('DOMContentLoaded', () => {
     // Change the path if your folder structure differs.
@@ -22,6 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error loading navbar:', error);
         });
 });
+
+function myFunction() {
+    var x = document.getElementById("mynavbar");
+    if (x.className === "navbar") {
+        x.className += " responsive";
+    } else {
+        x.className = "navbar";
+    }
+}
+
+
+
+
+
 
 
 
@@ -47,8 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error loading aboutme:', error);
         });
 });
-
-
 
 
 document.addEventListener('DOMContentLoaded', () => {

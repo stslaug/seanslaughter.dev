@@ -7,3 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('navbar').innerHTML = data;
         });
 });
+
+function myFunction() {
+    var x = document.getElementById("mynavbar");
+    if (x.className === "navbar") {
+        x.className += " responsive";
+    } else {
+        x.className = "navbar";
+    }
+}
