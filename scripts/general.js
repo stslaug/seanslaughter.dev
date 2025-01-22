@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('components/skills.html')
         .then(response => response.text())
