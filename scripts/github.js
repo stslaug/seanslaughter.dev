@@ -12,17 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
-                    // data[0] should be the latest commit
-                    const latestCommit = data[0];
-                    const commitSha = latestCommit.sha.substring(0, 7); // short SHA
-                    const commitUrl = latestCommit.html_url;           // link to commit on GitHub
+                    if (data) { // data[0] should be the latest commit
+                        const latestCommit = data[0];
+                        const commitSha = latestCommit.sha.substring(0, 7); // short SHA
+                        const commitUrl = latestCommit.html_url;           // link to commit on GitHub
 
-                    // Update the element with id "latest-commit" in your fetched footer.
-                    document.getElementById('latest-commit').innerHTML = `
+                        // Update the element with id "latest-commit" in your fetched footer.
+                        let container = document.getElementById('latest-commit');
+                        if (container) {
+                            container.innerHTML = `
             <p id="commit">
               Latest Commit: <a style="color:white;" href="${commitUrl}" target="_blank">${commitSha}</a>
             </p>
           `;
+                        }
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching latest commit:', error);
