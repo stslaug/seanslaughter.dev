@@ -9,13 +9,6 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
-      <webServer id="adae8ac4-18db-42ea-802b-1dd28cd93e26" name="seanjvy">
-        <fileTransfer accessType="SFTP" port="22" sshConfigId="d2590c76-bfdb-44cf-a023-59a6e3855946" sshConfig="seanjvy">
-          <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
-          </advancedOptions>
-        </fileTransfer>
-      </webServer>
     </option>
   </component>
 </project>
