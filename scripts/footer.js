@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (container) {
                             container.innerHTML = `
             <p id="commit">
-              Latest Commit: <a style="color:white;" href="${commitUrl}" target="_blank">${commitSha}</a>
+              Latest Commit: <a href="${commitUrl}" target="_blank">${commitSha}</a>
             </p>
           `;
                         }
