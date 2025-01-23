@@ -51,19 +51,6 @@ html, body
 	height: 2rem;
 }
 
-footer
-{
-	position: relative;
-}
-
-.footer-wrapper
-{
-	position: absolute;
-	bottom: 0;
-	color: white;
-	background-color: var(--purple);
-	width: 100%;
-}
 
 
 @media (max-width: 1160px) /* Smaller Devices */
