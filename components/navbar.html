@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
+	<meta charset = "UTF-8"/>
+	<title>Navbar</title>
+	<link
+		  rel = "stylesheet"
+		  href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+	/>
 	<style>
+		  /* Base NAV styling */
 		  nav
 		  {
-			  position: relative;
 			  border-style: none none solid none;
 			  border-color: white;
 			  border-width: 1px;
 			  width: 100%;
+			  background-color: #7320ff;
 			  z-index: 100;
+			  margin: 0;
+			  height: 100%;
+			  box-sizing: border-box;
+			  overflow: visible;
 		  }
 
+		  /* The main navbar container as a flex container */
 		  .navbar
 		  {
-			  background-color: #7320ffff;
-			  overflow: hidden;
-			  z-index: 1;
+			  display: flex; /* Use flexbox for layout */
+			  align-items: center; /* Vertically center items if you want */
+			  background-color: #7320ff;
 			  opacity: 1;
+			  width: 100%;
+			  position: relative;
 		  }
 
-		  .navbar a
+		  /* All top-level nav links */
+		  .navbar .nav-item
 		  {
-			  float: left;
-			  display: block;
 			  color: #f2f2f2;
 			  text-align: center;
 			  padding: 0.9rem 1rem;
@@ -33,13 +46,14 @@
 
 		  .navbar a:hover
 		  {
-			  background-color: #ddd;
+			  background-color: #dddddd;
 			  color: black;
 		  }
 
 		  .navbar a.active
 		  {
-			  background-color: #04aa6d;
+			  /* Optional active styling */
+			  background-color: #ae7dff;
 			  color: white;
 		  }
 
@@ -48,58 +62,193 @@
 			  display: none;
 		  }
 
+		  .dropdown-wrap
+		  {
+			  position: relative;
+			  width: 100%;
+		  }
+
+		  .dropbtn
+		  {
+			  cursor: pointer;
+		  }
+
+		  .dropmenu
+		  {
+			  display: none;
+			  position: absolute;
+			  background-color: #7320ff;
+			  min-width: 10rem;
+			  top: 100%;
+			  margin-top: 0.7rem;
+			  left: 0;
+			  z-index: 999;
+		  }
+
+		  .dropdown-item
+		  {
+			  color: #f2f2f2;
+			  display: block;
+			  text-decoration: none;
+			  white-space: nowrap;
+			  padding: 0.75rem 1rem;
+		  }
+
+		  .dropdown-item:hover
+		  {
+			  background-color: #dddddd;
+			  color: black;
+		  }
+
+		  .dropdown-wrap:hover .dropmenu
+		  {
+			  display: block;
+		  }
+
+		  .submenu-wrap
+		  {
+			  position: relative;
+		  }
+
+		  .submenu
+		  {
+			  display: none;
+			  position: absolute;
+			  overflow: visible;
+			  top: 0;
+			  left: 100%;
+			  background-color: #7320ff;
+			  min-width: 10rem;
+			  z-index: 999;
+		  }
+
+		  .submenu-btn
+		  {
+			  display: block;
+			  color: #f2f2f2;
+			  padding: 0.75rem 1rem;
+			  text-decoration: none;
+			  white-space: nowrap;
+		  }
+
+		  .submenu-btn:hover
+		  {
+			  background-color: #dddddd;
+			  color: black;
+		  }
+
+		  .submenu-wrap:hover .submenu
+		  {
+			  display: block;
+		  }
+
 		  @media screen and (max-width: 800px)
 		  {
-			  .navbar a:not(:first-child) /* This is so cool */
+			  .navbar .nav-item:not(:first-child):not(.icon)
 			  {
 				  display: none;
 			  }
 
+
 			  .navbar a.icon
 			  {
-				  float: right;
 				  display: block;
+				  margin-left: auto; /* push it to the right if desired */
 			  }
+
 
 			  .navbar.responsive
 			  {
+				  flex-direction: column;
+				  align-items: flex-start;
 				  position: relative;
 			  }
 
-			  .navbar.responsive a.icon
-			  {
-				  position: absolute;
-				  right: 0;
-				  top: 0;
-			  }
 
 			  .navbar.responsive a
 			  {
-				  float: none;
 				  display: block;
+				  width: 100%;
+				  float: none;
 				  text-align: left;
 			  }
+
+
+			  /* Disable dropdowns on mobile */
+			  .navbar.responsive .dropmenu,
+			  .navbar.responsive .submenu
+			  {
+				  display: none !important;
+			  }
 		  }
-
 	</style>
-	<link rel = "stylesheet"
-	      href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-	<title>Navbar</title>
 </head>
+
 <body>
 	<nav>
 		<div class = "navbar"
-		     id = "mynavbar">
-			<a class = "nav-item"
-			   href = "/index.html">Home</a> <a class = "nav-item"
-			                                     href = "/class-env/assignment-page.html">3750 Assignments</a>
+		     id = "mynavbar"
+		>
+			<!-- HOME LINK -->
+			<a class = "nav-item active"
+			   href = "/index.html"
+			>Home</a>
+
+			<!-- DROPDOWN (desktop only) -->
+			<div class = "dropdown-wrap">
+				<a class = "nav-item dropbtn"
+				   href = "/class-env/assignment-page.html"
+				> 3750 Assignments </a>
+				<div class = "dropmenu">
+
+					<!-- NESTED SUBMENU EXAMPLE -->
+					<div class = "submenu-wrap">
+						<a class = "dropdown-item"
+						   href = "/class-env/assignment-page.html"
+						>Solo Assignments &raquo;</a>
+						<div class = "submenu">
+							<a class = "submenu-btn"
+							   href = "/class-env/pages/Prog03/prog03-home.html"
+							>Prog03</a>
+						</div>
+					</div>
+					<div class = "submenu-wrap">
+						<a class = "dropdown-item"
+						   href = "/class-env/assignment-page.html"
+						>Group Assignments &raquo;</a>
+						<div class = "submenu">
+							<a class = "submenu-btn"
+							   href = "/class-env/pages/GroupCSS1/GroupCSS1.html"
+							>GroupCSS01</a>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- HAMBURGER FOR RESPONSIVE -->
+			<!-- We include "nav-item icon" so the media query sees both classes -->
 			<a href = "javascript:void(0);"
-			   class = "icon"
-			   onclick = "myFunction()"> <i class = "fa fa-bars"></i> </a>
+			   class = "nav-item icon"
+			   onclick = "myFunction()"
+			> <i class = "fa fa-bars"></i> </a>
 		</div>
 	</nav>
 
-
+	<script>
+          /* Toggle between adding and removing the "responsive" class
+		 when user clicks the hamburger icon */
+          function myFunction() {
+              var x = document.getElementById("mynavbar");
+              if (x.className.indexOf("responsive") === -1) {
+                  // if "responsive" not found, add it
+                  x.className += " responsive";
+              } else {
+                  // if "responsive" is there, remove it
+                  x.className = x.className.replace(" responsive", "");
+              }
+          }
+	</script>
 </body>
 </html>
