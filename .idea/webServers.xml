@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f9beb1ab-12b1-4fd3-95f7-4c59219d78cd" name="NameCheap" url="http://162.213.255.53">
+        <fileTransfer host="162.213.255.53" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="adae8ac4-18db-42ea-802b-1dd28cd93e26" name="seanjvy">
+        <fileTransfer accessType="SFTP" port="22" sshConfigId="d2590c76-bfdb-44cf-a023-59a6e3855946" sshConfig="seanjvy">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
