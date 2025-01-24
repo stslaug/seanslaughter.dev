@@ -64,10 +64,10 @@
 			  display: none;
 		  }
 
-		  .dropdown-wrap
+		  #dropdown-wrap
 		  {
 			  position: relative;
-			  width: 100%;
+
 		  }
 
 		  .dropbtn
@@ -103,7 +103,7 @@
 			  color: black;
 		  }
 
-		  .dropdown-wrap:hover .dropmenu
+		  #dropdown-wrap:hover .dropmenu
 		  {
 			  display: block;
 		  }
@@ -148,6 +148,11 @@
 
 		  @media screen and (max-width: 800px)
 		  {
+
+		      .dropmenu-button-make-it-wide-on-click
+				  {
+		          width: 100%;
+		      }
 			  .navbar .nav-item:not(:first-child):not(.icon)
 			  {
 				  display: none;
@@ -199,7 +204,7 @@
 			>Home</a>
 
 			<!-- DROPDOWN (desktop only) -->
-			<div class = "dropdown-wrap">
+			<div id = "dropdown-wrap">
 				<a class = "nav-item dropbtn"
 				   href = "/class-env/assignment-page.html"
 				> 3750 Assignments </a>
@@ -245,8 +250,7 @@
 	</nav>
 
 	<script>
-          /* Toggle between adding and removing the "responsive" class
-		 when user clicks the hamburger icon */
+          /* Left for testing directly on navbar.html */
           function myFunction() {
               var x = document.getElementById("mynavbar");
               if (x.className.indexOf("responsive") === -1) {
@@ -255,6 +259,13 @@
               } else {
                   // if "responsive" is there, remove it
                   x.className = x.className.replace(" responsive", "");
+              }
+              var y = document.getElementById("dropdown-wrap");
+              if(y.classList.length === 0)
+              {
+                  y.className += "dropmenu-button-make-it-wide-on-click";
+              } else {
+                  y.className = "";
               }
           }
 	</script>

@@ -29,4 +29,11 @@ function myFunction() {
     } else {
         x.className = "navbar";
     }
+    var y = document.getElementById("dropdown-wrap");
+    if(y.classList.length === 0)
+    {
+        y.className += "dropmenu-button-make-it-wide-on-click";
+    } else {
+        y.className = "";
+    }
 }
