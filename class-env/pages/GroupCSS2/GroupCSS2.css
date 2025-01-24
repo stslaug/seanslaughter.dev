@@ -1,0 +1,173 @@
+*
+{
+	box-sizing: border-box;
+}
+body, html
+{
+	height: 100%;
+	margin: 0;
+}
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+header
+{
+	display: block;
+	background-color: #cccccc;
+
+	text-align: center;
+}
+
+main {
+	display: block;
+}
+
+footer
+{
+	background-color: #cccccc;
+	justify-content: center;
+	align-content: center;
+	display: flex;
+}
+
+
+
+/*
+ 	Left Section
+ 	Includes the Ordered List and Unordered List Styling
+ */
+#left-section
+{
+	float: left;
+	max-width: 15vw;
+	border: 1px solid black;
+	background-color: #e3e3e3;
+	padding: 1rem;
+	margin: 0 1rem 0 0;
+}
+li{
+	border: 1px solid black;
+	width: 100%;
+	padding: 0.5rem 1rem
+}
+li:hover
+{
+	transform: scale(1.1);
+}
+ol
+{
+	list-style-type: lower-roman;
+	list-style-position: outside;
+}
+ul
+{
+	list-style-position: inside;
+}
+
+
+
+/*
+
+	Tables
+
+ */
+
+#responsive-table
+{
+
+	width: 100%;
+	max-width: 66vw;
+	margin: auto;
+	border-collapse: collapse;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#responsive-table th
+{
+	background-color: #5203dc;
+	color: white;
+	font-size: 1.2rem;
+	padding: 1rem 0;
+}
+#responsive-table td
+{
+	padding: 1rem 0 1rem 1rem;
+}
+#responsive-table tr:nth-child(even){background-color: #bdb8ec;}
+#responsive-table tr:hover {background-color: #1243ac; color: white}
+
+
+
+/*
+
+
+	Image Gallery
+
+
+*/
+.gallery {
+	float: left;
+	margin: auto;
+	max-width: 75vw;
+}
+
+.gallery-img-wrap
+{
+	float: left;
+	margin: 1rem 1rem;
+	border: 1px solid black;
+	text-wrap: wrap;
+	text-align: center;
+
+}
+.gallery-img-wrap img
+{
+	display: block;
+	margin: auto;
+	max-width: 300px;
+	height: auto;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.gallery-img-wrap:hover
+{
+	transform: scale(1.1);
+}
+
+
+/*
+ Styling for a demonstration of a box model
+ Uses Padding, Margin, Border, and the margin is demonstrated with a red border
+ The Border is defined inline.
+ */
+#box-model
+{
+	margin:  auto;
+	border: 1rem solid black;
+	padding: 1rem;
+	background-color: green;
+	justify-content: center;
+	align-items: center;
+
+}
+
+
+
+@media screen and (max-width: 1200px) {
+	main
+	{
+		display: block;
+		max-width: 100vw;
+	}
+	#left-section
+	{
+
+		float: none;
+		max-width: 100vw;
+	}
+	.gallery-img-wrap
+	{
+	}
+}
