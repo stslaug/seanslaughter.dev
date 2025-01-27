@@ -91,7 +91,7 @@ function addItemToCart(title, price, imageSrc) {
 
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     console.log("adding remove event to new item")
-    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged) 
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 
 }
 
@@ -111,3 +111,4 @@ function updateCartTotal() {
     console.log("rounding total")
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
+

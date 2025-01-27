@@ -11,7 +11,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: Raleway;
+    font-family: Raleway, serif;
     color: #777;
 }
 
@@ -52,20 +52,18 @@ html, body {
 }
 
 .main-header {
-    background-color: rgba(0, 0, 0, .6);
-    background-image: url("Images/Header Background.jpg");
-    background-blend-mode: multiply;
-    background-size: cover;
+    background-color: #00843D;
     padding-bottom: 30px;
+
 }
 
 .band-name {
     text-align: center;
     margin: 0;
     font-size: 4em;
-    font-family: "Booter - Zero Zero";
+    font-family: "Booter - Zero Zero", serif;
     font-weight: normal;
-    color: white;
+    color: black;
 }
 
 .band-name-large {
@@ -82,7 +80,8 @@ html, body {
     padding: 0 1.5em;
 }
 .section-header {
-    font-family: "Metal Mania";
+    font-family: "Metal Mania", serif;
+    justify-content: center;
     font-weight: normal;
     color: #333;
     text-align: center;
@@ -98,7 +97,7 @@ html, body {
 }
 
 .main-footer {
-    background-color: #56CCF2;
+    background-color: #00843D;
     color: white;
     padding: .25em 0;
 }
@@ -127,12 +126,15 @@ html, body {
     vertical-align: middle;
     padding: .67em .67em;
     cursor: pointer;
+    margin: auto;
+    align-self: center;
+    justify-content: center;
 }
 
 .btn-header {
     margin: .5em 15% 2em 15%;
     color: white;
-    border: 2px solid #2D9CDB;
+    border: 2px solid #00843D;
     background-color: rgba(255, 255, 255, .1);
     border-radius: 0;
     font-size: 1.5em;
@@ -148,7 +150,7 @@ html, body {
 .btn-play {
     display: block;
     margin: 0 auto;
-    color: #2D9CDB;
+    color: white;
     font-size: 4em;
     border-radius: 50%;
     width: 100px;
@@ -159,14 +161,14 @@ html, body {
 
 .btn-primary {
     color: white;
-    background-color: #56CCF2;
+    background-color: #00843D;
     border: none;
     border-radius: .3em;
     font-weight: bold;
 }
 
 .btn-primary:hover {
-    background-color: #2D9CDB;
+    background-color: #005929;
 }
 
 .tour-row {
@@ -182,12 +184,15 @@ html, body {
 .tour-item {
     display: inline-block;
     padding-right: .5em;
+    text-wrap: nowrap;
+
 }
 
 .tour-date {
     color: #555;
     width: 11%;
     font-weight: bold;
+
 }
 
 .tour-city {
@@ -298,7 +303,7 @@ html, body {
     height: 34px;
     width: 50px;
     border-radius: 5px;
-    border: 1px solid #56CCF2;
+    border: 1px solid #00843D;
     background-color: #eee;
     color: #333;
     padding: 0;
