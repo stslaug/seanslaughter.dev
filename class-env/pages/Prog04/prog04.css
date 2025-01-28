@@ -1,0 +1,102 @@
+html, body
+{
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+header h1
+{
+	margin: auto;
+	display: flex;
+	padding: 2rem 0;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 3rem;
+	background-color: #dfdfdf;
+	width: 100%;
+}
+
+#button-wrapper
+{
+	margin: auto;
+	padding: 2rem 0;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	background-color: #dfdfdf;
+	width: 100%;
+}
+
+#button-wrapper div
+{
+	text-align: center;
+	margin: auto 1rem;
+}
+
+button
+{
+	padding: 1rem 2rem;
+	border-radius: 3rem;
+	max-width: 10rem;
+	width: 100%;
+	margin: auto;
+	transition: all 0.2s ease-in-out;
+}
+
+button:hover
+{
+	transform: scale(1.1);
+}
+
+/* Individual Button Formatting */
+#red-button
+{
+	background-color: red;
+	color: white;
+}
+
+#red-button:hover
+{
+	background-color: white;
+	color: red;
+}
+
+#green-button
+{
+	background-color: green;
+	color: white;
+}
+
+#green-button:hover
+{
+	background-color: white;
+	color: green;
+}
+
+#blue-button
+{
+	background-color: blue;
+	color: white;
+}
+
+/*
+
+	Stat Block Section
+
+ */
+#stats-wrapper
+{
+	margin: 1rem 1rem;
+	border: 1px solid black;
+	display: inline-block;
+	padding: 1rem 2rem;
+
+}
+
+#blue-button:hover
+{
+	background-color: white;
+	color: blue;
+}

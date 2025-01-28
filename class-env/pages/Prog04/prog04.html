@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title>SS | Prog 04</title>
+	<script src = "/scripts/navbar.js"></script>
+	<link rel = "stylesheet"
+	      type = "text/css"
+	      href = "./prog04.css"
+	>
+	<script src = "./prog04.js">
+
+	</script>
+</head>
+<body>
+
+	<header>
+		<div id = "navbar"></div>
+		<h1>Prog04 | JavaScript Events with Buttons</h1>
+	</header>
+
+	<main>
+		<div id = "button-wrapper">
+			<!-- CSS Handles Hovering Effects -->
+			<!-- JS Handles Click and Hover Counting-->
+			<div>
+				<button id = "red-button"
+				        onclick = "backgroundBtnClick()"
+onmouseover="hoverButton('red')"
+				>Red Button
+				</button>
+			</div>
+			<div>
+				<button id = "green-button"
+				        onclick = "backgroundBtnClick('green')"
+				        onmouseover="hoverButton('green')"
+				>Green Button
+				</button>
+			</div>
+			<div>
+				<button id = "blue-button"
+				        onclick = "backgroundBtnClick( 'blue')"
+				        onmouseover="hoverButton('blue')"
+				>Blue Button
+				</button>
+			</div>
+		</div>
+
+		<div id = "stats-wrapper">
+			<h2>Stats:</h2>
+
+			<p id = "red-press">Red Button Pressed: N/A</p>
+			<p id = "green-press">Green Button Pressed: N/A</p>
+			<p id = "blue-press">Blue Button Pressed: N/A</p>
+			<br>
+			<p id = "red-hover">Red Button Hovered Over: N/A</p>
+			<p id = "green-hover">Green Button Hovered Over: N/A</p>
+			<p id = "blue-hover">Blue Button Hovered Over: N/A</p>
+			<br>
+			<p id = "background-change">Background Color Changes : N/A</p>
+			<button
+				  onclick = "backgroundBtnClick('white')"
+			>Reset Background Color
+			</button>
+		</div>
+
+	</main>
+
+	<footer>
+		<p
+			  style="bottom: 0; margin: auto; display: flex; background-color: white; text-align:
+			  center;
+			  justify-content:
+			   center; align-content: center;">This is a footer
+			just	in case!</p>
+	</footer>
+
+</body>
+</html>
