@@ -17,10 +17,10 @@ function backgroundBtnClick(color = "red")
     {
         document.getElementById('background-change').innerHTML = "Background Color Change(s): " + ++change;
         bodyElement.style.backgroundColor = color;
-        if(color !== "white") {
-            statsColor("white");
-        } else {
+        if(color === "white") {
             statsColor("black");
+        } else {
+            statsColor("white");
         }
     }
 
@@ -50,5 +50,6 @@ function updateColorHover(color)
 
 function statsColor(color = "white")
 {
-
+    let stats = document.getElementById("stats-wrapper");
+    stats.style.color = color;
 }
