@@ -25,7 +25,7 @@ function backgroundBtnClick(color = "red")
     }
 
     document.getElementById(color + "-press").innerHTML = color.charAt(0).toUpperCase() + color.slice(1) + " Button" +
-        " Pressed:" +
+        " Pressed: " +
         " " + updateColor(color);
 
 
@@ -34,7 +34,7 @@ function backgroundBtnClick(color = "red")
 function hoverButton(color = "red")
 {
     document.getElementById(color + "-hover").innerHTML = color.charAt(0).toUpperCase() + color.slice(1) + " Button" +
-        " Hovered Over:" + updateColorHover(color);
+        " Hovered Over: " + updateColorHover(color);
 }
 
 function updateColor(color)
@@ -50,6 +50,5 @@ function updateColorHover(color)
 
 function statsColor(color = "white")
 {
-    let stats = document.getElementById("stats-wrapper");
-    if(stats.style.color !== color) stats.style.color = color;
+
 }
