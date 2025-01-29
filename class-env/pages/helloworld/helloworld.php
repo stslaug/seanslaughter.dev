@@ -15,7 +15,7 @@
             }
         .nav-item, .submenu
             {
-            background-color: #7320FFFF;
+            background-color: #7320ff;
         }
         </style>
 
