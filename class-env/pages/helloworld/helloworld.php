@@ -7,6 +7,18 @@
 	<script rel = "text/javascript"
     	        src = "/scripts/navbar.js"
     	></script>
+    	<style>
+            body, html {
+                margin: 0;
+                height: 100%;
+                width: 100%;
+            }
+        .nav-item
+            {
+            background-color: #7320FFFF;
+        }
+        </style>
+
 </head>
 <body>
     <div id = "navbar"> </div>
