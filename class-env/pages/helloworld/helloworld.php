@@ -13,7 +13,7 @@
                 height: 100%;
                 width: 100%;
             }
-        .nav-item
+        .nav-item, .submenu
             {
             background-color: #7320FFFF;
         }
