@@ -35,125 +35,79 @@
 	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no"
 	      name = "viewport"
 	>
-	<style>
-		  @font-face
-		  {
-			  font-family: 'Roboto';
-			  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
-			  font-weight: normal;
-			  font-style: normal;
-		  }
+	<link rel = "stylesheet" href = "./styles/assignment-page.css">
 
-		  head, body
-		  {
-			  margin: 0;
-			  height: 100%;
-			  font-family: 'Roboto', sans-serif;
-		  }
-
-		  .assignment-wrapper
-		  {
-			  background-color: #eaeaea;
-			  margin: 1.2rem auto;
-			  border-radius: 2rem;
-			  border: 1px solid grey;
-			  padding: 1rem;
-			  width: 100%;
-			  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.1);
-		  }
-
-		  .assignment-section
-		  {
-			  width: 80%;
-			  display: grid;
-			  grid-template-columns: auto auto;
-			  gap: 3rem;
-			  justify-content: center;
-			  margin: auto;
-			  align-content: center;
-		  }
-
-		  .assignment-section h2
-		  {
-			  text-wrap: nowrap;
-		  }
-
-		  @media (max-width: 1160px)
-		  {
-			  .assignment-section
-			  {
-				  width: 90%;
-				  display: block;
-				  margin: auto;
-				  gap: 0;
-			  }
-
-			  .assignment-wrapper
-			  {
-				  padding: 1.5rem 0 1.5rem 1rem;
-				  width: 85%;
-			  }
-		  }
-	</style>
 </head>
 
 <body>
 	<div id = "navbar"></div>
 
-	<!-- Assignment Selection -->
-	<div class = "assignment-section">
-		<div class = "assignment-column">
-			<h2>Independent Assignments</h2>
-			<div class = "assignment-list-wrapper">
-				<div class = "assignment-wrapper">
-					<a href = "./pages/Prog03/prog03-home.html">
-						<h3 class = "assignment-header">Prog03 | HTML & CSS Demo</h3></a>
-					<p class = "assignment-date">Due Date: 1/18/2025 </p>
-					<p class = "assignment-date">Contributors: Sean Slaughter </p>
-				</div>
-			</div>
-			<div class = "assignment-list-wrapper">
-				<div class = "assignment-wrapper">
-					<a href = "./pages/layout/layout.html"><h3>Prog03 | Basic Fixed Fluid Hybrid Layout</h3>
-					</a>
-					<p class = "assignment-date">Due Date: 1/25/2025 </p>
-					<p class = "assignment-date">Contributors: Sean Slaughter </p>
-				</div>
-			</div>
-			<div class = "assignment-list-wrapper">
-				<div class = "assignment-wrapper">
-					<a href = "./pages/BandStore/index.html"><h3>Band Store Setup</h3></a>
-					<p class = "assignment-date">Due Date: 2/02/2025 </p>
-					<p class = "assignment-date">Contributors: Sean Slaughter </p>
-				</div>
-			</div>
-			<div class = "assignment-list-wrapper">
-				<div class = "assignment-wrapper">
-					<a href = "./pages/Prog04/prog04.html"><h3>Prog04 | Javascript Events</h3></a>
-					<p class = "assignment-date">Due Date: 2/02/2025 </p>
-					<p class = "assignment-date">Contributors: Sean Slaughter</p>
-				</div>
-			</div>
-		</div>
-		<div>
-			<h2>Group Assignments</h2>
-			<div class = "assignment-list-wrapper">
-				<div class = "assignment-wrapper">
-					<a href = "pages/GroupCSS1/GroupCSS1.html">
-						<h3 class = "assignment-header">Group CSS 1</h3></a>
-					<p class = "assignment-date">Due Date: 1/18/2025</p>
-					<p class = "assignment-date">Contributors: Sean Slaughter</p>
-				</div>
-				<div class = "assignment-wrapper">
-					<a href = "pages/GroupCSS2/GroupCSS2.html">
-						<h3 class = "assignment-header">Group CSS 2</h3></a>
-					<p class = "assignment-date">Due Date: 1/25/2025</p>
-					<p class = "assignment-date">Contributors: Sean Slaughter</p>
-				</div>
-			</div>
 
-		</div>
-	</div>
+	<section class = "clearfix">
+		<h1>Individual Assignments</h1>
+		<table class = "responsive-table">
+			<tr>
+				<th>Assignment Name</th>
+				<th>Description</th>
+				<th>Due Date</th>
+
+			</tr>
+			<tr>
+				<td><a href = "./pages/Prog03/prog03-home.html"><h3>HTML & CSS Demo</h3>
+				</a></td>
+				<td>Introductory HTML/CSS Assignment with the Box Model</td>
+				<td>1/18/2025</td>
+			</tr>
+			<tr>
+				<td><a href = "./pages/layout/layout.html"><h3>Basic Fixed Fluid Hybrid Layout</h3>
+				</a></td>
+				<td>Introductory HTML/CSS Assignment with the Box Model</td>
+				<td>1/25/2025</td>
+			</tr>
+			<tr>
+				<td><a href = "./pages/layout/layout.html"><h3>Band Store Setup</h3>
+				</a></td>
+				<td>Introductory to a full-stack web development structure</td>
+				<td>2/2/2025</td>
+			</tr>
+			<tr>
+				<td><a href = "./pages/Prog04/prog04.html"><h3>Javascript Events</h3>
+				</a></td>
+				<td>JavaScript Event Handling, to refresh JavaScript and HTML interactions.</td>
+				<td>2/2/2025</td>
+			</tr>
+			<tr>
+				<td><a href = "./pages/helloworld/helloworld.html"><h3>PHP Hello World</h3>
+				</a></td>
+				<td>Ensure PHP is properly setup, and can display information using PHP</td>
+				<td>2/2/2025</td>
+			</tr>
+		</table>
+	</section>
+
+	<section class = "clearfix">
+		<h1>Group Assignments</h1>
+		<table class = "responsive-table">
+			<tr>
+				<th>Assignment Name</th>
+				<th>Description</th>
+				<th>Due Date</th>
+
+			</tr>
+			<tr>
+				<td><a href = "./pages/GroupCSS1/GroupCSS1.html"><h3>Group CSS 1</h3>
+				</a></td>
+				<td>Introductory HTML/CSS Assignment with the Box Model</td>
+				<td>1/18/2025</td>
+			</tr>
+			<tr>
+				<td><a href = "./pages/GroupCSS2/GroupCSS2.html"><h3>Group CSS 2</h3>
+				</a></td>
+				<td>Introductory HTML/CSS Assignment with the Box Model</td>
+				<td>1/25/2025</td>
+			</tr>
+		</table>
+	</section>
 
 </body>
 </html>
