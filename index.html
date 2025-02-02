@@ -25,7 +25,7 @@
 	      type = "image/svg">
 
 	<!-- CSS and script links -->
-	<link href = "styles/general.css"
+	<link href = "general.css"
 	      rel = "stylesheet">
 	<link href = "styles/welcome-splash.css"
 	      rel = "stylesheet">
@@ -34,8 +34,6 @@
 	<link href = "styles/skill.css"
 	      rel = "stylesheet">
 
-	<script rel = "text/javascript"
-	        src = "/scripts/general.js"></script>
 	<script rel = "text/javascript"
 	        src = "/scripts/footer.js"></script>
 	<script rel = "text/javascript"
@@ -75,17 +73,135 @@ Is that an ad or part of the site?
 			   style = "bottom:0;">
 				<img alt = "A triangular arrangement of gray circles pointing downward"
 				     class = "arrow-img"
-				     src = "./assets/images/homepage/down-arrow-white.png"> </a>
+				     src = "/assets/images/homepage/down-arrow-white.png"> </a>
 
 		</div>
 	</header>
 
 	<main>
-		<!-- About me Section -->
-		<div id="aboutme"></div>
+		<!-- About Me -->
+		<section>
+			<div class = "about-me-panel span-page"
+			     id = "about">
+				<a class = "arrow"
+				   href = "#"
+				   style = "top: 0; margin-top: 3rem; ">
+					<img alt = "Image of a white arrow, made of smaller white dots pointing downwards"
+					     class = "arrow-img"
+					     src = "/assets/images/homepage/up-arrow-white.png"> </a>
+				<div id = "#about-me-wrapper">
+					<img class = "side-image"
+					     alt = "Image of Sean Tyler Slaughter smiling in a Black Shirt, with a white background"
+					     src = "/assets/images/homepage/headshot.png">
+
+					<div class = "about-me-text">
+						<h1>
+							Interesting Things
+						</h1>
+						<p> OOOOOO AAHHHH here is some text... This will get filled out.... Lorem Ipsum or
+							whatever</p>
+						<p> I might as well introduce myself sorta. Hey! I am <b>Sean</b>! I am a Computer
+							Science Major at Clemson University, and will be graduating this May!</p>
+						<p> Here are some things that I enjoy!</p>
+
+						<div class = "skill-list-wrapper"
+						     id = "passions">
+							<div class = "skill">
+								<p>Dungeons and Dragons</p>
+							</div>
+							<div class = "skill">
+								<p>Code Development</p>
+							</div>
+							<div class = "skill">
+								<p>Kayaking</p>
+							</div>
+							<div class = "skill">
+								<p>Video Games</p>
+							</div>
+							<div class = "skill">
+								<p>Rock Climbing</p>
+							</div>
+							<div class = "skill">
+								<p>Board Games</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<a class = "arrow"
+				   href = "#skills"
+				   style = "bottom:0;">
+					<img alt = "Image of a white arrow, made of smaller white dots pointing downwards"
+					     class = "arrow-img"
+					     src = "/assets/images/homepage/down-arrow-purple.png"> </a>
+			</div>
+		</section>
+
+
 
 		<!-- Skills Section -->
-		<div id="myskills"></div>
+
+		<section>
+			<div class = "span-page"
+			     id = "skills">
+				<a class = "arrow"
+				   href = "#about"
+				   style = "top: 0; margin-top: 3rem; ">
+					<img alt = "Image of a white arrow, made of smaller white dots pointing downwards"
+					     class = "arrow-img"
+					     src = "/assets/images/homepage/up-arrow-purple.png"></a>
+
+				<div class=skill-display-wrapper>
+					<h1 class = "skill-title">Languages Known</h1>
+					<div class = "skill-list-wrapper">
+						<div class = "skill">
+							<img alt = "Language Icon"
+							     class = "skill-img"
+							     src = "/assets/images/aboutme/C-language.png">
+							<p>C++ | C# | C</p>
+						</div>
+						<div class = "skill">
+							<img alt = "Language Icon"
+							     class = "skill-img"
+							     src = "/assets/images/aboutme/java-logo.png">
+							<p>Java</p>
+						</div>
+						<div class = "skill">
+							<img alt = "Language Icon"
+							     class = "skill-img"
+							     src = "/assets/images/aboutme/database-icon.svg">
+							<p>MySql</p>
+						</div>
+						<div class = "skill">
+							<img alt = "Language Icon"
+							     class = "skill-img"
+							     src = "/assets/images/aboutme/html-icon.png">
+							<p>HTML | CSS | JavaScript</p>
+						</div>
+					</div>
+				</div>
+				<div class="skill-display-wrapper">
+					<h1 class = "skill-title">Skills, Mindsets, and More</h1>
+					<div class = "skill-list-wrapper">
+						<div class = "skill">
+							<p>RESTful APIs</p>
+						</div>
+						<div class = "skill">
+							<p>Amazon Web Services</p>
+						</div>
+						<div class = "skill">
+							<p>Agile Workflow</p>
+						</div>
+						<div class = "skill">
+							<p>GIT</p>
+						</div>
+						<div class = "skill">
+							<p>Node.js | React.Js</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 	</main>
 
 	<!-- Footer -->
