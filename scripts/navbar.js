@@ -1,6 +1,5 @@
 // Dynamically Load the Navbar
 document.addEventListener('DOMContentLoaded', () => {
-    // Change the path if your folder structure differs.
     fetch('/components/navbar.html')
         .then(response => {
             if (!response.ok) {
@@ -13,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('navbar');
             if (container) {
                 container.innerHTML = data;
+                loadFontAwesome(); // Ensure FontAwesome is loaded
             } else {
                 console.error('No element with id "navbar" found.');
             }
@@ -22,18 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 });
 
-function myFunction() {
-    var x = document.getElementById("mynavbar");
-    if (x.className === "navbar") {
-        x.className += " responsive";
-    } else {
-        x.className = "navbar";
+// Function to check and dynamically load FontAwesome script
+function loadFontAwesome() {
+    if (!document.querySelector('script[src="https://kit.fontawesome.com/44ecd57f75.js"]')) {
+        const script = document.createElement('script');
+        script.src = "https://kit.fontawesome.com/44ecd57f75.js";
+        script.crossOrigin = "anonymous";
+        document.head.appendChild(script);
     }
-    var y = document.getElementById("dropdown-wrap");
-    if(y.classList.length === 0)
-    {
-        y.className += "dropmenu-button-make-it-wide-on-click";
-    } else {
-        y.className = "";
-    }
+}
+
+
+function toggleMenu() {
+    const navItems = document.getElementById("nav-items");
+    navItems.classList.toggle("active");
 }

@@ -33,7 +33,13 @@
 	<script rel = "text/javascript"
 	        src = "/scripts/navbar.js"></script>
 
-
+	<script>
+		function buttonClick()
+            {
+                let text = document.getElementById("textToChange");
+                text.innerText = "The text has been changed!" ;
+            }
+	</script>
 </head>
 
 
@@ -49,7 +55,10 @@ Is that an ad or part of the site?
 <body>
 	<div style="display:flex;" id="navbar"></div>
 
-
+	<div>
+		<p id="textToChange"> Normal Text what happens if a button clicks </p>
+		<button onClick="buttonClick()"> Click me </button>
+	</div>
 
 	<!-- Footer -->
 	<div id="footer"></div>
