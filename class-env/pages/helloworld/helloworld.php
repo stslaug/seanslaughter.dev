@@ -13,7 +13,7 @@
                 height: 100%;
                 width: 100%;
             }
-        .nav-item, .dropbtn
+        .nav-item, .dropbtn, .submenu, .dropmenu, .dropdown-item
         {
         background-color: #7320ff;
         }
