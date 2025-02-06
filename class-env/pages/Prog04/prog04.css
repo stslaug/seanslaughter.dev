@@ -5,7 +5,7 @@ html, body
 	width: 100%;
 }
 
-header h1
+#title
 {
 	margin: auto;
 	display: flex;
