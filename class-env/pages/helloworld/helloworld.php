@@ -13,10 +13,6 @@
                 height: 100%;
                 width: 100%;
             }
-        .nav-item, .submenu
-            { /* Needed for Navbar... not sure why it isn't included like each other nav */
-            background-color: #7320ff;
-             }
         </style>
 
 </head>
