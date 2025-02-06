@@ -13,6 +13,11 @@
                 height: 100%;
                 width: 100%;
             }
+        .dropmenu, .submenu, .nav-item
+
+        {
+        background-color: #7320ff;
+        }
         </style>
 
 </head>
