@@ -22,7 +22,7 @@
 
 </head>
 <body>
-    <div id = "navbar"> </div>
+    <divid = "navbar"> </div>
 	<h1>Hello World!</h1>
 
 	<?php phpinfo(); ?>
