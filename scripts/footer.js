@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         // Update the element with id "latest-commit" in your fetched footer.
                         let container = document.getElementById('latest-commit');
                         if (container) {
+                            loadFontAwesome();
                             container.innerHTML = `
             <p id="commit">
               Latest Commit: <a href="${commitUrl}" target="_blank">${commitSha}</a>
@@ -38,4 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error fetching footer:', error);
         });
 });
+
+
+
 

@@ -51,6 +51,14 @@
 			  margin-left: 1rem;
 		  }
 
+			  #footer-wrapper span
+			  {
+				  margin-right: 4rem;
+						gap: 1rem;
+			  }
+
+
+
 		  @media screen and (max-width: 1325px)
 		  {
 			  #footer-wrapper
@@ -59,20 +67,21 @@
 				  color: white;
 			  }
 
-
 			  #footer-wrapper p
 			  {
 
 				  margin: 2rem auto;
 				  text-align: center;
 			  }
+			  #footer-wrapper span
+					{
+			      display:flex;
+			      justify-content: center;
+			      align-items: center;
+			      margin: auto;
 
 
-			  #footer-wrapper p:last-child
-			  {
-				  margin-top: 4rem;
 			  }
-
 			  #commit
 			  {
 				  display: block;
@@ -80,6 +89,7 @@
 		  }
 
 	</style>
+	<link rel="text/javascript" href="/scripts/footer.js"></link>
 	<title>Footer | Sean Slaughter</title>
 </head>
 <body>
@@ -89,7 +99,11 @@
 
 		<p id = "latest-commit"> Loading latest commit...</p>
 
-		<p><a href = "mailto:site@seanslaughter.dev">Contact me!</a></p>
+		<span>
+			<a href="https://linkedin.com/in/stslaug"><i class="fa-brands fa-linkedin fa-xl"></i></a>
+			<a href="mailto:site@seanslaughter.dev"><i class="fa-solid fa-envelope fa-xl"></i></a>
+		</span>
+
 
 	</footer>
 
