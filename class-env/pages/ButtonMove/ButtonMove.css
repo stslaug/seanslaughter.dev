@@ -1,0 +1,22 @@
+
+body, html {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+#top
+{
+	min-height: 15vh;
+	justify-content: center;
+	text-align: center;
+
+}
+
+#view {
+	background-color: black;
+	min-height: 75vh;
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
