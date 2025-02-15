@@ -55,10 +55,6 @@
 			  text-decoration: underline;
 		  }
 
-		  .nav-item.active {
-			  background-color: #ae7dff;
-			  color: white;
-		  }
 
 		  /* Dropdown container that wraps the title and the dropdown content */
 		  .dropdown {
@@ -102,7 +98,7 @@
 			  color: black;
 		  }
 
-		  /* Submenu styling (if needed) */
+		  /* Submenu styling  */
 			  .submenu-wrap {
 				  position: relative;
 			  }
@@ -135,7 +131,7 @@
 				  display: block;
 			  }
 
-		  /* Hamburger menu styling */
+		  /* Hamburger menu  */
 		  .hamburger {
 			  display: none;
 			  font-size: 24px;
@@ -143,7 +139,7 @@
 			  cursor: pointer;
 		  }
 
-		  /* Mobile Styles */
+		  /* Mobile */
 		  @media screen and (max-width: 768px) {
 			  .hamburger {
 				  display: block;
@@ -160,7 +156,6 @@
 				  display: none;
 			  }
 
-			  /* For mobile, we animate the nav-items dropdown using max-height */
 			  .nav-items {
 				  flex-direction: column;
 				  width: 100%;
@@ -175,7 +170,7 @@
 			  }
 
 			  .nav-items.active {
-				  max-height: 500px; /* adjust as needed to fit all nav items */
+				  max-height: 500px;
 			  }
 
 			  .nav-item {
@@ -185,7 +180,7 @@
 				  border-bottom: 1px solid white;
 			  }
 
-			  /* Hide all dropdowns and submenus on mobile */
+			  /* Hide all dropdowns on mobile */
 			  .dropmenu, .submenu {
 				  display: none !important;
 			  }
@@ -206,7 +201,6 @@
 		<div class="nav-items" id="nav-items">
 			<a class="nav-item" href="/index.html">Home</a>
 
-			<!-- Dropdown Menu Example (Desktop Only) -->
 			<div class="dropdown">
 				<a class="nav-item dropbtn" href="/class-env/assignment-page.html">
 					3750 Assignments <i class="fa-solid fa-caret-down"></i>
@@ -235,6 +229,9 @@
 						<div class="submenu">
 							<a class="submenu-btn" href="/class-env/pages/GroupCSS1/GroupCSS1.html">GroupCSS01</a>
 							<a class="submenu-btn" href="/class-env/pages/GroupCSS2/GroupCSS2.html">GroupCSS02</a>
+							<a class="submenu-btn"
+							   href="/class-env/pages/GroupEvents/GroupEvents.html">Group Events
+							</a>
 						</div>
 					</div>
 				</div>
