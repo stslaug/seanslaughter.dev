@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no"
+	      name = "viewport"
+	>
+	<meta content = "ie=edge"
+	      http-equiv = "X-UA-Compatible"
+	>
+	<title>Group Events | Sean Slaughter</title>
+
+	<script rel = "text/javascript"
+	        src = "/scripts/navbar.js"
+	></script>
+	<script rel = "text/javascript"
+	        src = "/scripts/footer.js"
+	></script>
+	<script rel = "text/javascript"
+	        src = "./GroupEvents.js"
+	></script>
+
+	<link href = "./GroupEvents.css"
+	      rel = "stylesheet"
+	>
+</head>
+<body>
+	<nav id = "navbar"></nav>
+
+	<main id = "events">
+		<section id = "animationEvents">
+			<h1>Animation Events</h1>
+			<div id = "color-box">
+
+			</div>
+			<div class = "stats-wrapper">
+				<p id = "animation-name">Animation Name: N/A </p>
+				<p id = "elapsed-time">Elapsed Time: 0 </p>
+				<p id = "iterations">Iterations: 0</p>
+				<p>Information updates once per iteration (2 second length) </p>
+				<p> This uses infinite iterations with alternate-reverse directions.</p>
+			</div>
+		</section>
+
+		<section id = "drag">
+			<h1>Drag Events</h1>
+
+			<div draggable = "true"
+			     id = "dragme"
+			     ondragend = "dragEnd(event)"
+			     ondragstart = "dragStart(event)"
+			>Drag Me!
+			</div>
+
+			<div class = "dragZone"
+			     ondragleave = "stopDrop(event)"
+			     ondragover = "dropOver(event)"
+			     ondrop = "drop(event)"
+			>Drag Over me
+			</div>
+			<div class = "dragZone"
+			     ondragleave = "stopDrop(event)"
+			     ondragover = "dropOver(event)"
+			     ondrop = "drop(event)"
+			>Drag Over me
+			</div>
+			<div class = "dragZone"
+			     ondragleave = "stopDrop(event)"
+			     ondragover = "dropOver(event)"
+			     ondrop = "drop(event)"
+			>Drag Over me
+			</div>
+			<div id = "stats-wrapper">
+				<p id = "dragStatus">Dragging: False</p>
+				<p id = "dropPlaceStatus">Valid Drop Location: False</p>
+			</div>
+		</section>
+
+		<section id = "inputEvents">
+
+			<h1>Input Events</h1>
+			<h2 class = "wip">Work In Progress</h2>
+			<div id="inputs"> <!--  Input Events -->
+				<label for="rangeInput">Slider</label>
+				<input id="rangeInput" type = "range"
+				       oninput = "slider(this.value)"
+				>
+
+				<label for="textInput">Text Input</label>
+				<input id="textInput" type = "text">
+			</div>
+
+			<div class = "stats-wrapper">
+				<p>Slider in Focus: False</p>
+				<p>Slider Current Value: </p>
+				<p>Text Input In Focus: False</p>
+				<p>Text Current Action: </p>
+				<p>Text Current Value: </p>
+			</div>
+		</section>
+
+		<section id = "mouseEvents">
+			<h1>Mouse Events</h1>
+			<h2 class = "wip">Work in Progress</h2>
+		</section>
+
+		<section id = "focusEvents">
+			<h1>Focus Events</h1>
+			<h2 class = "wip">Work in Progress</h2>
+		</section>
+	</main>
+
+	<footer id = "footer"></footer>
+</body>
+</html>
