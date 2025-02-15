@@ -1,0 +1,107 @@
+* {
+	box-sizing: border-box;
+}
+body, html
+{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+main
+{
+	display: flex;
+}
+
+#intro
+{
+	margin: auto;
+	flex-basis: 20%;
+}
+
+
+#cardsAndForm
+{
+	margin: 2rem auto;
+	flex-basis: 65%;
+	box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
+	display: flex;
+	max-height: 70vh;
+
+}
+
+#cardForm
+{
+	flex-basis: 20%;
+}
+#cardForm form
+{
+	display: flex;
+	flex-direction: column;
+	margin: 1rem 1rem;
+	text-wrap: nowrap;
+}
+#cardForm input
+{
+	margin: 0.3rem 0 1rem 0;
+}
+
+#showAll
+{
+	display: flex;
+	margin: 2rem auto;
+}
+#cardForm label
+{
+	text-wrap: nowrap;
+	text-align: left;
+}
+#cards{
+	text-align: left;
+	flex-basis: 75%;
+	margin: 1rem auto;
+	overflow-y: scroll;
+	box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
+	max-height: 100%;
+
+}
+#cards div
+{
+	margin: 1rem 1rem;
+	padding: 1rem 1rem;
+	transition-duration: 1s;
+	border-radius: 10px;
+}
+#cards div:hover
+{
+	background-color: #e4e4e4;
+}
+
+
+
+@media  (max-width: 1200px)
+{
+	main
+	{
+		display: block;
+		text-align: center;
+	}
+	ul
+	{
+		list-style-type: none;
+	}
+}
+@media  (max-width: 850px)
+{
+	#cardsAndForm
+	{
+		display: block;
+		overflow: visible;
+		max-height: 100%;
+	}
+}

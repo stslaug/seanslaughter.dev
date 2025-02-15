@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "utf-8">
+	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no"
+	      name = "viewport"
+	>
+	<meta content = "ie=edge"
+	      http-equiv = "X-UA-Compatible"
+	>
+
+	<title>Cards | Sean Slaughter</title>
+	<script rel = "text/javascript"
+	        src = "/scripts/navbar.js"
+	></script>
+	<script rel = "text/javascript"
+	        src = "/scripts/footer.js"
+	></script>
+
+<!--	<script rel = "text/javascript"-->
+<!--	        src = "./loops.js"-->
+<!--	></script>-->
+
+	<link href = "./cards.css"
+	      rel = "stylesheet"
+	>
+  <link href = "/general.css"
+        rel = "stylesheet"
+  >
+
+</head>
+<body>
+	<nav id = "navbar"></nav>
+	<main>
+		<div id = "intro">
+			<h1>Dynamic Business Cards</h1>
+			<h2>A demo of javascript events</h2>
+			<ul>
+				<li>Add a <b>new card</b> by pressing <b>'Add Card'</b></li>
+				<li>Display <b>All cards</b> but pressing <b>'Show All'</b></li>
+				<li>Design taken from concept video</li>
+			</ul>
+		</div>
+		<div id = "cardsAndForm">
+              <div id = "cardForm">
+			<form>
+                    <h1> Information Form </h1>
+				<label for = "name">Full Name</label> <input type = "text"
+				                                             id = "name"
+                                                                     value="John Doe"
+				                                             placeholder = "First Last"
+			>
+
+				<label for = "email">Email</label> <input type = "email"
+				                                          id = "email"
+                                                                  value="test@example.com"
+				                                          placeholder = "example@domain.com"
+			>
+
+				<label for = "phone">Phone Number</label> <input type = "number"
+				                                                 id = "phone"
+                                                                         value="1234567890"
+				                                                 placeholder = "1234567890"
+			>
+
+				<label for = "address">Address</label> <input type = "text"
+				                                              id = "address"
+                                                                      value="Street, City, State, ZIP"
+				                                              placeholder = "Street, City, State, ZIP"
+			>
+
+				<label for = "birth">Birth Date</label> <input type = "date"
+				                                               id = "birth"
+                                                                       value=""
+				                                               placeholder = ""
+			>
+
+				<input id="addCard" type = "submit"
+				       value = "Add Card"
+				>
+			</form>
+
+                  <button id="showAll">Show All</button>
+
+              </div>
+			<div id="cards" >
+
+
+			</div>
+
+		</div>
+
+        <script rel = "text/javascript"
+                src = "./cards.js"
+        ></script>
+	</main>
+	<footer id = "footer"></footer>
+</body>
+</html>
