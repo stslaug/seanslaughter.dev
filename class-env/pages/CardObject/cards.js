@@ -104,7 +104,7 @@ document.getElementById("addCard").addEventListener("click", function () {
         document.getElementById("birth").value = "";
 
     } else {
-        alert("Name and Email are required");
+        alert("Name and Email are required: Ensure at least those are filled out properly!");
     }
 });
 
