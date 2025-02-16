@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
+	<!-- Worked on by Wilson Collins and Tyler Slaughter -->
 	<meta charset = "UTF-8">
 	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no"
 	      name = "viewport"
@@ -8,7 +9,7 @@
 	<meta content = "ie=edge"
 	      http-equiv = "X-UA-Compatible"
 	>
-	<title>Group Events | Sean Slaughter</title>
+	<title>Group Events | Group</title>
 
 	<script rel = "text/javascript"
 	        src = "/scripts/navbar.js"
@@ -26,8 +27,11 @@
 </head>
 <body>
 	<nav id = "navbar"></nav>
-
+	<h1>Assignment worked on by Sean Slaughter and Wilson Collins</h1>
 	<main id = "events">
+		<!--
+		      Animation Events
+		 -->
 		<section id = "animationEvents">
 			<h1>Animation Events</h1>
 			<div id = "color-box">
@@ -42,71 +46,84 @@
 			</div>
 		</section>
 
+		<!--
+		      Drag Events
+		 -->
 		<section id = "drag">
 			<h1>Drag Events</h1>
 
 			<div draggable = "true"
 			     id = "dragme"
-			     ondragend = "dragEnd(event)"
-			     ondragstart = "dragStart(event)"
 			>Drag Me!
 			</div>
 
-			<div class = "dragZone"
-			     ondragleave = "stopDrop(event)"
-			     ondragover = "dropOver(event)"
-			     ondrop = "drop(event)"
-			>Drag Over me
-			</div>
-			<div class = "dragZone"
-			     ondragleave = "stopDrop(event)"
-			     ondragover = "dropOver(event)"
-			     ondrop = "drop(event)"
-			>Drag Over me
-			</div>
-			<div class = "dragZone"
-			     ondragleave = "stopDrop(event)"
-			     ondragover = "dropOver(event)"
-			     ondrop = "drop(event)"
-			>Drag Over me
-			</div>
+			<div class = "dragZone">Drag Over me</div>
+			<div class = "dragZone">Drag Over me</div>
+			<div class = "dragZone">Drag Over me</div>
+
 			<div id = "stats-wrapper">
 				<p id = "dragStatus">Dragging: False</p>
 				<p id = "dropPlaceStatus">Valid Drop Location: False</p>
 			</div>
 		</section>
-
+		<!--
+			Input Events
+		-->
 		<section id = "inputEvents">
 
 			<h1>Input Events</h1>
-			<h2 class = "wip">Work In Progress</h2>
-			<div id="inputs"> <!--  Input Events -->
-				<label for="rangeInput">Slider</label>
-				<input id="rangeInput" type = "range"
-				       oninput = "slider(this.value)"
+			<div id = "inputs">
+				<label for = "slider">Slider</label>
+
+				<input id = "slider"
+				       type = "range"
+				       min = "1"
+				       max = "100"
 				>
 
-				<label for="textInput">Text Input</label>
-				<input id="textInput" type = "text">
+				<label for = "textInput">Text Input</label> <input id = "textInput"
+				                                                   type = "text">
+
 			</div>
 
 			<div class = "stats-wrapper">
-				<p>Slider in Focus: False</p>
-				<p>Slider Current Value: </p>
-				<p>Text Input In Focus: False</p>
-				<p>Text Current Action: </p>
-				<p>Text Current Value: </p>
+				<p id = "sliderFocus">Slider in Focus: False</p>
+				<p id = "sliderValue">Slider Current Value: </p>
+				<p id = "textFocus">Text Input In Focus: False</p>
+				<p id = "textAction">Text Current Action: </p>
+				<p id = "textValue">Text Current Value: </p>
 			</div>
 		</section>
 
+		<!--
+		      Mouse Events
+		 -->
 		<section id = "mouseEvents">
 			<h1>Mouse Events</h1>
-			<h2 class = "wip">Work in Progress</h2>
+			<div id = "mouse-area">
+				<p>Mouse Area - Hover, Click, Right-Click, Double-Click Here</p>
+			</div>
+			<div class = "stats-wrapper">
+				<p id = "event-type">Event Type: None</p>
+				<p id = "mouse-position">Mouse Position: (0, 0)</p>
+			</div>
 		</section>
 
+		<!--
+		      Focus Events
+		 -->
 		<section id = "focusEvents">
 			<h1>Focus Events</h1>
-			<h2 class = "wip">Work in Progress</h2>
+			<div id = "focus-area" tabindex = "0">
+				<p>Focus Area (Tab to Focus)</p>
+				<input type = "text" id = "nested-input" placeholder = "Nested Input">
+			</div>
+			<div class = "stats-wrapper">
+				<p id = "focusStatus">Focus: Out</p>
+				<p id = "focusInTarget">Focus In Target: None</p>
+				<p id = "focusOutTarget">Focus Out Target: None</p>
+				<p id = "relatedTarget">Related Target: None</p>
+			</div>
 		</section>
 	</main>
 
