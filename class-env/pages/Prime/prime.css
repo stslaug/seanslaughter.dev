@@ -1,0 +1,144 @@
+:root
+{
+	--background-color: #f4f4f4;
+	--text-color: #333333;
+	--border-color: #cccccc;
+	--box-shadow-color: rgba(0, 0, 0, 0.1);
+	--primary-button-color: #007bff;
+	--primary-button-hover-color: #0056b3;
+	--list-background-color: white;
+	--list-item-color: #333333;
+	--dark-mode-background: #323545;
+	--dark-mode-border: #4a4d65;
+	--dark-mode-text: white;
+}
+
+*
+{
+	box-sizing: border-box;
+}
+
+body, html
+{
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body
+{
+	font-family: Arial, sans-serif;
+	text-align: center;
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+input, button
+{
+	font-size: 18px;
+	padding: 8px;
+	margin: 10px;
+}
+
+button
+{
+	cursor: pointer;
+	background-color: var(--primary-button-color);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+}
+
+button:hover
+{
+	background-color: var(--primary-button-hover-color);
+}
+
+.lists-container
+{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.lists-container h2
+{
+	margin-left: 2rem;
+}
+
+.list
+{
+	border: 1px solid var(--border-color);
+	margin: 10px;
+	padding: 15px;
+	width: 250px;
+	background-color: var(--list-background-color);
+	color: var(--list-item-color);
+	box-shadow: 2px 2px 15px var(--box-shadow-color);
+	animation: colors linear 15s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-delay: 5s;
+	max-height: 80vh;
+	min-height: 20vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+@keyframes colors
+{ /* Goes from Light to Dark to Light */
+	0%
+	{
+		background-color: var(--list-background-color); /* Initial color */
+		color: var(--list-item-color);
+	}
+	33.33%
+	{
+		background-color: var(--dark-mode-background);
+		color: var(--dark-mode-text);
+	}
+	66.66%
+	{
+		background-color: var(--dark-mode-background);
+		color: var(--dark-mode-text);
+	}
+	100%
+	{
+		background-color: var(--list-background-color);
+		color: var(--list-item-color);
+	}
+}
+
+ul
+{
+	list-style-type: none;
+	padding: 0;
+}
+
+li
+{
+	padding: 5px;
+	font-size: 16px;
+	border: 1px solid var(--border-color);
+	margin: 0.5rem;
+}
+
+li:hover
+{
+	transform: scale(1.1);
+	font-size: 16px;
+	background-color: white;
+	color: black;
+}
+
+.darkMode
+{
+	background-color: var(--dark-mode-background);
+	border: 1px solid var(--dark-mode-border);
+	color: var(--dark-mode-text);
+}
+
+.divisor
+{
+	display: block;
+}

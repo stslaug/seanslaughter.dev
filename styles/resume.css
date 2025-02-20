@@ -1,0 +1,51 @@
+:root
+{
+	--purple: rgb(115, 32, 255);
+}
+
+@font-face
+{
+	font-family: 'Roboto';
+	src: url('/assets/fonts/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*
+{
+	font-family: 'Roboto', sans-serif;
+}
+
+.section-wrap /* using this class instead of default */
+{
+	margin: auto 2rem;
+}
+
+.section-wrap h1,
+.section-wrap h2,
+.section-wrap h3,
+.section-wrap h4,
+.section-wrap h5,
+.section-wrap h6
+{
+	font-family: 'Roboto ExtraBold', sans-serif;
+	color: var(--purple);
+	font-weight: bold;
+}
+
+#head
+{
+
+	display: inline-block;
+}
+#head a
+{
+	color: black;
+	margin: 1rem;
+}
+#head i
+{
+	margin: 0 0.5rem;
+}
+
+
