@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<title>Keypress | Sean Slaughter</title>
+	<link rel = "stylesheet" href = "/general.css">
+	<link rel = "stylesheet" href = "./keypress.css">
+
+</head>
+<body>
+	<header>
+		<nav id = "navbar"></nav>
+	</header>
+
+
+	<main style="min-height: 81.9vh;">
+		<div class = "keypress">
+		<h1>Keypress Controls:</h1>
+		<p>Press 'R'/'r': Change this background to <strong style="background-color: indianred;">red</strong></p>
+		<p>Press 'G'/'g': Change this background to <strong style="background-color: mediumseagreen;">green</strong></p>
+		<p>Press 'B'/'b': Change this background to <strong style="background-color: dodgerblue;">blue</strong></p>
+		<p>All Vowels are capitalized automatically : </p>
+		<p id="lastKey">Last Key Pressed: N/A</p>
+		</div>
+	</main>
+
+	<footer id = "footer"></footer>
+
+
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type = "text/javascript"></script>
+	<script rel = "text/javascript" src = "/scripts/navbar.js"></script>
+	<script rel = "text/javascript" src = "/scripts/footer.js"></script>
+	<script rel = "text/javascript" src = "./keypress.js"></script>
+</body>
+</html>
