@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset = "UTF-8">
+	<meta content = "ie=edge" http-equiv = "X-UA-Compatible">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<meta content = "Sean Tyler Slaughter" name = "author">
+	<meta charset = "UTF-8">
+	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "32x32" type = "image/svg">
+	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "16x16" type = "image/svg">
+
+	<title>JQuery Intro | Sean Slaughter</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+  <link rel = "stylesheet" href = "/general.css">
+	<link rel = "stylesheet" href = "./jquery.css">
+
+</head>
+<body>
+	<nav id = "navbar"></nav>
+
+	<main>
+		<section id = "intro">
+			<h1>JQuery Intro</h1>
+			<p>Div elements will turn yellow</p>
+
+			<div id = "div1" style = "border: 1px solid black;">
+				<p>A paragraph in a div.</p>
+				<p>Another paragraph in a div.</p>
+			</div>
+			<br>
+
+			<div id = "div2" style = "border: 1px solid black;">
+				<p>A paragraph in another div.</p>
+				<p>Another paragraph in another div.</p>
+			</div>
+			<br>
+
+			<div id = "div3" style = "border: 1px solid black;">
+				<p>A paragraph in another div.</p>
+				<p>Another paragraph in another div.</p>
+			</div>
+
+			<br>
+
+			<button id = "fadeDiv1">Fade Div 1</button>
+			<button id = "fadeDiv2">Fade Div 2</button>
+			<button id = "fadeDiv3">Fade Div 3</button>
+
+			<br><br>
+
+			<label for = "datepicker">Select a date:</label>
+			<input type = "text" id = "datepicker">
+
+			<br><br>
+
+			<div id = "accordion">
+				<h3>Section 1</h3>
+				<div>
+					<p>Content for section 1.</p>
+				</div>
+				<h3>Section 2</h3>
+				<div>
+					<p>Content for section 2.</p>
+				</div>
+				<h3>Section 3</h3>
+				<div>
+					<p>Content for section 3.</p>
+				</div>
+			</div>
+
+			<br><br>
+
+			<div id = "progressbar"></div>
+		</section>
+	</main>
+
+	<footer id = "footer"></footer>
+
+	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script rel = "text/javascript" src = "/scripts/navbar.js"></script>
+	<script rel = "text/javascript" src = "/scripts/footer.js"></script>
+	<script rel = "text/javascript" src = "./jquery.js"></script>
+</body>
+</html>
