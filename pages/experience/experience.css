@@ -1,0 +1,110 @@
+:root {
+	--purple: rgb(115, 32, 255);
+	--purple-1: #7320ff;
+	--purple-2: #5300e4;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: local('/assets/fonts/Roboto-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+body
+{
+	transition: background-color 0.3s ease, color 0.3s ease;
+	height: max-content;
+}
+.content-wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	position: relative;
+}
+
+main {
+	width: 66%;
+	margin: 2rem auto 1rem auto;
+	box-shadow: 1px 1px 5rem 1px rgba(0, 0, 0, 0.2);
+	border-radius: 2rem;
+	border: 2px solid rgba(136, 0, 255, 0.1);
+	padding: 1rem 2rem;
+}
+
+.section-wrap {
+	margin: auto 2rem;
+}
+
+h1, h2, h3 {
+	font-family: 'Roboto Bold', sans-serif;
+	color: var(--purple);
+}
+
+
+#head {
+	display: flex;
+	text-align: center;
+	margin: auto;
+}
+
+
+#head i {
+	margin: 0 0.5rem;
+}
+
+
+.project-section {
+	margin-bottom: 1rem;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 1rem;
+}
+
+.project-section:last-child {
+	border-bottom: none;
+}
+
+#darkMode-btn {
+	position: sticky;
+	bottom: 1.5rem;
+	background-color: var(--purple);
+	margin: auto 1.5rem 1.5rem auto;
+	padding: 2rem;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	color: white;
+	cursor: pointer;
+	font-size: 1.25rem;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	box-shadow: 1px 1px 1rem 8px rgba(0, 0, 0, 0.3);
+}
+
+
+#head a {
+	color: var(--purple);
+	margin: 1rem;
+	display: inline-block;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#head a:hover {
+	color: var(--purple-1);
+	font-weight: bold;
+	transform: scale(1.1);
+}
+
+body.dark-mode
+{
+	background-color: #1E1A28;
+	color: #E0E0E0;
+}
+h1.dark-mode, h2.dark-mode, h3.dark-mode, #head a.dark-mode,strong.dark-mode
+{
+	color: #f4d01d;
+}

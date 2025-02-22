@@ -8,7 +8,7 @@
 @font-face
 {
 	font-family: 'Roboto';
-	src: url('/assets/fonts/Roboto-Regular.ttf') format('truetype');
+	src: local('/assets/fonts/Roboto-Regular.ttf');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -20,12 +20,15 @@
 
 html, body
 {
-	height: 100%;
 	margin: 0;
 	scroll-behavior: smooth;
 	font-family: 'Roboto', sans-serif;
 	background-color: white;
 	position: relative;
+}
+body
+{
+	height: max-content;
 }
 
 .span-page
