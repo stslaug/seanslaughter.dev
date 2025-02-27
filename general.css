@@ -138,7 +138,7 @@ body {
 	border-radius: 5px;
 	box-shadow: 0 0 3rem 8px rgba(255, 255, 255, 0.1);
 	color: #fff;
-	display: inline-block;
+	display: block;
 	padding: 0.8rem 1.5rem;
 	text-decoration: none;
 	text-wrap: nowrap;
