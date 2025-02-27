@@ -1,4 +1,4 @@
-$(document).ready(function () {
+jQuery(function () {
     let audio = document.getElementById("audio");
     let playPauseBtn = document.getElementById("playPauseBtn");
     let volumeControl = document.getElementById("volumeControl");

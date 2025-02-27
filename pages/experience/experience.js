@@ -1,9 +1,6 @@
+jQuery(function () {
 
-
-$(document).ready(function(){
-    
-    $('#darkMode-btn').click(function() {
-        console.log("Jquery Working");
+    $('#darkMode-btn').on('click', function () {
         console.log("Jquery Working");
         $('body').toggleClass("dark-mode");
         $('a').toggleClass("dark-mode");

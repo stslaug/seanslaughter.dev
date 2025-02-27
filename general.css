@@ -8,53 +8,144 @@
 @font-face
 {
 	font-family: 'Roboto';
-	src: local('/assets/fonts/Roboto-Regular.ttf');
+	src: url('/assets/fonts/Roboto-Regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
-
-*
-{
-	box-sizing: border-box;
-}
-
-html, body
-{
-	margin: 0;
-	height: 100%;
-	width: 100%;
-	scroll-behavior: smooth;
+/* General Styles */
+body {
 	font-family: 'Roboto', sans-serif;
-	background-color: white;
-	position: relative;
+	margin: 0;
 }
 
-.span-page
-{
-	min-height: 102vh;
+.container {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 2rem;
 }
 
-.arrow
-{
-	animation: float 3s ease-in-out infinite;
-	position: absolute;
-	margin: 0 0 2rem 0;
+/* Hero Section */
+.hero {
+	align-content: center;
+	background-image: linear-gradient(45deg, #4e357f 0%, #5100a8 25%, rebeccapurple 50%, #5100a8 75%, #4e357f 100%);
+	color: white;
+	justify-content: center;
+	margin: auto;
+	min-height: 45vh;
+	padding: 4rem 0;
+	text-align: center;
 }
 
-.arrow:hover
-{
-	cursor: pointer;
+.hero-content h1 {
+	font-size: 3rem;
+	margin-bottom: 0.5rem;
+
 }
 
-.arrow-img
-{
-	height: 2rem;
+/* About Section */
+#about {
+	background-color: #fff;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	padding: 4rem 0;
 }
 
-@media (max-width: 1280px) /* Smaller Devices */
+#about img
 {
-	.arrow
-	{
-		display: none;
-	}
+	align-self: center;
+	border-radius: 50%;
+	display: flex;
+	height: auto;
+	justify-self: center;
+	max-width: 400px;
+	min-width: 250px;
+	text-align: center;
+}
+
+/* Skills Section */
+#skills {
+	background-color: #f8f8f8;
+	padding: 4rem 0;
+}
+
+.skill-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 2.5rem;
+}
+
+.skill-card {
+	text-align: center;
+	padding: 2rem;
+	border: 1px solid #eee;
+	border-radius: 1rem;
+	box-shadow: 1rem 1rem 3rem 1rem #eee;
+}
+
+.skill-card:hover:focus
+{
+	background-color: red;
+}
+
+
+.skill-card img {
+	width: 3rem;
+}
+.skill-card i {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+/* Contact Section */
+#contact {
+	background-color: #fff;
+	padding: 4rem 0;
+}
+
+#contact ul {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	margin: 2rem 0;
+	padding: 0;
+
+}
+
+#contact li {
+	margin: 0 1rem;
+}
+
+#contact li a
+{
+	animation: all 1s ease-in-out;
+	border: 1px solid #eeeeee;
+	border-radius: 1rem;
+	color: white;
+	padding: 1rem 2rem;
+	text-decoration: none;
+	text-wrap: nowrap;
+	white-space: nowrap;
+}
+
+#contact li:hover
+{
+	transform: scale(1.05);
+}
+
+/* Button */
+.btn {
+	background-color: var(--purple);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 5px;
+	box-shadow: 0 0 3rem 8px rgba(255, 255, 255, 0.1);
+	color: #fff;
+	padding: 0.8rem 1.5rem;
+	text-decoration: none;
+	transition: background-color 0.3s;
+	width: 100%;
+}
+
+.btn:hover {
+	background-color: var(--dark-purple);
 }

@@ -11,12 +11,7 @@
 	>
 	<title>Group Events | Group</title>
 
-	<script rel = "text/javascript"
-	        src = "/scripts/navbar.js"
-	></script>
-	<script rel = "text/javascript"
-	        src = "/scripts/footer.js"
-	></script>
+
 	<script rel = "text/javascript"
 	        src = "./GroupEvents.js"
 	></script>
@@ -116,7 +111,7 @@
 			<h1>Focus Events</h1>
 			<div id = "focus-area" tabindex = "0">
 				<p>Focus Area (Tab to Focus)</p>
-				<input type = "text" id = "nested-input" placeholder = "Nested Input">
+				<label for = "nested-input"></label><input id = "nested-input" placeholder = "Nested Input" type = "text">
 			</div>
 			<div class = "stats-wrapper">
 				<p id = "focusStatus">Focus: Out</p>
@@ -128,5 +123,9 @@
 	</main>
 
 	<footer id = "footer"></footer>
+
+	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 </body>
 </html>
