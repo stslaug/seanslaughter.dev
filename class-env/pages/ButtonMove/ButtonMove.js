@@ -26,7 +26,7 @@ function makeButton() {
 
     temp.classList.add("newButtons");
     temp.value = rand;
-    temp.textContent = temp.value;
+    temp.textContent = temp.value.toString();
 
     temp = styleButtons(temp);
 

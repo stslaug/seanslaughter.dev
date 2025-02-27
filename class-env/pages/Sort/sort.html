@@ -47,8 +47,10 @@
 		<p>Enter two or more names in the field below, and the sorted list of names will appear in the textarea.</p>
 
 		<form name = "theform" autocomplete = "off">
-			Name: <input type = "text" id = "newname" name = "newname" size = "20"
-		> <input type = "button" id = "addname" name = "addname" value = "Add" onclick = "SortNames();"
+			<label for = "newname">Name:</label>
+			<input id = "newname" name = "newname" size = "20" type = "text"
+			>
+			<input id = "addname" name = "addname" onclick = "SortNames();" type = "button" value = "Add"
 		> <br>
 			<h2>Sorted Names</h2>
 			<ol id = "sorted">
