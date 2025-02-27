@@ -1,7 +1,8 @@
-:root {
-	--purple: rgb(115, 32, 255);
-	--purple-1: #7320ff;
-	--purple-2: #5300e4;
+:root
+{
+	--grey: #eae3ff;
+	--purple: #663399;
+	--dark-purple: #4e357f;
 }
 
 @font-face {
@@ -45,17 +46,6 @@ h1, h2, h3 {
 }
 
 
-#head {
-	display: flex;
-	text-align: center;
-	margin: auto;
-}
-
-
-#head i {
-	margin: 0 0.5rem;
-}
-
 
 .project-section {
 	margin-bottom: 1rem;
@@ -68,20 +58,39 @@ h1, h2, h3 {
 }
 
 #darkMode-btn {
-	position: sticky;
+	align-items: center;
 	bottom: 1.5rem;
-	background-color: var(--purple);
+	justify-content: center;
 	margin: auto 1.5rem 1.5rem auto;
 	padding: 2rem;
-	aspect-ratio: 1;
+	position: sticky;
+	text-align: center;
+
+}
+
+#darkMode-btn i
+{
+	aspect-ratio: 1 / 1;
+	background-color: var(--purple);
 	border-radius: 50%;
+	box-shadow: 1px 1px 1rem 8px rgba(0, 0, 0, 0.3);
 	color: white;
 	cursor: pointer;
-	font-size: 1.25rem;
-	justify-content: center;
-	align-items: center;
+	margin: 0;
+}
+
+#head
+{
+	display: grid;
+	grid-column-gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
 	text-align: center;
-	box-shadow: 1px 1px 1rem 8px rgba(0, 0, 0, 0.3);
+	text-wrap: nowrap;
+}
+
+#head i
+{
+	margin: 0 0.5rem;
 }
 
 
@@ -94,7 +103,7 @@ h1, h2, h3 {
 }
 
 #head a:hover {
-	color: var(--purple-1);
+	color: var(--dark-purple);
 	font-weight: bold;
 	transform: scale(1.1);
 }

@@ -5,11 +5,13 @@ deployment:
 
     # Copy individual files
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp general.css $DEPLOYPATH
+    - /bin/cp nav-foot.js $DEPLOYPATH
+    - /bin/cp general.js $DEPLOYPATH
 
     # Copy entire directories
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R pages $DEPLOYPATH
-    - /bin/cp -R styles $DEPLOYPATH
     - /bin/cp -R components $DEPLOYPATH
     - /bin/cp -R class-env $DEPLOYPATH
 

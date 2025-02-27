@@ -1,6 +1,6 @@
 // initialize the counter and the array
-var numbernames = 0;
-var names = new Array();
+let numbernames = 0;
+let names = [];
 
 window.onload = function() {
     document.getElementById("newname").addEventListener("keydown", function(event) {

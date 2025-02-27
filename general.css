@@ -4,9 +4,17 @@
 	--dark-purple: #4e357f;
 	--grey: #eae3ff;
 }
+
+@font-face
+{
+	font-family: 'Roboto';
+	src: url('/assets/fonts/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
 /* General Styles */
 body {
-	font-family: sans-serif;
+	font-family: 'Roboto', sans-serif;
 	margin: 0;
 }
 
@@ -18,7 +26,12 @@ body {
 
 /* Hero Section */
 .hero {
-	background-color: #f0f0f0;
+	align-content: center;
+	background-image: linear-gradient(45deg, #4e357f 0%, #5100a8 25%, rebeccapurple 50%, #5100a8 75%, #4e357f 100%);
+	color: white;
+	justify-content: center;
+	margin: auto;
+	min-height: 45vh;
 	padding: 4rem 0;
 	text-align: center;
 }
@@ -26,12 +39,28 @@ body {
 .hero-content h1 {
 	font-size: 3rem;
 	margin-bottom: 0.5rem;
+
 }
 
 /* About Section */
 #about {
 	background-color: #fff;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	padding: 4rem 0;
+}
+
+#about img
+{
+	align-self: center;
+	border-radius: 50%;
+	display: flex;
+	height: auto;
+	justify-self: center;
+	max-width: 400px;
+	min-width: 250px;
+	text-align: center;
 }
 
 /* Skills Section */
@@ -53,6 +82,13 @@ body {
 	border-radius: 1rem;
 	box-shadow: 1rem 1rem 3rem 1rem #eee;
 }
+
+.skill-card:hover:focus
+{
+	background-color: red;
+}
+
+
 .skill-card img {
 	width: 3rem;
 }
@@ -68,28 +104,48 @@ body {
 }
 
 #contact ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
 	display: flex;
 	justify-content: center;
+	list-style: none;
+	margin: 2rem 0;
+	padding: 0;
+
 }
 
 #contact li {
 	margin: 0 1rem;
 }
 
+#contact li a
+{
+	animation: all 1s ease-in-out;
+	border: 1px solid #eeeeee;
+	border-radius: 1rem;
+	color: white;
+	padding: 1rem 2rem;
+	text-decoration: none;
+	text-wrap: nowrap;
+	white-space: nowrap;
+}
+
+#contact li:hover
+{
+	transform: scale(1.05);
+}
+
 /* Button */
 .btn {
-	display: inline-block;
-	padding: 0.8rem 1.5rem;
-	background-color: #007bff;
-	color: #fff;
-	text-decoration: none;
+	background-color: var(--purple);
+	border: 1px solid rgba(255, 255, 255, 0.3);
 	border-radius: 5px;
+	box-shadow: 0 0 3rem 8px rgba(255, 255, 255, 0.1);
+	color: #fff;
+	padding: 0.8rem 1.5rem;
+	text-decoration: none;
 	transition: background-color 0.3s;
+	width: 100%;
 }
 
 .btn:hover {
-	background-color: #0069d9;
+	background-color: var(--dark-purple);
 }

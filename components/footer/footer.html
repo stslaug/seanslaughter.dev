@@ -2,24 +2,26 @@
 <html lang = "en">
 <head>
 	<style>
-		  @font-face {
+		  @font-face
+		  {
 			  font-family: 'Roboto';
 			  src: local('/assets/fonts/Roboto-Regular.ttf');
 			  font-weight: normal;
 			  font-style: normal;
 		  }
+
 		  #footer-wrapper
 		  {
-		      font-family: 'Roboto', sans-serif;
-			  position: absolute;
-			  display: flex;
+				  align-content: center;
 			  background-color: var(--purple);
-			  padding: 2rem 0;
-			  justify-content: space-between;
-			  align-content: center;
 			  color: white;
-			  width: 100%;
+			  display: flex;
+			  font-family: 'Roboto', sans-serif;
+			  justify-content: space-between;
 			  left: 0;
+			  padding: 2rem 0;
+			  position: absolute;
+			  width: 100%;
 		  }
 
 		  #footer-wrapper a
@@ -36,7 +38,7 @@
 
 		  #footer-wrapper a:hover
 		  {
-			  background-color: #8637da;
+				  background-color: var(--dark-purple);
 			  color: white;
 		  }
 
@@ -57,13 +59,11 @@
 			  margin-left: 1rem;
 		  }
 
-			  #footer-wrapper span
-			  {
-				  margin-right: 4rem;
-						gap: 1rem;
-			  }
-
-
+		  #footer-wrapper span
+		  {
+			  gap: 1rem;
+			  margin-right: 4rem;
+		  }
 
 		  @media screen and (max-width: 1325px)
 		  {
@@ -73,20 +73,20 @@
 				  color: white;
 			  }
 
+
 			  #footer-wrapper p
 			  {
-
 				  margin: 2rem auto;
 				  text-align: center;
 			  }
-			  #footer-wrapper span
-					{
-			      display:flex;
-			      justify-content: center;
-			      align-items: center;
-			      margin: auto;
 
 
+				  #footer-wrapper span
+				  {
+					  align-items: center;
+					  display: flex;
+					  justify-content: center;
+					  margin: auto;
 			  }
 		  }
 
@@ -98,14 +98,14 @@
 	<footer id = "footer-wrapper">
 		<p>Website developed by Sean Tyler Slaughter</p>
 
-
 		<p> Website developed using HTML, CSS, JavaScript, with
-		some elements of JQuery and PHP!
-		</p>
+			some elements of JQuery and PHP! </p>
 
 		<span>
-			<a href="https://linkedin.com/in/stslaug"><i class="fa-brands fa-linkedin fa-xl"></i></a>
-			<a href="mailto:site@seanslaughter.dev"><i class="fa-solid fa-envelope fa-xl"></i></a>
+			<a aria-label = "Click to go to Sean's LinkedIn" href = "https://linkedin.com/in/stslaug"><i class = "fa-brands fa-linkedin fa-xl"></i></a>
+			<a aria-label = "Click to go to Sean's Github" href = "https://github.com/stslaug" target = "_blank"><i class = "fab fa-github fa-xl"></i></a>
+			<a aria-label = "Click to go to Sean's Email" href = "mailto:site@seanslaughter.dev"><i class = "fa-solid fa-envelope fa-xl"></i></a>
+
 			
 		</span>
 

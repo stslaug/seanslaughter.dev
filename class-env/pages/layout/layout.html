@@ -4,13 +4,12 @@
 <head>
 	<title>Sample Layout</title>
 	<link href="layout.css" rel="stylesheet" type="text/css">
-	<script src="/components/navbar/navbar.js"></script>
 	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no"
 	      name = "viewport"> <!-- This was amazing -->
 </head>
 
 <body>
-	<div id="navbar"></div>
+	<nav id = "navbar"></nav>
 	<header><img src="acmewidgets.jpg" alt="ACME Widgets
        LLC"/></header>
 	<div id="wrapper">
@@ -48,7 +47,11 @@
 			<p>Buy three widgets and get a fourth for free. Act now!</p>
 		</div>
 	</div>
-	<footer>Copyright information usually goes here in the
-		footer... <strong>Disclaimer, I couldn't find the github so the logo is a screenshot!</strong></footer>
+
+	<footer id = "footer"></footer>
+	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 </body>
+
 </html>
