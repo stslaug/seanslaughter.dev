@@ -12,7 +12,4 @@ jQuery(function() {
         console.error('Error loading navbar:', error);
     });
 
-
-
-
 })
