@@ -122,7 +122,7 @@ addEventListener("DOMContentLoaded", (event) => {
             alert("Please enter a positive number, greater than 0");
             return;
         }
-        if (val !== Math.floor(val)) // Check if it is a float or not
+        if (val != Math.floor(val)) // Check if it is a float or not
         {
             alert("Please enter a whole integer (ex. 1, 5, 100). Check: " + val + " not equal to " + parseInt(val));
             return;
