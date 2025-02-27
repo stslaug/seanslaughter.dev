@@ -81,15 +81,15 @@ body {
 
 /* Button */
 .btn {
+	background-color: var(--purple);
+	border-radius: 5px;
+	color: #fff;
 	display: inline-block;
 	padding: 0.8rem 1.5rem;
-	background-color: #007bff;
-	color: #fff;
 	text-decoration: none;
-	border-radius: 5px;
 	transition: background-color 0.3s;
 }
 
 .btn:hover {
-	background-color: #0069d9;
+	background-color: var(--dark-purple);
 }
