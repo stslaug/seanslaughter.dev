@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{@types/jquery, font-awesome, jquery, jquery-1.10.2, jquery-3.6.0, jquery-ui}" />
+    <file url="PROJECT" libraries="{@types/jquery, font-awesome, jquery, jquery-1.10.2, jquery-3.6.0, jquery-3.7.1, jquery-ui}" />
     <includedPredefinedLibrary name="HTTP Pre-Request and Response Handler" />
   </component>
 </project>

@@ -18,7 +18,13 @@ body {
 
 /* Hero Section */
 .hero {
+	background-attachment: fixed;
 	background-color: #f0f0f0;
+	background-image: url('/assets/images/homepage/welcome-splash-wallpaper.webp');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
 	padding: 4rem 0;
 	text-align: center;
 }
@@ -26,6 +32,7 @@ body {
 .hero-content h1 {
 	font-size: 3rem;
 	margin-bottom: 0.5rem;
+
 }
 
 /* About Section */
@@ -68,15 +75,31 @@ body {
 }
 
 #contact ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
 	display: flex;
 	justify-content: center;
+	list-style: none;
+	margin: 2rem 0;
+	padding: 0;
+
 }
 
 #contact li {
 	margin: 0 1rem;
+}
+
+#contact li a
+{
+	animation: all 1s ease-in-out;
+	border: 1px solid #eeeeee;
+	border-radius: 1rem;
+	color: white;
+	padding: 1rem 2rem;
+	text-decoration: none;
+}
+
+#contact li:hover
+{
+	transform: scale(1.05);
 }
 
 /* Button */
