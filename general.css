@@ -141,6 +141,7 @@ body {
 	display: inline-block;
 	padding: 0.8rem 1.5rem;
 	text-decoration: none;
+	text-wrap: nowrap;
 	transition: background-color 0.3s;
 }
 
