@@ -1,17 +1,6 @@
 jQuery(function () {
     $('head').append('<link rel="stylesheet" href="/components/navbar/navbar.css">');
-
-    // Function to check and dynamically load FontAwesome script
-    function loadFontAwesome() {
-        if (!$('script[src="https://kit.fontawesome.com/44ecd57f75.js"]').length) {
-            let script = document.createElement('script');
-            script.src = "https://kit.fontawesome.com/44ecd57f75.js";
-            script.crossOrigin = "anonymous";
-            $('head').append(script);
-        }
-    }
-
-    loadFontAwesome();
+    $('head').append('<script src="https://kit.fontawesome.com/44ecd57f75.js" crossorigin="anonymous"></script>');
 
     // Toggle mobile menu
     $("#hamburger").on('click', function () {
