@@ -27,7 +27,7 @@ body {
 /* Hero Section */
 .hero {
 	align-content: center;
-	background-image: linear-gradient(45deg, rebeccapurple 0%, #5100a8 35%, purple 66%, var(--purple) 100%);
+	background-image: linear-gradient(45deg, #4e357f 0%, #5100a8 25%, rebeccapurple 50%, #5100a8 75%, #4e357f 100%);
 	color: white;
 	justify-content: center;
 	margin: auto;
@@ -45,7 +45,20 @@ body {
 /* About Section */
 #about {
 	background-color: #fff;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	padding: 4rem 0;
+}
+
+#about img
+{
+	align-self: center;
+	border-radius: 50%;
+	display: flex;
+	justify-self: center;
+	min-width: 250px;
+	text-align: center;
 }
 
 /* Skills Section */
@@ -119,7 +132,9 @@ body {
 /* Button */
 .btn {
 	background-color: var(--purple);
+	border: 1px solid rgba(255, 255, 255, 0.3);
 	border-radius: 5px;
+	box-shadow: 0 0 3rem 8px rgba(255, 255, 255, 0.1);
 	color: #fff;
 	display: inline-block;
 	padding: 0.8rem 1.5rem;
