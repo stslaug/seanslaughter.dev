@@ -1,0 +1,116 @@
+main
+{
+	display: flex;
+	padding: 3rem;
+	background-color: rebeccapurple;
+}
+
+#titles, #functions, #titleCreate
+{
+	border-radius: 5rem;
+	border: 1px solid black;
+	padding: 2rem;
+	box-shadow: 1px 1px 3rem 1px rgba(209, 209, 209, 0.3);
+	background-color: #e8e8e8;
+}
+
+#interactable
+{
+	margin: 0 0 auto auto;
+	width: 100%;
+	min-width: 15vw;
+	max-width: 30vw;
+}
+#functions {
+	min-height: 20vh;
+	max-height: 50vh;
+}
+
+#titles
+{
+	width: 100%;
+	margin: 0 auto auto 0.5rem;
+	min-height: 50vh;
+	min-width: 40vw;
+	max-width: 80vw;
+}
+
+/* Progress Bar*/
+#progressBar
+{
+	width: 80%;
+	height: 10px;
+	background-color: #dddddd;
+	margin: 10px auto;
+	position: relative;
+}
+
+#progress
+{
+	height: 100%;
+	width: 0;
+	background-color: #1200da;
+}
+
+#titleCreate
+{
+	margin-top: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+table {
+	text-align: center;
+	width: 100%;
+	border-spacing: 1rem;
+}
+
+th, td {
+
+	margin: 5rem;
+	padding: 1.5rem;
+	border-radius: 1rem;
+}
+tbody tr td:first-child
+{
+	text-align: left;
+}
+tbody tr
+{
+	margin: 1rem;
+	padding: 1.5rem;
+	border-radius: 1rem;
+	text-align: center;
+	box-shadow: 1px 1px 3rem 1px rgba(0,0,0,0.2);
+}
+
+
+
+thead th:nth-child(1) {  /* Title Column */
+	width: 66%;
+}
+
+thead th:nth-child(2) {  /* Timestamp Column */
+	width: 17%;
+}
+
+thead th:nth-child(3) {  /* Controls Column */
+	width: 17%;
+}
+
+.controls {
+
+	display: flex;
+	justify-content: center;
+	gap: 8px;
+}
+

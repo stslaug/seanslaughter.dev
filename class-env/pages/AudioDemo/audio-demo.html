@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<meta content = "ie=edge" http-equiv = "X-UA-Compatible">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<meta content = "Sean Tyler Slaughter" name = "author">
+	<meta charset = "UTF-8">
+	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "32x32" type = "image/svg">
+	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "16x16" type = "image/svg">
+
+	<title>Audio Demo | Sean Slaughter</title>
+	<link rel = "stylesheet" href = "/general.css">
+	<link rel = "stylesheet" href = "./audio-demo.css">
+</head>
+<body>
+	<nav id = "navbar"></nav>
+
+	<main>
+		<div id = "interactable">
+			<div id = "functions">
+				<h1>Audio Demo</h1>
+
+				<!-- Loads the Audio file in -->
+				<audio id = "audio" autoplay>
+					<source src = "./audio.mp3">
+				</audio>
+
+				<div id = "title-controls">
+					<i id = "prevTitleBtn" class = "fa-solid fa-backward fa-xl"></i>
+					<i id = "playPauseBtn" class = "fa-solid fa-play fa-xl"></i>
+					<i id = "nextTitleBtn" class = "fa-solid fa-forward fa-xl"></i>
+				</div>
+
+				<div id = "volume-controls">
+
+					<label for = "volumeControl"><i class = "fa-solid fa-volume-off"></i></label> <!-- Volume Slider -->
+					<input type = "range" id = "volumeControl" min = "0" max = "1" step = "0.01" value = "1">
+					<label for = "volumeControl"><i class = "fa-solid fa-volume-high"></i></label>
+
+				</div>
+
+				<div id = "time-controls">
+					<!--Shows the elapsed playback time -->
+					<i id = "currentTime">0:00</i>
+
+					<!-- Visual indicator for playback time-->
+
+					<label for = "progressBar"></label><input type = "range" id = "progressBar" min = "0" max = "100" value = "0" step = "0.01">
+
+					<!-- Displays to duration -->
+					<span id = "duration">0:00</span>
+				</div>
+			</div>
+
+			<div id = "titleCreate">
+				<h2>Create a title bookmark!</h2>
+				<form id = "createTitle">
+					<label for = "newTitle">
+						<input type = "text" placeholder = "This is a title" id = "newTitle">
+					</label>
+					<label for = "timestamp"> Timestamp</label>
+					<input id = "timestamp" type = "range" min = "0" max = "0" step = "1" value = "1">
+					<input type = "submit" id = "createTitleBtn" value = "Create Title At: 0:00">
+				</form>
+			</div>
+		</div>
+		<div id = "titles">
+			<table>
+				<thead>
+				<tr>
+					<th class = "title-column">Title</th>
+					<th class = "time-column">Time Stamp</th>
+					<th>Controls</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td class = "title-column" data-label = "Title">Example Title</td>
+					<td class = "time-column" data-label = "Time">5:00</td>
+					<td id = "control-column" data-label = "Controls">
+						<div class = "controls">
+							<i class = "fas fa-play fa-2xl"></i>
+							<i class = "fa-solid fa-trash fa-2xl"></i>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class = "title-column" data-label = "Title">Another Example with a really long title,
+						because people like long nameswjksjajhkjashdkajshd
+					</td>
+					<td class = "time-column" data-label = "Time">0:30</td>
+					<td data-label = "Controls">
+						<div class = "controls">
+							<i class = "fa-solid fa-play fa-2xl"></i>
+							<i class = "fa-solid fa-trash fa-2xl"></i>
+						</div>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</main>
+
+	<footer id = "footer"></footer>
+
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script rel = "text/javascript" src = "/scripts/navbar.js"></script>
+	<script rel = "text/javascript" src = "/scripts/footer.js"></script>
+	<script rel = "text/javascript" src = "./audio-demo.js"></script>
+
+</body>
+</html>

@@ -21,7 +21,7 @@
 	bottom: 0;
 
 	/* Put your background image here */
-	background: var(--purple) url("/assets/images/homepage/welcome-splash-wallpaper.png") no-repeat center center;
+	background: var(--purple) url("/assets/images/homepage/welcome-splash-wallpaper.webp") no-repeat center center;
 	background-size: cover;
 
 	opacity: 0.2;

@@ -6,6 +6,12 @@
 	<title>Navbar</title>
 
 	<style>
+		  :root
+		  {
+			  --purple: #663399;
+			  --dark-purple: #4e357f;
+			  --grey: #eae3ff;
+		  }
 		  @font-face {
 			  font-family: 'Roboto';
 			  src: local('/assets/fonts/Roboto-Regular.ttf');
@@ -18,7 +24,7 @@
 			  display: flex;
 			  justify-content: space-between;
 			  align-items: center;
-			  background-color: #7320ff;
+			  background-color: var(--purple);
 			  padding: 1rem;
 			  z-index: 1;
 			  font-family: 'Roboto', sans-serif;
@@ -70,7 +76,7 @@
 		  .dropmenu {
 			  display: none;
 			  position: absolute;
-			  background-color: #7320ff;
+			  background-color: var(--purple);
 			  min-width: 12rem;
 			  top: 175%; /* positions dropdown below the nav-item */
 			  left: 0;
@@ -108,7 +114,7 @@
 				  position: absolute;
 				  top: 0;
 				  right: 100%;
-				  background-color: #7320ff;
+				  background-color: var(--purple);
 				  min-width: 10rem;
 				  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 				  z-index: 999;

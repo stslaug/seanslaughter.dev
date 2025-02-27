@@ -68,3 +68,8 @@
 		flex-direction: column;
 	}
 }
+
+.fa-star
+{
+	color: goldenrod;
+}
