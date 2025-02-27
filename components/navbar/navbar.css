@@ -1,0 +1,196 @@
+:root {
+	--purple: #663399;
+	--dark-purple: #4e357f;
+	--grey: #eae3ff;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: local('/assets/fonts/Roboto-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Base NAV styling */
+#mynav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--purple);
+	padding: 1rem;
+	z-index: 1;
+	font-family: 'Roboto', sans-serif;
+	border-bottom: 1px solid white;
+	margin: auto;
+	position: relative;
+	/* necessary for absolute positioning of mobile menu */
+}
+
+#brand-name {
+	color: white;
+	font-size: 1.5rem;
+	margin: 0;
+}
+
+.nav-items {
+	display: flex;
+	align-items: center;
+}
+
+.nav-item {
+	color: #f2f2f2;
+	text-decoration: none;
+	border-radius: 0.5rem;
+	text-align: center;
+	padding: 0.9rem 1rem;
+	font-size: 17px;
+	transition: all 0.2s;
+}
+
+.nav-item:hover {
+	background-color: var(--dark-purple);
+	text-decoration-thickness: 5px;
+	text-decoration: underline;
+}
+
+/* Dropdown container that wraps the title and the dropdown content */
+.dropdown {
+	position: relative;
+}
+
+/* Dropdown title (the nav-item that triggers the dropdown) */
+.dropbtn {
+	cursor: pointer;
+}
+
+/* Dropdown menu styling */
+.dropmenu {
+	display: none;
+	position: absolute;
+	background-color: var(--purple);
+	min-width: 12rem;
+	top: 175%;
+	/* positions dropdown below the nav-item */
+	left: 0;
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+	z-index: 999;
+}
+
+/* Show dropdown on hover for desktop */
+.dropdown:hover .dropmenu {
+	display: block;
+}
+
+.dropdown-item {
+	display: block;
+	color: #f2f2f2;
+	text-decoration: none;
+	padding: 0.75rem 1rem;
+	white-space: nowrap;
+	transition: all 0.1s ease-in-out;
+}
+
+.dropdown-item:hover {
+	background-color: #dddddd;
+	color: black;
+}
+
+/* Submenu styling  */
+.submenu-wrap {
+	position: relative;
+}
+
+.submenu {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 100%;
+	background-color: var(--purple);
+	min-width: 10rem;
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+	z-index: 999;
+}
+
+.submenu-btn {
+	display: block;
+	color: #f2f2f2;
+	text-decoration: none;
+	padding: 0.75rem 1rem;
+	white-space: nowrap;
+}
+
+.submenu-btn:hover {
+	background-color: #dddddd;
+	color: black;
+}
+
+.submenu-wrap:hover .submenu {
+	display: block;
+}
+
+/* Hamburger menu  */
+.hamburger {
+	display: none !important;
+	font-size: 24px;
+	color: white;
+	cursor: pointer;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+	.hamburger {
+		display: block !important;
+		margin: 0 1.5rem;
+		transition: all 0.3s ease-in-out;
+	}
+
+	.hamburger:hover {
+		transform: scale(1.2);
+	}
+
+	/* Hide icons for dropdown indicators on mobile */
+	.fa-caret-left,
+	.fa-caret-down {
+		display: none;
+	}
+
+	.nav-items {
+		flex-direction: column;
+		width: 100%;
+		position: absolute;
+		top: 60px;
+		left: 0;
+		background-color: var(--purple);
+		border-top: 1px solid white;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease-in-out;
+	}
+
+	.nav-items.active {
+		max-height: 500px;
+
+
+
+	}
+
+	.nav-item {
+		width: 100%;
+		text-align: center;
+		padding: 1rem;
+		border-bottom: 1px solid white;
+	}
+
+	/* Hide all dropdowns on mobile */
+	.dropmenu,
+	.submenu {
+		display: none !important;
+	}
+
+	.dropbtn {
+		display: block;
+		margin: auto;
+		width: 100%;
+		min-width: 100vw;
+	}
+}
