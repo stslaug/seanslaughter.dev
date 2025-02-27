@@ -1,4 +1,4 @@
-$(document).ready(function () {
+jQuery(function () {
     $('div').on('mouseenter', function () {
         $(this).css('background-color', 'yellow');
     });

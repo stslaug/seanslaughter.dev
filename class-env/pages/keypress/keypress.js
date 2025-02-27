@@ -1,5 +1,7 @@
-let vowels = ['a', 'e', 'i', 'o', 'u'];
-$(document).ready(function() {
+jQuery(function () {
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
+
+
     $(document).on("keypress", function(event) {  
         const pressedKey = event.key.toLowerCase(); 
         

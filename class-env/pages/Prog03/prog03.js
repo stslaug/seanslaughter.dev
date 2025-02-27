@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function myFunction() {
-    var x = document.getElementById("mynavbar");
+    let x = document.getElementById("mynavbar");
     if (x.className === "navbar") {
         x.className += " responsive";
     } else {
