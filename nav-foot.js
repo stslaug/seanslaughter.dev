@@ -1,5 +1,4 @@
 jQuery(function() {
-    $('body').append('<script type="text/javascript" src="">')
     // Dynamically Load the Navbar
     $.get('/components/navbar/navbar.html', function (data) {
         $('#navbar').html(data);
