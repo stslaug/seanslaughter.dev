@@ -1,38 +1,25 @@
-:root
-{
-	--font: 'Noto Sans Display';
-	--grey: #eae3ff;
-	--purple: #663399;
-	--yellow: #f4d01d;
-	--dark-purple: #4e357f;
-	--deep-purple: #1e1a28;
-}
-
 @font-face
 {
-	font-family: 'Noto Sans Display Regular';
-	src: local('/assets/fonts/Noto_Sans_Display/NotoSansDisplay-VariableFont_wdth,wght.ttf');
+	font-family: 'Roboto';
+	src: local('/assets/fonts/Roboto-Regular.ttf');
 	font-weight: normal;
 	font-style: normal;
 }
 
-#myfooter
+#footer-wrapper
 {
 	align-content: center;
 	background-color: var(--purple);
-	border: 1px white;
-	border-style: solid none none none;
 	color: white;
 	display: flex;
-	font-family: 'Noto Sans Display Regular', sans-serif;
-	justify-content: space-between;
+	font-family: 'Roboto', sans-serif;
 	left: 0;
+	margin: auto;
 	padding: 2rem 0;
-	position: absolute;
 	width: 100%;
 }
 
-#myfooter a
+#footer-wrapper a
 {
 	background-color: #6a3bbd;
 	border: 1px solid rgba(255, 255, 255, 0.1);
@@ -44,30 +31,30 @@
 	text-decoration: none;
 }
 
-#myfooter a:hover
+#footer-wrapper a:hover
 {
 	background-color: var(--dark-purple);
 	color: white;
 }
 
-#myfooter p
+#footer-wrapper p
 {
 	align-self: center;
 	justify-content: center;
 	margin: auto;
 }
 
-#myfooter p:last-child
+#footer-wrapper p:last-child
 {
 	margin-right: 1rem;
 }
 
-#myfooter p:first-child
+#footer-wrapper p:first-child
 {
 	margin-left: 1rem;
 }
 
-#myfooter span
+#footer-wrapper span
 {
 	gap: 1rem;
 	margin-right: 4rem;
@@ -75,29 +62,25 @@
 
 @media screen and (max-width: 1325px)
 {
-	#myfooter
+	#footer-wrapper
 	{
+		color: white;
 		display: block;
 	}
 
 
-	#myfooter p
+	#footer-wrapper p
 	{
 		margin: 2rem auto;
 		text-align: center;
 	}
 
 
-	#myfooter span
+	#footer-wrapper span
 	{
 		align-items: center;
 		display: flex;
 		justify-content: center;
 		margin: auto;
 	}
-}
-
-body.dark-mode #myfooter
-{
-	background-color: var(--deep-purple);
 }
