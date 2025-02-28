@@ -84,3 +84,8 @@
 		margin: auto;
 	}
 }
+
+body.dark-mode #footer-wrapper
+{
+	background-color: var(--dark-purple);
+}
