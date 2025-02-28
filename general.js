@@ -1,3 +1,5 @@
 jQuery(function () {
-    console.log("loaded");
-})
+    $(".skill-card").each(function (index) {
+
+    });
+});
