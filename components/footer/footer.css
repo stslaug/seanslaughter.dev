@@ -16,10 +16,12 @@
 	font-style: normal;
 }
 
-#footer
+#myfooter
 {
 	align-content: center;
 	background-color: var(--purple);
+	border: 1px white;
+	border-style: solid none none none;
 	color: white;
 	display: flex;
 	font-family: 'Noto Sans Display Regular', sans-serif;
@@ -30,7 +32,7 @@
 	width: 100%;
 }
 
-#footer a
+#myfooter a
 {
 	background-color: #6a3bbd;
 	border: 1px solid rgba(255, 255, 255, 0.1);
@@ -42,30 +44,30 @@
 	text-decoration: none;
 }
 
-#footer a:hover
+#myfooter a:hover
 {
 	background-color: var(--dark-purple);
 	color: white;
 }
 
-#footer p
+#myfooter p
 {
 	align-self: center;
 	justify-content: center;
 	margin: auto;
 }
 
-#footer p:last-child
+#myfooter p:last-child
 {
 	margin-right: 1rem;
 }
 
-#footer p:first-child
+#myfooter p:first-child
 {
 	margin-left: 1rem;
 }
 
-#footer span
+#myfooter span
 {
 	gap: 1rem;
 	margin-right: 4rem;
@@ -73,20 +75,20 @@
 
 @media screen and (max-width: 1325px)
 {
-	#footer
+	#myfooter
 	{
 		display: block;
 	}
 
 
-	#footer p
+	#myfooter p
 	{
 		margin: 2rem auto;
 		text-align: center;
 	}
 
 
-	#footer span
+	#myfooter span
 	{
 		align-items: center;
 		display: flex;
@@ -95,7 +97,7 @@
 	}
 }
 
-body.dark-mode #footer
+body.dark-mode #myfooter
 {
 	background-color: var(--deep-purple);
 }
