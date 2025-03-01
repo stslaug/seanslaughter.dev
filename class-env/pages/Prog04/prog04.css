@@ -1,7 +1,8 @@
 html, body
 {
-	margin: 0;
 	height: 100%;
+	margin: 0;
+	transition: all 0.3s ease-in-out;
 	width: 100%;
 }
 
@@ -53,34 +54,44 @@ button:hover
 /* Individual Button Formatting */
 #red-button
 {
-	background-color: red;
+	background-color: indianred;
 	color: white;
 }
 
 #red-button:hover
 {
 	background-color: white;
-	color: red;
+	color: indianred;
+	font-weight: bolder;
 }
 
 #green-button
 {
 	background-color: green;
 	color: white;
+	font-weight: bolder;
 }
 
 #green-button:hover
 {
 	background-color: white;
 	color: green;
+	font-weight: bolder;
 }
 
 #blue-button
 {
-	background-color: blue;
+	background-color: royalblue;
 	color: white;
+
 }
 
+#blue-button:hover
+{
+	background-color: white;
+	color: royalblue;
+	font-weight: bolder;
+}
 /*
 
 	Stat Block Section
@@ -93,10 +104,4 @@ button:hover
 	display: inline-block;
 	padding: 1rem 2rem;
 
-}
-
-#blue-button:hover
-{
-	background-color: white;
-	color: blue;
 }

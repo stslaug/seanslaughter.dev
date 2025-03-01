@@ -16,6 +16,8 @@
 	left: 0;
 	margin: auto;
 	padding: 2rem 0;
+	position: sticky;
+	transition: background-color 0.3s ease, color 0.3s ease;
 	width: 100%;
 }
 
@@ -29,6 +31,7 @@
 	font-weight: bolder;
 	padding: 1rem;
 	text-decoration: none;
+	transition: all 0.3s ease;
 }
 
 #footer-wrapper a:hover
