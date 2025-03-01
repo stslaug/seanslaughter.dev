@@ -1,9 +1,13 @@
 :root
 {
+	--blue: royalblue;
 	--font: 'Noto Sans Display';
+	--green: green;
 	--grey: #eae3ff;
 	--plum: #342d45;
 	--purple: #663399;
+	--red: indianred;
+	--white: #ffffff;
 	--yellow: #f4d01d;
 	--dark-purple: #4e357f;
 	--deep-purple: #1e1a28;
@@ -44,6 +48,19 @@ body
 	padding: 2rem;
 }
 
+.page-container
+{
+	animation: all 0.3s ease-in-out;
+	background-color: #ffffff;
+	border: 1px #b6b6b6;
+	border-radius: 3rem;
+	box-shadow: 1px 1px 3rem 1px rgba(0, 0, 0, 0.3);
+	height: auto;
+	margin: 1rem auto;
+	max-width: 50%;
+	padding: 3rem;
+	width: 100%;
+}
 
 /*
  *
@@ -59,8 +76,8 @@ body
 	color: #ffffff;
 	padding: 0.8rem 1.5rem;
 	text-decoration: none;
-	transition: any 0.3s ease;
-	width: 100%;
+	transition: transform 0.3s ease;
+
 }
 
 .btn:hover
@@ -115,4 +132,11 @@ body.dark-mode h6
 body.dark-mode .special-text
 {
 	color: var(--purple);
+}
+
+body.dark-mode .page-container
+{
+	background-color: var(--plum);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 1px 1px 3rem 1px rgba(255, 255, 255, 0.3);
 }

@@ -8,22 +8,6 @@
 	--deep-purple: #1e1a28;
 }
 
-@font-face
-{
-	font-family: 'Noto Sans Display Regular';
-	src: local('/assets/fonts/Noto_Sans_Display/NotoSansDisplay-VariableFont_wdth,wght.ttf');
-	font-weight: normal;
-	font-style: normal;
-}
-
-/* General Styles */
-body
-{
-	font-family: 'Noto Sans Display', "Noto San", sans-serif;
-	margin: 0;
-	transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 .container
 {
 	margin: 0 auto;

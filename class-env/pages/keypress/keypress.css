@@ -8,19 +8,11 @@ body
 	min-height: 100%;
 	position: relative;
 }
+
 .keypress
 {
-	animation: all 0.3s ease-in-out;
-	background-color: #ffffff;
-	border: 1px #b6b6b6;
-	border-radius: 3rem;
-	box-shadow: 1px 1px 3rem 1px rgba(0, 0, 0, 0.3);
 	font-size: 1.3rem;
-	height: auto;
 	line-height: 2;
-	margin: 1rem auto;
-	max-width: 50%;
-	min-width: 50%;
 	padding: 3rem;
 	text-align: center;
 }
@@ -52,6 +44,10 @@ body
 
 @media screen and (max-width: 800px)
 {
+	.page-container
+	{
+		margin: 3rem auto;
+	}
 	.keypress
 	{
 		max-width: 100%;
