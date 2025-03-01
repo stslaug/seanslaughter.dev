@@ -1,8 +1,8 @@
 jQuery(function () {
-    $('div').on('mouseenter', function () {
-        $(this).css('background-color', 'yellow');
+    $('.fade-div').on('mouseenter', function () {
+        $(this).css('background-color', 'var(--yellow)');
     });
-    $('div').on('mouseleave', function () {
+    $('.fade-div').on('mouseleave', function () {
         $(this).css('background-color', 'white');
     });
 

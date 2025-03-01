@@ -1,114 +1,15 @@
-<!DOCTYPE html>
-<html lang = "en">
-<head>
-	<style>
-		  @font-face
-		  {
-			  font-family: 'Roboto';
-			  src: local('/assets/fonts/Roboto-Regular.ttf');
-			  font-weight: normal;
-			  font-style: normal;
-		  }
+<footer id = "footer-wrapper">
+	<p>Website developed by Sean Tyler Slaughter</p>
 
-		  #footer-wrapper
-		  {
-				  align-content: center;
-			  background-color: var(--purple);
-			  color: white;
-			  display: flex;
-			  font-family: 'Roboto', sans-serif;
-			  justify-content: space-between;
-			  left: 0;
-			  padding: 2rem 0;
-			  position: absolute;
-			  width: 100%;
-		  }
+	<p> Website developed using HTML, CSS, JavaScript, with
+		some elements of JQuery and PHP! </p>
 
-		  #footer-wrapper a
-		  {
-			  color: white;
-			  text-decoration: none;
-			  font-weight: bolder;
-			  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.12);
-			  background-color: #6a3bbd;
-			  border: 1px solid rgba(255, 255, 255, 0.1);
-			  border-radius: 0.5rem;
-			  padding: 1rem;
-		  }
-
-		  #footer-wrapper a:hover
-		  {
-				  background-color: var(--dark-purple);
-			  color: white;
-		  }
-
-		  #footer-wrapper p
-		  {
-			  justify-content: center;
-			  align-self: center;
-			  margin: auto;
-		  }
-
-		  #footer-wrapper p:last-child
-		  {
-			  margin-right: 1rem;
-		  }
-
-		  #footer-wrapper p:first-child
-		  {
-			  margin-left: 1rem;
-		  }
-
-		  #footer-wrapper span
-		  {
-			  gap: 1rem;
-			  margin-right: 4rem;
-		  }
-
-		  @media screen and (max-width: 1325px)
-		  {
-			  #footer-wrapper
-			  {
-				  display: block;
-				  color: white;
-			  }
-
-
-			  #footer-wrapper p
-			  {
-				  margin: 2rem auto;
-				  text-align: center;
-			  }
-
-
-				  #footer-wrapper span
-				  {
-					  align-items: center;
-					  display: flex;
-					  justify-content: center;
-					  margin: auto;
-			  }
-		  }
-
-	</style>
-	<title>Footer | Sean Slaughter</title>
-</head>
-<body>
-
-	<footer id = "footer-wrapper">
-		<p>Website developed by Sean Tyler Slaughter</p>
-
-		<p> Website developed using HTML, CSS, JavaScript, with
-			some elements of JQuery and PHP! </p>
-
-		<span>
+	<span>
 			<a aria-label = "Click to go to Sean's LinkedIn" href = "https://linkedin.com/in/stslaug"><i class = "fa-brands fa-linkedin fa-xl"></i></a>
 			<a aria-label = "Click to go to Sean's Github" href = "https://github.com/stslaug" target = "_blank"><i class = "fab fa-github fa-xl"></i></a>
 			<a aria-label = "Click to go to Sean's Email" href = "mailto:site@seanslaughter.dev"><i class = "fa-solid fa-envelope fa-xl"></i></a>
 
-			
 		</span>
 
-	</footer>
-</body>
-</html>
+</footer>
+<script src = "/components/footer/footer.js"></script>

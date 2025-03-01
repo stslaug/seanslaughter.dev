@@ -4,27 +4,81 @@ body
 {
 	display: flex;
 	flex-direction: column;
-}
-.keypress
-{
-	max-width: 50%;
-	min-width: 425px;
-	margin: 1rem auto;
-	box-shadow: 1px 1px 3rem 1px rgba(0, 0, 0, 0.3);
-	padding: 3rem;
-	border: 1px #b6b6b6;
-	border-radius: 3rem;
-	text-align: center;
-	line-height: 2;
-	font-size: 1.3rem;
-	background-color: #ffffff;
+	height: auto !important;
+	min-height: 100%;
+	position: relative;
 }
 
-strong
+.keypress
 {
-	margin: auto;
-	padding: 0.5rem;
+	font-size: 1.3rem;
+	line-height: 2;
+	padding: 3rem;
+	text-align: center;
+}
+
+#red
+{
+	background-color: indianred;
+}
+
+#green
+{
+	background-color: green;
+}
+
+#blue
+{
+	background-color: royalblue;
+}
+
+.important
+{
 	border: 1px #b6b6b6 solid;
 	border-radius: 0.6rem;
 	color: white;
+	margin: auto;
+	padding: 1rem;
+	width: 100%;
+}
+
+@media screen and (max-width: 800px)
+{
+	.page-container
+	{
+		margin: 3rem auto;
+	}
+	.keypress
+	{
+		max-width: 100%;
+		min-width: 100%;
+		width: 100%;
+	}
+}
+
+body.dark-mode
+{
+	background-color: var(--plum) !important;
+}
+
+body.dark-mode .keypress
+{
+	background-color: var(--deep-purple);
+	border: 1px #b6b6b6 solid;
+	box-shadow: 1px 1px 3rem 1px rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode #red
+{
+	background-color: #431515
+}
+
+body.dark-mode #green
+{
+	background-color: darkgreen;
+}
+
+body.dark-mode #blue
+{
+	background-color: darkblue;
 }

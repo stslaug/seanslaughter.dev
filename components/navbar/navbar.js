@@ -5,6 +5,7 @@ jQuery(function () {
     // Toggle mobile menu
     $("#hamburger").on('click', function () {
         $("#nav-items").toggleClass("active");
+        console.log("boop");
     });
 
 
@@ -20,4 +21,12 @@ jQuery(function () {
     }, function () {
         $(this).find(".submenu").stop(true, true).fadeOut();
     });
+
+
+    $('#darkmode-toggle').on('click', function () {
+        $('body').toggleClass('dark-mode');
+        $('#footer').toggleClass('dark-mode');
+        $('#darkmode-toggle i').toggleClass('fa-moon').toggleClass('fa-sun');
+    });
+    
 });

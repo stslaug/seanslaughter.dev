@@ -11,10 +11,6 @@ header
 	float: left;
 	width: 100%;
 }
-header img
-{
-}
-
 footer
 {
 	position: relative;
@@ -24,7 +20,6 @@ footer
 	text-align: center;
 	font-style: italic;
 }
-
 #wrapper
 {
 	float: left;
