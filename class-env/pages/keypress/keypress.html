@@ -9,25 +9,28 @@
 
 </head>
 <body>
-	<header>
-		<nav id = "navbar"></nav>
-	</header>
+	<nav id = "navbar"></nav>
 
+	<div class = "keypress">
+		<h1>Keyboard Controls:</h1>
+		<h2>Background Color Options:</h2>
 
-	<main style="min-height: 81.9vh;">
-		<div class = "keypress">
-		<h1>Keypress Controls:</h1>
-		<p>Press 'R'/'r': Change this background to <strong style="background-color: indianred;">red</strong></p>
-		<p>Press 'G'/'g': Change this background to <strong style="background-color: mediumseagreen;">green</strong></p>
-		<p>Press 'B'/'b': Change this background to <strong style="background-color: dodgerblue;">blue</strong></p>
-		<p>All Vowels are capitalized automatically : </p>
-		<p id="lastKey">Last Key Pressed: N/A</p>
+		<div>
+			<div class = "important" id = "red">Press R or r</div>
+			<div class = "important" id = "green" style = "margin: 1rem auto;">Press G or g</div>
+			<div class = "important" id = "blue">Press B or b</div>
 		</div>
-	</main>
+		<hr>
+		<h2>Other Stuff</h2>
+		<p style = "font-size: 1rem; margin: -1rem;">(Vowels are auto capitalized) </p>
+		<p id = "lastKey">Press a key!</p>
+		<div class = "important" style = "background-color: indianred; ">Now with dark and light mode
+			options!
+		</div>
+	</div>
 
 	<footer id = "footer"></footer>
 
-	<footer class = "footer"></footer>
 	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
