@@ -72,8 +72,6 @@ Intended Structure
 .nav-item:hover
 {
 	background-color: var(--dark-purple);
-	text-decoration: underline;
-	text-decoration-thickness: 5px;
 }
 
 /* Dropdown container that wraps the title and the dropdown content */
@@ -99,14 +97,15 @@ Intended Structure
 	min-width: 12rem;
 	/* positions dropdown below the nav-item */
 	position: absolute;
-	top: 175%;
+	top: 150%;
 	z-index: 999;
 }
 
 /* Show dropdown on hover for desktop */
 .dropdown:hover .dropmenu
 {
-	display: block;
+	display: block !important;
+	z-index: 3;
 }
 
 .dropdown-item
