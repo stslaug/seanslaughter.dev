@@ -5,7 +5,6 @@ jQuery(function () {
     // Toggle mobile menu
     $("#hamburger").on('click', function () {
         $("#nav-items").toggleClass("active");
-        console.log("boop");
     });
 
 
