@@ -21,7 +21,7 @@ body, html {
 	width: 100%;
 }
 
-.red:hover, .blue:hover, .green:hover, .white:hover
+.red:hover, .blue:hover, .green:hover, .white:hover, .yellow:hover
 {
 	font-weight: bolder;
 	transform: scale(1.5);
