@@ -58,7 +58,7 @@ body
 
 body.dark-mode
 {
-	background-color: var(--plum) !important;
+	background-color: var(--plum);
 }
 
 body.dark-mode .keypress
