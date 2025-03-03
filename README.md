@@ -1,9 +1,3 @@
-Website Developer
-Custom Gem
-Sure, here's a draft for your project:
-
-Markdown
-
 # Sean Slaughter's Website Portfolio
 
 ## About

@@ -18,41 +18,46 @@
 <body>
 	<nav id = "navbar"></nav>
 
-	<main>
-		<section id = "intro">
-			<h1>JQuery Intro</h1>
-			<p>Div elements will turn yellow</p>
+	<main class = "page-container">
 
-			<div id = "div1" style = "border: 1px solid black;">
-				<p>A paragraph in a div.</p>
-				<p>Another paragraph in a div.</p>
+		<h1>jQuery Demonstration</h1>
+		<p>Showcasing small set of the vast collection of tools jQuery has to offer</p>
+		<hr>
+		<h2>Hover effects</h2>
+
+		<div class = "fade-div" id = "div1" style = "border: 1px solid black;">
+			<h3>Hover Over me!</h3>
 			</div>
 			<br>
 
-			<div id = "div2" style = "border: 1px solid black;">
-				<p>A paragraph in another div.</p>
-				<p>Another paragraph in another div.</p>
+		<div class = "fade-div" id = "div2" style = "border: 1px solid black;">
+			<h3>Hover Over me!</h3>
 			</div>
 			<br>
 
-			<div id = "div3" style = "border: 1px solid black;">
-				<p>A paragraph in another div.</p>
-				<p>Another paragraph in another div.</p>
+		<div class = "fade-div" id = "div3" style = "border: 1px solid black;">
+			<h3>Hover Over me!</h3>
 			</div>
 
 			<br>
 
-			<button id = "fadeDiv1">Fade Div 1</button>
-			<button id = "fadeDiv2">Fade Div 2</button>
-			<button id = "fadeDiv3">Fade Div 3</button>
+		<button class = "btn" id = "fadeDiv1">Fade Div 1</button>
+		<button class = "btn" id = "fadeDiv2">Fade Div 2</button>
+		<button class = "btn" id = "fadeDiv3">Fade Div 3</button>
 
-			<br><br>
+		<br>
+		<hr>
+		<br>
 
+		<h2>Date Picker </h2>
 			<label for = "datepicker">Select a date:</label>
-			<input type = "text" id = "datepicker">
+		<input id = "datepicker" placeholder = "mm/dd/yy" type = "text">
 
-			<br><br>
-
+		<br>
+		<hr>
+		<br>
+		<h2>Accordian Demonstration</h2>
+		<p>Click each section</p>
 			<div id = "accordion">
 				<h3>Section 1</h3>
 				<div>
@@ -68,15 +73,17 @@
 				</div>
 			</div>
 
-			<br><br>
-
+		<br>
+		<hr>
+		<br>
+		<h2>Progress Bar Demonstration</h2>
+		<p>20 second progress bar, that resets on page reload.</p>
 			<div id = "progressbar"></div>
-		</section>
 	</main>
 
 	<footer id = "footer"></footer>
 
-	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 	<script rel = "text/javascript" src = "./jquery.js"></script>

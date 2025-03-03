@@ -32,16 +32,19 @@
 	<link rel = "stylesheet"
 	      href = "./ButtonMove.css"
 	>
+	<link href = "/general.css" rel = "stylesheet"
+	>
 
-	<title>Button Move | Sean Slaughter</title>
+	<title>Moving Buttons | Sean Slaughter</title>
 </head>
 <body>
 	<nav id = "navbar"></nav>
 
 	<header id = "top">
-		<h1>Move Buttons</h1>
-		<button onClick = "makeButton()">Make Button</button>
-            <button onClick="changeMove()">Move Button</button>
+		<h1>Moving Buttons</h1>
+		<p>Add buttons, and then click them to see a combined total</p>
+		<button class = "btn" onClick = "makeButton()">Make Button</button>
+		<button class = "btn" onClick = "changeMove()">Move Button</button>
 		<label for = "colors">Choose a color:</label>
 
 		<select name = "colors"
@@ -53,8 +56,8 @@
 			<option value = "yellow">Yellow</option>
 			<option value = "white">White</option>
 		</select>
-		<p id = "quantity"># of Buttons: 0</p>
-		<p id = "buttonSum">Sum of Buttons: 0</p>
+		<p id = "quantity"></p>
+		<p id = "buttonSum"></p>
 	</header>
 
 	<div style = "position: relative"
@@ -63,8 +66,8 @@
 
 	</div>
 	<footer id="footer"></footer>
-	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 </body>
 </html>

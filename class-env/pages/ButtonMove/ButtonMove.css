@@ -14,9 +14,21 @@ body, html {
 }
 
 #view {
-	background-color: black;
+	background-color: #1b1b1b;
 	min-height: 75vh;
+	overflow: hidden;
 	position: relative;
 	width: 100%;
-	overflow: hidden;
+}
+
+.red:hover, .blue:hover, .green:hover, .white:hover
+{
+	font-weight: bolder;
+	transform: scale(1.5);
+}
+
+#colors
+{
+	border-radius: 1rem;
+	padding: 0.5rem 1rem;
 }

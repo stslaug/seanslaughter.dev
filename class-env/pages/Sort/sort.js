@@ -1,44 +1,42 @@
 // initialize the counter and the array
-let numbernames = 0;
-let names = [];
+let namesSet = [];
 
-window.onload = function() {
-    document.getElementById("newname").addEventListener("keydown", function(event) {
+jQuery(function () {
+    $("#newname").on("keydown", function (event) {
         if (event.key === "Enter") {
             event.preventDefault(); // Prevent form submission
-            document.getElementById("addname").click();
+            $("#addname").trigger('click');
         }
     });
-};
 
+    $("#addname").on("click", function () {
+        SortNames();
+    });
+});
 
 function SortNames() {
     // Get the name from the text field
-    let thename = document.getElementById("newname").value;
-    
+    let thename = $("#newname").val().trim();
+
     thename = styleName(thename);
-    
-    
+
     // Add the name to the array
-    names[numbernames] = thename;
-    // Increment the counter
-    numbernames++;
-    // Sort the array
-    names.sort();
-    
-    let generatedList = "";
-    names.forEach(name => {
-        generatedList += ("<li>" + name + "</li>");
-        
-    })
-    document.getElementById("sorted").innerHTML = generatedList;
+    if (!namesSet.includes(thename)) {
+        namesSet.push(thename);
+        // Sort the array
+        namesSet.sort();
+
+        let generatedList = "";
+        namesSet.forEach(name => {
+            generatedList += ("<li>" + name + "</li>");
+        });
+
+        $("#sorted").html(generatedList);
+    }
+
+    $("#newname").val("");
 }
 
-
-function styleName(name)
-{
+function styleName(name) {
     return name.charAt(0).toUpperCase() + name.slice(1);
 }
-
-
-

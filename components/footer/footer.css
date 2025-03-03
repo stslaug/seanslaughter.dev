@@ -1,0 +1,101 @@
+@font-face
+{
+	font-family: 'Roboto';
+	src: local('/assets/fonts/Roboto-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+#footer-wrapper
+{
+	align-content: center;
+	background-color: var(--purple);
+	color: white;
+	display: flex;
+	font-family: 'Roboto', sans-serif;
+	left: 0;
+	margin: auto;
+	padding: 2rem 0;
+	position: sticky;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	width: 100%;
+}
+
+#footer-wrapper a
+{
+	background-color: #6a3bbd;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 0.5rem;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+	color: white;
+	font-weight: bolder;
+	padding: 1rem;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+#footer-wrapper a:hover
+{
+	background-color: var(--dark-purple);
+	color: white;
+	transform: scale(1.1);
+}
+
+#footer-wrapper p
+{
+	align-self: center;
+	justify-content: center;
+	margin: auto;
+}
+
+#footer-wrapper p:last-child
+{
+	margin-right: 1rem;
+}
+
+#footer-wrapper p:first-child
+{
+	margin-left: 1rem;
+}
+
+#footer-wrapper span
+{
+	gap: 1rem;
+	margin-right: 4rem;
+}
+
+@media screen and (max-width: 1325px)
+{
+	#footer-wrapper
+	{
+		color: white;
+		display: block;
+	}
+
+
+	#footer-wrapper p
+	{
+		margin: 2rem auto;
+		text-align: center;
+	}
+
+
+	#footer-wrapper span
+	{
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		margin: auto;
+	}
+}
+
+body.dark-mode #footer-wrapper
+{
+	background-color: var(--deep-purple);
+}
+
+body.dark-mode #footer-wrapper a
+{
+	background-color: var(--deep-purple);
+	box-shadow: 0 0 0.3rem 1px white;
+}
