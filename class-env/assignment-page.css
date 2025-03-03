@@ -32,10 +32,13 @@ head, body
 }
 .responsive-table th
 {
-	background-color: #7320FFFF;
+	background-color: var(--purple);
 	color: white;
 	font-size: 1.2rem;
+	font-weight: bolder;
 	padding: 1rem 1rem;
+	text-align: center;
+	text-wrap: nowrap;
 }
 .responsive-table td
 {
@@ -47,10 +50,52 @@ head, body
 
 }
 .responsive-table tr:nth-child(odd){background-color: #cdc8ff;}
-.responsive-table tr:hover{background-color: #7c2bf3; transition: all 0.15s ease-in-out;  transform: scale(1.05);}
-.responsive-table tr:hover a, .responsive-table tr:hover td {transition: all 0.15s ease-in-out; color: white;}
+
+
+.responsive-table tr:hover
+{
+	background-color: #7c2bf3;
+	transform: scale(1.025);
+	transition: all 0.15s ease-in-out;
+}
+
+.responsive-table tr:hover a, .responsive-table tr:hover td
+{
+	color: white;
+	transition: all 0.2s ease-in-out;
+}
 
 body.dark-mode
 {
-	background-color: var(--deep-purple);
+	background-color: var(--plum);
+}
+
+body.dark-mode table
+{
+	box-shadow: 0 0 3rem 0.1rem rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode th
+{
+	color: var(--yellow);
+}
+
+body.dark-mode td
+{
+	color: white;
+}
+
+body.dark-mode .responsive-table tr:nth-child(odd)
+{
+	background-color: var(--dark-purple);
+}
+
+body.dark-mode .responsive-table tr:nth-child(even)
+{
+	background-color: var(--plum);
+}
+
+body.dark-mode .responsive-table tr:hover a, .responsive-table tr:hover td
+{
+	color: white;
 }

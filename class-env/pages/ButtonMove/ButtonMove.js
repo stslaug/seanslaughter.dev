@@ -65,7 +65,9 @@ function styleButtons(button) {
     button.width = 80;
     button.height = 30;
     button.type = "button";
-
+    if (color === "white") {
+        button.style.border = "1px solid black";
+    }
 
     let randX = Math.floor(Math.random() * (view.offsetWidth - parseInt(button.offsetWidth)));
     let randY = Math.floor(Math.random() * (view.offsetHeight - parseInt(button.offsetHeight)));
