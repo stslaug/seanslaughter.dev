@@ -15,8 +15,6 @@ This repository contains the source code for my personal website portfolio, deve
 ## Project Structure
 
 * **components:** Reusable components like the navbar and footer.
-* **scripts:** JavaScript files for various functionalities.
-* **styles:** CSS files for styling different sections of the website.
 * **pages:** Individual pages for different sections of the website (e.g., experience, assignments).
 * **class-env:** Contains assignments and projects completed for the CPSC 3750 course.
 * **assets:** Images, fonts, and other assets used throughout the website.
