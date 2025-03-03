@@ -55,12 +55,14 @@ body
 	color: white;
 	font-size: 1.5rem;
 	margin: 0;
+	text-wrap: nowrap;
 }
 
 #nav-items
 {
 	align-items: center;
 	display: flex;
+
 }
 
 .nav-item
@@ -183,7 +185,7 @@ Submenu styling
 }
 
 /* Mobile */
-@media screen and (max-width: 768px)
+@media screen and (max-width: 800px)
 {
 	.hamburger
 	{
@@ -207,8 +209,13 @@ Submenu styling
 	}
 
 
+	body.dark-mode #nav-items
+	{
+		background-color: var(--dark-purple);
+	}
 	#nav-items
 	{
+		background-color: var(--purple);
 		border-top: 1px solid white;
 		flex-direction: column;
 		left: 0;
@@ -218,8 +225,14 @@ Submenu styling
 		position: absolute;
 		top: 90px;
 		transition: max-height 0.4s ease-in-out;
-
 		width: 100%;
+	}
+
+
+	#nav-items i
+	{
+		display: none;
+		text-align: center;
 	}
 
 
@@ -254,6 +267,12 @@ Submenu styling
 		margin: auto;
 		min-width: 100vw;
 		width: 100%;
+	}
+
+
+	.submenu-wrap:hover .submenu, .dropdown:hover .dropmenu
+	{
+		display: none !important;
 	}
 }
 
