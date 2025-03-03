@@ -23,7 +23,7 @@ This repository contains the source code for my personal website portfolio, deve
 
 ## How to Run Locally
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repository-name.git`
+1. Clone the repository: `git clone https://github.com/stslaug/seanslaughter.div.git`
 2. Open the `index.html` file in your web browser.
 
 ## Features
@@ -32,10 +32,9 @@ This repository contains the source code for my personal website portfolio, deve
 * **Interactive Elements:** JavaScript and jQuery are used to create interactive elements, such as the skill cards and dropdown menus.
 * **Assignments Showcase:** The website features a dedicated section for showcasing assignments completed during the CPSC 3750 course.
 * **Contact Information:** Provides contact information and links to my GitHub and LinkedIn profiles.
+* **Dark Mode:** Implemented on *most* sites - Working on it.
 
 ## Future Enhancements
-
-* **Dark Mode:** Implement a dark mode toggle for improved user experience.
 * **Additional Projects:** Add more projects and assignments to showcase my skills and experience.
 * **Blog Section:** Create a blog section to share my thoughts and experiences on web development.
 * **Accessibility Improvements:** Further enhance accessibility features for users with disabilities.
