@@ -51,6 +51,7 @@ head, body
 }
 .responsive-table tr:nth-child(odd){background-color: #cdc8ff;}
 
+
 .responsive-table tr:hover
 {
 	background-color: #7c2bf3;

@@ -27,10 +27,6 @@ body, html {
 	width: 100%;
 }
 
-.white
-{
-	border: 1px solid black;
-}
 
 .red:hover, .blue:hover, .green:hover, .white:hover, .yellow:hover
 {
@@ -56,4 +52,5 @@ body.dark-mode #top
 body.dark-mode #view
 {
 	background-color: #1b1b1b;
+
 }
