@@ -1,151 +1,142 @@
 :root
 {
-	--purple: #663399;
-	--dark-purple: #4e357f;
+	--blue: royalblue;
+	--font: 'Noto Sans Display';
+	--green: green;
 	--grey: #eae3ff;
+	--plum: #342d45;
+	--purple: #663399;
+	--red: indianred;
+	--white: #ffffff;
+	--yellow: #f4d01d;
+	--dark-purple: #4e357f;
+	--deep-purple: #1e1a28;
 }
 
 @font-face
 {
-	font-family: 'Roboto';
-	src: url('/assets/fonts/Roboto-Regular.ttf') format('truetype');
+	font-family: 'Noto Sans Display Regular';
+	src: local('/assets/fonts/Noto_Sans_Display/NotoSansDisplay-VariableFont_wdth,wght.ttf');
 	font-weight: normal;
 	font-style: normal;
 }
-/* General Styles */
-body {
-	font-family: 'Roboto', sans-serif;
+
+*
+{
+	box-sizing: border-box;
+}
+
+body, html
+{
+	height: auto !important;
 	margin: 0;
+	min-height: 100%;
+	position: relative;
+	width: 100%;
+}
+/* General Styles */
+body
+{
+	font-family: 'Noto Sans Display', "Noto San", sans-serif;
+	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.container {
-	max-width: 960px;
+.container
+{
 	margin: 0 auto;
+	max-width: 960px;
 	padding: 2rem;
 }
 
-/* Hero Section */
-.hero {
-	align-content: center;
-	background-image: linear-gradient(45deg, #4e357f 0%, #5100a8 25%, rebeccapurple 50%, #5100a8 75%, #4e357f 100%);
-	color: white;
-	justify-content: center;
-	margin: auto;
-	min-height: 45vh;
-	padding: 4rem 0;
-	text-align: center;
-}
-
-.hero-content h1 {
-	font-size: 3rem;
-	margin-bottom: 0.5rem;
-
-}
-
-/* About Section */
-#about {
-	background-color: #fff;
-	display: grid;
-	gap: 1rem;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	padding: 4rem 0;
-}
-
-#about img
+.page-container
 {
-	align-self: center;
-	border-radius: 50%;
-	display: flex;
+	animation: all 0.3s ease-in-out;
+	background-color: #ffffff;
+	border: 1px #b6b6b6;
+	border-radius: 3rem;
+	box-shadow: 1px 1px 3rem 1px rgba(0, 0, 0, 0.3);
 	height: auto;
-	justify-self: center;
-	max-width: 400px;
-	min-width: 250px;
-	text-align: center;
+	margin: 1rem auto;
+	max-width: 50%;
+	padding: 3rem;
+	width: 100%;
 }
 
-/* Skills Section */
-#skills {
-	background-color: #f8f8f8;
-	padding: 4rem 0;
-}
-
-.skill-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 2.5rem;
-}
-
-.skill-card {
-	text-align: center;
-	padding: 2rem;
-	border: 1px solid #eee;
-	border-radius: 1rem;
-	box-shadow: 1rem 1rem 3rem 1rem #eee;
-}
-
-.skill-card:hover:focus
+/*
+ *
+ *  Button
+ *
+ */
+.btn
 {
-	background-color: red;
-}
-
-
-.skill-card img {
-	width: 3rem;
-}
-.skill-card i {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-/* Contact Section */
-#contact {
-	background-color: #fff;
-	padding: 4rem 0;
-}
-
-#contact ul {
-	display: flex;
-	justify-content: center;
-	list-style: none;
-	margin: 2rem 0;
-	padding: 0;
-
-}
-
-#contact li {
-	margin: 0 1rem;
-}
-
-#contact li a
-{
-	animation: all 1s ease-in-out;
-	border: 1px solid #eeeeee;
-	border-radius: 1rem;
-	color: white;
-	padding: 1rem 2rem;
-	text-decoration: none;
-	text-wrap: nowrap;
-	white-space: nowrap;
-}
-
-#contact li:hover
-{
-	transform: scale(1.05);
-}
-
-/* Button */
-.btn {
 	background-color: var(--purple);
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	border-radius: 5px;
 	box-shadow: 0 0 3rem 8px rgba(255, 255, 255, 0.1);
-	color: #fff;
+	color: #ffffff;
 	padding: 0.8rem 1.5rem;
 	text-decoration: none;
-	transition: background-color 0.3s;
-	width: 100%;
+	transition: transform 0.3s ease;
+
 }
 
-.btn:hover {
+.btn:hover
+{
 	background-color: var(--dark-purple);
+	border-color: rgba(102, 51, 153, 0.3);
+	box-shadow: 0 1rem 3rem rgba(102, 51, 153, 0.2);
+	transform: scale(1.1);
+}
+
+.fa-forward
+{
+	align-self: center;
+	animation: point 5s ease-in-out infinite alternate;
+	margin: auto auto auto 0.5rem;
+	position: relative;
+	transition: transform 0.5s;
+}
+
+@keyframes point
+{
+	0%, 100%
+	{
+		transform: translate(0, 1px);
+	}
+	50%
+	{
+		transform: translate(0.3rem, 1px);
+	}
+}
+
+/*
+ Dark Mode Settings
+
+ */
+body.dark-mode
+{
+	background-color: var(--deep-purple);
+	color: white;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6
+{
+	color: var(--yellow);
+}
+
+body.dark-mode .special-text
+{
+	color: var(--purple);
+}
+
+body.dark-mode .page-container
+{
+	background-color: var(--plum);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	box-shadow: 1px 1px 3rem 1px rgba(255, 255, 255, 0.3);
 }

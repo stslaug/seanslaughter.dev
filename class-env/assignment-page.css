@@ -50,9 +50,7 @@ head, body
 .responsive-table tr:hover{background-color: #7c2bf3; transition: all 0.15s ease-in-out;  transform: scale(1.05);}
 .responsive-table tr:hover a, .responsive-table tr:hover td {transition: all 0.15s ease-in-out; color: white;}
 
-
-
-@media (max-width: 1160px)
+body.dark-mode
 {
-
+	background-color: var(--deep-purple);
 }

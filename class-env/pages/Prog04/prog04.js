@@ -1,16 +1,16 @@
 const colors = new Map();
-colors.set('red', 0);
+colors.set('indianred', 0);
 colors.set('green', 0);
-colors.set('blue', 0);
+colors.set('royalblue', 0);
 
 const colorHover = new Map();
-colorHover.set('red', 0);
+colorHover.set('indianred', 0);
 colorHover.set('green', 0);
-colorHover.set('blue', 0);
+colorHover.set('royalblue', 0);
 
 let change = 0;
 
-function backgroundBtnClick(color = "red")
+function backgroundBtnClick(color = "indianred")
 {
     let bodyElement = document.getElementsByTagName("body")[0];
     if(bodyElement.style.backgroundColor !== color)
@@ -31,7 +31,7 @@ function backgroundBtnClick(color = "red")
 
 }
 
-function hoverButton(color = "red")
+function hoverButton(color = "indianred")
 {
     document.getElementById(color + "-hover").innerHTML = color.charAt(0).toUpperCase() + color.slice(1) + " Button" +
         " Hovered Over: " + updateColorHover(color);

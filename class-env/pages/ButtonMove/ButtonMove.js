@@ -8,7 +8,7 @@ let quantity = 0;
 function updateTotal(num) {
     let count = document.getElementById("buttonSum");
     sum += num;
-    count.innerText = "Sum of Button Clicks: " + sum;
+    count.innerText = "Value of Clicked Buttons: " + sum;
 }
 
 
@@ -40,7 +40,7 @@ function makeButton() {
     temp.movingUp = !!(rand % 2);
 
 
-    document.getElementById("quantity").innerText = "# of Buttons: " + (++quantity);
+    document.getElementById("quantity").innerText = "Number of Buttons: " + (++quantity);
 
     view.appendChild(temp);
 
@@ -54,9 +54,13 @@ function styleButtons(button) {
     if (color === "red" || color === "blue") button.style.color = "white";
     else button.style.color = "black"; //Ensure legibility
 
+    button.classList.add(color);
     button.style.position = "absolute";
-    button.style.backgroundColor = color;
+    button.style.backgroundColor = "var(--" + color + ")";
     button.style.width = "80px";
+    button.style.borderRadius = "1rem";
+    button.style.border = "1px transparent";
+    button.style.boxShadow = "0 0 1rem 0.2rem rgba(255, 255, 255, 0.1)";
     button.style.height = "30px";
     button.width = 80;
     button.height = 30;

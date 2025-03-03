@@ -5,7 +5,7 @@
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0"
 	>
 	<title>Array Sorting Example</title>
-
+	<link href = "/general.css" rel = "stylesheet">
 	<style>
 		  body, html
 		  {
@@ -14,18 +14,16 @@
 			  height: 100%;
 		  }
 
-		  #sortMain
-		  {
-			  margin: auto;
-			  display: block;
-			  justify-content: center;
-			  text-align: center;
-			  align-items: center;
-			  padding: 2rem;
-			  min-width: 300px;
-			  max-width: 33%;
-		  }
-
+			  #newname
+			  {
+				  border: 1px transparent;
+				  border-radius: 1rem;
+				  box-shadow: 0 0 0.5rem 1px #555555;
+				  font-size: 1rem;
+				  font-weight: bold;
+				  margin: auto 1rem;
+				  padding: 1rem;
+			  }
 		  #sorted li
 		  {
 			  margin: auto;
@@ -42,16 +40,18 @@
 <body>
 	<nav id = "navbar"></nav>
 
-	<main id = "sortMain">
-		<h1>Sorting String Arrays</h1>
-		<p>Enter two or more names in the field below, and the sorted list of names will appear in the textarea.</p>
-
+	<main class = "page-container" id = "sortMain">
+		<h1>Sorting Your Entries</h1>
+		<p>Add at least two words in the box below, and a sorted list of your words will appear in the area below
+			.</p>
+		<hr>
+		<br>
 		<form name = "theform" autocomplete = "off">
-			<label for = "newname">Name:</label>
-			<input id = "newname" name = "newname" size = "20" type = "text"
-			>
-			<input id = "addname" name = "addname" onclick = "SortNames();" type = "button" value = "Add"
-		> <br>
+			<label for = "newname"></label>
+			<input id = "newname" min = "Test" name = "newname" placeholder = "Add your word" size = "20" type = "text">
+			<input class = "btn" id = "addname" name = "addname" type = "button" value = "Add">
+			<br>
+
 			<h2>Sorted Names</h2>
 			<ol id = "sorted">
 				The sorted names will appear here.
@@ -59,9 +59,8 @@
 		</form>
 	</main>
 	<footer id = "footer"></footer>
-	<script src = "./sort.js" type = "text/javascript"></script>
-	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script rel = "text/javascript" src = "./sort.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 </body>
 </html>
