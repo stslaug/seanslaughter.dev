@@ -27,6 +27,7 @@ body, html {
 	width: 100%;
 }
 
+/*noinspection CssUnusedSymbol*/
 .mve-btn
 {
 	border: 1px transparent;
@@ -37,6 +38,7 @@ body, html {
 	width: 80px;
 }
 
+/*noinspection CssUnusedSymbol*/
 .mve-btn:hover
 {
 	font-weight: bolder;
@@ -49,6 +51,7 @@ body, html {
 	color: white;
 }
 
+/*noinspection CssUnusedSymbol*/
 .blue
 {
 	background-color: var(--blue);
@@ -68,6 +71,7 @@ body, html {
 	color: black;
 }
 
+/*noinspection CssUnusedSymbol*/
 .yellow
 {
 	background-color: var(--yellow);

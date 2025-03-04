@@ -6,22 +6,17 @@
 	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no"
 	      name = "viewport"
 	>
-	<script src="https://kit.fontawesome.com/44ecd57f75.js" crossorigin="anonymous"></script>
-	<script src = "/components/navbar/navbar.js"></script>
-	<link rel = "stylesheet"
-	      href = "GroupCSS2.css"
+	<link href = "./GroupCSS2.css" rel = "stylesheet"
+	>
+	<link href = "/general.css" rel = "stylesheet"
 	>
 </head>
 <body>
-	<div id = "navbar"></div>
+	<nav id = "navbar"></nav>
 
-	<header>
-			<h1> This is the header </h1>
-
-	</header>
-
+	<!-- TODO Fix Layout design in GroupCSS2 -->
 	<!--Image Gallery  -->
-	<main>
+	<main class = "page-container">
 		<!-- Floating Left Content -->
 		<section id="left-section">
 			<h2>Unordered List</h2>
@@ -76,25 +71,25 @@
 				<div class = "gallery-img-wrap">
 					<a href = "https://syobon-action.fandom.com/wiki/1-1"> <img src = "./assets/img.webp"
 					                                                            alt = "Syobon Images"
-					></img> </a>
+					> </a>
 					<p>I don't know what this is</p>
 				</div>
 				<div class = "gallery-img-wrap clearfix">
 					<a href = "https://syobon-action.fandom.com/wiki/1-1"> <img src = "./assets/img.webp"
 					                                                            alt = "Syobon Images"
-					></img> </a>
+					> </a>
 					<p>SyobonAction?</p>
 				</div>
 				<div class = "gallery-img-wrap clearfix">
 					<a href = "https://syobon-action.fandom.com/wiki/1-1"> <img src = "./assets/img.webp"
 					                                                            alt = "Syobon Images"
-					></img> </a>
+					> </a>
 					<p>Mario but different sprites...</p>
 				</div>
 				<div class = "gallery-img-wrap clearfix">
 					<a href = "https://syobon-action.fandom.com/wiki/1-1"> <img src = "./assets/img.webp"
 					                                                            alt = "Syobon Images"
-					></img> </a>
+					> </a>
 					<p>...or did it come first?</p>
 				</div>
 
@@ -102,12 +97,9 @@
 		</section>
 	</main>
 
-	<footer id="footer">
-		<p> This is a Footer </p>
-	</footer>
+	<footer id = "footer"></footer>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 
 </body>

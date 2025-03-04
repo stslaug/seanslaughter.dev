@@ -21,11 +21,6 @@ body
 {
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
-.content-wrapper {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-}
 
 main.page-container
 {
@@ -55,27 +50,6 @@ h1, h2, h3 {
 	border-bottom: none;
 }
 
-#darkMode-btn {
-	align-items: center;
-	bottom: 1.5rem;
-	justify-content: center;
-	margin: auto 1.5rem 1.5rem auto;
-	padding: 2rem;
-	position: sticky;
-	text-align: center;
-
-}
-
-#darkMode-btn i
-{
-	aspect-ratio: 1 / 1;
-	background-color: var(--purple);
-	border-radius: 50%;
-	box-shadow: 1px 1px 1rem 8px rgba(0, 0, 0, 0.3);
-	color: white;
-	cursor: pointer;
-	margin: 0;
-}
 
 #head
 {
