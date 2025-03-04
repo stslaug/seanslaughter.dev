@@ -1,5 +1,5 @@
-
 body, html {
+
 	height: 100%;
 	margin: 0;
 	transition: background-color 0.3s ease-in-out;
@@ -27,12 +27,53 @@ body, html {
 	width: 100%;
 }
 
+.mve-btn
+{
+	border: 1px transparent;
+	border-radius: 1rem;
+	box-shadow: 0 0 1rem 0.2rem rgba(255, 255, 255, 0.1);
+	height: 30px;
+	position: absolute;
+	width: 80px;
+}
 
-.red:hover, .blue:hover, .green:hover, .white:hover, .yellow:hover
+.mve-btn:hover
 {
 	font-weight: bolder;
 	transform: scale(1.5);
 }
+
+.red
+{
+	background-color: var(--red);
+	color: white;
+}
+
+.blue
+{
+	background-color: var(--blue);
+	color: white;
+}
+
+.green
+{
+	background-color: var(--green);
+	color: white !important;
+}
+
+.white
+{
+	background-color: white;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	color: black;
+}
+
+.yellow
+{
+	background-color: var(--yellow);
+	color: black;
+}
+
 
 #colors
 {

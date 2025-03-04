@@ -22,10 +22,9 @@
 				<h1>Audio Demo</h1>
 
 				<!-- Loads the Audio file in -->
-				<audio id = "audio" autoplay>
-					<source src = "./audio.mp3">
+				<audio id = "audio" src = "./audio.mp3">
 				</audio>
-
+				<p id = "fileName">File Name: </p>
 				<div id = "title-controls">
 					<i id = "prevTitleBtn" class = "fa-solid fa-backward fa-xl"></i>
 					<i id = "playPauseBtn" class = "fa-solid fa-play fa-xl"></i>
@@ -46,7 +45,7 @@
 
 					<!-- Visual indicator for playback time-->
 
-					<label for = "progressBar"></label><input type = "range" id = "progressBar" min = "0" max = "100" value = "0" step = "0.01">
+					<label for = "progressBar"></label><input id = "progressBar" max = "375" min = "0" step = "0.01" type = "range" value = "0">
 
 					<!-- Displays to duration -->
 					<span id = "duration">0:00</span>
@@ -57,15 +56,17 @@
 				<h2>Create a title bookmark!</h2>
 				<form id = "createTitle">
 					<label for = "newTitle">
-						<input type = "text" placeholder = "This is a title" id = "newTitle">
+						<input class = "input" id = "newTitle" placeholder = "Enter a title" type = "text">
 					</label>
-					<label for = "timestamp"> Timestamp</label>
-					<input id = "timestamp" type = "range" min = "0" max = "0" step = "1" value = "1">
-					<input type = "submit" id = "createTitleBtn" value = "Create Title At: 0:00">
+
+					<label for = "timestamp"></label>
+					<input id = "timestamp" max = "369" min = "0" step = "1" type = "range" value = "0">
+					<input class = "btn" id = "createTitleBtn" type = "submit" value = "Create Title At: 0:00">
 				</form>
 			</div>
 		</div>
 		<div id = "titles">
+			<h1 style = "text-align: center; margin: auto auto -1rem auto;">Titles</h1>
 			<table>
 				<thead>
 				<tr>
@@ -75,36 +76,15 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td class = "title-column" data-label = "Title">Example Title</td>
-					<td class = "time-column" data-label = "Time">5:00</td>
-					<td id = "control-column" data-label = "Controls">
-						<div class = "controls">
-							<i class = "fas fa-play fa-2xl"></i>
-							<i class = "fa-solid fa-trash fa-2xl"></i>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td class = "title-column" data-label = "Title">Another Example with a really long title,
-						because people like long nameswjksjajhkjashdkajshd
-					</td>
-					<td class = "time-column" data-label = "Time">0:30</td>
-					<td data-label = "Controls">
-						<div class = "controls">
-							<i class = "fa-solid fa-play fa-2xl"></i>
-							<i class = "fa-solid fa-trash fa-2xl"></i>
-						</div>
-					</td>
-				</tr>
+
 				</tbody>
 			</table>
 		</div>
 	</main>
 
 	<footer id = "footer"></footer>
-	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 	<script rel = "text/javascript" src = "./audio-demo.js"></script>
 

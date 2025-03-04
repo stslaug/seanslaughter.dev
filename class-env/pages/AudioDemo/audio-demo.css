@@ -1,17 +1,18 @@
 main
 {
+	background-color: var(--dark-purple);
 	display: flex;
 	padding: 3rem;
-	background-color: rebeccapurple;
 }
 
 #titles, #functions, #titleCreate
 {
-	border-radius: 5rem;
-	border: 1px solid black;
-	padding: 2rem;
-	box-shadow: 1px 1px 3rem 1px rgba(209, 209, 209, 0.3);
 	background-color: #e8e8e8;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5rem;
+	box-shadow: 1px 1px 3rem 1px rgba(209, 209, 209, 0.3);
+	padding: 2rem;
+	transition: background-color 0.3s ease-in-out
 }
 
 #interactable
@@ -22,17 +23,28 @@ main
 	max-width: 30vw;
 }
 #functions {
-	min-height: 20vh;
+	height: 100%;
 	max-height: 50vh;
+	min-height: 250px;
 }
 
 #titles
 {
-	width: 100%;
 	margin: 0 auto auto 0.5rem;
-	min-height: 50vh;
-	min-width: 40vw;
 	max-width: 80vw;
+	min-height: 70vh;
+	min-width: 40vw;
+	width: 100%;
+}
+
+#titles tbody tr
+{
+	transition: background-color 0.3s ease-in-out;
+}
+
+#titles tbody tr.highlighted
+{
+	background-color: rgba(104, 14, 200, 0.3);
 }
 
 /* Progress Bar*/
@@ -56,17 +68,6 @@ main
 {
 	margin-top: 2rem;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 table {
 	text-align: center;
@@ -114,3 +115,19 @@ thead th:nth-child(3) {  /* Controls Column */
 	gap: 8px;
 }
 
+/* Style the timestamp slider */
+#timestamp
+{
+	margin: 10px 0;
+	width: 80%; /* Or whatever width you want */
+}
+
+body.dark-mode #titles, body.dark-mode #functions, body.dark-mode #titleCreate
+{
+	background-color: var(--plum);
+}
+
+body.dark-mode main
+{
+	background-color: var(--dark-purple);
+}

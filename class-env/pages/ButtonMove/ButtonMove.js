@@ -51,23 +51,12 @@ function styleButtons(button) {
     let view = document.getElementById("view");
 
     let color = document.getElementById("colors").value;
-    if (color === "red" || color === "blue") button.style.color = "white";
-    else button.style.color = "black"; //Ensure legibility
 
     button.classList.add(color);
-    button.style.position = "absolute";
-    button.style.backgroundColor = "var(--" + color + ")";
-    button.style.width = "80px";
-    button.style.borderRadius = "1rem";
-    button.style.border = "1px transparent";
-    button.style.boxShadow = "0 0 1rem 0.2rem rgba(255, 255, 255, 0.1)";
-    button.style.height = "30px";
+    button.classList.add("mve-btn");
     button.width = 80;
     button.height = 30;
     button.type = "button";
-    if (color === "white") {
-        button.style.border = "1px solid black";
-    }
 
     let randX = Math.floor(Math.random() * (view.offsetWidth - parseInt(button.offsetWidth)));
     let randY = Math.floor(Math.random() * (view.offsetHeight - parseInt(button.offsetHeight)));
