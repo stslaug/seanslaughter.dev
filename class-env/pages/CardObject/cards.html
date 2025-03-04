@@ -2,26 +2,21 @@
 <html lang = "en">
 <head>
 	<meta charset = "utf-8">
-	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no"
-	      name = "viewport"
+	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no" name = "viewport"
 	>
-	<meta content = "ie=edge"
-	      http-equiv = "X-UA-Compatible"
+	<meta content = "ie=edge" http-equiv = "X-UA-Compatible"
 	>
 
 	<title>Cards | Sean Slaughter</title>
 
+	<!--	<script rel = "text/javascript"-->
+	<!--	        src = "./loops.js"-->
+	<!--	></script>-->
 
-<!--	<script rel = "text/javascript"-->
-<!--	        src = "./loops.js"-->
-<!--	></script>-->
-
-	<link href = "./cards.css"
-	      rel = "stylesheet"
+	<link href = "./cards.css" rel = "stylesheet"
 	>
-  <link href = "/general.css"
-        rel = "stylesheet"
-  >
+	<link href = "/general.css" rel = "stylesheet"
+	>
 
 </head>
 <body>
@@ -37,57 +32,46 @@
 			</ul>
 		</div>
 		<div id = "cardsAndForm">
-              <div id = "cardForm">
-			<form>
-                    <h1> Information Form </h1>
-				<label for = "name">Full Name</label> <input type = "text"
-				                                             id = "name"
-                                                                     value="John Doe"
-				                                             placeholder = "First Last"
-			>
+			<div id = "cardForm">
+				<form>
+					<h1> Information Form </h1>
+					<label for = "name">Full Name</label> <input id = "name" placeholder = "First Last"
 
-				<label for = "email">Email</label> <input type = "email"
-				                                          id = "email"
-                                                                  value="test@example.com"
-				                                          placeholder = "example@domain.com"
-			>
-
-				<label for = "phone">Phone Number</label> <input type = "number"
-				                                                 id = "phone"
-                                                                         value="1234567890"
-				                                                 placeholder = "1234567890"
-			>
-
-				<label for = "address">Address</label> <input type = "text"
-				                                              id = "address"
-                                                                      value="Street, City, State, ZIP"
-				                                              placeholder = "Street, City, State, ZIP"
-			>
-
-				<label for = "birth">Birth Date</label> <input type = "date"
-				                                               id = "birth"
-                                                                       value=""
-				                                               placeholder = ""
-			>
-
-				<input id="addCard" type = "submit"
-				       value = "Add Card"
+					  type = "text"
 				>
-			</form>
 
-                  <button id="showAll">Show All</button>
+					<label for = "email">Email</label> <input id = "email" placeholder = "example@domain.com"
 
-              </div>
-			<div id="cards" >
+					  type = "email"
+				>
 
+					<label for = "phone">Phone Number</label> <input id = "phone" placeholder = "1234567890"
+
+					  type = "number"
+				>
+
+					<label for = "address">Address</label>
+					<input id = "address" placeholder = "Street, City, State, ZIP" type = "text"
+					>
+
+					<label for = "birth">Birth Date</label> <input id = "birth" placeholder = "" type = "date"
+				>
+
+					<input id = "addCard" type = "submit" value = "Add Card"
+					>
+				</form>
+
+				<button id = "showAll">Show All</button>
+
+			</div>
+			<div id = "cards">
 
 			</div>
 
 		</div>
 
-        <script rel = "text/javascript"
-                src = "./cards.js"
-        ></script>
+		<script rel = "text/javascript" src = "./cards.js"
+		></script>
 
 	</main>
 	<footer id = "footer"></footer>

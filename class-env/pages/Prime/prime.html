@@ -2,39 +2,40 @@
 <html lang = "en">
 <head>
 	<meta charset = "UTF-8">
-	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<meta content = "width=device-width, initial-scale=1.0" name = "viewport">
 	<title>Prime Number Classifier</title>
-	<link rel = "stylesheet" href = "prime.css">
-
+	<link href = "./prime.css" rel = "stylesheet">
+	<link href = "/general.css" rel = "stylesheet" type = "text/css"
+	>
 </head>
 <body>
 	<nav id = "navbar"></nav>
-	<h1>Prime Number Classifier</h1>
+	<main class = "page-container">
+		<h1>Prime Number Classifier</h1>
 
-	<label for = "numberInput">Enter a number:</label> <input type = "number" id = "numberInput" min = "1"
-	                                                          placeholder = "e.g., 50"
->
-	<button id = "startButton">START</button>
-	<button id = "themeToggle">TOGGLE THEME</button> <!-- Changes Theme of window  -->
-	<button id = "sortLists">TOGGLE SORT</button> <!-- New Sorts Both Lists  -->
-	<p> Large numbers may cause your browser to freeze for large requests! </p>
-	<div class = "lists-container">
-		<div>
-			<h2>Prime Numbers</h2>
-			<button id = "primeSum">Sum</button>
+		<label for = "numberInput">Enter a number:</label>
+		<input id = "numberInput" min = "1" placeholder = "e.g., 50" type = "number"
+		>
+		<button id = "startButton">START</button>
+		<button id = "sortLists">TOGGLE SORT</button> <!-- New Sorts Both Lists  -->
+		<p> Large numbers may cause your browser to freeze for large requests! </p>
+		<div class = "lists-container">
+			<div>
+				<h2>Prime Numbers</h2>
+				<button id = "primeSum">Sum</button>
+			</div>
+			<div class = "list">
+				<ul id = "primeList"></ul>
+			</div>
+			<div>
+				<h2>Non-Prime Numbers</h2>
+				<button id = "compSum">Sum</button>
+			</div>
+			<div class = "list">
+				<ul id = "compList"></ul>
+			</div>
 		</div>
-		<div class = "list">
-			<ul id = "primeList"></ul>
-		</div>
-		<div>
-			<h2>Non-Prime Numbers</h2>
-			<button id = "compSum">Sum</button>
-		</div>
-		<div class = "list">
-			<ul id = "compList"></ul>
-		</div>
-	</div>
-
+	</main>
 	<footer id = "footer"></footer>
 	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
