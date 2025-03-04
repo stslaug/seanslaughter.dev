@@ -11,29 +11,60 @@ main
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 5rem;
 	box-shadow: 1px 1px 3rem 1px rgba(209, 209, 209, 0.3);
+	height: auto;
 	padding: 2rem;
-	transition: background-color 0.3s ease-in-out
+	transition: background-color 0.3s ease-in-out;
+	width: 100%;
 }
 
 #interactable
 {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	height: auto;
 	margin: 0 0 auto auto;
-	width: 100%;
-	min-width: 15vw;
 	max-width: 30vw;
+	min-width: 15vw;
+	position: sticky;
+	top: 1rem; /* Distance from the top of the page since sticky */
+	width: 100%;
 }
-#functions {
-	height: 100%;
+
+#functions
+{
+	align-items: flex-start;
 	max-height: 50vh;
 	min-height: 250px;
+	position: relative;
+}
+
+#titleCreate
+{
+	background-color: #ffffff;
+	position: relative;
+}
+
+#titleCreate .btn
+{
+	margin-bottom: 0.5rem;
+	width: 100%;
+}
+
+#titleCreateInfo
+{
+	display: flex;
+	width: 100%;
 }
 
 #titles
 {
+	align-items: flex-start;
 	margin: 0 auto auto 0.5rem;
 	max-width: 80vw;
 	min-height: 70vh;
 	min-width: 40vw;
+	position: sticky;
 	width: 100%;
 }
 
@@ -44,7 +75,8 @@ main
 
 #titles tbody tr.highlighted
 {
-	background-color: rgba(104, 14, 200, 0.3);
+	background-color: var(--red);
+	color: white;
 }
 
 /* Progress Bar*/
@@ -57,6 +89,12 @@ main
 	position: relative;
 }
 
+label
+{
+	display: inline-block;
+	margin: auto;
+}
+
 /*noinspection CssUnusedSymbol*/
 #progress
 {
@@ -65,62 +103,75 @@ main
 	background-color: #1200da;
 }
 
-#titleCreate
+table
 {
-	margin-top: 2rem;
-}
-
-table {
+	border-spacing: 1rem;
 	text-align: center;
 	width: 100%;
-	border-spacing: 1rem;
 }
 
-th, td {
-
+th, td
+{
+	border-radius: 1rem;
 	margin: 5rem;
 	padding: 1.5rem;
-	border-radius: 1rem;
 }
+
 tbody tr td:first-child
 {
 	text-align: left;
 }
+
 tbody tr
 {
+	border-radius: 1rem;
+	box-shadow: 1px 1px 3rem 1px rgba(0, 0, 0, 0.2);
 	margin: 1rem;
 	padding: 1.5rem;
-	border-radius: 1rem;
 	text-align: center;
-	box-shadow: 1px 1px 3rem 1px rgba(0,0,0,0.2);
 }
 
+tbody tr:nth-child(odd)
+{
+	background-color: mediumpurple;
+	color: white;
+	font-weight: bolder;
+}
 
+tbody tr:nth-child(even)
+{
+	background-color: rebeccapurple;
+	color: white;
+	font-weight: bolder;
+}
 
-thead th:nth-child(1) {  /* Title Column */
+thead th:nth-child(1)
+{ /* Title Column */
 	width: 66%;
 }
 
-thead th:nth-child(2) {  /* Timestamp Column */
+thead th:nth-child(2)
+{ /* Timestamp Column */
 	width: 17%;
 }
 
-thead th:nth-child(3) {  /* Controls Column */
+thead th:nth-child(3)
+{ /* Controls Column */
 	width: 17%;
 }
 
-.controls {
-
+.controls
+{
 	display: flex;
-	justify-content: center;
 	gap: 8px;
+	justify-content: center;
 }
 
-/* Style the timestamp slider */
+/* timestamp slider */
 #timestamp
 {
 	margin: 10px 0;
-	width: 80%; /* Or whatever width you want */
+	width: 80%;
 }
 
 body.dark-mode #titles, body.dark-mode #functions, body.dark-mode #titleCreate
