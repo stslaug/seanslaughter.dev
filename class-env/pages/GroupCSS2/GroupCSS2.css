@@ -1,39 +1,8 @@
-*
-{
-	box-sizing: border-box;
-}
-body, html
-{
-	height: 100%;
-	margin: 0;
-}
 .clearfix::after {
 	content: "";
 	clear: both;
 	display: table;
 }
-
-header
-{
-	display: block;
-	background-color: #cccccc;
-
-	text-align: center;
-}
-
-main {
-	display: block;
-}
-
-footer
-{
-	background-color: #cccccc;
-	justify-content: center;
-	align-content: center;
-	display: flex;
-}
-
-
 
 /*
  	Left Section
@@ -118,11 +87,12 @@ ul
 
 .gallery-img-wrap
 {
+	border: 1px solid black;
 	float: left;
 	margin: 1rem 1rem;
-	border: 1px solid black;
-	text-wrap: wrap;
 	text-align: center;
+	text-wrap: wrap;
+	transition: all 0.3s ease-in-out;
 
 }
 .gallery-img-wrap img
@@ -138,24 +108,6 @@ ul
 {
 	transform: scale(1.1);
 }
-
-
-/*
- Styling for a demonstration of a box model
- Uses Padding, Margin, Border, and the margin is demonstrated with a red border
- The Border is defined inline.
- */
-#box-model
-{
-	margin:  auto;
-	border: 1rem solid black;
-	padding: 1rem;
-	background-color: green;
-	justify-content: center;
-	align-items: center;
-
-}
-
 
 
 @media screen and (max-width: 1200px) {

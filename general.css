@@ -61,7 +61,6 @@ body
 	padding: 3rem;
 	width: 100%;
 }
-
 /*
  *
  *  Button
@@ -137,6 +136,7 @@ body.dark-mode h6
 	color: var(--yellow);
 }
 
+/*noinspection CssUnusedSymbol*/
 body.dark-mode .special-text
 {
 	color: var(--purple);

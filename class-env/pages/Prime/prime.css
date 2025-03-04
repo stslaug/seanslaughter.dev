@@ -131,6 +131,7 @@ li:hover
 	color: black;
 }
 
+/*noinspection CssUnusedSymbol*/
 .darkMode
 {
 	background-color: var(--dark-mode-background);
@@ -138,6 +139,7 @@ li:hover
 	color: var(--dark-mode-text);
 }
 
+/*noinspection CssUnusedSymbol*/
 .divisor
 {
 	display: block;
