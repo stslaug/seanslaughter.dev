@@ -3,39 +3,39 @@
 <head>
 	<meta charset = "UTF-8">
 	<meta content = "ie=edge" http-equiv = "X-UA-Compatible">
-	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<meta content = "width=device-width, initial-scale=1.0" name = "viewport">
 	<meta content = "Sean Tyler Slaughter" name = "author">
 	<meta charset = "UTF-8">
 	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "32x32" type = "image/svg">
 	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "16x16" type = "image/svg">
 
 	<title>Audio Demo | Sean Slaughter</title>
-	<link rel = "stylesheet" href = "/general.css">
-	<link rel = "stylesheet" href = "./audio-demo.css">
+	<link href = "/general.css" rel = "stylesheet">
+	<link href = "./audio-demo.css" rel = "stylesheet">
 </head>
 <body>
 	<nav id = "navbar"></nav>
 
 	<main>
-		<div id = "interactable">
-			<div id = "functions">
+		<section id = "interactable">
+			<div class = "bubble-container" id = "functions">
 				<h1>Audio Demo</h1>
 
 				<!-- Loads the Audio file in -->
 				<audio id = "audio" src = "./audio.mp3"></audio>
-				<p id = "fileName">Testing </p>
+				<p id = "fileName">Audio File Not Found or Error Occursed </p>
 				<div id = "title-controls">
-					<i class = "fa-solid fa-clock-rotate-left fa-xl" id = "prevBtn"></i>
-					<i id = "playPauseBtn" class = "fa-solid fa-play fa-xl"></i>
-					<i class = "fa-solid fa-clock-rotate-left fa-flip-horizontal  fa-xl" id = "fwdBtn"></i>
-				</div>
+					<p><i class = "fa-solid fa-clock-rotate-left fa-xl" id = "prevBtn"></i></p>
+					<p><i class = "fa-solid fa-play fa-xl" id = "playPauseBtn"></i></p>
+					<p><i class = "fa-solid fa-clock-rotate-left fa-flip-horizontal  fa-xl" id = "fwdBtn"></i>
+					</p>
+					<div id = "volume-controls">
 
-				<div id = "volume-controls">
+						<label for = "volumeControl"><i class = "fa-solid fa-volume-off"></i></label> <!-- Volume Slider -->
+						<input draggable = "" id = "volumeControl" max = "1" min = "0" step = "0.01" type = "range" value = "1">
+						<label for = "volumeControl"><i class = "fa-solid fa-volume-high"></i></label>
 
-					<label for = "volumeControl"><i class = "fa-solid fa-volume-off"></i></label> <!-- Volume Slider -->
-					<input type = "range" id = "volumeControl" min = "0" max = "1" step = "0.01" value = "1">
-					<label for = "volumeControl"><i class = "fa-solid fa-volume-high"></i></label>
-
+					</div>
 				</div>
 
 				<div id = "time-controls">
@@ -51,42 +51,49 @@
 				</div>
 			</div>
 
-			<div id = "titleCreate">
+			<div class = "bubble-container" id = "titleCreate">
 				<h2>Create a title bookmark!</h2>
 				<form id = "createTitle">
 					<div id = "titleCreateInfo">
 
-						<label for = "newTitle"></label>
-						<input class = "input" id = "newTitle" placeholder = "Enter a title" type = "text">
+						<div class = "input-group">
+							<label for = "newTitle">Title</label>
+							<input class = "input" id = "newTitle" placeholder = "Enter a title" type = "text">
+						</div>
 
-						<label for = "timeSelect"></label>
-						<input class = "input" id = "timeSelect" placeholder = "ex. 1:45 or 105" type = "text">
+						<div class = "input-group">
+							<label for = "timeSelect">Time</label>
+							<input class = "input" id = "timeSelect" placeholder = "ex. 1:45 or 105" type = "text">
+						</div>
 					</div>
 					<div>
-						<label for = "timestamp"><i class = "fa-solid fa-clock"></i></label>
+						<label for = "timestamp"><i class = "fa-solid fa-clock"></i>0:00</label>
 						<input id = "timestamp" max = "375" min = "0" step = "1" type = "range" value = "0">
+
 					</div>
 
 					<input class = "btn" id = "createTitleBtn" type = "submit" value = "Create Title At: 0:00">
 				</form>
 				<button class = "btn" id = "popDataBtn">Add 50 example titles</button>
 			</div>
-		</div>
-		<div id = "titles">
-			<h1 style = "text-align: center; margin: auto auto -1rem auto;">Titles</h1>
-			<table>
-				<thead>
-				<tr>
-					<th class = "title-column">Title</th>
-					<th class = "time-column">Time Stamp</th>
-					<th>Controls</th>
-				</tr>
-				</thead>
-				<tbody>
+		</section>
+		<section id = "titles">
+			<div class = "bubble-container">
+				<h1 id = "titleCount"></h1>
+				<table>
+					<thead>
+					<tr>
+						<th class = "title-column">Title</th>
+						<th class = "time-column">Time Stamp</th>
+						<th>Controls</th>
+					</tr>
+					</thead>
+					<tbody>
 
-				</tbody>
-			</table>
-		</div>
+					</tbody>
+				</table>
+			</div>
+		</section>
 	</main>
 
 	<footer id = "footer"></footer>

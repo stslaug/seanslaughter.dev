@@ -69,9 +69,9 @@ body
 .btn
 {
 	background-color: var(--purple);
-	border: 1px solid rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 5px;
-	box-shadow: 0 0 3rem 8px rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 3rem 1px rgba(255, 255, 255, 0.1);
 	color: #ffffff;
 	padding: 0.8rem 1.5rem;
 	text-decoration: none;
@@ -82,8 +82,8 @@ body
 .btn:hover
 {
 	background-color: var(--dark-purple);
-	border-color: rgba(102, 51, 153, 0.3);
-	box-shadow: 0 1rem 3rem rgba(102, 51, 153, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 3rem 1px rgba(255, 255, 255, 0.1);
 	transform: scale(1.1);
 }
 
@@ -108,13 +108,6 @@ body
 	}
 }
 
-.input
-{
-	border: 1px solid rgba(0, 0, 0, 0.3);
-	border-radius: 0.5rem;
-	margin: auto;
-	padding: 1rem;
-}
 
 /*
  Dark Mode Settings
@@ -147,4 +140,60 @@ body.dark-mode .page-container
 	background-color: var(--plum);
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	box-shadow: 1px 1px 3rem 1px rgba(255, 255, 255, 0.3);
+}
+
+/*
+Input styling
+ TODO Need to go through and change all inputs to this structure. Not just Audio Demos
+ */
+.input-group
+{
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0.5rem;
+}
+
+.input-group label
+{
+	color: #333333;
+	font-size: 0.95rem;
+	font-weight: 600;
+	margin-bottom: 0.4rem;
+}
+
+.input
+{
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	padding: 0.75rem;
+	transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+	width: 100%;
+}
+
+.input:focus
+{
+	border-color: var(--dark-purple);
+	box-shadow: 0 0 0 3px rgba(102, 51, 153, 0.2);
+	outline: none;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .input-group label
+{
+	color: #e8e8e8;
+}
+
+body.dark-mode .input
+{
+	background-color: rgba(255, 255, 255, 0.9);
+	color: #333333;
+}
+
+@media screen and (max-width: 767px)
+{
+	.input-group
+	{
+		width: 100%;
+	}
 }

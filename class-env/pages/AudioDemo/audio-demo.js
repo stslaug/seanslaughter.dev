@@ -6,16 +6,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const tableBody = document.querySelector("#titles tbody");
     const createTitleBtn = document.getElementById("createTitleBtn");
     const timeSelect = document.getElementById("timeSelect");
-
     const audio = document.getElementById("audio");
     const playPauseBtn = document.getElementById("playPauseBtn");
     const progressBar = document.getElementById("progressBar");
     const duration = document.getElementById("duration");
     const currentTimeSpan = document.getElementById("currentTime");
     const volumeControl = document.getElementById("volumeControl");
-
+    const titleCount = document.getElementById("titleCount");
     let wasPaused = true;
     let sortAscending = true;
+    let totalTitles = 0;
 
     // Add sorting functionality to the time header
     const timeHeader = $(".time-column").first();
@@ -28,6 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
         icon.removeClass("fa-sort fa-sort-up fa-sort-down");
         icon.addClass(sortAscending ? "fa-sort-up" : "fa-sort-down");
     });
+
+
+    function updateTotalTitles(num = 1) {
+        totalTitles += num;
+        titleCount.innerHTML = totalTitles + " title(s)";
+    }
 
     // Sorts the table rows based on time
     function sortTitles() {
@@ -95,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let controls = $("<td></td>").attr("data-label", "Controls").html('<div class="controls">' +
             '<i class="fas fa-play fa-2xl"></i><i class="fa-solid fa-trash fa-2xl"></i></div>').appendTo(row);
         $("#titles tbody").append(row);
-
+        updateTotalTitles(1);
 
         // Controller Event Handlers
         row.find(".fa-play").on("click", function () {
@@ -105,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         row.find(".fa-trash").on("click", function () {
             row.remove();
+            updateTotalTitles(-1);
             if (audio.currentTime >= time && !audio.paused) {
                 audio.pause();
                 playPauseBtn.classList.replace("fa-pause", "fa-play");

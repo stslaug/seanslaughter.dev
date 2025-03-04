@@ -5,7 +5,7 @@ main
 	padding: 3rem;
 }
 
-#titles, #functions, #titleCreate
+.bubble-container
 {
 	background-color: #e8e8e8;
 	border: 1px solid rgba(0, 0, 0, 0.1);
@@ -17,60 +17,85 @@ main
 	width: 100%;
 }
 
+/*
+	Audio Controls
+
+ */
 #interactable
 {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 1rem;
 	height: auto;
 	margin: 0 0 auto auto;
-	max-width: 30vw;
-	min-width: 15vw;
+	min-width: 315px;
 	position: sticky;
 	top: 1rem; /* Distance from the top of the page since sticky */
-	width: 100%;
 }
 
-#functions
+#title-controls
 {
-	align-items: flex-start;
-	max-height: 50vh;
-	min-height: 250px;
-	position: relative;
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	text-align: center;
 }
 
-#titleCreate
+#time-controls
 {
-	background-color: #ffffff;
-	position: relative;
+	justify-content: center;
+	margin: auto;
+	text-align: center;
 }
 
+#time-controls input
+{
+	width: 70%;
+}
+
+#volume-controls
+{
+	text-align: center;
+	text-wrap: nowrap;
+}
+
+/*
+ Title Creation
+ */
 #titleCreate .btn
 {
 	margin-bottom: 0.5rem;
 	width: 100%;
 }
 
-#titleCreateInfo
+#timestamp /* timestamp slider */
 {
-	display: flex;
-	width: 100%;
+	margin: 10px 0;
+	width: 80%;
 }
 
+/*
+	Title Table
+ */
 #titles
 {
 	align-items: flex-start;
+	height: auto;
 	margin: 0 auto auto 0.5rem;
-	max-width: 80vw;
 	min-height: 70vh;
-	min-width: 40vw;
 	position: sticky;
-	width: 100%;
+
 }
 
-#titles tbody tr
+#titleCount
 {
-	transition: background-color 0.3s ease-in-out;
+	display: flex;
+	font-size: 1.2rem;
+	position: absolute;
+	right: 5rem;
+	text-align: center;
+	top: 1rem;
 }
 
 #titles tbody tr.highlighted
@@ -79,45 +104,21 @@ main
 	color: white;
 }
 
-/* Progress Bar*/
-#progressBar
+#titles table
 {
-	width: 80%;
-	height: 10px;
-	background-color: #dddddd;
-	margin: 10px auto;
-	position: relative;
-}
-
-label
-{
-	display: inline-block;
-	margin: auto;
-}
-
-/*noinspection CssUnusedSymbol*/
-#progress
-{
-	height: 100%;
-	width: 0;
-	background-color: #1200da;
-}
-
-table
-{
-	border-spacing: 1rem;
 	text-align: center;
-	width: 100%;
+	text-wrap: wrap;
 }
 
-th, td
+#titles th, #titles td
 {
 	border-radius: 1rem;
 	margin: 5rem;
 	padding: 1.5rem;
+	text-wrap: nowrap;
 }
 
-tbody tr td:first-child
+#titles tbody tr td:first-child
 {
 	text-align: left;
 }
@@ -126,6 +127,8 @@ tbody tr
 {
 	border-radius: 1rem;
 	box-shadow: 1px 1px 3rem 1px rgba(0, 0, 0, 0.2);
+	color: white;
+	font-weight: bolder;
 	margin: 1rem;
 	padding: 1.5rem;
 	text-align: center;
@@ -134,25 +137,26 @@ tbody tr
 tbody tr:nth-child(odd)
 {
 	background-color: mediumpurple;
-	color: white;
-	font-weight: bolder;
 }
 
 tbody tr:nth-child(even)
 {
 	background-color: rebeccapurple;
-	color: white;
-	font-weight: bolder;
 }
 
-thead th:nth-child(1)
+.title-column
 { /* Title Column */
-	width: 66%;
+	hyphens: auto;
+	max-width: 30vw;
+	overflow: hidden;
+	text-overflow: fade;
+	white-space: normal;
+	word-wrap: break-word;
 }
 
-thead th:nth-child(2)
+.time-column
 { /* Timestamp Column */
-	width: 17%;
+	width: 10%;
 }
 
 thead th:nth-child(3)
@@ -160,20 +164,27 @@ thead th:nth-child(3)
 	width: 17%;
 }
 
-.controls
+#titles.controls
 {
 	display: flex;
 	gap: 8px;
 	justify-content: center;
 }
 
-/* timestamp slider */
-#timestamp
+.fa-play, .fa-trash, .fa-clock-rotate-left
 {
-	margin: 10px 0;
-	width: 80%;
+	cursor: pointer;
+	transition: all ease-in-out 0.2s;
 }
 
+.controls .fa-play:hover, .controls .fa-trash:hover
+{
+	transform: scale(1.2);
+}
+
+/*
+	Dark Mode Settings
+ */
 body.dark-mode #titles, body.dark-mode #functions, body.dark-mode #titleCreate
 {
 	background-color: var(--plum);
@@ -183,3 +194,67 @@ body.dark-mode main
 {
 	background-color: var(--dark-purple);
 }
+
+/*
+	Mobile/Tablet
+ */
+@media screen and (max-width: 1025px)
+{
+	main
+	{
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 1.5rem;
+		position: static;
+	}
+
+
+	#functions, #titleCreate, #titles, #interactable
+	{
+		display: block;
+		margin: auto;
+		min-height: auto;
+		min-width: 100%;
+		position: static;
+		width: 100%;
+	}
+
+
+	#titles .time-column
+	{
+		margin: 0;
+		max-width: 75px;
+		padding: 0;
+	}
+
+
+	#titles
+	{
+		height: auto;
+		margin: 2rem auto;
+	}
+}
+
+@media screen and (max-width: 700px)
+{
+	main
+	{
+		padding: 0;
+	}
+
+
+	#titles i, .title-column, .time-column
+	{
+		font-size: 1rem;
+	}
+
+
+	#titles table, #titles, #titles .bubble-container
+	{
+		padding: 0.5rem;
+	}
+}
+
+
