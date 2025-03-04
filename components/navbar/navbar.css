@@ -1,4 +1,3 @@
-
 /*
 Intended Structure
 
@@ -10,7 +9,6 @@ Intended Structure
 
 
  */
-
 body
 {
 	transition: background-color 0.3s ease-in-out, color 0.1s ease;
@@ -185,6 +183,8 @@ Submenu styling
 		margin: 0 1.5rem;
 		transition: all 0.3s ease-in-out;
 	}
+
+
 	.hamburger:hover
 	{
 		transform: scale(1.2);
@@ -197,6 +197,7 @@ Submenu styling
 		display: none;
 	}
 
+
 	#nav-items
 	{
 		border-top: 1px solid white;
@@ -206,7 +207,7 @@ Submenu styling
 		opacity: 0;
 		overflow: hidden;
 		position: absolute;
-		top: 90px;
+		top: 85px;
 		width: 100%;
 	}
 
@@ -220,6 +221,7 @@ Submenu styling
 
 	#nav-items.active
 	{
+		background-color: var(--dark-purple);
 		max-height: 500px;
 		opacity: 1;
 	}
@@ -255,13 +257,13 @@ Submenu styling
 
 	body.dark-mode #nav-items.active
 	{
-		background-color: var(--deep-purple);
+		background-color: var(--dark-purple);
 	}
 
 
 	#nav-items.active .nav-item:hover
 	{
-		background-color: var(--dark-purple);
+		background-color: var(--purple);
 	}
 
 

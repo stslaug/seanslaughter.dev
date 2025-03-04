@@ -2,38 +2,27 @@
 <html lang = "en">
 <head>
 	<meta charset = "utf-8">
-	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no"
-	      name = "viewport"
+	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no" name = "viewport"
 	>
-	<meta content = "ie=edge"
-	      http-equiv = "X-UA-Compatible"
+	<meta content = "ie=edge" http-equiv = "X-UA-Compatible"
 	>
 	<!-- Page description and author -->
-	<meta content = "Website Portfolio for Sean Tyler Slaughter. This Was Developed During Spring 2025 in CPSC 3750 Web Development"
-	      name = "description"
+	<meta content = "Website Portfolio for Sean Tyler Slaughter. This Was Developed During Spring 2025 in CPSC 3750 Web Development" name = "description"
 	>
-	<meta content = "Sean Tyler Slaughter"
-	      name = "author"
+	<meta content = "Sean Tyler Slaughter" name = "author"
 	>
 
 	<!-- Page title -->
 	<title>Welcome | Sean Slaughter</title>
 
-	<link href = "/assets/images/icon.svg"
-	      rel = "icon"
-	      sizes = "32x32"
-	      type = "image/svg"
+	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "32x32" type = "image/svg"
 	>
-	<link href = "/assets/images/icon.svg"
-	      rel = "icon"
-	      sizes = "16x16"
-	      type = "image/svg"
+	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "16x16" type = "image/svg"
 	>
 
-
-	<link rel = "stylesheet"
-	      type = "text/css"
-	      href = "./prog04.css"
+	<link href = "./prog04.css" rel = "stylesheet" type = "text/css"
+	>
+	<link href = "/general.css" rel = "stylesheet" type = "text/css"
 	>
 	<script src = "./prog04.js">
 
@@ -42,7 +31,7 @@
 <body>
 	<nav id = "navbar"></nav>
 	<header>
-		<h1 id="title">Prog04 | JavaScript Events with Buttons</h1>
+		<h1 id = "title">Prog04 | JavaScript Events with Buttons</h1>
 	</header>
 
 	<main>
@@ -55,9 +44,7 @@
 				</button>
 			</div>
 			<div>
-				<button id = "green-button"
-				        onclick = "backgroundBtnClick('green')"
-				        onmouseover = "hoverButton('green')"
+				<button id = "green-button" onclick = "backgroundBtnClick('green')" onmouseover = "hoverButton('green')"
 				>GREEN
 				</button>
 			</div>
@@ -73,15 +60,12 @@
 
 			<p id = "red-press">Red Button Pressed: N/A</p>
 			<p id = "green-press">Green Button Pressed: N/A</p>
-			<p id = "blue-press">Blue Button Pressed: N/A</p>
-			<br>
+			<p id = "blue-press">Blue Button Pressed: N/A</p>                  <br>
 			<p id = "red-hover">Red Button Hovered Over: N/A</p>
 			<p id = "green-hover">Green Button Hovered Over: N/A</p>
-			<p id = "blue-hover">Blue Button Hovered Over: N/A</p>
-			<br>
+			<p id = "blue-hover">Blue Button Hovered Over: N/A</p>                  <br>
 			<p id = "background-change">Background Color Changes : N/A</p>
-			<button
-				  onclick = "backgroundBtnClick('white')"
+			<button onclick = "backgroundBtnClick('white')"
 			>Reset Background Color
 			</button>
 		</div>

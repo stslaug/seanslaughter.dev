@@ -1,17 +1,15 @@
-* {
+*
+{
 	box-sizing: border-box;
 }
+
 body, html
 {
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	height: 100%;
 }
-
-
-
-
 
 main
 {
@@ -20,25 +18,29 @@ main
 
 #intro
 {
-	margin: auto;
 	flex-basis: 20%;
+	margin: auto;
 }
-
 
 #cardsAndForm
 {
-	margin: 2rem auto;
-	flex-basis: 65%;
+	border-radius: 2rem;
 	box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
 	display: flex;
+	flex-basis: 65%;
+	margin: 2rem auto;
 	max-height: 70vh;
-
+	padding: 1rem;
+	transition: background-color 0.3s ease-in-out;
 }
 
 #cardForm
 {
+	border-radius: 2rem;
 	flex-basis: 20%;
+	transition: background-color 0.3s ease-in-out;
 }
+
 #cardForm form
 {
 	display: flex;
@@ -46,6 +48,7 @@ main
 	margin: 1rem 1rem;
 	text-wrap: nowrap;
 }
+
 #cardForm input
 {
 	margin: 0.3rem 0 1rem 0;
@@ -56,52 +59,73 @@ main
 	display: flex;
 	margin: 2rem auto;
 }
+
 #cardForm label
 {
+	text-align: left;
 	text-wrap: nowrap;
-	text-align: left;
 }
-#cards{
-	text-align: left;
+
+#cards
+{
+	box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
 	flex-basis: 75%;
 	margin: 1rem auto;
-	overflow-y: scroll;
-	box-shadow: 1px 4px 8px 0 rgba(0, 0, 0, 0.2);
 	max-height: 100%;
-
+	overflow-y: scroll;
+	text-align: left;
 }
+
 #cards div
 {
+	border-radius: 10px;
 	margin: 1rem 1rem;
 	padding: 1rem 1rem;
 	transition-duration: 1s;
-	border-radius: 10px;
 }
+
 #cards div:hover
 {
 	background-color: #e4e4e4;
 }
 
-
-
-@media  (max-width: 1200px)
+@media (max-width: 1200px)
 {
 	main
 	{
 		display: block;
 		text-align: center;
 	}
+
+
 	ul
 	{
 		list-style-type: none;
 	}
 }
-@media  (max-width: 850px)
+
+@media (max-width: 850px)
 {
 	#cardsAndForm
 	{
 		display: block;
-		overflow: visible;
 		max-height: 100%;
+		overflow: visible;
 	}
+}
+
+body.dark-mode #cardsAndForm
+{
+	background-color: var(--plum);
+	box-shadow: 0 0 2rem 0.1rem rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode #cardForm
+{
+	background-color: var(--deep-purple);
+}
+
+body.dark-mode #cards div:hover
+{
+	background-color: var(--purple);
 }

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DeveloperToolsToolWindowSettingsV1" lastSelectedContentNodeId="base64-encoder-decoder">
-    <developerToolsConfigurations />
+  <component name="DeveloperToolsToolWindowSettingsV1" lastSelectedContentNodeId="text-statistic">
+    <developerToolsConfigurations>
+      <developerToolConfiguration developerToolId="text-statistic" id="5b2574a2-2fc4-44de-823c-8e0363b8cb4d" name="Workbench">
+        <properties>
+          <property key="text" type="INPUT" value="kotlin.String|&lt;!DOCTYPE html&gt;&#10;&lt;html lang=&quot;en&quot;&gt;&#10;&lt;head&gt;&#10;&#9;&lt;meta charset=&quot;UTF-8&quot;&gt;&#10;&#9;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;&#10;&#9;&lt;title&gt;PHP Testing&lt;/title&gt;&#10;&#9;&lt;script rel = &quot;text/javascript&quot;&#10;    &#9;        src = &quot;/scripts/navbar.js&quot;&#10;    &#9;&gt;&lt;/script&gt;&#10;    &#9;&lt;style&gt;&#10;            body, html {&#10;                margin: 0;&#10;                height: 100%;&#10;                width: 100%;&#10;            }&#10;        .nav-item, .dropbtn, .submenu, .dropmenu, .dropdown-item, .submenu-btn&#10;        {&#10;        background-color: #7320ff;&#10;        }&#10;&#10;        &lt;/style&gt;&#10;&#10;&lt;/head&gt;&#10;&lt;body&gt;&#10;    &lt;divid = &quot;navbar&quot;&gt; &lt;/div&gt;&#10;&#9;&lt;h1&gt;Hello World!&lt;/h1&gt;&#10;&#10;&#9;&lt;?php phpinfo(); ?&gt;&#10;&lt;/body&gt;&#10;&lt;/html&gt;&#10;" />
+        </properties>
+      </developerToolConfiguration>
+    </developerToolsConfigurations>
+    <expandedGroupNodeIds />
   </component>
 </project>
