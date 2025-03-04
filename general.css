@@ -50,7 +50,7 @@ body
 
 .page-container
 {
-	animation: all 0.3s ease-in-out;
+	animation: background-color 0.3s ease-in-out;
 	background-color: #ffffff;
 	border: 1px #b6b6b6;
 	border-radius: 3rem;
@@ -88,7 +88,7 @@ body
 	transform: scale(1.1);
 }
 
-.fa-forward
+.btn-pointer
 {
 	align-self: center;
 	animation: point 5s ease-in-out infinite alternate;
@@ -107,6 +107,14 @@ body
 	{
 		transform: translate(0.3rem, 1px);
 	}
+}
+
+.input
+{
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 0.5rem;
+	margin: auto;
+	padding: 1rem;
 }
 
 /*
