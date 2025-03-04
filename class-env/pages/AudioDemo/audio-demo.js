@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function togglePlayPause() {
         if (audio.paused) {
             audio.play();
+            duration.textContent = formatTime(audio.duration);
             playPauseBtn.classList.replace("fa-play", "fa-pause");
             wasPaused = false;
         } else {

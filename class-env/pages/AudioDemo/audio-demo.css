@@ -185,7 +185,7 @@ thead th:nth-child(3)
 /*
 	Dark Mode Settings
  */
-body.dark-mode #titles, body.dark-mode #functions, body.dark-mode #titleCreate
+body.dark-mode #titles .bubble-container, body.dark-mode #functions, body.dark-mode #titleCreate
 {
 	background-color: var(--plum);
 }
