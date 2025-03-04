@@ -2,35 +2,36 @@
 
 <html lang = ”en”>
 <head>
-	<meta name = "viewport" content = "width=device-width, initial-scale=1.0"
+	<meta content = "width=device-width, initial-scale=1.0" name = "viewport"
 	>
 	<title>Array Sorting Example</title>
 	<link href = "/general.css" rel = "stylesheet">
 	<style>
 		  body, html
 		  {
+			  height: 100%;
 			  margin: 0;
 			  width: 100%;
-			  height: 100%;
 		  }
 
-			  #newname
-			  {
-				  border: 1px transparent;
-				  border-radius: 1rem;
-				  box-shadow: 0 0 0.5rem 1px #555555;
-				  font-size: 1rem;
-				  font-weight: bold;
-				  margin: auto 1rem;
-				  padding: 1rem;
-			  }
+		  #newname
+		  {
+			  border: 1px transparent;
+			  border-radius: 1rem;
+			  box-shadow: 0 0 0.5rem 1px #555555;
+			  font-size: 1rem;
+			  font-weight: bold;
+			  margin: auto 1rem;
+			  padding: 1rem;
+		  }
+
 		  #sorted li
 		  {
-			  margin: auto;
-			  text-decoration: solid;
-			  text-align: center;
-			  justify-content: center;
 			  align-items: center;
+			  justify-content: center;
+			  margin: auto;
+			  text-align: center;
+			  text-decoration: solid;
 		  }
 
 	</style>
@@ -46,7 +47,8 @@
 			.</p>
 		<hr>
 		<br>
-		<form name = "theform" autocomplete = "off">
+		<form autocomplete = "off" name = "theform">
+
 			<label for = "newname"></label>
 			<input id = "newname" min = "Test" name = "newname" placeholder = "Add your word" size = "20" type = "text">
 			<input class = "btn" id = "addname" name = "addname" type = "button" value = "Add">
