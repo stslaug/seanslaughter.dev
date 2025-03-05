@@ -28,5 +28,5 @@ jQuery(function () {
         $('#footer').toggleClass('dark-mode');
         $('#darkmode-toggle i').toggleClass('fa-moon').toggleClass('fa-sun');
     });
-    
+
 });

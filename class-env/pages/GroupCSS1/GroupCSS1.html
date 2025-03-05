@@ -4,11 +4,8 @@
 	<meta charset = "UTF-8">
 	<title>Group CSS Assignment 1</title>
 
-
-	<script rel = "text/javascript"
-	        src = "/components/navbar/navbar.js"></script>
-	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no"
-	      name = "viewport">
+	<link href = "/general.css" rel = "stylesheet">
+	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no" name = "viewport">
 
 	<style>
 		  /*
@@ -29,37 +26,35 @@
 
 		  body
 		  {
+			  background-attachment: fixed;
+			  background-color: #bababa;
+			  background-image: url("wallpaper.jpeg");
+			  background-position: right top;
+			  background-repeat: repeat;
+			  background-size: 700px;
 			  height: 120vh;
 			  margin: auto;
-			  background-color: #bababa;
-			  background-position: right top;
-			  background-image: url("wallpaper.jpeg");
-			  background-size: 700px;
-			  background-repeat: repeat;
-			  background-attachment: fixed;
-
 		  }
 
 		  #outer-box
 		  {
-			  margin: 3rem auto auto auto;
-			  border-radius: 10px;
-			  border-top: 5px solid black;
-			  border-right: 5px ridge black;
+			  background-color: red;
 			  border-bottom: 5px dotted black;
 			  border-left: 5px dashed black;
-			  background-color: red;
+			  border-radius: 10px;
+			  border-right: 5px ridge black;
+			  border-top: 5px solid black;
+			  margin: 3rem auto auto auto;
 			  width: 30rem;
 		  }
 
 		  #outer-box h1
 		  {
 			  background-color: cyan;
-			  padding: 1rem;
-			  margin: 1rem;
 			  color: red;
+			  margin: 1rem;
+			  padding: 1rem;
 		  }
-
 
 	</style>
 </head>
@@ -67,24 +62,24 @@
 	<div id = "navbar"></div>
 	<!-- Inline Style -->
 
-
 	<!-- Example Container-->
 	<div id = "outer-box">
 		<h1> Header Object </h1>
 	</div>
 	<div style = "padding: 1rem;background-color: white; border: 2px solid green; border-radius: 20px;
-	width: 20rem; margin: 3rem auto auto auto; height: 20rem;">
+	width: 20rem; margin: 3rem auto auto auto; height: 20rem;"
+	>
 		<h1> Legend </h1>
 		<p> Red = Margin </p>
 		<p> Cyan = Padding </p>
 		<p> This Legend Uses Height and Width (rem)</p>
 		<p> Border Styles (Top, Right, Bottom, Left) = Solid Dotted Dashed Ridge</p>
-		<p> Fixed Position Background Image: <a
-			  href = "https://stock.adobe.com/contributor/206329187/nadiinko?load_type=author&prev_url=detail&asset_id=277309825">Adobe
-			Stock</a></p>
+		<p> Fixed Position Background Image:
+			<a href = "https://stock.adobe.com/contributor/206329187/nadiinko?load_type=author&prev_url=detail&asset_id=277309825">Adobe
+				Stock</a></p>
 	</div>
-<footer id = "footer"></footer>
-	<script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+	<footer id = "footer"></footer>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 
