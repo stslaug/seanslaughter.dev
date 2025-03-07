@@ -9,6 +9,7 @@ deployment:
     - /bin/cp index.css $DEPLOYPATH
     - /bin/cp nav-foot.js $DEPLOYPATH
 
+
     # Copy entire directories
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R pages $DEPLOYPATH

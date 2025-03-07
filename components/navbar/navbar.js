@@ -1,6 +1,5 @@
 jQuery(function () {
     let $head = $('head');
-    $head.append('<link rel="stylesheet" href="/components/navbar/navbar.css">');
     $head.append('<script src="https://kit.fontawesome.com/44ecd57f75.js" crossorigin="anonymous"></script>');
 
     // Toggle mobile menu
