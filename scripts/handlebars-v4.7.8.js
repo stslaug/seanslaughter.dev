@@ -1,3 +1,5 @@
+// noinspection JSDuplicatedDeclaration,JSBitwiseOperatorUsage,PointlessBooleanExpressionJS,RedundantIfStatementJS,UnreachableCodeJS,ES6ConvertVarToLetConst,JSDeprecatedSymbols,JSCommentMatchesSignature,JSCheckFunctionSignatures,JSUnresolvedReference,NpmUsedModulesInstalled,EqualityComparisonWithCoercionJS,JSUnusedAssignment,JSUnusedGlobalSymbols,JSUnusedLocalSymbols
+
 /**!
 
  @license
@@ -1111,7 +1113,9 @@
                 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
                 var global = module.exports = typeof window != 'undefined' && window.Math == Math
                     ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
-                if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+                if (typeof __g == 'number') { // noinspection JSUndeclaredVariable
+                    __g = global;
+                } // eslint-disable-line no-undef
 
                 /***/
             }),
@@ -1208,7 +1212,9 @@
             /***/ (function (module, exports) {
 
                 var core = module.exports = {version: '1.2.6'};
-                if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+                if (typeof __e == 'number') { // noinspection JSUndeclaredVariable
+                    __e = core;
+                } // eslint-disable-line no-undef
 
                 /***/
             }),
@@ -4684,11 +4690,14 @@
                                 var lines = ch.split(/(?:\r\n?|\n)/g);
 
                                 this._input = ch + this._input;
+                                // noinspection JSDeprecatedSymbols
                                 this.yytext = this.yytext.substr(0, this.yytext.length - len - 1);
                                 //this.yyleng -= len;
                                 this.offset -= len;
                                 var oldLines = this.match.split(/(?:\r\n?|\n)/g);
+                                // noinspection JSDeprecatedSymbols
                                 this.match = this.match.substr(0, this.match.length - 1);
+                                // noinspection JSDeprecatedSymbols
                                 this.matched = this.matched.substr(0, this.matched.length - 1);
 
                                 if (lines.length - 1) this.yylineno -= lines.length - 1;
@@ -4720,6 +4729,7 @@
                             upcomingInput: function upcomingInput() {
                                 var next = this.match;
                                 if (next.length < 20) {
+                                    // noinspection JSDeprecatedSymbols
                                     next += this._input.substr(0, 20 - next.length);
                                 }
                                 return (next.substr(0, 20) + (next.length > 20 ? '...' : '')).replace(/\n/g, "");

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "utf-8">
+	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no" name = "viewport"
+	>
+	<meta content = "ie=edge" http-equiv = "X-UA-Compatible"
+	>
+	<!-- Page description and author -->
+	<meta content = "Assignment page listing each assignment Sean had to complete in Web Development">
+	<meta content = "Sean Tyler Slaughter" name = "author"
+	>
+
+	<link href = "/images/icon.svg" rel = "icon" sizes = "32x32" type = "image/svg"
+	>
+	<link href = "/images/icon.svg" rel = "icon" sizes = "16x16" type = "image/svg"
+	>
+
+	<script rel = "text/javascript" src = "ButtonMove.js"
+	></script>
+
+	<link href = "ButtonMove.css" rel = "stylesheet"
+	>
+	<link href = "/general.css" rel = "stylesheet"
+	>
+
+	<title>Moving Buttons | Sean Slaughter</title>
+</head>
+<body>
+	<nav id = "navbar"></nav>
+
+	<header id = "top">
+		<h1>Moving Buttons</h1>
+		<p>Add buttons, and then click them to see a combined total</p>
+		<button class = "btn" onClick = "makeButton()">Make Button</button>
+		<button class = "btn" onClick = "changeMove()">Move Button</button>
+		<label for = "colors">Choose a color:</label>
+
+		<select id = "colors" name = "colors"
+		>
+			<option value = "red">Red</option>
+			<option value = "green">Green</option>
+			<option value = "blue">Blue</option>
+			<option value = "yellow">Yellow</option>
+			<option value = "white">White</option>
+		</select>
+		<p id = "quantity"></p>
+		<p id = "buttonSum"></p>
+	</header>
+
+	<div id = "view" style = "position: relative"
+	>
+
+	</div>
+	<footer id = "footer"></footer>
+
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script rel = "text/javascript" src = "/nav-foot.js"></script>
+</body>
+</html>

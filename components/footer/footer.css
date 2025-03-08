@@ -10,6 +10,7 @@
 {
 	align-content: center;
 	background-color: var(--purple);
+	border-style: solid none none none;
 	color: white;
 	display: flex;
 	font-family: 'Roboto', sans-serif;

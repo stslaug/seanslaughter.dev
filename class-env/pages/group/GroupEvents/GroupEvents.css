@@ -1,0 +1,187 @@
+@font-face
+{
+	font-family: 'Roboto';
+	src: local('/fonts/Roboto-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*
+{
+	box-sizing: border-box;
+}
+
+html, body
+{
+	background-color: white;
+	font-family: 'Roboto', sans-serif;
+	height: 100%;
+	margin: 0;
+	scroll-behavior: smooth;
+	text-align: center;
+}
+
+section
+{
+	border: 1px black;
+	border-style: none none solid none;
+	justify-content: center;
+	min-height: 20vh;
+}
+
+section h1
+{
+	text-align: center;
+}
+
+.stats-wrapper
+{
+	margin: 2rem auto;
+	text-align: center;
+}
+
+.stats-wrapper p
+{
+}
+
+.wip
+{ /* Gradient "Animated" Background */
+	animation: WIPAnimation 5s ease-in-out infinite;
+	background-image: linear-gradient(90deg, white, yellow, white, yellow);
+	background-size: 500%;
+	border-radius: 2rem;
+	box-shadow: 1px 2px 4px rgba(138, 114, 0, 0.63);
+	margin: auto;
+	max-width: 400px;
+	padding: 1rem;
+	text-align: center;
+}
+
+@keyframes WIPAnimation
+{
+	0%
+	{
+		background-position: 0 50%;
+	}
+	50%
+	{
+		background-position: 100% 50%;
+	}
+	100%
+	{
+		background-position: 0 50%;
+	}
+}
+
+/*
+    Animation Event Section
+ */
+@keyframes animationAction
+{
+	0%
+	{
+		background-color: red;
+		color: white;
+		border-radius: 6rem;
+	}
+	100%
+	{
+		background-color: purple;
+		color: white;
+		border-radius: 1rem;
+	}
+}
+
+#color-box
+{
+	animation: animationAction 2s ease-in-out infinite alternate-reverse;
+	margin: auto;
+	max-height: 400px;
+	max-width: 400px;
+	min-height: 200px;
+}
+
+/*
+    Drag Event Section
+ */
+#dragme
+{
+	background-color: lightgray;
+	cursor: move;
+	height: auto;
+	margin: 1rem auto;
+	max-width: 400px;
+	padding: 1rem;
+	text-align: center;
+}
+
+.dragZone
+{
+	border: 1px solid black;
+	margin: 1rem auto;
+	max-width: 400px;
+	padding: 1rem;
+	text-align: center;
+}
+
+/*
+ *
+ * Input Events Section
+ *
+ */
+#inputs
+{
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	justify-content: center;
+	margin: 3rem auto;
+	max-width: 400px;
+	text-align: center;
+}
+
+#inputs input
+{
+	margin-bottom: 0.5rem; /* Add spacing between inputs */
+	padding: 0.5rem; /* Add some padding to inputs */
+	width: 100%;
+}
+
+#inputs label
+{
+	display: block; /* Make labels stack above inputs */
+	margin-bottom: 0.2rem; /* Add a little space below labels */
+}
+
+/*
+ * Mouse Events Section
+ */
+#mouse-area
+{
+	border: 1px solid black;
+	cursor: crosshair; /* Change cursor to indicate interactive area */
+	margin: 1rem auto;
+	max-width: 400px;
+	padding: 2rem; /* Increased padding for better interaction */
+	text-align: center;
+}
+
+/*
+ * Focus Events Section
+ */
+#focus-area
+{
+	border: 1px solid black;
+	margin: 1rem auto;
+	max-width: 400px;
+	outline: none; /* Remove default focus outline */
+	padding: 1rem;
+	tab-index: 0; /* Make the div focusable */
+	text-align: center;
+}
+
+#focus-area:focus
+{
+	background-color: lightyellow; /* Highlight on focus */
+}

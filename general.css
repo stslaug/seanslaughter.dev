@@ -34,6 +34,7 @@ body, html
 	position: relative;
 	width: 100%;
 }
+
 /* General Styles */
 body
 {
@@ -50,7 +51,6 @@ body
 
 .page-container
 {
-	animation: background-color 0.3s ease-in-out;
 	background-color: #ffffff;
 	border: 1px #b6b6b6;
 	border-radius: 3rem;
@@ -59,8 +59,10 @@ body
 	margin: 1rem auto;
 	max-width: 50%;
 	padding: 3rem;
+	transition: width 0.3s ease, max-width 0.3s ease, height 0.3s ease, max-height 0.3s ease, background-color 0.3s ease-in-out;
 	width: 100%;
 }
+
 /*
  *
  *  Button
@@ -73,18 +75,18 @@ body
 	border-radius: 5px;
 	box-shadow: 0 0 3rem 1px rgba(255, 255, 255, 0.1);
 	color: #ffffff;
+	cursor: pointer;
 	padding: 0.8rem 1.5rem;
 	text-decoration: none;
-	transition: transform 0.3s ease;
-
+	transition: all 0.3s ease;
 }
 
-.btn:hover
+.btn:hover, .btn:active
 {
 	background-color: var(--dark-purple);
 	border: 1px solid rgba(255, 255, 255, 0.1);
-	box-shadow: 0 0 3rem 1px rgba(255, 255, 255, 0.1);
-	transform: scale(1.1);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transform: scale(1.05) translateY(-3px);
 }
 
 .btn-pointer
@@ -107,7 +109,6 @@ body
 		transform: translate(0.3rem, 1px);
 	}
 }
-
 
 /*
  Dark Mode Settings
