@@ -1,9 +1,7 @@
 jQuery(function () {
     let $head = $('head');
-    $head.append('<link rel="stylesheet" href="/components/navbar/navbar.css">');
     $head.append('<script src="https://kit.fontawesome.com/44ecd57f75.js" crossorigin="anonymous"></script>');
-    $head.append('<link rel = "stylesheet" href =' +
-        ' "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>');
+
 
     // Toggle mobile menu
     $("#hamburger").on('click', function () {

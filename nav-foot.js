@@ -1,5 +1,8 @@
-jQuery(function() {
+jQuery(function () {
     // Dynamically Load the Navbar
+    let $head = $('head');
+    $head.append('<link rel="stylesheet" href="/components/navbar/navbar.css">');
+    $head.append('<link rel="stylesheet" href="/components/footer/footer.css">');
     $.get('/components/navbar/navbar.html', function (data) {
         $('#navbar').html(data);
 
