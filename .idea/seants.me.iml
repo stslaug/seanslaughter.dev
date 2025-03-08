@@ -20,5 +20,6 @@
     <orderEntry type="library" name="jquery-3.7.1" level="application" />
     <orderEntry type="library" name="44ecd57f75" level="application" />
     <orderEntry type="library" name="@types/jquery" level="application" />
+
   </component>
 </module>
