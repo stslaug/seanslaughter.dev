@@ -2,6 +2,7 @@ jQuery(function () {
     let $head = $('head');
     $head.append('<script src="https://kit.fontawesome.com/44ecd57f75.js" crossorigin="anonymous"></script>');
 
+
     // Toggle mobile menu
     $("#hamburger").on('click', function () {
         $("#nav-items").toggleClass("active");
