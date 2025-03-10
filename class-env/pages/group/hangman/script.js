@@ -1,26 +1,21 @@
 jQuery(function () {
     let currWord = "";
-    let attemptsLeft = 0;
+    let attemptsLeft = 10;
     let guessedLetters = [];
     let cheatMode = $('#cheatMode');
     let cheatWord = $('#cheatWord');
+    // Added Canvas
+    let canvas = document.getElementById("gallows");
+    let ctx = canvas.getContext("2d");
 
     $('#startBtn').on('click', startGame);
-
     cheatMode.on('change', updateCheatMode);
 
     function updateCheatMode() {
-        if (document.getElementById('cheatMode').checked) {
-            $(cheatWord).fadeIn(300);
-
-        } else {
-            $(cheatWord).fadeOut(300);
-
-        }
+        cheatWord.toggle(300);
     }
 
     function startGame() {
-        // Fetch a new word from the server
         fetch('getWord.php')
             .then(response => response.json())
             .then(data => {
@@ -35,115 +30,119 @@ jQuery(function () {
     }
 
     function setupGame(word) {
-        const wordToGuess = document.getElementById('wordToGuess');
-        const cheatWord = document.getElementById('cheatWord');
-
-        wordToGuess.innerHTML = '_ '.repeat(word.length).trim();
-        $(cheatWord).fadeOut(0);
-        updateCheatMode();
-        cheatWord.innerText = word;
-        attemptsLeft = 10; // Reset Player Score
-        document.getElementById("attempts").innerText = `Attempts Left: ${attemptsLeft}/10`;
-        guessedLetters = []; // Reset Guessed Letters
-
+        $('#wordToGuess').text('_ '.repeat(word.length).trim());
+        cheatWord.text(word).hide();
+        attemptsLeft = 10;
+        $('#attempts').text(`Attempts Left: ${attemptsLeft}/10`);
+        guessedLetters = [];
+        resetCanvas(); // Clears the canvas at start of new game
         generateLetterButtons();
     }
 
     function generateLetterButtons() {
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const lettersDiv = document.getElementById('letters');
-        lettersDiv.innerHTML = ''; // Clear previous buttons
+        $('#letters').empty();
         letters.split('').forEach(letter => {
-            const button = document.createElement('button');
-            button.textContent = letter;
-            button.id = letter;
-            button.classList.add('btn');
-            button.onclick = () => guessLetter(letter);
-            lettersDiv.appendChild(button);
+            let button = $('<button>').text(letter).addClass('btn').click(() => guessLetter(letter));
+            $('#letters').append(button);
         });
     }
 
-    let timeoutId;
-
     function guessLetter(letter) {
-        // Prevent clicking the same letter twice
         if (guessedLetters.includes(letter)) return;
-
         guessedLetters.push(letter);
 
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-
         if (currWord.includes(letter)) {
-            $('#' + letter).css('background-color', '#555555');
-            $(document.getElementById('letters')).css('backgroundColor', 'var(--green)');
-
-
             updateWordDisplay();
-
-            if (hasWon()) {
-                endGame(true);
-                return;
-            }
+            if (hasWon()) endGame(true);
         } else {
             attemptsLeft -= 1;
-            document.getElementById("attempts").innerText = `Attempts Left: ${attemptsLeft}/10`;
-            if (attemptsLeft <= 0) {
-                endGame(false);
-                return;
-            }
-            updateGallows();
-            $('#' + letter).css('background-color', '#555555');
-            $(document.getElementById('letters')).css('backgroundColor', ' rgba(205, 92, 92, 1)');
+            $('#attempts').text(`Attempts Left: ${attemptsLeft}/10`);
+            drawGallows(10 - attemptsLeft);
+            if (attemptsLeft <= 0) endGame(false);
         }
-
-        timeoutId = setTimeout(function () {
-            $(document.getElementById('letters')).css('backgroundColor', '');
-            timeoutId = null;
-        }, 1000);
     }
 
     function updateWordDisplay() {
-        const wordToGuess = document.getElementById('wordToGuess');
-        let displayWord = '';
-
-        for (let i = 0; i < currWord.length; i++) {
-            if (guessedLetters.includes(currWord[i])) {
-                displayWord += currWord[i] + ' ';
-            } else {
-                displayWord += '_ ';
-            }
-        }
-
-        wordToGuess.innerText = displayWord.trim();
-    }
-
-    function updateGallows() {
-        /*
-            TODO Implement Gallows on Hangman Update
-           Check attemptsleft then switch statement through changing/clipping through the img?
-         */
+        let displayWord = currWord.split('').map(l => (guessedLetters.includes(l) ? l : '_')).join(' ');
+        $('#wordToGuess').text(displayWord);
     }
 
     function hasWon() {
-        const wordToGuess = document.getElementById('wordToGuess');
-        let currGuess = (wordToGuess.innerText).replaceAll(/\s/g, '');
-        console.log("hasWonCalled and is it true? " + ((currGuess == currWord) ? 'yes.' : 'no.') + " currWord: \"" + currWord + "\" currGuess: \"" + currGuess + "\"");
-        return (currGuess === currWord)
-        {
-            /*
-                  TODO Maybe Some kind of win effect?
-              */
+        return $('#wordToGuess').text().replace(/\s/g, '') === currWord;
+    }
+
+    function endGame(won) {
+        alert(won ? "You won!" : `You lost! The word was: ${currWord}`);
+    }
+
+    // Clears the canvas
+    function resetCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "#000000";
+        ctx.beginPath();
+        ctx.moveTo(50, 250);
+        ctx.lineTo(150, 250); // Base
+        ctx.moveTo(100, 250);
+        ctx.lineTo(100, 50); // Pole
+        ctx.moveTo(100, 50);
+        ctx.lineTo(200, 50); // Top Beam
+        ctx.moveTo(200, 50);
+        ctx.lineTo(200, 80); // Rope
+        ctx.stroke();
+    }
+
+    // Draws the Hangman
+    function drawGallows(stage) {
+        ctx.strokeStyle = "#000000";
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+
+        switch (stage) {
+            case 1:
+                ctx.arc(200, 100, 20, 0, Math.PI * 2);
+                break; // Head
+            case 2:
+                ctx.moveTo(200, 120);
+                ctx.lineTo(200, 180);
+                break; // Body
+            case 3:
+                ctx.moveTo(200, 130);
+                ctx.lineTo(170, 160);
+                break; // Left Arm
+            case 4:
+                ctx.moveTo(200, 130);
+                ctx.lineTo(230, 160);
+                break; // Right Arm
+            case 5:
+                ctx.moveTo(200, 180);
+                ctx.lineTo(170, 230);
+                break; // Left Leg
+            case 6:
+                ctx.moveTo(200, 180);
+                ctx.lineTo(230, 230);
+                break; // Right Leg
+            case 7:
+                ctx.moveTo(170, 230);
+                ctx.lineTo(160, 250);
+                break; // Left Foot
+            case 8:
+                ctx.moveTo(230, 230);
+                ctx.lineTo(240, 250);
+                break; // Right Foot
+            case 9:
+                ctx.moveTo(170, 160);
+                ctx.lineTo(160, 140);
+                break; // Left Hand
+            case 10:
+                ctx.moveTo(230, 160);
+                ctx.lineTo(240, 140);
+                break; // Right Hand
         }
 
+        ctx.stroke();
     }
 
-    function endGame() {
-        console.log("Game has Ended: Player has " + ((attemptsLeft > 0) ? 'won.' : 'lost.'))
-
-    }
-
-// Initially start the game
     startGame();
 });
