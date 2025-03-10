@@ -14,5 +14,6 @@ deployment:
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R pages $DEPLOYPATH
     - /bin/cp -R components $DEPLOYPATH
+    - /bin/cp -R scripts $DEPLOYPATH
     - /bin/cp -R class-env $DEPLOYPATH
 
