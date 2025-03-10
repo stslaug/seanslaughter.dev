@@ -43,24 +43,41 @@ jQuery(function () {
         const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $('#letters').empty();
         letters.split('').forEach(letter => {
-            let button = $('<button>').text(letter).addClass('btn').click(() => guessLetter(letter));
+            let button = $('<button>').text(letter).addClass('btn').attr("id", letter).click(() => guessLetter(letter));
             $('#letters').append(button);
         });
     }
 
+    let timeoutId;
+
     function guessLetter(letter) {
         if (guessedLetters.includes(letter)) return;
         guessedLetters.push(letter);
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
 
         if (currWord.includes(letter)) {
             updateWordDisplay();
             if (hasWon()) endGame(true);
+
+            if (currWord.includes(letter)) {
+                $('#' + letter).css('background-color', '#555555');
+                $(document.getElementById('letters')).css('backgroundColor', 'var(--green)');
+            }
+
         } else {
             attemptsLeft -= 1;
             $('#attempts').text(`Attempts Left: ${attemptsLeft}/10`);
             drawGallows(10 - attemptsLeft);
             if (attemptsLeft <= 0) endGame(false);
+            $('#' + letter).css('background-color', '#555555');
+            $(document.getElementById('letters')).css('backgroundColor', ' rgba(205, 92, 92, 1)');
         }
+        timeoutId = setTimeout(function () {
+            $(document.getElementById('letters')).css('backgroundColor', '');
+            timeoutId = null;
+        }, 800);
     }
 
     function updateWordDisplay() {
@@ -70,10 +87,13 @@ jQuery(function () {
 
     function hasWon() {
         return $('#wordToGuess').text().replace(/\s/g, '') === currWord;
+        toggleKeys();
     }
 
-    function endGame(won) {
+    function endGame(won = false) {
         alert(won ? "You won!" : `You lost! The word was: ${currWord}`);
+        toggleKeys();
+
     }
 
     // Clears the canvas
@@ -142,6 +162,17 @@ jQuery(function () {
         }
 
         ctx.stroke();
+    }
+
+    function toggleKeys() {
+        $('#letters .btn').css('background-color', '#555555');
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        letters.split('').forEach(letter => {
+            if (!guessedLetters.includes(letter)) {
+                guessedLetters.push(letter);
+            }
+        });
+        // no need to handle flipping back currently in dev, as the keys are regenerated at game setup
     }
 
     startGame();
