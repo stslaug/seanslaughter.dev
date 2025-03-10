@@ -1,3 +1,11 @@
+/*
+@font-face
+{
+	font-family: "zain", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+*/
 :root
 {
 	--blue: royalblue;
@@ -11,6 +19,15 @@
 	--yellow: #f4d01d;
 	--dark-purple: #4e357f;
 	--deep-purple: #1e1a28;
+	--off-white: #efefef;
+}
+
+@font-face
+{
+	font-family: 'Noto Sans Display Regular';
+	src: local('/assets/fonts/Noto_Sans_Display/NotoSansDisplay-VariableFont_wdth,wght.ttf');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face
@@ -28,6 +45,7 @@
 
 body, html
 {
+	background-color: #e8e8e8;
 	height: auto !important;
 	margin: 0;
 	min-height: 100%;
@@ -42,6 +60,16 @@ body
 	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+h1
+{
+	font-family: 'Noto Sans Display', "Noto San", sans-serif;
+	font-style: normal;
+	font-weight: bold;
+}
+
+/*
+ 	Todo Find where this goes... Should be just the homepage -if so move to appropriate style file
+ */
 .container
 {
 	margin: 0 auto;
@@ -58,6 +86,7 @@ body
 	height: auto;
 	margin: 1rem auto;
 	max-width: 50%;
+	min-width: min-content;
 	padding: 3rem;
 	transition: width 0.3s ease, max-width 0.3s ease, height 0.3s ease, max-height 0.3s ease, background-color 0.3s ease-in-out;
 	width: 100%;
@@ -144,6 +173,149 @@ body.dark-mode .page-container
 }
 
 /*
+
+	Table Styling
+
+ */
+.table
+{
+	animation: fadeIn 0.3s ease-in-out;
+	border-collapse: collapse;
+	border-radius: 8px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	font-family: 'Arial', sans-serif;
+	margin: 20px 0;
+	overflow: hidden;
+	width: 100%;
+}
+
+.table th
+{
+	background-color: rgba(110, 31, 252, 0.66);
+	border-bottom: 2px solid #dee2e6;
+	color: white;
+	font-size: large;
+	font-weight: normal;
+	padding: 12px 15px;
+	text-align: left;
+	transition: background-color 0.3s ease;
+}
+
+.table td
+{
+	border-bottom: 1px solid #e9ecef;
+	color: #212529;
+	padding: 12px 15px;
+}
+
+.table tr:last-child td
+{
+	border-bottom: none;
+}
+
+.table tr:nth-child(even)
+{
+	background-color: #f8f9fa;
+}
+
+.table tr:nth-child(odd)
+{
+	background-color: #e5e0ee;
+}
+
+.table tr:hover
+{
+	background-color: #e9f5ff;
+	transition: background-color 0.2s ease-in-out;
+}
+
+/* Dark Mode Table Styling */
+body.dark-mode .table
+{
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+	color: #e1e1e1;
+}
+
+body.dark-mode .table th
+{
+	background-color: #4a1d96; /* Deeper purple */
+	border-bottom: 2px solid #333333;
+	color: #ffffff;
+}
+
+body.dark-mode .table td
+{
+	border-bottom: 1px solid #444444;
+	color: #dcdcdc;
+}
+
+body.dark-mode .table tr:nth-child(even)
+{
+	background-color: #2a2a2a; /* Dark gray for even rows */
+}
+
+body.dark-mode .table tr:nth-child(odd)
+{
+	background-color: #333333; /* Slightly lighter gray for odd rows */
+}
+
+body.dark-mode .table tr:hover
+{
+	background-color: #3c2e63; /* Purple-tinted hover state */
+	transition: background-color 0.2s ease-in-out;
+}
+
+/* Optional: Change border colors for better definition in dark mode */
+body.dark-mode .table
+{
+	border: 1px solid #444444;
+}
+
+body.dark-mode .table tr:last-child td
+{
+	border-bottom: none;
+}
+
+/* Animation for new search results */
+@keyframes fadeIn
+{
+	from
+	{
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to
+	{
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px)
+{
+	.table
+	{
+		font-size: 14px;
+	}
+
+
+	.table th, .table td
+	{
+		padding: 8px 10px;
+	}
+}
+
+/* No results message styling */
+.table p
+{
+	color: #6c757d;
+	font-style: italic;
+	padding: 15px;
+	text-align: center;
+}
+
+/*
 Input styling
  TODO Need to go through and change all inputs to this structure. Not just Audio Demos
  */
@@ -164,6 +336,7 @@ Input styling
 
 .input
 {
+	background-color: var(--off-white);
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	border-radius: 0.5rem;
 	font-size: 1rem;
@@ -187,8 +360,13 @@ body.dark-mode .input-group label
 
 body.dark-mode .input
 {
-	background-color: rgba(255, 255, 255, 0.9);
-	color: #333333;
+	background-color: rgba(125, 121, 141, 0.9);
+	color: white;
+}
+
+body.dark-mode .input::placeholder
+{
+	color: white;
 }
 
 @media screen and (max-width: 767px)

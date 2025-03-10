@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<meta content = "width=device-width, initial-scale=1.0" name = "viewport">
+	<title>Ajax and PHP | Sean Slaughter</title>
+	<link href = "/general.css" rel = "stylesheet">
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+	<nav id = "navbar"></nav>
+	<main class = "page-container">
+		<h1 style = "font-family: 'Zain', sans-serif;">AJAX Live Search Example</h1>
+		<p>Search for a <strong>U.S. State</strong> and it will return a list of those states, and their
+			capitals</p>
+		<div class = "input-group">
+			<label for = "searchLive">State Search</label>
+			<input class = "input" id = "searchLive" placeholder = "Search for state" size = "40" type = "text">
+		</div>
+
+		<div id = "list">
+			<p>[Search results will display here.]</p>
+		</div>
+	</main>
+	<footer id = "footer"></footer>
+	<script src = "/nav-foot.js"></script>
+	<script src = "ajax.js"></script>
+</body>
+</html>

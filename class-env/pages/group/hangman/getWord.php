@@ -1,6 +1,18 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // SECURITY: Make sure 'words.txt' is stored outside public_html
-$wordsFile = '/home/seanljvy/TextFile/words.txt';
+// Check if running on local environment or server
+if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_ADDR'] == '162.213.255.53') {
+    // Local development path
+    $wordsFile = 'words.txt';
+} else {
+    // Server path
+    $wordsFile = '/home/seanljvy/TextFile/words.txt';
+}
+
+// Now $wordsFile will have the appropriate path based on environment
 
 // To make sure it's the correct Content-Type for JSON responses
 header('Content-Type: application/json');
