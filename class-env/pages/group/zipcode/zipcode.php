@@ -237,7 +237,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     try {
-        $calculator = new ZipcodeDistanceCalculator('');  // Empty string will use the default path logic
+        $calculator = new ZipcodeDistanceCalculator('');
         $result = $calculator->getDistance($zipcode1, $zipcode2);
         echo json_encode($result);
     } catch (Exception $e) {
