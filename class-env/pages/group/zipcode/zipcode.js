@@ -53,7 +53,7 @@ jQuery(function () {
         }
 
         // Show loading state
-        calculateBtn.html('Calculating...');
+        calculateBtn.text('Calculating...');
         calculateBtn.prop('disabled', true);
 
         // Make AJAX request to PHP endpoint
@@ -61,7 +61,7 @@ jQuery(function () {
             url: 'zipcode.php', type: 'POST', data: {
                 zipcode1: zip1, zipcode2: zip2, showSteps: showStepsCheckbox.prop('checked') ? 1 : 0  // Pass checkbox state to server
             }, dataType: 'json', success: function (response) {
-                calculateBtn.html('Calculate Distance');
+                calculateBtn.text('Calculate Distance');
                 calculateBtn.prop('disabled', false);
 
                 console.log("AJAX Response:", response);
@@ -89,7 +89,7 @@ jQuery(function () {
                 }
             }, error: function (xhr, status, error) {
                 // Reset button
-                calculateBtn.html('Calculate Distance');
+                calculateBtn.text('Calculate Distance');
                 calculateBtn.prop('disabled', false);
 
                 console.log("AJAX Error:", status, error);
