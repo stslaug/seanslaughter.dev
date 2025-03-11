@@ -1,6 +1,6 @@
 // initialize the counter and the array
 let namesSet = [];
-let newname = $("$newname");
+let newname = $("#newname");
 jQuery(function () {
     newname.on("keydown", function (event) {
         if (event.key === "Enter") {
@@ -16,7 +16,7 @@ jQuery(function () {
 
 function SortNames() {
     // Get the name from the text field
-    let thename = newname.val().trim();
+    let thename = $('#newname').val().trim();
 
     newname = styleName(thename);
 
@@ -34,7 +34,6 @@ function SortNames() {
         $("#sorted").html(generatedList);
     }
 
-    newname.val("");
 }
 
 function styleName(name) {

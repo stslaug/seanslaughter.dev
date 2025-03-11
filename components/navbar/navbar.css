@@ -86,6 +86,8 @@ body
 .dropmenu
 {
 	background-color: var(--purple);
+	background-image: linear-gradient(-45deg, var(--dark-purple), var(--purple));
+	border-radius: 0.5rem;
 	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 	display: none;
 	left: 0;
@@ -118,6 +120,12 @@ body
 	transition: all 0.3s ease;
 	white-space: nowrap;
 	width: 100%;
+}
+
+.dropmenu .dropdown-item:hover
+{
+	border-radius: 0.5rem;
+	transform: scale(1.05);
 }
 
 .dropdown-item:hover
@@ -338,15 +346,13 @@ body
 	width: 10px;
 }
 
-.gradient-bg
+#mynav .gradient-bg
 {
-	background-image: linear-gradient(320deg, var(--plum), var(--dark-purple), var(--purple));
+	background-image: linear-gradient(375deg, var(--dark-purple), var(--purple));
 }
 
 body.dark-mode #mynav
 {
-	background-color: transparent;
-	background-image: none;
 }
 
 body.dark-mode .dropmenu,
