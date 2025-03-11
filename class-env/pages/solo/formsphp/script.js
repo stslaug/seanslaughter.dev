@@ -11,6 +11,7 @@ jQuery(function () {
     let color = $('#color');
     let other = $('#other');
     let getDataBtn = $('#getDataBtn');
+    let clearBtn = $('#clearBtn');
 
 
     getDataBtn.on('click', function (event) {
@@ -38,6 +39,10 @@ jQuery(function () {
             }
         });
     });
+
+    clearBtn.on('click', function () {
+        document.getElementById("dataForm").reset();
+    })
 
 
 });
