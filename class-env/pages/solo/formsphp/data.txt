@@ -1,0 +1,1 @@
+{"season":"autumn","livEnv":"city","activity":"Attack small children","relax":"Cry","food":"burger","song":"Happy","artist":"Pharrell Williams","fun":"Attack Big Children","color":"#640eaa","other":"Nope"}

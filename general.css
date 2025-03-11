@@ -1,11 +1,4 @@
-/*
-@font-face
-{
-	font-family: "zain", sans-serif;
-	font-weight: 400;
-	font-style: normal;
-}
-*/
+
 :root
 {
 	--blue: royalblue;
@@ -65,6 +58,25 @@ h1
 	font-family: 'Noto Sans Display', "Noto San", sans-serif;
 	font-style: normal;
 	font-weight: bold;
+}
+
+.split
+{ /*  Helper (used mainly for input groups to split them up) */
+	display: flex;
+	gap: 1rem;
+	padding: 0;
+	width: 100%;
+}
+
+.split .split
+{
+	margin: 0;
+}
+
+.split > *
+{
+	flex: 0 0 calc(50% - 0.5rem); /* Exact 50% minus half of the gap */
+	width: 50%;
 }
 
 /*
@@ -345,6 +357,16 @@ Input styling
 	width: 100%;
 }
 
+input[type="color"]
+{
+	-webkit-appearance: none;
+	border: none;
+	border: 1px solid rgba(159, 159, 159, 0.24);
+	height: 3rem;
+	padding: 0.2rem 0.2rem;
+	width: auto;
+}
+
 .input:focus
 {
 	border-color: var(--dark-purple);
@@ -371,6 +393,66 @@ body.dark-mode .input::placeholder
 
 @media screen and (max-width: 767px)
 {
+	.split
+	{
+		display: block;
+	}
+
+
+	.split
+	{
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 1rem;
+		width: 100%;
+	}
+
+
+	/* Make each direct child take exactly 50% width on larger screens */
+	.split > *
+	{
+		flex: 0 0 calc(50% - 0.5rem); /* Exact 50% minus half of the gap */
+		width: 50%;
+	}
+
+
+	/* Handle nested splits the same way */
+	.split .split
+	{
+		margin-bottom: 0; /* Remove extra margin for nested splits */
+	}
+
+
+	/* Ensure inputs inside splits maintain proper width */
+	.split .input,
+	.split select
+	{
+		box-sizing: border-box;
+		width: 100%;
+	}
+
+
+	.split
+	{
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+
+	.split > *
+	{
+		flex: 0 0 100%;
+		width: 100%;
+	}
+
+
+	/* Handle nested splits on mobile */
+	.split .split
+	{
+		width: 100%;
+	}
+
+
 	.input-group
 	{
 		width: 100%;
