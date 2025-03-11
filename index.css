@@ -7,7 +7,12 @@
 	padding: 4rem 0;
 	position: relative;
 	text-align: center;
-	z-index: 1;
+	z-index: 0;
+}
+
+#hero-text
+{
+	z-index: 3;
 }
 
 #welcomePage header
@@ -19,7 +24,7 @@
 #welcomePage header .gradient-bg
 {
 	background-image: linear-gradient(45deg, #28183b 0%, #30004d 25%, #25003b 50%, #30004d 75%, #28183b 100%);
-	z-index: 0;
+	z-index: -1;
 }
 
 .hero h1
@@ -262,8 +267,7 @@ body.dark-mode .special-text
 }
 
 body.dark-mode .hero
-{;
-	background-image: none;
+{
 	color: var(--yellow);
 }
 

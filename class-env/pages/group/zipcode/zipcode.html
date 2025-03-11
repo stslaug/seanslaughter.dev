@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<meta content = "ie=edge" http-equiv = "X-UA-Compatible">
+	<meta content = "width=device-width, initial-scale=1.0" name = "viewport">
+	<meta content = "Sean Tyler Slaughter" name = "author">
+	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "any" type = "image/svg+xml">
+	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "16x16" type = "image/svg+xml">
+	<title> Zipcode Distance | Sean Slaughter</title>
+
+	<link href = "https://unpkg.com/leaflet/dist/leaflet.css" rel = "stylesheet"/>
+	<script src = "https://unpkg.com/leaflet/dist/leaflet.js"></script>
+	<link href = "./zipcode.css" rel = "stylesheet">
+	<link href = "/general.css" rel = "stylesheet">
+</head>
+<body>
+	<nav id = "navbar"></nav>
+
+	<main class = "container">
+		<h1>Zipcode Distance Finder</h1>
+		<div style = "margin-top: 2rem;">
+			<h3>About This Tool</h3>
+			<p>This zipcode distance finder calculates the straight-line distance between two US zipcodes. Simply enter both zipcodes and click the calculate button to see the results.</p>
+			<p>Attribution of U.S. Zipcode data
+				<a href = "https://simplemaps.com/data/us-zips" target = "_blank">SimpleMaps.com</a>
+			</p>
+			<p>Sidenote: Long-Lat Definitions may be different from other sources. (Calculations
+				have been verified to be accurate)</p>
+		</div>
+		<hr style = "margin: 2rem auto;">
+		<div class = "input-group">
+			<div class = "split">
+				<div class = "input-group">
+					<label for = "zipcode1">Starting Zipcode</label>
+					<input class = "input" id = "zipcode1" maxlength = "5" name = "zipcode1" placeholder = "Enter first zipcode" type = "number" value = "29671">
+				</div>
+				<div class = "input-group">
+					<label for = "zipcode2">Destination Zipcode</label>
+					<input class = "input" id = "zipcode2" maxlength = "5" name = "zipcode2" placeholder = "Enter second zipcode" type = "number" value = "29678">
+				</div>
+			</div>
+		</div>
+
+		<div class = "input-group">
+			<button class = "btn" id = "calculate-btn">Calculate Distance</button>
+		</div>
+		<div class = "input-group" style = "margin-top: 1rem;">
+			<label class = "checkbox-label" for = "show-steps">
+				<input id = "show-steps" name = "show-steps" type = "checkbox">
+				Show calculation steps
+			</label>
+		</div>
+
+		<div id = "results-container" style = "display: none; margin-top: 2rem;">
+			<h2>Results</h2>
+			<table class = "table">
+				<thead>
+				<tr>
+					<th>Starting</th>
+					<th>Destination</th>
+					<th>Distance (miles)</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td id = "result-zip1">-</td>
+					<td id = "result-zip2">-</td>
+					<td id = "result-distance">-</td>
+				</tr>
+				<tr>
+					<td id = "result-coord-zip1">-</td>
+					<td id = "result-coord-zip2">-</td>
+					<td>-</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div id = "error-message" style = "display: none; margin-top: 1rem; padding: 1rem; background-color: var(--red); color: white; border-radius: 5px; text-align: center;">
+			Please enter valid US zipcodes
+		</div>
+		<div id = "calculation-steps" style = "display: none; margin-top: 2rem;">
+			<h3>Distance Calculation Details</h3>
+			<div class = "calculation-container">
+				<p>The distance between these zipcodes is calculated using the Haversine formula, which
+					determines the distance between two points on a sphere. In this case, longitude and
+					latitude on the earth!</p>
+
+				<div id = "calculation-steps-content"></div>
+
+			</div>
+		</div>
+
+		<div id = "map" style = "height: 500px;"></div>
+	</main>
+	
+	<footer id = "footer"></footer>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src = "https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script rel = "text/javascript" src = "/nav-foot.js"></script>
+	<script rel = "text/javascript" src = "./zipcode.js"></script>
+
+</body>
+</html>
