@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<meta content = "ie=edge" http-equiv = "X-UA-Compatible">
+	<meta content = "width=device-width, initial-scale=1.0" name = "viewport">
+	<meta content = "Sean Tyler Slaughter" name = "author">
+	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "any" type = "image/svg+xml">
+	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "16x16" type = "image/svg+xml">
+
+	<title> Forms with PHP | Sean Slaughter</title>
+	<link href = "/general.css" rel = "stylesheet">
+</head>
+<body>
+	<nav id = "navbar"></nav>
+
+	<main class = "container">
+		<h1>Forms with PHP | Tell us About you!</h1>
+		<h2>Reflections and Preferences</h2>
+
+		<form action = "save_data.php" id = "dataForm" method = "post">
+			<div class = "split">
+				<div class = "input-group">
+					<label for = "season">Which season resonates with you most?</label>
+					<select class = "input" id = "season" name = "season">
+						<option value = "spring">Spring</option>
+						<option value = "summer">Summer</option>
+						<option value = "autumn">Autumn</option>
+						<option value = "winter">Winter</option>
+					</select>
+				</div>
+
+				<div class = "input-group">
+					<label for = "livEnv">Do you prefer bustling city life or tranquil natural settings?</label>
+					<select class = "input" id = "livEnv" name = "livEnv">
+						<option value = "city">City Life</option>
+						<option value = "nature">Natural Settings</option>
+					</select>
+				</div>
+			</div>
+
+			<div class = "input-group">
+				<label for = "activity">What kind of activity do you find most fulfilling?</label>
+				<input class = "input" id = "activity" name = "activity" placeholder = "e.g., Creative writing, solving puzzles, outdoor sports" type = "text">
+			</div>
+
+			<div class = "input-group">
+				<label for = "relax">How do you prefer to unwind and relax?</label>
+				<input class = "input" id = "relax" name = "relax" placeholder = "e.g., Reading a book, listening to music, meditation" type = "text">
+			</div>
+			<hr>
+			<h2>Passions</h2>
+			<div class = "split">
+				<div class = "input-group">
+					<label for = "food">Favorite Food</label>
+					<select class = "input" id = "food" name = "food">
+						<option value = "">--Please choose an option--</option>
+						<option value = "burger">Hamburger</option>
+						<option value = "taco">Taco</option>
+						<option value = "sushi">Sushi</option>
+						<option value = "breakfast">Breakfast Foods</option>
+						<option value = "other">Other</option>
+					</select>
+				</div>
+
+				<div class = "split">
+					<div class = "input-group">
+						<label for = "song">Favorite Song</label>
+						<input class = "input" id = "song" name = "song" placeholder = "Hello" size = "40" type = "text">
+					</div>
+					<div class = "input-group">
+						<label for = "artist">Favorite Artist</label>
+						<input class = "input" id = "artist" name = "artist" placeholder = "Sam Smith" size = "40" type = "text">
+					</div>
+				</div>
+			</div>
+			<div class = "split">
+				<div class = "input-group">
+					<label for = "fun">What do you do for fun?</label>
+					<input class = "input" id = "fun" name = "fun" placeholder = "ex hike, play games sometimes, ..." size = "500" type = "text">
+				</div>
+				<div class = "input-group">
+					<label for = "color">Favorite color</label>
+					<input autocomplete = "off" class = "input" id = "color" name = "color" placeholder = "Click me" type = "color">
+				</div>
+			</div>
+			<div class = "input-group">
+				<label for = "other">Anything else you would like to add?</label>
+				<input class = "input" id = "other" name = "other" placeholder = "A poem? Your life story? Place anything here! Just nothing too long, because I have not learned how to make adjustable text boxes, and it would be unfortunate if you couldn't see all of your story" type = "text">
+			</div>
+			<div class = "split" style = "margin-top: 2rem;">
+				<button class = "btn" id = "getDataBtn" type = "button">Get Data</button>
+				<input class = "btn" id = "saveDataBtn" type = "submit" value = "Save Data">
+			</div>
+		</form>
+	</main>
+	<footer id = "footer"></footer>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script rel = "text/javascript" src = "/nav-foot.js"></script>
+	<script rel = "text/javascript" src = "./script.js"></script>
+
+</body>
+</html>
