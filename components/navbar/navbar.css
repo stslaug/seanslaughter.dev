@@ -21,7 +21,7 @@ body
 {
 	align-items: center;
 	background-color: var(--purple);
-	border-bottom: 1px solid white;
+	background-image: linear-gradient(180deg, var(--dark-purple), var(--purple));
 	display: flex;
 	font-family: 'Noto Sans Display Regular', sans-serif;
 	justify-content: space-between;
@@ -323,16 +323,30 @@ body
 .fa-moon
 {
 	color: white;
+	height: 10px;
+	margin: 0;
+	padding: 0;
+	width: 10px;
 }
 
 .fa-sun
 {
 	color: var(--yellow);
+	height: 10px;
+	margin: 0;
+	padding: 0;
+	width: 10px;
+}
+
+.gradient-bg
+{
+	background-image: linear-gradient(320deg, var(--plum), var(--dark-purple), var(--purple));
 }
 
 body.dark-mode #mynav
 {
-	background-color: var(--deep-purple);
+	background-color: transparent;
+	background-image: none;
 }
 
 body.dark-mode .dropmenu,

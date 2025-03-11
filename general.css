@@ -34,6 +34,7 @@
 *
 {
 	box-sizing: border-box;
+	transition: all 0.1s ease;
 }
 
 body, html
@@ -50,7 +51,7 @@ body, html
 body
 {
 	font-family: 'Noto Sans Display', "Noto San", sans-serif;
-	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out, color 0.1s ease;
 }
 
 h1
@@ -58,6 +59,28 @@ h1
 	font-family: 'Noto Sans Display', "Noto San", sans-serif;
 	font-style: normal;
 	font-weight: bold;
+}
+
+.gradient-bg
+{
+	/* Gradient Helper
+	REMEMBER TO Define the background image in their home directory
+	background-image: linear-gradient(320deg, var(--plum), var(--dark-purple), var(--purple));
+	*/
+	height: 100%;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	transition: opacity 0.2s ease;
+	width: 100%;
+	z-index: 0;
+}
+
+body.dark-mode .gradient-bg
+{
+	background-color: var(--blue) !important;
+	opacity: 1 !important;
 }
 
 .split
