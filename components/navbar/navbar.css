@@ -131,7 +131,7 @@ body
 .dropdown-item:hover
 {
 	background-color: #dddddd;
-	color: black;
+	color: black !important;
 }
 
 /*
