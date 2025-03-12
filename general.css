@@ -415,12 +415,12 @@ body.dark-mode .input-group label
 body.dark-mode .input
 {
 	background-color: rgba(125, 121, 141, 0.9);
-	color: white;
+	color: black !important;
 }
 
 body.dark-mode .input::placeholder
 {
-	color: white;
+	color: black;
 }
 
 @media screen and (max-width: 767px)
