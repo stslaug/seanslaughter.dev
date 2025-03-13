@@ -1,0 +1,51 @@
+main
+{
+	align-items: center;
+	color: white;
+	display: flex;
+	font-family: Arial, sans-serif;
+	height: 81.15vh;
+	justify-content: center;
+	margin: 0;
+}
+
+/* Login & Dashboard Container */
+.containersec
+{
+	backdrop-filter: blur(10px);
+	background: var(--off-white);
+	border-radius: 15px;
+	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+	padding: 30px;
+	width: 350px;
+}
+
+body.dark-mode .containersec
+{
+	background: var(--purple);
+}
+
+.containersec h2
+{
+	text-align: center;
+}
+
+.containersec h2, .containersec h3
+{
+	color: var(--purple);
+	font-weight: bolder;
+}
+
+body.dark-mode .containersec .btn
+{
+	background-color: var(--dark-purple);
+	border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+/* Error Message */
+.error
+{
+	color: #ee4444;
+	font-weight: bold;
+	margin-top: 10px;
+}

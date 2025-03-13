@@ -1,0 +1,38 @@
+html
+{
+	height: 100% !important;
+	min-height: min-content !important;
+}
+
+.cardBody .container
+{
+	display: flex;
+	max-width: 100%;
+}
+
+button.btn:hover, button.btn:active
+{
+	transform: scale(1.00) translateY(0px);
+}
+
+.cardBody .btn[type="submit"]
+{
+	background-color: var(--purple);
+	color: white;
+	font-weight: bold;
+	margin: 10px auto;
+	width: 100%;
+}
+
+body.cardBody.dark-mode .btn[type="submit"]
+{
+	background-color: white;
+	color: var(--dark-purple);
+	font-weight: bold;
+}
+
+.hidden
+{
+	opacity: 0;
+	visibility: hidden;
+}
