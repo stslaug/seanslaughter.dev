@@ -1,0 +1,86 @@
+/*
+
+	Intended to work in conjuction with my general.css
+	(or other stylesheets I create that may originate from general.css)
+
+
+ */
+.subnav
+{
+	background: var(--white);
+	color: black;
+	display: flex;
+	gap: 2rem;
+	justify-content: right;
+	margin: auto;
+	padding: 0 1rem;
+	position: relative;
+	top: 0;
+	width: 100%;
+}
+
+.subnav div
+{
+	align-items: flex-end;
+	display: flex;
+	justify-content: right;
+	margin: 0 0;
+	width: 33%;
+}
+
+.subnav h2
+{
+	align-items: flex-start;
+	font-size: 1.2rem;
+	justify-content: left;
+	margin: auto;
+	text-align: left;
+}
+
+.subnav .nav-item
+{
+	color: var(--purple);
+	width: 100%;
+}
+
+.subnav .nav-item:hover
+{
+	background-color: #c2b7cc;
+}
+
+body.dark-mode .subnav
+{
+	background: var(--purple);
+}
+
+body.dark-mode .subnav .nav-item
+{
+	color: white;
+}
+
+body.dark-mode .subnav .nav-item:hover
+{
+	background-color: var(--off-white);
+	color: var(--purple);
+}
+
+/*
+
+
+	Side Nav Bar Settings
+
+
+
+ */
+.sidebar
+{
+	background: var(--white);
+	float: left;
+	padding: 1rem;
+	width: 350px;
+}
+
+body.dark-mode .sidebar
+{
+	background: var(--purple);
+}

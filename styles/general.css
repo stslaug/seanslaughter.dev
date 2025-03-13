@@ -42,7 +42,6 @@ body, html
 	background-color: #e8e8e8;
 	height: auto !important;
 	margin: 0;
-	min-height: 100%;
 	position: relative;
 	width: 100%;
 }
@@ -389,7 +388,7 @@ Input styling
 	width: 100%;
 }
 
-input[type="color"]
+input[type="color"].input
 {
 	-webkit-appearance: none;
 	border: none;
@@ -399,11 +398,56 @@ input[type="color"]
 	width: auto;
 }
 
-.input:focus
+input[type="checkbox"].input
+{
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.checkbox-group
+{
+}
+
+.input:focus, .input:active
 {
 	border-color: var(--dark-purple);
 	box-shadow: 0 0 0 3px rgba(102, 51, 153, 0.2);
 	outline: none;
+}
+
+.checkbox-group
+{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 8px;
+}
+
+.checkbox-item
+{
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	flex: 0 0 calc(33.333% - 10px); /* Makes each item take up exactly 1/3 of the space, accounting for gap */
+	min-width: 100px; /* Minimum width to prevent very narrow items */
+}
+
+.checkbox-item input[type="checkbox"]
+{
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+.checkbox-item label
+{
+	cursor: pointer;
+	display: inline;
+	font-weight: normal;
+	margin-bottom: 0;
+	margin-left: 0.2rem;
+	white-space: nowrap; /* Prevents label text from wrapping */
 }
 
 /* Dark mode adjustments */
@@ -415,12 +459,18 @@ body.dark-mode .input-group label
 body.dark-mode .input
 {
 	background-color: rgba(125, 121, 141, 0.9);
-	color: black !important;
+	color: white;
+}
+
+body.dark-mode .input:focus, body.dark-mode .input:active
+{
+	background-color: rgba(255, 255, 255, 0.62);
+	color: black;
 }
 
 body.dark-mode .input::placeholder
 {
-	color: black;
+	color: rgba(0, 0, 0, 0.44);
 }
 
 @media screen and (max-width: 767px)
