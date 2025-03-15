@@ -398,6 +398,18 @@ input[type="color"].input
 	width: auto;
 }
 
+button.btn[disabled]
+{
+	background-color: #555555 !important;
+	color: #858585 !important;
+	cursor: default;
+}
+
+body.dark-mode button[disabled].btn
+{
+	background-color: var(--dark-purple) !important;
+}
+
 input[type="checkbox"].input
 {
 	cursor: pointer;

@@ -24,9 +24,6 @@
 				<a class = "nav-item" href = "./stats.html">Stats</a>
 			</div>
 		</nav>
-	</nav>
-
-	<main>
 		<form class = "sidebar" id = "cardSearchForm">
 			<h2>Sort and Filter</h2>
 			<div class = "input-group">
@@ -68,20 +65,28 @@
 					</div>
 				</div>
 				<div class = "exact-match-option">
-					<input id = "colors-exact" name = "colors-exact" type = "checkbox">
-					<label for = "colors-exact">Include ONLY these colors</label>
+					<input id = "colors-include" name = "colors-exact" type = "checkbox">
+					<label for = "colors-include"><strong>Including</strong> these colors</label>
+				</div>
+				<div class = "exact-match-option">
+					<input id = "colors-most" name = "colors-must" type = "checkbox">
+					<label for = "colors-most">At <strong>most</strong> these Colors</label>
+				</div>
+				<div class = "exact-match-option">
+					<input id = "colors-exact" name = "colors-must" type = "checkbox">
+					<label for = "colors-exact"><Strong>Exactly</Strong> these colors</label>
 				</div>
 			</div>
 
 			<div class = "input-group">
-				<label for = "manaCost">Mana Cost</label>
-				<input class = "input" id = "manaCost" min = "0" placeholder = "ex. 3" type = "number">
+				<label for = "converted-manaCost">Converted Mana Cost (CMC)</label>
+				<input class = "input" id = "converted-manaCost" min = "0" placeholder = "ex. 3, 5" type = "text">
 			</div>
 
 			<div class = "input-group">
-				<label for = "format">Format</label>
+				<label for = "format">Format / Card Legality</label>
 				<select class = "input" id = "format">
-					<option value = "commander">Commander</option>
+					<option selected value = "commander">Commander</option>
 					<option value = "standard">Standard</option>
 					<option value = "future">Future Standard</option>
 					<option value = "historic">Historic</option>
@@ -134,16 +139,27 @@
 						<label for = "commander-C">Colorless</label>
 					</div>
 				</div>
-				<div class = "exact-match-option">
-					<input id = "commander-exact" name = "commander-exact" type = "checkbox">
-					<label for = "commander-exact">Include ONLY these colors</label>
-				</div>
 			</div>
-
+			<div class = "input-group"> <!-- Todo Setup this working... Even if by faking -->
+				<label for = "fetchAmount">Generate How many Results?</label>
+				<select class = "input" id = "fetchAmount" value = "5">
+					<option value = "1">1 singular card | Feeling Lucky?</option>
+					<option value = "5">5 Cards</option>
+					<option selected value = "10">10 Cards</option>
+					<option value = "25">25 Cards</option>
+					<option value = "50">50 Cards</option>
+					<option value = "75">75 Cards</option>
+					<option value = "100">100 cards | May take a second!</option>
+				</select>
+			</div>
 			<button class = "btn" id = "searchButton" type = "submit">Search</button>
 		</form>
+	</nav>
+
+	<main>
+
 		<div class = "container">
-			<table class = "table" style = "width: 100%; margin: 2rem;">
+			<table class = "table" id = "card-viewer">
 				<thead>
 				<th>Card Name</th>
 				<th>Set</th>
@@ -151,22 +167,17 @@
 				<th>Rarity</th>
 				<th>Super Type</th>
 				<th>Sub Type</th>
-				<th>TCGPro Price</th>
+				<!-- Removing tcg player pricing. This involves a secondary api call to tcgplayer
+				 This includes added complexity that frankly I don't have time for, in a school project.
+				 So Hopefully whoever is reading this is happy with everything else :) -->
 				</thead>
 				<tbody>
 				<tr>
-					<td>
-						<button class = "btn card-btn">Card 1</button>
-					</td>
-					<td>TEST</td>
-					<td>2{U}{U}</td>
-					<td>Rare</td>
-					<td>Creature</td>
-					<td>Human</td>
-					<td><a href = "link to tcg website" target = "_blank">$4.57</a></td>
+					<td colspan = "6" style = "text-align: center;">Make a search to view some cards!</td>
 				</tr>
 				</tbody>
 			</table>
+			<div id = "myDiv"></div>
 		</div>
 	</main>
 	<footer id = "footer"></footer>
