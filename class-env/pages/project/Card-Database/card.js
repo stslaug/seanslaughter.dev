@@ -29,6 +29,8 @@ jQuery(function () {
     const $commanderColorless = $('#commander-C');
     const $commanderExact = $('#commander-exact');
 
+    const $cardPopUp = $('#card-popup');
+
     // Toggle commander group visibility based on format selection
     $format.on("change", function () {
         const formatValue = $(this).val();
@@ -290,7 +292,7 @@ jQuery(function () {
                 } else {
                     // Here you could display a modal with card details
                     // or navigate to a card detail page
-                    alert(`Card details for: ${card.name}`);
+                    $cardPopUp.toggleClass("hide-menu")
                     console.log(card);
                 }
             },
