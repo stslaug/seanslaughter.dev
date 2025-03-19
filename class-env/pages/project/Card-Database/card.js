@@ -74,29 +74,27 @@ jQuery(function () {
     // Builds query parameters for Scryfall API
     function buildQueryParams() {
         const params = {
-            action: 'searchCards',
-            limit: 10 // Limit to 10 cards per page
+            action: 'searchCards'
         };
 
         // Add card name if provided
-        if ($cardName.val().trim()) {
-            params.cardName = $cardName.val().trim();
+        if ($cardName.val()) {
+            params.cardName = String($cardName.val()).trim();
         }
 
         // Add type line if provided
-        if ($typeLine.val().trim()) {
-            params.typeLine = $typeLine.val().trim();
+        if ($typeLine.val()) {
+            let tempType = $typeLine.val().split(' ');
+            params.typeLine = tempType;
+            console.log(tempType);
         }
 
         // Add mana cost if provided
-        if ($convManaCost.val().trim()) {
-            params.convManaCost = $convManaCost.val().trim();
+        if ($convManaCost.val()) {
+            params.convManaCost = String($convManaCost.val()).trim();
         }
 
-        // Add format if selected
-        if ($format.val()) {
-            params.format = $format.val();
-        }
+        params.legal = String($format.val()).trim();
 
         // Add colors if selected
         const colors = getSelectedColors();
@@ -170,7 +168,7 @@ jQuery(function () {
 
         // Disable search button
         $searchButton.attr('disabled', 'disabled');
-        showLoading();
+        showLoading()
 
         // Build query parameters
         const params = buildQueryParams();
@@ -189,10 +187,9 @@ jQuery(function () {
                 $cardViewer.empty();
 
                 if (response.error) {
-                    showError("cardSearchForm: " + response.error);
+                    showError("Error: " + response.error);
                 } else if (response.data && response.data.length > 0) {
-                    // success
-                    // Render each card
+                    // success now render each card
                     response.data.forEach(function (card) {
                         $cardViewer.append(renderCardRow(card));
                     });
@@ -200,6 +197,7 @@ jQuery(function () {
                     // If we have pagination data, add load more button
                     if (response.has_more) {
                         const nextPage = 2; // First page is 1, next would be 2
+                        //Todo Change from table
                         $cardViewer.append(`
                             <tr>
                                 <td colspan="6" style="text-align: center;">
@@ -213,7 +211,7 @@ jQuery(function () {
                 }
             },
             error: function (error) {
-                showError('Error fetching cards: ' + error);
+                showError('Error fetching cards: ' + error + " Code:" + error.status + " " + error.responseText);
             },
             complete: function () {
                 // Enable search button after 2 seconds

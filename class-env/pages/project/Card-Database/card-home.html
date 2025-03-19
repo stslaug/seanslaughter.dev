@@ -140,18 +140,6 @@
 					</div>
 				</div>
 			</div>
-			<div class = "input-group"> <!-- Todo Setup this working... Even if by faking -->
-				<label for = "fetchAmount">Generate How many Results?</label>
-				<select class = "input" id = "fetchAmount" value = "5">
-					<option value = "1">1 singular card | Feeling Lucky?</option>
-					<option value = "5">5 Cards</option>
-					<option selected value = "10">10 Cards</option>
-					<option value = "25">25 Cards</option>
-					<option value = "50">50 Cards</option>
-					<option value = "75">75 Cards</option>
-					<option value = "100">100 cards | May take a second!</option>
-				</select>
-			</div>
 			<button class = "btn" id = "searchButton" type = "submit">Search</button>
 		</form>
 	</nav>
@@ -167,13 +155,20 @@
 				<th>Rarity</th>
 				<th>Super Type</th>
 				<th>Sub Type</th>
-				<!-- Removing tcg player pricing. This involves a secondary api call to tcgplayer
-				 This includes added complexity that frankly I don't have time for, in a school project.
-				 So Hopefully whoever is reading this is happy with everything else :) -->
+
 				</thead>
 				<tbody>
 				<tr>
-					<td colspan = "6" style = "text-align: center;">Make a search to view some cards!</td>
+					<td colspan = "6" style = "text-align: center;">Make a search to view some cards!
+						Vague searches may take a moment to load!
+					</td>
+
+				</tr>
+				<tr>
+					<td colspan = "6" style = "text-align: center;">Per project rubric my API was supposed
+						to support limiting incoming requests. I have supported pages, but cannot limit
+						the incoming number, except by Scryfall's defined 175 item pages.
+					</td>
 				</tr>
 				</tbody>
 			</table>

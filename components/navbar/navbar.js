@@ -22,7 +22,7 @@ jQuery(function () {
 
     // Apply dark mode from saved preference
     if (localStorage.getItem('darkMode') === 'true') {
-        $('body, #footer').addClass('dark-mode');
+        $('body').addClass('dark-mode');
         $('#darkmode-toggle i').removeClass('fa-moon').addClass('fa-sun');
     }
 

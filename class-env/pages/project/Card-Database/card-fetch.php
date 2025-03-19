@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-/**
+/*
  * Fetches data from Scryfall API.
  */
 function fetchScryfallData($endpoint, $params = [])
@@ -28,66 +28,76 @@ function fetchScryfallData($endpoint, $params = [])
     if ($response === false) {
         $error = curl_error($curl);
         curl_close($curl);
-        return ['error' => $error];
+        return ['error' => $error . "  R:" . $response];
     }
 
     $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
     curl_close($curl);
 
-    if ($httpCode !== 200) {
-        return ['error' => "HTTP error: " . $httpCode, 'response' => $response];
-    }
 
     // Check if response is valid JSON
     json_decode($response);
     if (json_last_error() !== JSON_ERROR_NONE) {
         return ['error' => "JSON decoding error: " . json_last_error_msg(), 'response' => $response];
     }
+    if ($httpCode !== 200) {
+        return ['error' => "HTTP error: " . $httpCode . "  resp: " . $response, 'response' => $response];
+    }
 
     // Return the raw response when we're just going to encode it again later
     return $response;
 }
 
-/**
+/*
  * Builds Scryfall search query string from parameters.
  */
-function buildSearchQuery($params)
+/*
+ * Builds Scryfall search query string from parameters.
+ */
+function buildSearchQuery($params): string
 {
     $query = [];
 
-    // Add card name
-    if (isset($params['cardName']) && !empty($params['cardName'])) {
-        $query[] = 'name:' . urlencode('"' . $params['cardName'] . '"');
+    // Add card name (no specific prefix for name search)
+    if (!empty($params['cardName'])) {
+        // For card names with spaces, add quotes
+        if (strpos($params['cardName'], ' ') !== false) {
+            $query[] = '"' . $params['cardName'] . '"';
+        } else {
+            $query[] = $params['cardName'];
+        }
     }
 
     // Add type line
-    if (isset($params['typeLine']) && !empty($params['typeLine'])) {
-        $query[] = 't:' . urlencode('"' . $params['typeLine'] . '"');
+    if (!empty($params['typeLine'])) {
+        foreach ($params['typeLine'] as $line) {
+            $query[] = 't:' . $line;
+        }
+
     }
 
     // Add mana cost
-    if (isset($params['convManaCost']) && is_numeric($params['conManaCost'])) {
-        $query[] = 'cmc=' . $params['manaCost'];
+    if (isset($params['convManaCost']) && is_numeric($params['convManaCost'])) {
+        $query[] = 'cmc=' . $params['convManaCost']; // Notice = not : for cmc
     }
 
     // Add format legality
-    if (isset($params['format']) && !empty($params['format'])) {
-        $query[] = 'f:' . $params['format'];
+    if (!empty($params['legal'])) {
+        $query[] = 'legal:' . $params['legal'];
     }
 
     // Add colors
-    if (isset($params['colors']) && !empty($params['colors'])) {
+    if (!empty($params['colors'])) {
         $colors = explode(',', $params['colors']);
         $colorQuery = isset($params['colorsExact']) && $params['colorsExact'] == 1
-            ? 'c:' . implode('', $colors) : 'c<=' . implode('', $colors);
+            ? 'color:' . implode('', $colors) : 'c<=' . implode('', $colors);
         $query[] = $colorQuery;
     }
 
     // Add commander identity for commander formats
     $commanderFormats = ['commander', 'oathbreaker', 'brawl', 'pauper_commander', 'brawl_historic'];
     if (isset($params['format']) && in_array($params['format'], $commanderFormats) &&
-        isset($params['commanderColors']) && !empty($params['commanderColors'])) {
-
+        !empty($params['commanderColors'])) {
         $commanderColors = explode(',', $params['commanderColors']);
         $identityQuery = isset($params['commanderExact']) && $params['commanderExact'] == 1
             ? 'id:' . implode('', $commanderColors)
@@ -95,6 +105,7 @@ function buildSearchQuery($params)
         $query[] = $identityQuery;
     }
 
+    // Join with spaces, not ampersands
     return implode(' ', $query);
 }
 
@@ -129,11 +140,12 @@ if (isset($_GET['action'])) {
                 'q' => $searchQuery,
                 'order' => 'name',
                 'unique' => 'cards',
+                'include_extras' => false,
                 'page' => isset($_GET['page']) ? intval($_GET['page']) : 1,
             ]);
 
             // If searchData is an array with error, it came from our error handling
-            if (is_array($searchData) && isset($searchData['error'])) {
+            if (isset($searchData['error'])) {
                 echo json_encode(['error' => $searchData['error']]);
             } else {
                 // For the search results, we need to decode to access the data property
@@ -141,7 +153,7 @@ if (isset($_GET['action'])) {
                 echo json_encode([
                     'data' => $decodedData['data'] ?? [],
                     'has_more' => $decodedData['has_more'] ?? false,
-                    'total_cards' => $decodedData['total_cards']
+                    'total_cards' => $decodedData['total_cards'] ?? 0,
                 ]);
             }
         }
