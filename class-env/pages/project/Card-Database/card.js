@@ -162,7 +162,6 @@ jQuery(function () {
 
     // Rate limiting for search button
     let timeoutID;
-
     // Handle form submission
     $cardSearchForm.on('submit', function (event) {
         event.preventDefault();
@@ -300,6 +299,7 @@ jQuery(function () {
     // Initial check of format to show/hide commander group
     $format.trigger('change');
 
+    // Generates the HTML for Card Popup
     function renderCardMenu(card) {
         // Using template literals for cleaner HTML building
         const html = `
@@ -340,8 +340,7 @@ jQuery(function () {
                 </div>
             </div>
         </div>
-    </div>
-`;
+    </div>`;
 
 
         $cardPopUp.html(html);

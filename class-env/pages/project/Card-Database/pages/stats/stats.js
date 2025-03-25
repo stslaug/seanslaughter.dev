@@ -1,10 +1,10 @@
 jQuery(function () {
+    // Fetch statistics
     async function fetchStatistics() {
         const statsContainer = document.getElementById('stats-container');
         statsContainer.innerHTML = '<p>Loading statistics...</p>';
 
         try {
-            // Fetch key statistics
             const [sets, totalCards, artists, words, cardTypes, artifactTypes, battleTypes, creatureTypes, enchantmentTypes, landTypes, planeswalkerTypes] = await Promise.all([
                 fetch('https://api.scryfall.com/sets').then(res => res.json()),
                 fetch('https://api.scryfall.com/catalog/card-names').then(res => res.json()),
@@ -27,6 +27,7 @@ jQuery(function () {
         }
     }
 
+    //Doesn't generate, but displays the statistics
     function displayStatistics(container, sets, totalCards, artists, words, cardTypes, artifactTypes, battleTypes, creatureTypes, enchantmentTypes, landTypes, planeswalkerTypes, spellTypes) {
 
         // Build statistics HTML
@@ -55,7 +56,7 @@ jQuery(function () {
                   <!-- Submenus, if any, will be put here -->
             </div>
             <div class="additional-stats">
-      
+  
                 <div id="stats-display">
                     <!-- Sets timeline will be rendered here -->
                 </div>
@@ -89,6 +90,7 @@ jQuery(function () {
 
     }
 
+    // Submenu (Used to display Card type details)
     function renderCardTypesFilters(artifactTypes, battleTypes, creatureTypes, enchantmentTypes, landTypes, planeswalkerTypes) {
         const $sub = $(document.getElementById('subcategories'));
         const display = document.getElementById('stats-display');
@@ -155,7 +157,7 @@ jQuery(function () {
             });
         });
 
-// Artifact Types Click Function
+        // Artifact Types Click Function
         $('#artifactTypes').on('click', function () {
             // Clear the display first
             $('#stats-display').empty();
@@ -182,7 +184,7 @@ jQuery(function () {
             });
         });
 
-// Battle Types Click Function
+        // Battle Types Click Function
         $('#battleTypes').on('click', function () {
             // Clear the display first
             $('#stats-display').empty();
@@ -211,7 +213,7 @@ jQuery(function () {
             });
         });
 
-// Enchantment Types Click Function
+        // Enchantment Types Click Function
         $('#enchantmentTypes').on('click', function () {
             // Clear the display first
             $('#stats-display').empty();
@@ -239,7 +241,7 @@ jQuery(function () {
             });
         });
 
-// Land Types Click Function
+        // Land Types Click Function
         $('#landTypes').on('click', function () {
             // Clear the display first
             $('#stats-display').empty();
@@ -267,7 +269,7 @@ jQuery(function () {
             });
         });
 
-// Planeswalker Types Click Function
+        // Planeswalker Types Click Function
         $('#planeswalkerTypes').on('click', function () {
             // Clear the display first
             $('#stats-display').empty();
@@ -297,7 +299,7 @@ jQuery(function () {
 
     }
 
-
+    //Generates a list of sets in order of release date
     function renderSetsTimeline(sets) {
         const timeline = document.getElementById('stats-display');
 
@@ -333,7 +335,7 @@ jQuery(function () {
 
         $(timeline).html(timelineHtml);
 
-        // Add click handlers for each year
+        // Add click handlers for each year of sets
         $('.timeline-year').on('click', function () {
             const year = $(this).data('year');
             const yearSets = setsByYear[year];
@@ -367,6 +369,7 @@ jQuery(function () {
 
     }
 
+    // Renders a list of items in a json list
     function renderListData(data) {
         const display = document.getElementById('stats-display');
 

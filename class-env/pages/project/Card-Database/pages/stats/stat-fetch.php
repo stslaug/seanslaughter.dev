@@ -1,5 +1,8 @@
 <?php
-
+/*
+ * This handles the statistics Page alongside stats.js
+ * Specifically Sets/Catalogs from Scryfall
+ */
 function fetchCatalogData($endpoint)
 {
     $url = "https://api.scryfall.com/" . $endpoint;

@@ -1,9 +1,13 @@
 <?php
+/*
+ * This card-fetch.php file is responsible for fetching data from the Scryfall API.
+ *  This specifically is responsible for fetching cards.
+ */
 ini_set("allow_url_fopen", 1);
 header('Content-Type: application/json');
 
 /*
- * Fetches data from Scryfall API.
+ * Fetches data from Scryfall API. This is a
  */
 function fetchScryfallData($endpoint, $params = [])
 {

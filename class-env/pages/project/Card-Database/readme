@@ -1,0 +1,25 @@
+
+# Magic the Gathering Card Viewer
+
+## Overview
+A web application for searching and browsing Magic: The Gathering cards using the Scryfall API.
+
+## Features
+- Search cards by name, type, colors, and mana cost
+- Filter by game format (Standard, Commander, etc.)
+- View card details and pricing information
+- Commander color identity filtering
+
+## Technologies
+- HTML/CSS
+- JavaScript/jQuery
+- PHP
+- [Scryfall API](https://scryfall.com/docs/api)
+
+## Pages
+- **Cards**: Main search interface
+- **About**: Information on data sources
+- **Stats**: Statistical analysis (planned)
+
+## Author
+Sean Tyler Slaughter
