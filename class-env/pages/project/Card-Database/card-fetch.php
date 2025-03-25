@@ -1,4 +1,5 @@
 <?php
+ini_set("allow_url_fopen", 1);
 header('Content-Type: application/json');
 
 /*
@@ -6,61 +7,40 @@ header('Content-Type: application/json');
  */
 function fetchScryfallData($endpoint, $params = [])
 {
-    $baseUrl = "https://api.scryfall.com";
+    $baseUrl = "https://api.scryfall.com/";
     $url = $baseUrl . $endpoint;
     if (!empty($params)) {
         $url .= "?" . http_build_query($params);
     }
 
-    $curl = curl_init();
-    curl_setopt_array($curl, [
-        CURLOPT_URL => $url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER => [
-            "User-Agent: SeanSlaughterPortfolio/1.0",
-            "Accept: application/json;q=0.9,*/*;q=0.8",
-        ],
-        CURLOPT_SSL_VERIFYPEER => true,
-        CURLOPT_SSL_VERIFYHOST => 2,
-    ]);
+    // Create a stream
+    $opts = [
+        "http" => [
+            "method" => "GET",
+            "header" => "User-Agent: SeanSlaughterPortfolio/1.0",
+            "Accept: application/json;q=0.9,*/*;q=0.8"
+        ]
+    ];
+    $context = stream_context_create($opts);
+    $response = file_get_contents($url, false, $context);
+    $response = json_decode($response, true);
 
-    $response = curl_exec($curl);
-    if ($response === false) {
-        $error = curl_error($curl);
-        curl_close($curl);
-        return ['error' => $error . "  R:" . $response];
+
+    if (isset($response["status"]) && $response["status"] != "200") {
+        return ['error' => $response["error"] . "  R:" . $response["error"]];
     }
 
-    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-    curl_close($curl);
-
-
-    // Check if response is valid JSON
-    json_decode($response);
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        return ['error' => "JSON decoding error: " . json_last_error_msg(), 'response' => $response];
-    }
-    if ($httpCode !== 200) {
-        return ['error' => "HTTP error: " . $httpCode . "  resp: " . $response, 'response' => $response];
-    }
-
-    // Return the raw response when we're just going to encode it again later
     return $response;
 }
 
 /*
  * Builds Scryfall search query string from parameters.
  */
-/*
- * Builds Scryfall search query string from parameters.
- */
 function buildSearchQuery($params): string
 {
     $query = [];
-
-    // Add card name (no specific prefix for name search)
     if (!empty($params['cardName'])) {
-        // For card names with spaces, add quotes
+
         if (strpos($params['cardName'], ' ') !== false) {
             $query[] = '"' . $params['cardName'] . '"';
         } else {
@@ -86,26 +66,30 @@ function buildSearchQuery($params): string
         $query[] = 'legal:' . $params['legal'];
     }
 
-    // Add colors
+// Add colors
     if (!empty($params['colors'])) {
         $colors = explode(',', $params['colors']);
-        $colorQuery = isset($params['colorsExact']) && $params['colorsExact'] == 1
-            ? 'color:' . implode('', $colors) : 'c<=' . implode('', $colors);
+        $colorQuery = '';
+        if (isset($params['colorsMask'])) {
+            $colorQuery = 'color' . $params['colorsMask'] . implode('', $colors);
+        } else {
+            $colorQuery = 'color=' . implode('', $colors);
+        }
         $query[] = $colorQuery;
     }
 
-    // Add commander identity for commander formats
+// Add commander identity for commander formats
     $commanderFormats = ['commander', 'oathbreaker', 'brawl', 'pauper_commander', 'brawl_historic'];
-    if (isset($params['format']) && in_array($params['format'], $commanderFormats) &&
-        !empty($params['commanderColors'])) {
+    if (!empty($params['commanderColors'])) {
         $commanderColors = explode(',', $params['commanderColors']);
-        $identityQuery = isset($params['commanderExact']) && $params['commanderExact'] == 1
-            ? 'id:' . implode('', $commanderColors)
-            : 'id<=' . implode('', $commanderColors);
+        $identityQuery = '';
+        $identityQuery = 'id:' . implode('', $commanderColors);
         $query[] = $identityQuery;
     }
 
-    // Join with spaces, not ampersands
+    if (isset($params['setName'])) {
+        $query[] = 'set:' . $params['setName'];
+    }
     return implode(' ', $query);
 }
 
@@ -117,21 +101,19 @@ if (isset($_GET['action'])) {
     if ($action === 'getCard' && isset($_GET['cardName'])) {
         $cardName = $_GET['cardName'];
         $cardData = fetchScryfallData("/cards/named", ["exact" => $cardName]);
-        echo $cardData; // Already JSON, no need to re-encode
+        echo $cardData;
     } // Get a single card by ID
     else if ($action === 'getCardById' && isset($_GET['cardId'])) {
         $cardId = $_GET['cardId'];
         $cardData = fetchScryfallData("/cards/" . $cardId);
-        echo $cardData; // Already JSON, no need to re-encode
+        echo json_encode($cardData);
     } // Search for cards with various parameters
     else if ($action === 'searchCards') {
         // Build search query from parameters
         $searchQuery = buildSearchQuery($_GET);
 
-        if (empty($searchQuery)) {
-            // If no search parameters provided, return a sample card for testing
+        if (empty($searchQuery)) { // This shouldn't happen but just in case.
             $cardData = fetchScryfallData("/cards/named", ["exact" => "Lightning Bolt"]);
-            // Need to handle this special case differently since we're formatting the response
             $decodedCardData = json_decode($cardData, true);
             echo json_encode(['data' => [$decodedCardData]]);
         } else {
@@ -144,16 +126,13 @@ if (isset($_GET['action'])) {
                 'page' => isset($_GET['page']) ? intval($_GET['page']) : 1,
             ]);
 
-            // If searchData is an array with error, it came from our error handling
             if (isset($searchData['error'])) {
                 echo json_encode(['error' => $searchData['error']]);
             } else {
-                // For the search results, we need to decode to access the data property
-                $decodedData = json_decode($searchData, true);
                 echo json_encode([
-                    'data' => $decodedData['data'] ?? [],
-                    'has_more' => $decodedData['has_more'] ?? false,
-                    'total_cards' => $decodedData['total_cards'] ?? 0,
+                    'data' => $searchData['data'] ?? [],
+                    'has_more' => $searchData['has_more'] ?? false,
+                    'total_cards' => $searchData['total_cards'] ?? 0,
                 ]);
             }
         }
@@ -163,6 +142,6 @@ if (isset($_GET['action'])) {
         echo json_encode(['error' => 'Invalid action or missing required parameters']);
     }
 } else {
-    http_response_code(400);
-    echo json_encode(['error' => 'No action specified']);
+    http_response_code(401);
+    echo json_encode(['error' => 'Fetch from Client to Server Not Properly Setup.']);
 }

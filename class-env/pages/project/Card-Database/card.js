@@ -5,6 +5,7 @@ jQuery(function () {
     const $cardSearchForm = $('#cardSearchForm');
     const $searchButton = $('#searchButton');
     const $cardViewer = $('#card-viewer tbody');
+    const $totalCards = $('#totalCards');
 
     // Input fields
     const $cardName = $('#cardName');
@@ -18,7 +19,8 @@ jQuery(function () {
     const $colorRed = $('#color-R');
     const $colorGreen = $('#color-G');
     const $colorColorless = $('#color-C');
-    const $colorsExact = $('#colors-exact');
+    const $colorsMatchType = $('#color-match-type');
+
 
     // Commander color checkboxes
     const $commanderWhite = $('#commander-W');
@@ -27,7 +29,8 @@ jQuery(function () {
     const $commanderRed = $('#commander-R');
     const $commanderGreen = $('#commander-G');
     const $commanderColorless = $('#commander-C');
-    const $commanderExact = $('#commander-exact');
+
+    const $setName = $('#setName');
 
     const $cardPopUp = $('#card-popup');
 
@@ -38,13 +41,11 @@ jQuery(function () {
 
         if (commanderFormats.includes(formatValue)) {
             $commanderGroup.css({
-                "opacity": 1,
-                "visibility": "visible"
+                "opacity": 1, "visibility": "visible"
             });
         } else {
             $commanderGroup.css({
-                "opacity": 0,
-                "visibility": "hidden"
+                "opacity": 0, "visibility": "hidden"
             });
         }
     });
@@ -102,7 +103,8 @@ jQuery(function () {
         const colors = getSelectedColors();
         if (colors.length > 0) {
             params.colors = colors.join(',');
-            params.colorsExact = $colorsExact.is(':checked') ? 1 : 0;
+            console.log("Color Match Type: " + $colorsMatchType.val());
+            params.colorsMask = $colorsMatchType.val();
         }
 
         // Add commander colors if in a commander format and colors selected
@@ -110,8 +112,10 @@ jQuery(function () {
             const commanderColors = getSelectedCommanderColors();
             if (commanderColors.length > 0) {
                 params.commanderColors = commanderColors.join(',');
-                params.commanderExact = $commanderExact.is(':checked') ? 1 : 0;
             }
+        }
+        if ($setName.val()) {
+            params.setName = String($setName.val()).trim();
         }
 
         return params;
@@ -120,9 +124,7 @@ jQuery(function () {
     // Renders a card row in the table
     function renderCardRow(card) {
         // Extract color identity and format it
-        const colors = card.color_identity && card.color_identity.length > 0
-            ? card.color_identity.join(',')
-            : 'Colorless';
+        const colors = card.color_identity && card.color_identity.length > 0 ? card.color_identity.join(',') : 'Colorless';
 
         // Extract card type components
         const typeLineParts = card.type_line ? card.type_line.split('—').map(part => part.trim()) : ['', ''];
@@ -135,11 +137,13 @@ jQuery(function () {
                 <td class="col">
                     <button class="btn card-btn" data-card-id="${card.id}">${card.name}</button>
                 </td>
-                <td class="col">${card.set.toUpperCase()}</td>
+             
+                <td class="col">${superType} ${subType}</td>
                 <td class="col">${colors}</td>
                 <td class="col">${card.rarity ? card.rarity.charAt(0).toUpperCase() + card.rarity.slice(1) : 'Unknown'}</td>
-                <td class="col">${superType}</td>
-                <td class="col">${subType}</td>
+                   <td class="col">${card.set.toUpperCase()}</td>
+          
+               
             </tr>
         `;
 
@@ -196,6 +200,11 @@ jQuery(function () {
                         $cardViewer.append(renderCardRow(card));
                     });
 
+                    if (response.total_cards) {
+                        console.log(response.total_cards);
+                        $totalCards.text("Found " + response.total_cards + " result(s)");
+
+                    }
                     // If we have pagination data, add load more button
                     if (response.has_more) {
                         const nextPage = 2; // First page is 1, next would be 2
@@ -211,16 +220,14 @@ jQuery(function () {
                 } else {
                     $cardViewer.html('<tr><td colspan="6" style="text-align: center;">No cards found matching your criteria.</td></tr>');
                 }
-            },
-            error: function (error) {
-                showError('Error fetching cards: ' + error + " Code:" + error.status + " " + error.responseText);
-            },
-            complete: function () {
+            }, error: function (error) {
+                showError('Error retrieving cards. Are you sure the card you are looking for exists?');
+            }, complete: function () {
                 // Enable search button after 2 seconds
                 timeoutID = setTimeout(function () {
                     $searchButton.removeAttr('disabled');
                     timeoutID = null;
-                }, 2000);
+                }, 5000);
             }
         });
     });
@@ -239,10 +246,7 @@ jQuery(function () {
 
         // Fetch the next page of cards
         $.ajax({
-            url: 'card-fetch.php',
-            method: 'GET',
-            data: params,
-            dataType: 'json',
+            url: 'card-fetch.php', method: 'GET', data: params, dataType: 'json',
             success: function (response) {
                 // Remove loading indicator
                 $('.loading-more').remove();
@@ -266,8 +270,7 @@ jQuery(function () {
                         `);
                     }
                 }
-            },
-            error: function (xhr, status, error) {
+            }, error: function (xhr, status, error) {
                 $('.loading-more').html(`<td colspan="6" style="text-align: center; color: red;">Error loading more cards: ${error}</td>`);
             }
         });
@@ -279,24 +282,16 @@ jQuery(function () {
 
         // Fetch card details
         $.ajax({
-            url: 'card-fetch.php',
-            method: 'GET',
-            data: {
-                action: 'getCardById',
-                cardId: cardId
-            },
-            dataType: 'json',
-            success: function (card) {
+            url: 'card-fetch.php', method: 'GET', data: {
+                action: 'getCardById', cardId: cardId
+            }, dataType: 'json', success: function (card) {
                 if (card.error) {
                     alert('Error fetching card details: ' + card.error);
                 } else {
-                    // Here you could display a modal with card details
-                    // or navigate to a card detail page
-                    $cardPopUp.toggleClass("hide-menu")
-                    console.log(card);
+                    $cardPopUp.removeClass("hidden");
+                    renderCardMenu(card);
                 }
-            },
-            error: function (xhr, status, error) {
+            }, error: function (xhr, status, error) {
                 alert('Error fetching card details: ' + error);
             }
         });
@@ -304,4 +299,55 @@ jQuery(function () {
 
     // Initial check of format to show/hide commander group
     $format.trigger('change');
+
+    function renderCardMenu(card) {
+        // Using template literals for cleaner HTML building
+        const html = `
+      <div class="card-container">
+        <div class="card-header">
+            <button class="btn" id="close">×</button>
+        </div>
+        
+        <div class="card-content">
+            <div class="card-primary">
+                <div class="card-image">
+                    <img src="${card.image_uris.normal}" alt="${card.name}">
+                </div>
+                
+                <div class="card-details">
+                    <h2 class="card-name">${card.name}</h2>
+                    <p class="card-type">${card.type_line}</p>
+                    <p class="card-cmc">CMC: ${card.cmc}</p>
+                    <div class="card-text">
+                        <p>${card.oracle_text.replace(/\n/g, '<br>')}</p>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <a href="${card.purchase_uris.tcgplayer}" target="_blank" class="btn">Buy Card</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-legality">
+                <h3>Format Legality</h3>
+                <div class="legality-grid">
+                    ${Object.entries(card.legalities).map(([format, status]) => `
+                        <div class="legality-item ${status === 'legal' ? 'legal' : 'not-legal'}">
+                            <span class="format-name">${format.charAt(0).toUpperCase() + format.slice(1)}</span>
+                            <span class="format-status">${status === 'legal' ? 'Legal' : 'Not Legal'}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+
+        $cardPopUp.html(html);
+        $('#close').on('click', function () {
+            $cardPopUp.addClass("hidden");
+        });
+    }
+
 });

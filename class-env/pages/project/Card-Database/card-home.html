@@ -22,8 +22,9 @@
 				<a href = "https://scryfall.com/docs/api" target = "_blank">Scryfall API</a></h2>
 			<div>
 				<a class = "nav-item" href = "#">Cards</a>
-				<a class = "nav-item" href = "./about.html">About</a>
-				<a class = "nav-item" href = "./stats.html">Stats</a>
+				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/about.html">About</a>
+				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/stats/stats.html">Stats
+				</a>
 			</div>
 		</nav>
 		<form class = "sidebar" id = "cardSearchForm">
@@ -66,17 +67,13 @@
 						<label for = "color-C">Colorless</label>
 					</div>
 				</div>
-				<div class = "exact-match-option">
-					<input id = "colors-include" name = "colors-exact" type = "checkbox">
-					<label for = "colors-include"><strong>Including</strong> these colors</label>
-				</div>
-				<div class = "exact-match-option">
-					<input id = "colors-most" name = "colors-must" type = "checkbox">
-					<label for = "colors-most">At <strong>most</strong> these Colors</label>
-				</div>
-				<div class = "exact-match-option">
-					<input id = "colors-exact" name = "colors-must" type = "checkbox">
-					<label for = "colors-exact"><Strong>Exactly</Strong> these colors</label>
+				<div class = "input-group">
+					<label for = "color-match-type">Color Selection Type</label>
+					<select class = "input" id = "color-match-type" name = "colorsMatchType">
+						<option value = ">=">Including these colors</option>
+						<option value = "<=">At most these Colors</option>
+						<option value = "=">Exactly these colors</option>
+					</select>
 				</div>
 			</div>
 
@@ -142,21 +139,24 @@
 					</div>
 				</div>
 			</div>
+			<div class = "input-group">
+				<label for = "setName">Set</label>
+				<input class = "input" id = "setName" placeholder = "ex. MAR, DFT" type = "text">
+			</div>
 			<button class = "btn" id = "searchButton" type = "submit">Search</button>
+			<p id = "totalCards" style = "text-align: center"></p>
 		</form>
 	</nav>
-
 	<main>
 
 		<div class = "container">
 			<table class = "table" id = "card-viewer">
 				<thead>
-				<th>Card Name</th>
-				<th>Set</th>
-				<th>Colors</th>
-				<th>Rarity</th>
-				<th>Super Type</th>
-				<th>Sub Type</th>
+				<th class = "col">Card Name</th>
+				<th class = "col">Type</th>
+				<th class = "col">Colors</th>
+				<th class = "col">Rarity</th>
+				<th class = "col">Set</th>
 
 				</thead>
 				<tbody>
@@ -166,15 +166,10 @@
 					</td>
 
 				</tr>
-				<tr>
-					<td colspan = "6" style = "text-align: center;">Per project rubric my API was supposed
-						to support limiting incoming requests. I have supported pages, but cannot limit
-						the incoming number, except by Scryfall's defined 175 item pages.
-					</td>
-				</tr>
+
 				</tbody>
 			</table>
-			<div id = "myDiv"></div>
+			<div class = "hidden" id = "card-popup"></div>
 		</div>
 	</main>
 

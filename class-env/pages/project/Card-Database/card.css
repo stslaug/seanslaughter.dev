@@ -53,8 +53,11 @@ body.cardBody.dark-mode .btn[type="submit"]
 	width: min-content;
 }
 
-#card-viewer td.col:nth-child(1)
+#card-viewer th.col:nth-child(3),
+#card-viewer th.col:nth-child(4),
+#card-viewer th.col:nth-child(5)
 {
-	max-width: min-content;
-	width: min-content;
+	white-space: nowrap;
+	width: 1%;
 }
+
