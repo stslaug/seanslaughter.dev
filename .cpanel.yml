@@ -5,7 +5,6 @@ deployment:
 
     # Copy individual files
     - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp general.css $DEPLOYPATH
     - /bin/cp index.css $DEPLOYPATH
     - /bin/cp nav-foot.js $DEPLOYPATH
 
