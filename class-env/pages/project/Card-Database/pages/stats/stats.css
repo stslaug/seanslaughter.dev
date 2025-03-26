@@ -1,0 +1,125 @@
+.stats-grid
+{
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	margin: 2rem;
+}
+
+.stat-card
+{
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	transition: transform 0.2s;
+}
+
+body.dark-mode .stat-card
+{
+	background-color: var(--plum);
+	color: white;
+}
+
+.stat-card:hover
+{
+	cursor: pointer;
+	transform: translateY(-5px);
+}
+
+.noptr:hover
+{
+	cursor: default !important;
+}
+
+.stat-number
+{
+	color: var(--purple);
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+body.dark-mode .stat-number
+{
+	color: white;
+}
+
+.stat-detail
+{
+	color: #666666;
+	font-size: 0.9rem;
+}
+
+.additional-stats
+{
+	margin: 2rem;
+}
+
+.timeline
+{
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+
+.timeline-year
+{
+	margin-bottom: 20px;
+	margin-right: 20px;
+}
+
+.timeline-sets
+{
+	background-color: lightgray;
+	border-radius: 4px;
+	padding: 8px;
+}
+
+body.dark-mode .timeline-sets
+{
+	background-color: darkgray;
+}
+
+.intro-text
+{
+	margin: 1rem 2rem;
+}
+
+/* Loading indicator */
+#stats-container p
+{
+	font-size: 1.2rem;
+	margin: 2rem;
+}
+
+.data-grid
+{
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+	margin: 20px;
+}
+
+.data-item
+{
+	border: 1px solid #eeeeee;
+	border-radius: 4px;
+	font-size: 14px;
+	overflow: hidden;
+	padding: 8px 12px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+body.dark-mode .data-item
+{
+	background: var(--dark-purple);
+	border-color: var(--dark-purple);
+	color: white;
+}
+
+#subcategories
+{
+	transition: background-color 0.2s ease, max-height 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
+}

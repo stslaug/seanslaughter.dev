@@ -7,9 +7,10 @@
 	<meta content = "Sean Tyler Slaughter" name = "author">
 	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "any" type = "image/svg+xml">
 	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "16x16" type = "image/svg+xml">
-	<title> Stats | Sean Slaughter</title>
+	<title>Scryfall API Stats | Sean Slaughter</title>
 	<link href = "/styles/general.css" rel = "stylesheet">
 	<link href = "/styles/subnav.css" rel = "stylesheet">
+	<link href = "./stats.css" rel = "stylesheet">
 </head>
 <body class = "cardBody">
 	<nav>
@@ -18,21 +19,25 @@
 			<h2>Magic the Gathering Card Viewer | Utilizing
 				<a href = "https://scryfall.com/docs/api" target = "_blank">Scryfall API</a></h2>
 			<div>
-				<a class = "nav-item" href = "./card-home.html">Cards</a>
-				<a class = "nav-item" href = "./about.html">About</a>
+				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/card-home.html">Cards</a>
+				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/about.html">About</a>
 				<a class = "nav-item" href = "#">Stats</a>
 			</div>
 		</nav>
 	</nav>
 
-	<main>
+	<main class = "container" style = "max-width: 80%">
+		<h1>Scryfall API Statistics</h1>
+		<p class = "intro-text">This page shows current statistics for the Scryfall database.</p>
 
+		<div id = "stats-container">
+			<!-- Statistics will be loaded here -->
+		</div>
 	</main>
 
 	<footer id = "footer"></footer>
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
-	<script rel = "text/javascript" src = "./about.js"></script>
-
+	<script rel = "text/javascript" src = "stats.js"></script>
 </body>
 </html>

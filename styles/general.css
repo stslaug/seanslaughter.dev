@@ -3,11 +3,11 @@
 {
 	--blue: royalblue;
 	--font: 'Noto Sans Display';
-	--green: green;
+	--green: #60f160;
 	--grey: #eae3ff;
 	--plum: #342d45;
 	--purple: #663399;
-	--red: indianred;
+	--red: #cd5c5c;
 	--white: #ffffff;
 	--yellow: #f4d01d;
 	--dark-purple: #4e357f;
@@ -396,6 +396,18 @@ input[type="color"].input
 	height: 3rem;
 	padding: 0.2rem 0.2rem;
 	width: auto;
+}
+
+button.btn[disabled]
+{
+	background-color: #555555 !important;
+	color: #858585 !important;
+	cursor: default;
+}
+
+body.dark-mode button[disabled].btn
+{
+	background-color: var(--dark-purple) !important;
 }
 
 input[type="checkbox"].input

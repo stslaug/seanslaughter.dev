@@ -15,15 +15,15 @@ jQuery(function () {
         console.error('Error loading navbar:', error);
     });
 
-
-    if (window.location.hostname === 'localhost') {
-        // Create a new script element
-        var liveReloadScript = document.createElement('script');
-        liveReloadScript.type = 'text/javascript';
-        liveReloadScript.src = 'https://livejs.com/live.js';
-        // Append the script to the head section
-        $('head').append(liveReloadScript);
-        console.log('Live.js reload script added for local development');
-    }
-    
+    //
+    // if (window.location.hostname === 'localhost') {
+    //     // Create a new script element
+    //     var liveReloadScript = document.createElement('script');
+    //     liveReloadScript.type = 'text/javascript';
+    //     liveReloadScript.src = 'https://livejs.com/live.js';
+    //     // Append the script to the head section
+    //     $('head').append(liveReloadScript);
+    //     console.log('Live.js reload script added for local development');
+    // }
+    //
 })

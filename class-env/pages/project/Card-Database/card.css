@@ -36,3 +36,28 @@ body.cardBody.dark-mode .btn[type="submit"]
 	opacity: 0;
 	visibility: hidden;
 }
+
+#card-viewer
+{
+	margin: 2rem;
+	width: 100%;
+}
+
+#card-viewer .row /*  Implementing a new standard*/
+{
+}
+
+#card-viewer td.col:nth-child(1)
+{
+	max-width: min-content;
+	width: min-content;
+}
+
+#card-viewer th.col:nth-child(3),
+#card-viewer th.col:nth-child(4),
+#card-viewer th.col:nth-child(5)
+{
+	white-space: nowrap;
+	width: 1%;
+}
+

@@ -10,24 +10,26 @@
 	<title> Card API Home | Sean Slaughter</title>
 	<link href = "/styles/subnav.css" rel = "stylesheet">
 	<link href = "./card.css" rel = "stylesheet">
+	<link href = "./card-popup.css" rel = "stylesheet">
 	<link href = "/styles/general.css" rel = "stylesheet">
+
 </head>
 <body class = "cardBody">
 	<nav>
+		<!--	Triple navigation	-->
 		<nav id = "navbar"></nav>
 		<nav class = "subnav">
 			<h2>Magic the Gathering Card Viewer | Utilizing
 				<a href = "https://scryfall.com/docs/api" target = "_blank">Scryfall API</a></h2>
 			<div>
 				<a class = "nav-item" href = "#">Cards</a>
-				<a class = "nav-item" href = "./about.html">About</a>
-				<a class = "nav-item" href = "./stats.html">Stats</a>
+				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/about.html">About</a>
+				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/stats/stats.html">Stats
+				</a>
 			</div>
 		</nav>
-	</nav>
-
-	<main>
 		<form class = "sidebar" id = "cardSearchForm">
+			<!--	Gather Query Parameters		-->
 			<h2>Sort and Filter</h2>
 			<div class = "input-group">
 				<label for = "cardName">Card Name</label>
@@ -67,21 +69,25 @@
 						<label for = "color-C">Colorless</label>
 					</div>
 				</div>
-				<div class = "exact-match-option">
-					<input id = "colors-exact" name = "colors-exact" type = "checkbox">
-					<label for = "colors-exact">Include ONLY these colors</label>
+				<div class = "input-group">
+					<label for = "color-match-type">Color Selection Type</label>
+					<select class = "input" id = "color-match-type" name = "colorsMatchType">
+						<option value = ">=">Including these colors</option>
+						<option value = "<=">At most these Colors</option>
+						<option value = "=">Exactly these colors</option>
+					</select>
 				</div>
 			</div>
 
 			<div class = "input-group">
-				<label for = "manaCost">Mana Cost</label>
-				<input class = "input" id = "manaCost" min = "0" placeholder = "ex. 3" type = "number">
+				<label for = "converted-manaCost">Converted Mana Cost (CMC)</label>
+				<input class = "input" id = "converted-manaCost" min = "0" placeholder = "ex. 3, 5" type = "text">
 			</div>
 
 			<div class = "input-group">
-				<label for = "format">Format</label>
+				<label for = "format">Format / Card Legality</label>
 				<select class = "input" id = "format">
-					<option value = "commander">Commander</option>
+					<option selected value = "commander">Commander</option>
 					<option value = "standard">Standard</option>
 					<option value = "future">Future Standard</option>
 					<option value = "historic">Historic</option>
@@ -134,42 +140,43 @@
 						<label for = "commander-C">Colorless</label>
 					</div>
 				</div>
-				<div class = "exact-match-option">
-					<input id = "commander-exact" name = "commander-exact" type = "checkbox">
-					<label for = "commander-exact">Include ONLY these colors</label>
-				</div>
 			</div>
-
+			<div class = "input-group">
+				<label for = "setName">Set</label>
+				<input class = "input" id = "setName" placeholder = "ex. MAR, DFT" type = "text">
+			</div>
 			<button class = "btn" id = "searchButton" type = "submit">Search</button>
+			<p id = "totalCards" style = "text-align: center"></p>
 		</form>
+	</nav>
+	<main>
+
 		<div class = "container">
-			<table class = "table" style = "width: 100%; margin: 2rem;">
+			<table class = "table" id = "card-viewer">
 				<thead>
-				<th>Card Name</th>
-				<th>Set</th>
-				<th>Colors</th>
-				<th>Rarity</th>
-				<th>Super Type</th>
-				<th>Sub Type</th>
-				<th>TCGPro Price</th>
+				<th class = "col">Card Name</th>
+				<th class = "col">Type</th>
+				<th class = "col">Colors</th>
+				<th class = "col">Rarity</th>
+				<th class = "col">Set</th>
+
 				</thead>
 				<tbody>
 				<tr>
-					<td>
-						<button class = "btn card-btn">Card 1</button>
+					<td colspan = "6" style = "text-align: center;">Make a search to view some cards!
+						Vague searches may take a moment to load!
 					</td>
-					<td>TEST</td>
-					<td>2{U}{U}</td>
-					<td>Rare</td>
-					<td>Creature</td>
-					<td>Human</td>
-					<td><a href = "link to tcg website" target = "_blank">$4.57</a></td>
+
 				</tr>
+
 				</tbody>
 			</table>
+			<div class = "hidden" id = "card-popup"></div>
 		</div>
 	</main>
+
 	<footer id = "footer"></footer>
+
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 	<script rel = "text/javascript" src = "./card.js"></script>
