@@ -1,6 +1,5 @@
 jQuery(function () {
     // Font Awesome setup
-    $('head').append('<script src="https://kit.fontawesome.com/44ecd57f75.js" crossorigin="anonymous"></script>');
 
     // Toggle mobile menu
     $("#hamburger").on('click', function () {
