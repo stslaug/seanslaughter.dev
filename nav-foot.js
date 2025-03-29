@@ -1,3 +1,5 @@
+$('head').append('<script src="https://kit.fontawesome.com/44ecd57f75.js" crossorigin="anonymous"></script>');
+
 jQuery(function () {
     // Dynamically Load the Navbar
     let $head = $('head');
@@ -16,7 +18,6 @@ jQuery(function () {
     });
 
 
-    $('head').append('<script src="https://kit.fontawesome.com/44ecd57f75.js" crossorigin="anonymous"></script>');
     //
     // if (window.location.hostname === 'localhost') {
     //     // Create a new script element
