@@ -2,6 +2,7 @@
 :root
 {
 	--blue: royalblue;
+	--curve: 1rem;
 	--font: 'Noto Sans Display';
 	--green: #60f160;
 	--grey: #eae3ff;
@@ -161,6 +162,11 @@ body.dark-mode .gradient-bg
 	margin: auto auto auto 0.5rem;
 	position: relative;
 	transition: transform 0.5s;
+}
+
+a.btn
+{
+	text-align: center;
 }
 
 @keyframes point
@@ -377,6 +383,12 @@ Input styling
 	margin-bottom: 0.4rem;
 }
 
+textarea.input::placeholder,
+textarea.input
+{
+	font-family: 'Noto Sans Display Regular', sans-serif;
+}
+
 .input
 {
 	background-color: var(--off-white);
@@ -418,10 +430,6 @@ input[type="checkbox"].input
 	transition: opacity 0.3s ease-in-out;
 }
 
-.checkbox-group
-{
-}
-
 .input:focus, .input:active
 {
 	border-color: var(--dark-purple);
@@ -442,8 +450,8 @@ input[type="checkbox"].input
 	align-items: center;
 	box-sizing: border-box;
 	display: flex;
-	flex: 0 0 calc(33.333% - 10px); /* Makes each item take up exactly 1/3 of the space, accounting for gap */
-	min-width: 100px; /* Minimum width to prevent very narrow items */
+	flex: 0 0 calc(33.333% - 5px); /* Makes each item take up exactly 1/3 of the space, accounting for gap */
+	max-width: min-content; /* Minimum width to prevent very narrow items */
 }
 
 .checkbox-item input[type="checkbox"]
@@ -462,6 +470,30 @@ input[type="checkbox"].input
 	white-space: nowrap; /* Prevents label text from wrapping */
 }
 
+.checkbox-item:has(input[type="checkbox"])
+{
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 1rem;
+	padding: 0.4rem;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.checkbox-item:has(input[type="checkbox"]):hover
+{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .checkbox-item:has(input[type="checkbox"])
+{
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .checkbox-item:has(input[type="checkbox"]):hover
+{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
 /* Dark mode adjustments */
 body.dark-mode .input-group label
 {
@@ -471,7 +503,7 @@ body.dark-mode .input-group label
 body.dark-mode .input
 {
 	background-color: rgba(125, 121, 141, 0.9);
-	color: white;
+	color: black;
 }
 
 body.dark-mode .input:focus, body.dark-mode .input:active
@@ -483,6 +515,49 @@ body.dark-mode .input:focus, body.dark-mode .input:active
 body.dark-mode .input::placeholder
 {
 	color: rgba(0, 0, 0, 0.44);
+}
+
+.radio-group
+{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.radio-group > div
+{
+	align-items: center;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 0.5rem;
+	display: flex;
+	padding: 0.4rem 0.6rem;
+	transition: background-color 0.2s ease;
+}
+
+.radio-group > div:hover
+{
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.radio-group > div label
+{
+	cursor: pointer;
+	margin-left: 0.3rem;
+	margin-raight: auto;
+	white-space: nowrap;
+}
+
+/* Dark mode */
+body.dark-mode .radio-group > div
+{
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .radio-group > div:hover
+{
+	background-color: rgba(0, 0, 0, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media screen and (max-width: 767px)
