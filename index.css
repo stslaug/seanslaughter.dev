@@ -179,27 +179,6 @@
  *  Button
  *
  */
-.btn
-{
-	background-color: var(--purple);
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	border-radius: 5px;
-	box-shadow: 0 0 3rem 8px rgba(255, 255, 255, 0.1);
-	color: #ffffff;
-	padding: 0.8rem 1.5rem;
-	text-decoration: none;
-	transition: any 0.3s ease;
-	width: 100%;
-}
-
-.btn:hover
-{
-	background-color: var(--dark-purple);
-	border-color: rgba(102, 51, 153, 0.3);
-	box-shadow: 0 1rem 3rem rgba(102, 51, 153, 0.2);
-	transform: scale(1.1);
-}
-
 .fa-forward
 {
 	align-self: center;

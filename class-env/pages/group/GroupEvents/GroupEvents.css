@@ -21,6 +21,11 @@ html, body
 	text-align: center;
 }
 
+#navbar
+{
+	text-align: left;
+}
+
 section
 {
 	border: 1px black;

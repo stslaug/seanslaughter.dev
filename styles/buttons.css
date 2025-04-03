@@ -1,0 +1,63 @@
+/*
+ *
+ *  Button
+ *
+ */
+.btn
+{
+	background-color: var(--purple);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 5px;
+	box-shadow: 0 0 3rem 1px rgba(255, 255, 255, 0.1);
+	color: #ffffff;
+	cursor: pointer;
+	padding: 0.8rem 1.5rem;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.btn:hover, .btn:active
+{
+	background-color: var(--dark-purple);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transform: scale(1.05) translateY(-3px);
+}
+
+.btn-pointer
+{
+	align-self: center;
+	animation: point 5s ease-in-out infinite alternate;
+	margin: auto auto auto 0.5rem;
+	position: relative;
+	transition: transform 0.5s;
+}
+
+a.btn
+{
+	text-align: center;
+}
+
+button.btn[disabled]
+{
+	background-color: #555555 !important;
+	color: #858585 !important;
+	cursor: default;
+}
+
+body.dark-mode button[disabled].btn
+{
+	background-color: var(--dark-purple) !important;
+}
+
+@keyframes point
+{
+	0%, 100%
+	{
+		transform: translate(0, 1px);
+	}
+	50%
+	{
+		transform: translate(0.3rem, 1px);
+	}
+}

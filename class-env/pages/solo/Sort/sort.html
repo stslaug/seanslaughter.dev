@@ -6,23 +6,14 @@
 	>
 	<title>Array Sorting Example</title>
 	<link href = "/styles/general.css" rel = "stylesheet">
+	<link href = "/styles/buttons.css" rel = "stylesheet">
+	<link href = "/styles/input.css" rel = "stylesheet">
 	<style>
 		  body, html
 		  {
 			  height: 100%;
 			  margin: 0;
 			  width: 100%;
-		  }
-
-		  #newname
-		  {
-			  border: 1px transparent;
-			  border-radius: 1rem;
-			  box-shadow: 0 0 0.5rem 1px #555555;
-			  font-size: 1rem;
-			  font-weight: bold;
-			  margin: auto 1rem;
-			  padding: 1rem;
 		  }
 
 		  #sorted li
@@ -49,8 +40,10 @@
 		<br>
 		<form autocomplete = "off" name = "theform">
 
-			<label for = "newname"></label>
-			<input id = "newname" min = "Test" name = "newname" placeholder = "Add your word" size = "20" type = "text">
+			<div class = "input-group">
+				<label for = "newname"></label>
+				<input class = "input" id = "newname" min = "Test" name = "newname" placeholder = "Add your word" size = "20" type = "text">
+			</div>
 			<input class = "btn" id = "addname" name = "addname" type = "button" value = "Add">
 			<br>
 

@@ -1,5 +1,6 @@
 $('head').append('<link crossorigin = "anonymous" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity = "sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" referrerpolicy = "no-referrer" rel = "stylesheet"/>');
 
+
 jQuery(function () {
     // Dynamically Load the Navbar
     let $head = $('head');
@@ -7,6 +8,7 @@ jQuery(function () {
     $head.append('<link rel="stylesheet" href="/components/footer/footer.css">');
     $.get('/components/navbar/navbar.html', function (data) {
         $('#navbar').html(data);
+        checkTheme();
 
     }).fail(function (error) {
         console.error('Error loading navbar:', error);
@@ -17,6 +19,26 @@ jQuery(function () {
         console.error('Error loading navbar:', error);
     });
 
+    function checkTheme() {
+        // Get stored theme preference
+        let theme = localStorage.getItem('theme');
+
+        // If no theme is stored, check system preference
+        if (!theme) {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            theme = prefersDark ? 'dark' : 'light';
+        }
+
+        // Apply theme immediately on page load
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+
+        // Store the current theme
+        localStorage.setItem('theme', theme);
+    }
 
     //
     // if (window.location.hostname === 'localhost') {

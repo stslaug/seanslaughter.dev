@@ -81,39 +81,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="/styles/general.css">
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<link rel = "stylesheet" href = "styles.css">
+	<link rel = "stylesheet" href = "/styles/general.css">
+	<link href = "/styles/buttons.css" rel = "stylesheet">
+	<link href = "/styles/input.css" rel = "stylesheet">
 </head>
-    <body>
-        <nav id="navbar"></nav>
-        <main>
-            <div class="containersec">
-                <h2>Login</h2>
-                <form method="post" action="">
-                    <div class="input-group">
-                        <label for="username">Username:</label>
-                        <input class="input" type="text" name="username" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="password">Password:</label>
-                        <input class="input" type="password" name="password" required>
-                    </div>
-                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                    <button class="btn" type="submit" style="width: 100%;">Login</button>
-                </form>
+<body>
+	<nav id = "navbar"></nav>
+	<main>
+		<div class = "containersec">
+			<h2>Login</h2>
+			<form method = "post" action = "">
+				<div class = "input-group">
+					<label for = "username">Username:</label>
+					<input class = "input" type = "text" name = "username" required>
+				</div>
+				<div class = "input-group">
+					<label for = "password">Password:</label>
+					<input class = "input" type = "password" name = "password" required>
+				</div>
+				<input type = "hidden" name = "csrf_token" value = "<?php echo $_SESSION['csrf_token']; ?>">
+				<button class = "btn" type = "submit" style = "width: 100%;">Login</button>
+			</form>
                 <?php if (isset($error)) echo "<p class='error'>$error</p>"; ?>
-                <h3> Username = admin</h3>
-                <h3> Password = password123 </h3>
-            </div>
-            </main>
-                <footer id = "footer"></footer>
-                <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                <script rel = "text/javascript" src = "/nav-foot.js"></script>
+			<h3> Username = admin</h3>
+			<h3> Password = password123 </h3>
+		</div>
+	</main>
+	<footer id = "footer"></footer>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 
-    </body>
+</body>
 </html>

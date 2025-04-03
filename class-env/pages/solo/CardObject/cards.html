@@ -17,12 +17,14 @@
 	>
 	<link href = "/styles/general.css" rel = "stylesheet"
 	>
+	<link href = "/styles/buttons.css" rel = "stylesheet">
+	<link href = "/styles/input.css" rel = "stylesheet">
 
 </head>
 <body>
 	<nav id = "navbar"></nav>
-	<main>
-		<div id = "intro">
+	<header>
+		<div id = "intro" style = "text-align: center">
 			<h1>Dynamic Business Cards</h1>
 			<h2>A demo of javascript events</h2>
 			<ul>
@@ -31,37 +33,50 @@
 				<li>Design taken from concept video</li>
 			</ul>
 		</div>
+	</header>
+	<main>
+
 		<div id = "cardsAndForm">
 			<div id = "cardForm">
 				<form>
 					<h1> Information Form </h1>
-					<label for = "name">Full Name</label> <input id = "name" placeholder = "First Last"
+					<div class = "input-group">
+						<label for = "name">Full Name</label>
+						<input class = "input" id = "name" placeholder = "First
+					  Last"
 
-					  type = "text"
-				>
+							  type = "text"
+						></div>
+					<div class = "input-group">
+						<label for = "email">Email</label>
+						<input class = "input" id = "email" placeholder = "example@domain.com"
 
-					<label for = "email">Email</label> <input id = "email" placeholder = "example@domain.com"
+							  type = "email"
+						>
+					</div>
+					<div class = "input-group">
 
-					  type = "email"
-				>
+						<label for = "phone">Phone Number</label>
+						<input class = "input" id = "phone" placeholder = "1234567890"
 
-					<label for = "phone">Phone Number</label> <input id = "phone" placeholder = "1234567890"
+							  type = "number"
+						></div>
 
-					  type = "number"
-				>
+					<div class = "input-group">
+						<label for = "address">Address</label>
+						<input class = "input" id = "address" placeholder = "Street, City, State, ZIP" type = "text"
+						>
+					</div>
+					<div class = "input-group">
 
-					<label for = "address">Address</label>
-					<input id = "address" placeholder = "Street, City, State, ZIP" type = "text"
-					>
-
-					<label for = "birth">Birth Date</label> <input id = "birth" placeholder = "" type = "date"
-				>
-
-					<input id = "addCard" type = "submit" value = "Add Card"
-					>
+						<label for = "birth">Birth Date</label>
+						<input class = "input" id = "birth" placeholder = "" type = "date"
+						>
+					</div>
+					<input class = "btn" id = "addCard" type = "submit" value = "Add Card">
 				</form>
 
-				<button id = "showAll">Show All</button>
+				<button class = "btn" id = "showAll">Show All</button>
 
 			</div>
 			<div id = "cards">

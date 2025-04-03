@@ -29,7 +29,8 @@ main
 	display: flex;
 	flex-basis: 65%;
 	margin: 2rem auto;
-	max-height: 70vh;
+	max-height: 75vh;
+	min-height: min-content;
 	padding: 1rem;
 	transition: background-color 0.3s ease-in-out;
 }
@@ -38,6 +39,7 @@ main
 {
 	border-radius: 2rem;
 	flex-basis: 20%;
+	min-height: min-content;
 	transition: background-color 0.3s ease-in-out;
 }
 

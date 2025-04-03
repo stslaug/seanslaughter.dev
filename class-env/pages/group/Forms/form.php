@@ -30,6 +30,8 @@ if (!is_array($checkboxes)) {
 	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "16x16" type = "image/svg+xml">
 	<title>Group Forms | Sean Slaughter</title>
 	<link href = "/styles/general.css" rel = "stylesheet">
+	<link href = "/styles/buttons.css" rel = "stylesheet">
+	<link href = "/styles/input.css" rel = "stylesheet">
 
 </head>
 <body>

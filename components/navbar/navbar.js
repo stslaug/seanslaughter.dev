@@ -7,7 +7,7 @@ jQuery(function () {
     });
 
     // Dropdown and submenu functionality (for desktop)
-    $(".dropdown").hover(function () {
+    $(".dropdown").on("hover", function () {
         $(this).find(".dropmenu").stop(true, true).slideDown();
     }, function () {
         $(this).find(".dropmenu").stop(true, true).slideUp();
@@ -32,7 +32,7 @@ jQuery(function () {
 
         // Save preference
         try {
-            localStorage.setItem('darkMode', $('body').hasClass('dark-mode') ? 'true' : 'false');
+            localStorage.setItem('theme', $('body').hasClass('dark-mode') ? 'true' : 'false');
         } catch (e) {
             console.warn('Could not save dark mode preference');
         }
