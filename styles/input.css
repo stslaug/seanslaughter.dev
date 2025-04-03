@@ -27,7 +27,7 @@ textarea.input
 {
 	background-color: var(--off-white);
 	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 0.5rem;
+	border-radius: var(--curve);
 	font-size: 1rem;
 	padding: 0.75rem;
 	transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease-in-out;
@@ -95,7 +95,7 @@ input[type="checkbox"].input
 .checkbox-item:has(input[type="checkbox"])
 {
 	border: 1px solid rgba(0, 0, 0, 0.2);
-	border-radius: 1rem;
+	border-radius: var(--curve);
 	padding: 0.4rem;
 	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }

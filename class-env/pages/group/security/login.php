@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 	<nav id = "navbar"></nav>
 	<main>
-		<div class = "containersec">
+		<div class = "container page">
 			<h2>Login</h2>
 			<form method = "post" action = "">
 				<div class = "input-group">

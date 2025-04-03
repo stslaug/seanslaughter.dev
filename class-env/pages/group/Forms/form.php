@@ -36,7 +36,7 @@ if (!is_array($checkboxes)) {
 </head>
 <body>
 	<nav id = "navbar"></nav>
-	<header class = "container" style = "margin-bottom: -2rem;">
+	<header class = "page" style = "margin-bottom: -2rem;">
 		<h1>Forms with PHP</h1>
 		<p>
 			Worked on by <b>Wilson Collins</b> and <b>Sean Slaughter</b> <br>
@@ -44,7 +44,7 @@ if (!is_array($checkboxes)) {
 			The Data can be cleared and access at the bottom of the form! </p>
 	</header>
 
-	<form id = "mainForm" class = "container" method = "POST" action = "<?= $_SERVER['PHP_SELF'] ?>" enctype = "multipart/form-data">
+	<form id = "mainForm" class = "page" method = "POST" action = "<?= $_SERVER['PHP_SELF'] ?>" enctype = "multipart/form-data">
 		<!-- Text Input -->
 		<div class = "input-group">
 			<label for = "text">Text Input:</label>

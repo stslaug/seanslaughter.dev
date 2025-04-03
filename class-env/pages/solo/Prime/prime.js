@@ -11,11 +11,11 @@ let is_Descending = false;
 let currCompSum = 0;
 let currPrimeSum = 0;
 
-addEventListener("DOMContentLoaded", () => {
+jQuery(function () {
 
-    document.getElementById("startButton").addEventListener("click", generateLists);
-    document.getElementById("themeToggle").addEventListener("click", toggleDark);
-    document.getElementById("sortLists").addEventListener("click", function () {
+    $("#startButton").on("click", generateLists);
+    $("#themeToggle").on("click", toggleDark);
+    $("#sortLists").on("click", function () {
         sortLists();
         generateLists();
     });
@@ -172,11 +172,11 @@ addEventListener("DOMContentLoaded", () => {
     }
 
 
-    document.getElementById("primeSum").addEventListener("click", function (event) {
+    $("#primeSum").on("click", function (event) {
         console.log(currPrimeSum);
         event.target.innerText = currPrimeSum;
     });
-    document.getElementById("compSum").addEventListener("click", function (event) {
+    $("#compSum").on("click", function (event) {
         event.target.innerText = currCompSum;
     });
 
