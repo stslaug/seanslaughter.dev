@@ -37,9 +37,7 @@
 #about
 {
 	background-color: #ffffff;
-	display: grid;
 	gap: 1rem;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	padding: 4rem 0;
 }
 
@@ -197,6 +195,22 @@
 	50%
 	{
 		transform: translate(0.3rem, 1px);
+	}
+}
+
+@media (max-width: 767px)
+{
+	#about
+	{
+		max-height: min-content !important;
+		min-height: min-content !important;
+		padding: 2rem;
+	}
+
+
+	#about img
+	{
+		margin: 0;
 	}
 }
 

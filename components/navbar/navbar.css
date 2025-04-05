@@ -22,11 +22,13 @@ body
 	align-items: center;
 	background-color: var(--purple);
 	background-image: linear-gradient(180deg, var(--dark-purple), var(--purple));
+	box-sizing: border-box;
 	display: flex;
 	font-family: 'Noto Sans Display Regular', sans-serif;
 	justify-content: space-between;
 	margin: auto;
 	opacity: 1;
+	overflow: visible;
 	padding: 1rem;
 	position: relative;
 	transition: background-color 0.3s ease, color 0.3s ease;
@@ -47,6 +49,8 @@ body
 {
 	align-items: center;
 	display: flex;
+	max-height: min-content;
+	min-height: min-content;
 	transition: all 0.1s ease-in-out;
 }
 
@@ -199,10 +203,34 @@ body
 }
 
 /*
+ * DARK MODE STYLES
+ */
+#darkmode-toggle
+{
+	animation: fadeIn 0.5s ease forwards;
+	background-color: rgba(0, 0, 0, 0);
+	border: transparent;
+	border-radius: 50%;
+	color: white;
+	cursor: pointer;
+	font-size: 1.2rem;
+	margin-right: 1rem;
+	object-fit: contain;
+	padding: 1rem;
+	transition: transform 0.3s ease;
+}
+
+#darkmode-toggle:hover
+{
+	transform: scale(1.1);
+}
+
+/*
  * MOBILE STYLES
  */
 @media screen and (max-width: 1000px)
 {
+	/* Hamburger button styles */
 	.hamburger
 	{
 		display: block !important;
@@ -216,13 +244,7 @@ body
 	}
 
 
-	/* Hide icons for dropdown indicators on mobile */
-	.fa-caret-left, .fa-caret-down
-	{
-		display: none;
-	}
-
-
+	/* Navigation menu container */
 	#nav-items
 	{
 		border-top: 1px solid white;
@@ -238,21 +260,23 @@ body
 	}
 
 
-	#nav-items i
-	{
-		display: none;
-		text-align: center;
-	}
-
-
+	/* Active state for nav menu */
 	#nav-items.active
 	{
 		background-color: var(--dark-purple);
-		max-height: 500px;
+		max-height: 100vh;
 		opacity: 1;
+		overflow-y: auto;
 	}
 
 
+	.submenu-btn
+	{
+		display: none;
+	}
+
+
+	/* Nav item styling */
 	#nav-item
 	{
 		border-bottom: 1px solid white;
@@ -263,11 +287,10 @@ body
 	}
 
 
-	/* Hide all dropdowns on mobile */
-	.dropmenu,
-	.submenu
+	#nav-items.active .nav-item
 	{
-		display: none !important;
+		animation: slideInDown 0.5s ease forwards;
+		animation-delay: 0.1s;
 	}
 
 
@@ -281,51 +304,126 @@ body
 	}
 
 
-	body.dark-mode #nav-items.active
-	{
-		background-color: var(--dark-purple);
-	}
-
-
 	#nav-items.active .nav-item:hover
 	{
 		background-color: var(--purple);
 	}
 
 
-	.submenu-wrap:hover .submenu, .dropdown:hover .dropmenu
+	/* Dark mode adjustments */
+	body.dark-mode #nav-items.active
+	{
+		background-color: var(--dark-purple);
+	}
+
+
+	/* Dropdown structure & behavior */
+	.dropdown
+	{
+		width: 100%;
+	}
+
+
+	/* Reset standard dropdown display */
+	.dropmenu,
+	.submenu
 	{
 		display: none !important;
 	}
 
 
-	#nav-items.active .nav-item
+	.submenu-wrap:hover .submenu,
+	.dropdown:hover .dropmenu
 	{
-		animation: slideInDown 0.5s ease forwards;
-		animation-delay: 0.1s;
+		display: none !important;
 	}
-}
 
-/*
- * DARK MODE STYLES
- */
-#darkmode-toggle
-{
-	animation: fadeIn 0.5s ease forwards;
-	background-color: rgba(0, 0, 0, 0);
-	border: transparent;
-	border-radius: 50%;
-	color: white;
-	cursor: pointer;
-	font-size: 1.2rem;
-	object-fit: contain;
-	padding: 1rem;
-	transition: transform 0.3s ease;
-}
 
-#darkmode-toggle:hover
-{
-	transform: scale(1.1);
+	/* Target-based dropdown visibility */
+	.dropdown .dropmenu:target
+	{
+		animation: fadeIn 0.3s ease forwards;
+		background-color: rgba(0, 0, 0, 0.15);
+		box-shadow: none;
+		display: block !important;
+		left: 0;
+		margin-top: 0;
+		max-width: 100%;
+		opacity: 1;
+		position: static;
+		top: 0;
+		transform: none;
+		width: 100%;
+	}
+
+
+	/* Caret icons for navigation */
+	.fa-caret-down,
+	.fa-caret-left
+	{
+		display: inline-block !important;
+	}
+
+
+	/* Dropdown item styling */
+	.dropmenu:target .dropdown-item
+	{
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 1rem;
+		text-align: center;
+	}
+
+
+	.dropmenu .dropdown-item:hover
+	{
+		transform: none;
+	}
+
+
+	/* Navigation button styling */
+	.nav-item.dropbtn
+	{
+		align-items: center;
+		display: flex;
+		justify-content: center;
+	}
+
+
+	/* Back button for navigation */
+	.mobile-back
+	{
+		background-color: rgba(0, 0, 0, 0.2);
+		color: white;
+		display: none;
+		padding: 0.75rem;
+		text-align: center;
+		text-decoration: none;
+	}
+
+
+	.dropmenu:target .mobile-back
+	{
+		display: block;
+	}
+
+
+	.mobile-back:before
+	{
+		content: "← Back";
+	}
+
+
+	/* Submenu positioning */
+	.submenu
+	{
+		left: 0;
+	}
+
+
+	#darkmode-toggle:hover
+	{
+		transform: scale(0.9);
+	}
 }
 
 .fa-moon

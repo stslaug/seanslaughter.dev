@@ -4,7 +4,8 @@ $('head').append('<link crossorigin = "anonymous" href = "https://cdnjs.cloudfla
 jQuery(function () {
     // Dynamically Load the Navbar
     let $head = $('head');
-    $head.append('<link rel="stylesheet" href="/components/navbar/navbar.css">');
+    $head.append('<link rel="stylesheet" href="/components/navbar/navbar.css">'); // These are called before the
+    // fetch to ensure the CSS is loaded before the HTML
     $head.append('<link rel="stylesheet" href="/components/footer/footer.css">');
     $.get('/components/navbar/navbar.html', function (data) {
         $('#navbar').html(data);
@@ -39,6 +40,7 @@ jQuery(function () {
         // Store the current theme
         localStorage.setItem('theme', theme);
     }
+
 
     //
     // if (window.location.hostname === 'localhost') {

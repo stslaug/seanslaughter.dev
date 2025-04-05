@@ -1,29 +1,30 @@
 <nav id = "mynav">
 	<div class = "gradient-bg"></div>
 	<h1 id = "brand-name">Sean Slaughter</h1>
-
+	<!-- Removed inline onclick, will use jQuery instead -->
 	<i class = "fa-solid fa-bars hamburger" id = "hamburger"></i>
-
 	<div id = "nav-items">
 		<a class = "nav-item dropbtn" href = "/index.html">Home</a>
 		<a class = "nav-item dropbtn" href = "/pages/experience/experience.html">Experience</a>
-
 		<div class = "dropdown">
-			<a class = "nav-item dropbtn" href = "#">Projects
+			<a class = "nav-item dropbtn" href = "#projects-menu">Projects
 				<i class = "fa-solid fa-caret-down"></i>
 			</a>
-			<div class = "dropmenu">
+			<div class = "dropmenu" id = "projects-menu">
+				<a class = "mobile-back" href = "#solo-menu"></a>
 				<a class = "dropdown-item" href = "/class-env/pages/project/AudioDemo/audio-demo.html">Audio Demo</a>
-				<a class = "dropdown-item" href = "/class-env/pages/project/Card-Database/card-home.html">Card
-					Database</a>
+				<a class = "dropdown-item" href = "/class-env/pages/project/Card-Database/card-home.html">Card Database</a>
 			</div>
 		</div>
 
 		<div class = "dropdown">
-			<a class = "nav-item dropbtn" href = "#">Solo Assignments
+			<a class = "nav-item dropbtn" href = "#solo-menu">Solo Assignments
 				<i class = "fa-solid fa-caret-down"></i>
 			</a>
-			<div class = "dropmenu">
+			<div class = "dropmenu" id = "solo-menu">
+				<a class = "mobile-back" href = "#"></a>
+				<!--				<a class = "dropdown-item" href = "/class-env/pages/solo/database/database.php">Database-->
+				<!--					Setup</a>-->
 				<a class = "dropdown-item" href = "/class-env/pages/solo/ButtonMove/ButtonMove.html">Button Moving</a>
 				<a class = "dropdown-item" href = "/class-env/pages/solo/CardObject/cards.html">Card Objects</a>
 				<a class = "dropdown-item" href = "/class-env/pages/solo/handlebars/handlebars.html">AJAX &
@@ -35,10 +36,11 @@
 				<a class = "dropdown-item" href = "/class-env/pages/solo/Prime/prime.html">Prime Numbers</a>
 				<a class = "dropdown-item" href = "/class-env/pages/solo/Sort/sort.html">Sort Demo</a>
 				<div class = "submenu-wrap">
-					<a class = "dropdown-item submenu-btn"><i class = "fa-solid fa-caret-left"></i> Basic
+					<a class = "dropdown-item submenu-btn" href = "#basic-solo-menu"><i class = "fa-solid fa-caret-left"></i> Basic
 						Assignments
 					</a>
-					<div class = "submenu">
+					<div class = "submenu" id = "basic-solo-menu">
+						<a class = "mobile-back" href = "#solo-menu"></a>
 						<p class = "dropdown-item">Items are no longer updated, but are for
 							demonstration!</p>
 						<a class = "dropdown-item" href = "/class-env/pages/solo/BandStore/index.html">Band Store</a>
@@ -51,10 +53,11 @@
 			</div>
 		</div>
 		<div class = "dropdown">
-			<a class = "nav-item dropbtn" href = "#">Group Assignments
+			<a class = "nav-item dropbtn" href = "#group-menu">Group Assignments
 				<i class = "fa-solid fa-caret-down"></i>
 			</a>
-			<div class = "dropmenu">
+			<div class = "dropmenu" id = "group-menu">
+				<a class = "mobile-back" href = "#"></a>
 				<a class = "dropdown-item" href = "/class-env/pages/group/zipcode/zipcode.html">Zipcode Finder
 				</a>
 				<a class = "dropdown-item" href = "/class-env/pages/group/hangman/hangman.html">Hangman</a>
@@ -63,10 +66,11 @@
 				<a class = "dropdown-item" href = "/class-env/pages/group/security/dashboard.php">Security Demo
 				</a>
 				<div class = "submenu-wrap">
-					<a class = "dropdown-item submenu-btn"><i class = "fa-solid fa-caret-left"></i> Basic
+					<a class = "dropdown-item submenu-btn" href = "#basic-group-menu"><i class = "fa-solid fa-caret-left"></i> Basic
 						Assignments
 					</a>
-					<div class = "submenu">
+					<div class = "submenu" id = "basic-group-menu">
+						<a class = "mobile-back" href = "#group-menu"></a>
 						<p class = "dropdown-item">Items are no longer updated, but are for
 							demonstration!</p>
 						<a class = "dropdown-item" href = "/class-env/pages/group/GroupEvents/GroupEvents.html">Group Events</a>
@@ -76,8 +80,7 @@
 				</div>
 			</div>
 		</div>
-		<button aria-label = "Toggle dark mode" id = "darkmode-toggle">
-			<i class = "fa-solid fa-moon fa-xl"></i>
+		<button aria-label = "Toggle dark mode" id = "darkmode-toggle"><i class = "fa-solid fa-moon fa-xl"></i>
 		</button>
 	</div>
 	<script src = "/components/navbar/navbar.js"></script>

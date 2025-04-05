@@ -1,40 +1,43 @@
 jQuery(function () {
-    // Font Awesome setup
-
-    // Toggle mobile menu
-    $("#hamburger").on('click', function () {
-        $("#nav-items").toggleClass("active");
+    // Toggles the mobile navigation menu
+    $('#hamburger').on('click', function (e) {
+        e.preventDefault();
+        $('#nav-items').toggleClass('active');
     });
 
-    // Dropdown and submenu functionality (for desktop)
-    $(".dropdown").on("hover", function () {
-        $(this).find(".dropmenu").stop(true, true).slideDown();
-    }, function () {
-        $(this).find(".dropmenu").stop(true, true).slideUp();
+    // Handles the back button in mobile dropdowns
+    $('.mobile-back').on('click', function (e) {
+        e.preventDefault();
+        // Clear the URL hash to close the current menu
+        window.location.hash = '';
     });
 
-    $(".submenu-wrap").hover(function () {
-        $(this).find(".submenu").stop(true, true).fadeIn();
-    }, function () {
-        $(this).find(".submenu").stop(true, true).fadeOut();
+    // Toggle dark mode
+    $('#darkmode-toggle').on('click', function () {
+        $('body').toggleClass('dark-mode');
+
+        // Switch the icon between moon and sun
+        const icon = $(this).find('i');
+        if (icon.hasClass('fa-moon')) {
+            icon.removeClass('fa-moon').addClass('fa-sun');
+        } else {
+            icon.removeClass('fa-sun').addClass('fa-moon');
+        }
+
+        // Store user preference in localStorage
+        const isDarkMode = $('body').hasClass('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
     });
 
-    // Apply dark mode from saved preference
-    if (localStorage.getItem('darkMode') === 'true') {
-        $('body').addClass('dark-mode');
-        $('#darkmode-toggle i').removeClass('fa-moon').addClass('fa-sun');
+    // Loads saved dark mode preference
+    function loadDarkModePreference() {
+        const darkMode = localStorage.getItem('darkMode') === 'true';
+        if (darkMode) {
+            $('body').addClass('dark-mode');
+            $('#darkmode-toggle i').removeClass('fa-moon').addClass('fa-sun');
+        }
     }
 
-    // Dark mode toggle with improved selector targeting
-    $('#darkmode-toggle').on('click', function () {
-        $('body, #footer').toggleClass('dark-mode');
-        $('#darkmode-toggle i').toggleClass('fa-moon fa-sun');
-
-        // Save preference
-        try {
-            localStorage.setItem('theme', $('body').hasClass('dark-mode') ? 'true' : 'false');
-        } catch (e) {
-            console.warn('Could not save dark mode preference');
-        }
-    });
+    // Initialize preferences on page load
+    loadDarkModePreference();
 });
