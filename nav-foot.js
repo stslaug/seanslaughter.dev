@@ -17,7 +17,7 @@ jQuery(function () {
     $.get('/components/footer/footer.html', function (data) {
         $('#footer').html(data);
     }).fail(function (error) {
-        console.error('Error loading navbar:', error);
+        console.error('Error loading footer:', error);
     });
 
     function checkTheme() {

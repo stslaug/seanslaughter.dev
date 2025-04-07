@@ -91,18 +91,17 @@ main
 	background-color: #e4e4e4;
 }
 
+ul
+{
+	list-style-type: none;
+}
+
 @media (max-width: 1200px)
 {
 	main
 	{
 		display: block;
 		text-align: center;
-	}
-
-
-	ul
-	{
-		list-style-type: none;
 	}
 }
 

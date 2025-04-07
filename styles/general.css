@@ -125,6 +125,15 @@ body.dark-mode .gradient-bg
 	width: 100%;
 }
 
+.bubble
+{
+	background-color: var(--purple);
+	border-radius: var(--curve);
+	margin: auto;
+	padding: 1rem;
+	width: fit-content;
+}
+
 .center
 {
 	align-items: center;
