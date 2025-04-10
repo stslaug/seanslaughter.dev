@@ -11,11 +11,9 @@ main
 {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 1.5rem;
 	height: auto;
 	left: 2rem;
-	max-width: min-content;
-	min-width: 315px;
 	position: sticky;
 	top: 3rem; /* Distance from the top of the page since sticky */
 }
@@ -83,6 +81,10 @@ main
 	text-wrap: nowrap;
 }
 
+#titles tbody
+{
+}
+
 #titles tbody tr td:first-child
 {
 	text-align: left;
@@ -111,19 +113,14 @@ thead th:nth-child(3)
 #titles.controls
 {
 	display: flex;
-	gap: 8px;
+	gap: 1rem;
 	justify-content: center;
 }
 
-.fa-play, .fa-trash, .fa-clock-rotate-left
+.fa-pause, .fa-play, .fa-trash, .fa-clock-rotate-left
 {
 	cursor: pointer;
 	transition: all ease-in-out 0.2s;
-}
-
-.controls .fa-play:hover, .controls .fa-trash:hover
-{
-	transform: scale(1.2);
 }
 
 /*
@@ -142,7 +139,7 @@ body.dark-mode main
 /*
 	Mobile/Tablet
  */
-@media screen and (max-width: 1025px)
+@media screen and (max-width: 1000px)
 {
 	main
 	{
@@ -159,7 +156,6 @@ body.dark-mode main
 	{
 		display: block;
 		margin: auto;
-		min-height: auto;
 		min-width: 100%;
 		position: static;
 		width: 100%;

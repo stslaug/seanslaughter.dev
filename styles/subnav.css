@@ -64,6 +64,11 @@ body.dark-mode .subnav .nav-item:hover
 	color: var(--purple);
 }
 
+body.dark-mode .container
+{
+	background-color: var(--purple), !important;
+}
+
 /*
 
 
@@ -74,13 +79,33 @@ body.dark-mode .subnav .nav-item:hover
  */
 .sidebar
 {
-	background: var(--white);
 	float: left;
-	padding: 1rem;
+	padding: 1.5rem;
 	width: 350px;
 }
 
 body.dark-mode .sidebar
 {
-	background: var(--purple);
+}
+
+/*
+	Unfortunately the subnav requires a little custom styling
+	You need to go to the page you want to add the subnav to
+	and change .page to
+	.page
+	{
+		flex;
+		margin: 2rem;
+		max-width: calc(100% - 375px);
+		width: 100%;
+	}
+ */
+@media screen and (max-width: 1000px)
+{
+	.sidebar
+	{
+		max-width: 100%;
+		padding: 1rem;
+		width: 100%;
+	}
 }

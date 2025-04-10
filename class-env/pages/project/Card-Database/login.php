@@ -1,7 +1,46 @@
 <?php
 
-use Random\RandomException;
 
+/*
+ *
+ * This is the login system for the card database
+ *
+ *  What I need to do:
+ *      - Create a login form
+ *         - The password should be hashed and salted
+ *      - Create a database connection
+ *          - Create Table
+ *          - Create Connection
+ *          - Post Request to Database
+ *      - Ensure user login persists through pages
+ *      - Create a login/logout button
+ *
+ *  https://codepen.io/mamislimen/pen/jOwwLvy
+ *     I like this design
+ *
+ *      - Forgot Password Page/Button.. integrate with login page.
+ *
+ *      - Create a favorites button
+ *          - Create a connection
+ *          - Post Request to Database
+ *          - Stores the cards and timestamps
+ *
+ *      - Create a Profile page
+ *          - Displays the user's favorites
+ *          - Displays the user's information
+ *          - Displays the user's security question NOT ANSWER
+ *
+ *
+ *
+ */
+
+
+//We infact know now he doesn't watch the big bang theory
+
+
+?>
+
+<?php
 session_set_cookie_params([
     'lifetime' => 0, // Cookies expire when browser closes
     'path' => '/', // Cookie available on all pages of site
@@ -15,18 +54,11 @@ session_start();
 
 // Hardcoded credentials
 const USERNAME = 'admin';
-$hashed_password = password_hash('password123', PASSWORD_BCRYPT); // Use BCrypt instead of Default for consistency/longevity
+$hashed_password = password_hash('password123', PASSWORD_DEFAULT);
 
 // CSRF token is set before form submission
-// CSRF = Cross-Site Request Forgery
-// Randomly generated token to prevent attacks.
-//    Checks request for the token
 if (!isset($_SESSION['csrf_token'])) {
-    try {
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-    } catch (RandomException $e) {
-        die("Error generating CSRF token.");
-    }
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
 // Login attempts and lockout time
@@ -43,7 +75,7 @@ if ($_SESSION['login_attempts'] >= 5) {
     $time_remaining = $lockout_duration - $time_since_lockout;
 
     if ($time_remaining > 0) {
-        $error = "<p style='color:red;'>Too many login attempts. Try again in <span id='countdown'>$time_remaining</span> seconds.</p>";
+        echo "<p style='color:red;'>Too many login attempts. Try again in <span id='countdown'>$time_remaining</span> seconds.</p>";
         echo "<script>
                 let timeLeft = $time_remaining;
                 function updateCountdown() {
@@ -96,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<meta charset = "UTF-8">
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<title>Login</title>
-	<link rel = "stylesheet" href = "styles.css">
+	<link rel = "stylesheet" href = "./styles.css">
 	<link rel = "stylesheet" href = "/styles/general.css">
 	<link href = "/styles/buttons.css" rel = "stylesheet">
 	<link href = "/styles/input.css" rel = "stylesheet">
@@ -109,11 +141,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			<form method = "post" action = "">
 				<div class = "input-group">
 					<label for = "username">Username:</label>
-					<input class = "input" id = "username" type = "text" name = "username" required>
+					<input class = "input" type = "text" name = "username" required>
 				</div>
 				<div class = "input-group">
 					<label for = "password">Password:</label>
-					<input class = "input" id = "password" type = "password" name = "password" required>
+					<input class = "input" type = "password" name = "password" required>
 				</div>
 				<input type = "hidden" name = "csrf_token" value = "<?php echo $_SESSION['csrf_token']; ?>">
 				<button class = "btn" type = "submit" style = "width: 100%;">Login</button>
@@ -121,7 +153,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php if (isset($error)) echo "<p class='error'>$error</p>"; ?>
 			<h3> Username = admin</h3>
 			<h3> Password = password123 </h3>
-			<p> This site was moved to "basic" assignments, and is no longer updated. For an improved/updated login system look at my card database project! </p>
 		</div>
 	</main>
 	<footer id = "footer"></footer>
@@ -130,3 +161,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 </html>
+

@@ -39,7 +39,9 @@ body.cardBody.dark-mode .btn[type="submit"]
 
 #card-viewer
 {
+	display: flex;
 	margin: 2rem;
+	max-width: calc(100% - 375px);
 	width: 100%;
 }
 
@@ -49,8 +51,12 @@ body.cardBody.dark-mode .btn[type="submit"]
 
 #card-viewer td.col:nth-child(1)
 {
-	max-width: min-content;
-	width: min-content;
+	width: 50%;
+}
+
+#card-viewer td.col:nth-child(2)
+{
+	width: 20%;
 }
 
 #card-viewer th.col:nth-child(3),
@@ -58,6 +64,16 @@ body.cardBody.dark-mode .btn[type="submit"]
 #card-viewer th.col:nth-child(5)
 {
 	white-space: nowrap;
-	width: 1%;
+	width: 10%;
 }
 
+@media screen and (max-width: 1000px)
+{
+	.page#card-viewer
+	{
+		margin: 0;
+		max-width: 100%;
+		min-width: 100%;
+		width: 100%;
+	}
+}

@@ -15,12 +15,19 @@
 	<link href = "/styles/input.css" rel = "stylesheet">
 	<link href = "/styles/buttons.css" rel = "stylesheet">
 	<link href = "audio-demo.css" rel = "stylesheet">
+	<link href = "/styles/subnav.css" rel = "stylesheet">
+	<style>
+		  .sidebar
+		  {
+			  min-width: min-content;
+		  }
+	</style>
 </head>
 <body>
 	<nav id = "navbar"></nav>
 
 	<main>
-		<section id = "interactable">
+		<section class = "sidebar">
 			<div class = "container" id = "functions">
 				<h1>Audio Demo</h1>
 
@@ -28,16 +35,14 @@
 				<audio id = "audio" src = "audio.mp3"></audio>
 				<p id = "fileName">Audio File Not Found or Error Occursed </p>
 				<div id = "title-controls">
-					<p><i class = "fa-solid fa-clock-rotate-left fa-xl" id = "prevBtn"></i></p>
-					<p><i class = "fa-solid fa-play fa-xl" id = "playPauseBtn"></i></p>
-					<p><i class = "fa-solid fa-clock-rotate-left fa-flip-horizontal  fa-xl" id = "fwdBtn"></i>
+					<p><i class = "fa-solid fa-clock-rotate-left fa" id = "prevBtn"></i></p>
+					<p><i class = "fa-solid fa-play fa" id = "playPauseBtn"></i></p>
+					<p><i class = "fa-solid fa-clock-rotate-left fa-flip-horizontal  fa" id = "fwdBtn"></i>
 					</p>
 					<div id = "volume-controls">
-
 						<label for = "volumeControl"><i class = "fa-solid fa-volume-off"></i></label> <!-- Volume Slider -->
 						<input id = "volumeControl" max = "1" min = "0" step = "0.01" type = "range" value = "1">
 						<label for = "volumeControl"><i class = "fa-solid fa-volume-high"></i></label>
-
 					</div>
 				</div>
 
@@ -80,7 +85,7 @@
 				<button class = "btn" id = "popDataBtn">Add 50 example titles</button>
 			</div>
 		</section>
-		<section class = "page" id = "titles">
+		<section class = "page-side" id = "titles">
 			<h1 id = "titleCount"></h1>
 			<table class = "table">
 				<thead>

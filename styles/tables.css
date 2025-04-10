@@ -12,6 +12,7 @@
 	font-family: 'Arial', sans-serif;
 	margin: 20px 0;
 	overflow: hidden;
+	transition: box-shadow 0.3s ease-in-out, width 0.3s ease, max-width 0.3s ease;;
 	width: 100%;
 }
 
@@ -24,7 +25,12 @@
 	font-weight: normal;
 	padding: 12px 15px;
 	text-align: left;
-	transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease, width 0.3s ease, max-width 0.3s ease;
+}
+
+.table tr
+{
+	transition: background-color 0.3s ease-in-out, width 0.3s ease, max-width 0.3s ease;;
 }
 
 .table td
@@ -32,6 +38,7 @@
 	border-bottom: 1px solid #e9ecef;
 	color: #212529;
 	padding: 12px 15px;
+	transition: width 0.3s ease, max-width 0.3s ease;
 }
 
 .table tr:last-child td

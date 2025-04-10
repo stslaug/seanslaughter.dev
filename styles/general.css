@@ -32,7 +32,6 @@
 *
 {
 	box-sizing: border-box;
-	transition: all 0.1s ease;
 }
 
 body, html
@@ -48,7 +47,6 @@ body
 {
 	font-family: 'Noto Sans Display', "Noto San", sans-serif;
 	min-height: 100vh;
-	transition: background-color 0.3s ease-in-out, color 0.1s ease;
 }
 
 h1
@@ -63,6 +61,11 @@ h1
 	/* Gradient Helper
 	REMEMBER TO Define the background image in their home directory
 	background-image: linear-gradient(320deg, var(--plum), var(--dark-purple), var(--purple));
+
+	Translation:
+	Ensure you define what the background should be.
+	I didn't FORCE this for modularity...
+	Buttttt I might. force it for consistency
 	*/
 	height: 100%;
 	left: 0;
@@ -111,6 +114,14 @@ body.dark-mode .gradient-bg
 	width: 100%;
 }
 
+.page-side /*  Used for subnav pages */
+{
+	display: flex;
+	margin: 2rem;
+	max-width: 100%;
+	width: 100%;
+}
+
 .container
 {
 	background-color: #ffffff;
@@ -123,6 +134,18 @@ body.dark-mode .gradient-bg
 	padding: 3rem;
 	transition: width 0.3s ease, max-width 0.3s ease, height 0.3s ease, max-height 0.3s ease, background-color 0.3s ease-in-out;
 	width: 100%;
+}
+
+.container-sm
+{
+	border-radius: var(--curve);
+	box-shadow: 1px 1px 3rem 1px rgba(0, 0, 0, 0.3);
+	height: auto;
+	margin: 1rem auto;
+	min-width: min-content;
+	padding: 3rem;
+	transition: width 0.3s ease, max-width 0.3s ease, height 0.3s ease, max-height 0.3s ease, background-color 0.3s ease-in-out;
+	width: min-content;
 }
 
 .bubble

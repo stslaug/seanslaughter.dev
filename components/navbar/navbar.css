@@ -270,6 +270,18 @@ body
 	}
 
 
+	#nav-items .nav-item
+	{
+		visibility: hidden;
+	}
+
+
+	#nav-items.active .nav-item
+	{
+		visibility: visible;
+	}
+
+
 	.submenu-btn
 	{
 		display: none;
