@@ -8,14 +8,23 @@ jQuery(function () {
     // fetch to ensure the CSS is loaded before the HTML
     $head.append('<link rel="stylesheet" href="/components/footer/footer.css">');
     $.get('/components/navbar/navbar.html', function (data) {
-        $('#navbar').html(data);
+        let navbarEl = document.getElementById('navbar') || document.getElementById('navbar-container');
+        let $navbar = $(navbarEl);
+
+        $navbar.html(data);
+
         checkTheme();
 
     }).fail(function (error) {
         console.error('Error loading navbar:', error);
     });
     $.get('/components/footer/footer.html', function (data) {
-        $('#footer').html(data);
+
+        let footerEl = document.getElementById('footer') || document.getElementById('footer-container');
+        let $footer = $(footerEl);
+
+        $footer.html(data);
+
     }).fail(function (error) {
         console.error('Error loading footer:', error);
     });

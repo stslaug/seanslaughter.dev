@@ -31,9 +31,17 @@ body
 	overflow: visible;
 	padding: 1rem;
 	position: relative;
+	text-align: left !important;
 	transition: background-color 0.3s ease, color 0.3s ease;
 	z-index: 3;
 	/* necessary for absolute positioning of mobile menu */
+}
+
+#mynav h1
+{
+	display: block;
+	margin: 0;
+	text-align: left;
 }
 
 #brand-name
@@ -51,6 +59,7 @@ body
 	display: flex;
 	max-height: min-content;
 	min-height: min-content;
+	text-align: left;
 	transition: all 0.1s ease-in-out;
 }
 

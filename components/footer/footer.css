@@ -11,12 +11,13 @@
 	align-content: center;
 	background-color: var(--purple);
 	border-style: solid none none none;
+	bottom: 0;
 	clear: both;
 	color: white;
 	display: flex;
 	font-family: 'Roboto', sans-serif;
 	margin: auto;
-	padding: 2rem 0;
+	padding: 2rem 0;;
 	width: 100%;
 }
 
