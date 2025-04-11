@@ -6,7 +6,7 @@
  *
  */
 $room = $_GET['room'] ?? '';
-$path = "rooms/$room.json";
+$path = "../rooms/$room.json";
 if (!file_exists($path)) {
     echo json_encode(["players" => []]);
     exit;

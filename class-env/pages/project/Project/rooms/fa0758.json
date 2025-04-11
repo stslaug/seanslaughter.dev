@@ -1,0 +1,19 @@
+{
+  "players": [
+    "Tyler"
+  ],
+  "question_index": 0,
+  "votes": [],
+  "voted": [],
+  "created_at": 1744399740,
+  "game_started": false,
+  "round_started": false,
+  "questions": [
+    "Most likely to volunteer and regret it instantly?",
+    "Most likely to show up late with coffee?",
+    "Most likely to say 'let\u2019s circle back' and never do it?",
+    "Most likely to send a meme to the boss?"
+  ],
+  "mode": "office",
+  "host": "Tyler"
+}

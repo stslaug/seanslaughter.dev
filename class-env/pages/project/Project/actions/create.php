@@ -44,7 +44,7 @@ $data = [
     "mode" => $mode
 ];
 
-file_put_contents("rooms/$room.json", json_encode($data));
+file_put_contents("../rooms/$room.json", json_encode($data));
 
 header("Location: join.php?room=$room");
 exit;

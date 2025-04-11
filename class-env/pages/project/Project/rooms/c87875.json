@@ -1,0 +1,18 @@
+{
+  "players": [],
+  "question_index": 0,
+  "votes": [],
+  "voted": [],
+  "created_at": 1744400189,
+  "game_started": true,
+  "round_started": false,
+  "questions": [
+    "Most likely to skip class and still pass?",
+    "Most likely to live on ramen for a week?",
+    "Most likely to pull an all-nighter before an exam?",
+    "Most likely to join five clubs and attend none?"
+  ],
+  "mode": "college",
+  "host": "twfsdf",
+  "results_ready": true
+}

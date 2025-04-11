@@ -2,12 +2,12 @@
 /**
  * File: leave_game.php
  * Description: Removes a player from the room JSON and redirects them to the homepage.
- * 
+ *
  */
 
 $room = $_POST['room'] ?? '';
 $name = $_POST['name'] ?? '';
-$path = "rooms/$room.json";
+$path = "../rooms/$room.json";
 
 if (file_exists($path)) {
     $data = json_decode(file_get_contents($path), true);
@@ -39,5 +39,5 @@ if (file_exists($path)) {
     file_put_contents($path, json_encode($data));
 }
 
-header("Location: index.php");
+header("Location: ../index.php");
 exit;

@@ -8,7 +8,7 @@
 header('Content-Type: application/json');
 
 $room = $_GET['room'] ?? '';
-$path = "rooms/$room.json";
+$path = "../rooms/$room.json";
 
 if (!file_exists($path)) {
     echo json_encode(["started" => false, "round_started" => false]);
