@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang = "en">
 <head>
@@ -13,14 +16,23 @@
 </head>
 <body class = "cardBody">
 	<nav>
+		<!--	Triple navigation	-->
 		<nav id = "navbar"></nav>
 		<nav class = "subnav">
 			<h2>Magic the Gathering Card Viewer | Utilizing
 				<a href = "https://scryfall.com/docs/api" target = "_blank">Scryfall API</a></h2>
 			<div>
-				<a class = "nav-item" href = "../../card-home.html">Cards</a>
+				<a class = "nav-item" href = "../../card-home.php">Cards</a>
 				<a class = "nav-item" href = "#">About</a>
-				<a class = "nav-item" href = "../stats/stats.html">Stats</a>
+				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/stats/stats.php">Stats</a>
+                      <?php if (isset($_SESSION['username'])): ?>
+				    <a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/favorites/favorites.php">Favorites</a>
+				    <a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/profile/profile.php">Profile</a>
+				    <a class = "nav-item" href = "/class-env/pages/project/Card-Database/auth/logout.php">Logout</a>
+                      <?php else: ?>
+				    <a class = "nav-item" href = "/class-env/pages/project/Card-Database/auth/login.php">Login / Sign Up</a>
+                      <?php endif; ?>
+
 			</div>
 		</nav>
 	</nav>

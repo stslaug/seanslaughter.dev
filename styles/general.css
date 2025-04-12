@@ -141,7 +141,11 @@ body.dark-mode .gradient-bg
 	border-radius: var(--curve);
 	box-shadow: 1px 1px 3rem 1px rgba(0, 0, 0, 0.3);
 	height: auto;
+	height: fit-content;
 	margin: 1rem auto;
+	max-height: fit-content;
+	max-width: min-content;
+	min-height: fit-content;
 	min-width: min-content;
 	padding: 3rem;
 	transition: width 0.3s ease, max-width 0.3s ease, height 0.3s ease, max-height 0.3s ease, background-color 0.3s ease-in-out;
