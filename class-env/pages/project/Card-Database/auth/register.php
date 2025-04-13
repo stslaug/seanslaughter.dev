@@ -9,10 +9,10 @@ if (isset($_SESSION['user_id'])) {
     exit();
 }
 
-$servername = "127.0.0.1:5522";
-$username = "seanljvy_stslaug";
-$password = "Darkose123!";
-$database = "seanljvy_main_db";
+$servername = "";
+$username = "";
+$password = "";
+$database = "";
 
 // Database connection
 $conn = new mysqli($servername, $username, $password, $database);
