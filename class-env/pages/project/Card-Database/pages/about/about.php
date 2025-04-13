@@ -73,8 +73,6 @@ session_start();
 		</p>
 
 		<hr>
-		<h2> Changes from Phase 1 <i class = "fa-solid fa-arrow-right"></i> Phase 2</h2>
-
 	</main>
 
 	<footer id = "footer"></footer>

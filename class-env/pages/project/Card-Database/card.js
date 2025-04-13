@@ -4,7 +4,7 @@ jQuery(function () {
     const $commanderGroup = $('#commanderGroup');
     const $cardSearchForm = $('#cardSearchForm');
     const $searchButton = $('#searchButton');
-    const $cardViewer = $('#card-viewer tbody');
+    const $cardViewer = $('#card-viewer');
     const $totalCards = $('#totalCards');
 
     // Input fields
@@ -122,37 +122,42 @@ jQuery(function () {
     }
 
     // Renders a card row in the table
-    function renderCardRow(card) {
+    function renderCardDiv(card) {
         // Extract color identity and format it
-        const colors = card.color_identity && card.color_identity.length > 0 ? card.color_identity.join(',') : 'Colorless';
+        const colors = (card.color_identity && card.color_identity.length > 0) ? card.color_identity.join(', ') : 'Colorless';
 
         // Extract card type components
         const typeLineParts = card.type_line ? card.type_line.split('—').map(part => part.trim()) : ['', ''];
         const superType = typeLineParts[0];
         const subType = typeLineParts.length > 1 ? typeLineParts[1] : '';
 
-        // Create row HTML
-        const rowHtml = `
-            <tr class="row">
-                <td class="col">
-                    <button class="btn card-btn" data-card-id="${card.id}">${card.name}</button>
-                </td>
-             
-                <td class="col">${superType} ${subType}</td>
-                <td class="col">${colors}</td>
-                <td class="col">${card.rarity ? card.rarity.charAt(0).toUpperCase() + card.rarity.slice(1) : 'Unknown'}</td>
-                   <td class="col">${card.set.toUpperCase()}</td>
-          
-               
-            </tr>
-        `;
+        // Use the card’s normal image or a fallback image
+        const imageSrc = card.image_uris?.normal || 'path-to-a-default-card-back.jpg';
 
-        return rowHtml;
+        // Return the HTML for a tile with image, name, type, colors
+        // Notice we also include "card-btn" to keep your existing click handler working
+        return `
+           <div class="card-wrapper">
+                <img class="card-btn" data-card-id="${card.id}" src="${imageSrc}" alt="${card.name}">
+                <div class="card-info">
+                    <h4>${card.name}</h4>
+                    <div class="type">${superType} ${subType}</div>
+                    <div class="colors">${colors}</div>
+                </div>
+                ${isLoggedIn ? `
+                    <div class="input-group fav-btn">  
+                        <input class="fav" type="checkbox" id="fav-${card.id}" data-card-id="${card.id}">
+                        <label for="fav-${card.id}"></label>
+                    </div>
+                ` : ''}
+            </div>
+    `;
     }
+
 
     // Display loading state
     function showLoading() {
-        $cardViewer.html('<tr><td colspan="6" style="text-align: center;">Loading cards...</td></tr>');
+        $cardViewer.html('<h2>Loading cards...</h2>');
     }
 
     // Display error message
@@ -183,11 +188,7 @@ jQuery(function () {
 
         // Fetch cards from the API
         $.ajax({
-            url: 'card-fetch.php',
-            method: 'GET',
-            data: params,
-            dataType: 'json',
-            success: function (response) {
+            url: 'card-fetch.php', method: 'GET', data: params, dataType: 'json', success: function (response) {
                 // Clear table
                 $cardViewer.empty();
 
@@ -196,7 +197,7 @@ jQuery(function () {
                 } else if (response.data && response.data.length > 0) {
                     // success now render each card
                     response.data.forEach(function (card) {
-                        $cardViewer.append(renderCardRow(card));
+                        $cardViewer.append(renderCardDiv(card));
                     });
 
                     if (response.total_cards) {
@@ -237,16 +238,13 @@ jQuery(function () {
         const params = buildQueryParams();
         params.page = nextPage;
 
-        // Remove the load more button
-        $(this).closest('tr').remove();
 
         // Show loading indicator
-        $cardViewer.append('<tr class="loading-more"><td colspan="6" style="text-align: center;">Loading more cards...</td></tr>');
+        $cardViewer.append('<h2 class="loading-more">Loading more cards...</h2>');
 
         // Fetch the next page of cards
         $.ajax({
-            url: 'card-fetch.php', method: 'GET', data: params, dataType: 'json',
-            success: function (response) {
+            url: 'card-fetch.php', method: 'GET', data: params, dataType: 'json', success: function (response) {
                 // Remove loading indicator
                 $('.loading-more').remove();
 
@@ -255,22 +253,16 @@ jQuery(function () {
                 } else if (response.data && response.data.length > 0) {
                     // Render each card
                     response.data.forEach(function (card) {
-                        $cardViewer.append(renderCardRow(card));
+                        $cardViewer.append(renderCardDiv(card));
                     });
 
                     // If we have more pages, add the load more button
                     if (response.has_more) {
-                        $cardViewer.append(`
-                            <tr>
-                                <td colspan="6" style="text-align: center;">
-                                    <button class="btn load-more" data-page="${nextPage + 1}">Load More</button>
-                                </td>
-                            </tr>
-                        `);
+                        $cardViewer.append(`<button class="btn load-more" data-page="${nextPage + 1}">Load More</button>`);
                     }
                 }
             }, error: function (xhr, status, error) {
-                $('.loading-more').html(`<td colspan="6" style="text-align: center; color: red;">Error loading more cards: ${error}</td>`);
+                $('.loading-more').html(`<h2  style="text-align: center; color: red;">Error loading more cards: ${error}</h2>`);
             }
         });
     });
@@ -278,6 +270,8 @@ jQuery(function () {
     // Handle card button click to show card details
     $cardViewer.on('click', '.card-btn', function () {
         const cardId = $(this).data('card-id');
+        $cardPopUp.removeClass("hidden");
+        $cardPopUp.html('<div class="container">Loading card details...</div>');
 
         // Fetch card details
         $.ajax({
@@ -287,7 +281,6 @@ jQuery(function () {
                 if (card.error) {
                     alert('Error fetching card details: ' + card.error);
                 } else {
-                    $cardPopUp.removeClass("hidden");
                     renderCardMenu(card);
                 }
             }, error: function (xhr, status, error) {
@@ -341,6 +334,7 @@ jQuery(function () {
             </div>
         </div>
     </div>`;
+        console.log(html);
 
 
         $cardPopUp.html(html);

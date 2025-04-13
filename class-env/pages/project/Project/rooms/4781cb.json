@@ -1,0 +1,18 @@
+{
+  "players": [],
+  "question_index": 0,
+  "votes": [],
+  "voted": [],
+  "created_at": 1744475942,
+  "game_started": true,
+  "round_started": false,
+  "questions": [
+    "Most likely to survive a zombie apocalypse?",
+    "Most likely to become president?",
+    "Most likely to become a millionaire?",
+    "Most likely to eat something off the floor?"
+  ],
+  "mode": "general",
+  "host": "Test",
+  "results_ready": true
+}

@@ -1,5 +1,28 @@
 <?php
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: /class-env/pages/project/Card-Database/auth/login.php");
+    exit;
+}
+
+$servername = "";
+$username = "";
+$password = "";
+$database = "";
+
+$conn = new mysqli($servername, $username, $password, $database);
+if ($conn->connect_error) {
+    die("DB Connection failed: " . $conn->connect_error);
+}
+
+$user_id = $_SESSION['user_id'];
+$stmt = $conn->prepare("SELECT COUNT(card_id) FROM favorites WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$stmt->bind_result($count);
+$stmt->fetch();
+$stmt->close();
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang = "en">
@@ -10,7 +33,7 @@ session_start();
 	<meta content = "Sean Tyler Slaughter" name = "author">
 	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "any" type = "image/svg+xml">
 	<link href = "/assets/images/icon.svg" rel = "icon" sizes = "16x16" type = "image/svg+xml">
-	<title>Scryfall API Stats | Sean Slaughter</title>
+	<title>Profile | Card Database | Sean Slaughter</title>
 
 	<link href = "/styles/general.css" rel = "stylesheet">
 	<link href = "/styles/subnav.css" rel = "stylesheet">
@@ -91,7 +114,7 @@ session_start();
 			<div>
 				<a class = "nav-item" href = "../../card-home.php">Cards</a>
 				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/about/about.php">About</a>
-				<a class = "nav-item" href = "#">Stats</a>
+				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/stats/stats.php">Stats</a>
                       <?php if (isset($_SESSION['username'])): ?>
 				    <a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/favorites/favorites.php">Favorites</a>
 				    <a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/profile/profile.php">Profile</a>
@@ -114,23 +137,31 @@ session_start();
 			</div>
 			<div class = "stat-card noptr">
 				<h3>Email</h3>
-				<p class = "stat-number">user@domain.com</p>
+				<p class = "stat-number"><?php echo $_SESSION['email']; ?></p>
 			</div>
 			<div class = "stat-card noptr">
 				<h3>Joined</h3>
-				<p class = "stat-number">Date Placeholder</p>
+				<p class = "stat-number"><?php echo date("F j, Y | g:i a", strtotime($_SESSION['creation'])); ?></p>
+			</div>
+			<div class = "stat-card noptr">
+				<h3>Last Login</h3>
+				<p class = "stat-number"><?php echo date("F j, Y | g:i a", strtotime($_SESSION['last_login'])); ?></p>
+			</div>
+			<div id = "cardTypes" class = "stat-card noptr">
+				<h3>Login Count</h3>
+				<p class = "stat-number"><?php echo $_SESSION['login_count']; ?></p>
 			</div>
 			<div id = "cardTypes" class = "stat-card noptr">
 				<h3>Cards Favorited</h3>
-				<p class = "stat-number">Cards Favorite Placeholder</p>
+				<p class = "stat-number"><?php echo $count; ?></p>
 			</div>
 
 		</div>
 		<div style = " display: flex; flex-direction: column;" class = "container">
 			<h2>Account Controls</h2>
-			<div style = "display: flex;margin: auto; min-width: 100%;">
-				<a class = "btn" href = "change-password.php">Change Password TODO</a>
-				<a class = "btn" href = "../../auth/logout.php">Wipe Data (Logout...TODO)</a>
+			<div style = "display: flex;margin: auto; gap: 1rem; min-width: 100%;">
+				<a class = "btn" href = "change-password.php">Change Password (TODO)</a>
+				<a class = "btn" href = "../../auth/logout.php">Wipe Data (TODO)</a>
 				<a class = "btn" href = "../../auth/logout.php">Logout</a>
 			</div>
 		</div>

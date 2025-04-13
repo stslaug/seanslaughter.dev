@@ -39,32 +39,94 @@ body.cardBody.dark-mode .btn[type="submit"]
 
 #card-viewer
 {
-	display: flex;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	margin: 2rem;
 	max-width: calc(100% - 375px);
 	width: 100%;
 }
 
-#card-viewer .row /*  Implementing a new standard*/
+#card-viewer .card-wrapper
 {
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: var(--curve);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 300px;
+	padding: 1rem;
+	position: relative;
+	text-align: center;
 }
 
-#card-viewer td.col:nth-child(1)
+#card-viewer .card-wrapper img
 {
-	width: 50%;
+	border-radius: var(--curve);
+	max-width: 250px;
+	transition: transform 0.3s ease-in-out;
 }
 
-#card-viewer td.col:nth-child(2)
+#card-viewer .card-wrapper img:hover, #card-viewer .card-wrapper img:focus
 {
-	width: 20%;
+	cursor: pointer;
+	transform: scale(1.05);
 }
 
-#card-viewer th.col:nth-child(3),
-#card-viewer th.col:nth-child(4),
-#card-viewer th.col:nth-child(5)
+#card-viewer .card-wrapper .card-info h4
 {
-	white-space: nowrap;
-	width: 10%;
+	margin-bottom: 0.5rem;
+}
+
+.fav-btn
+{
+	border-radius: 4px;
+	padding: 4px;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+	z-index: 10;
+}
+
+.fav-btn .fav
+{
+	display: none;
+}
+
+.fav-btn label
+{
+	transition: transform 0.3s ease-in-out;
+}
+
+.fav-btn label:hover
+{
+	transform: scale(1.1);
+}
+
+.fav-btn .fav + label
+{
+	cursor: pointer;
+	font-size: 24px;
+	position: relative;
+}
+
+/* Regular star (unchecked) */
+.fav-btn .fav + label::before
+{
+	content: "\f005"; /* The star glyph in Font Awesome */
+	display: inline-block;
+	font-family: "Font Awesome 6 Free";
+	font-weight: 400; /* fa-regular star */
+	speak: none;
+}
+
+/* Solid star (checked) */
+.fav-btn .fav:checked + label::before
+{
+	content: "\f005";
+	font-family: "Font Awesome 6 Free";
+	font-weight: 900; /* fa-solid star */
 }
 
 @media screen and (max-width: 1000px)

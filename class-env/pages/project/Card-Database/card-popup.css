@@ -31,6 +31,23 @@ body.dark-mode #card-popup
 	background-color: var(--plum);
 }
 
+.card-container .card-header
+{
+	display: flex;
+	margin: auto;
+	margin: auto;
+	max-width: 50px;
+	padding: 0.75rem;
+	position: relative;
+	position: absolute;
+	right: 0;
+	right: 1rem;
+	text-align: center;
+	top: 0;
+	top: 1rem;
+	width: min-content;
+}
+
 .hidden
 {
 	height: 0;
@@ -51,12 +68,10 @@ body.dark-mode #card-popup
 #close
 {
 	background-color: var(--red);
-	display: flex;
-	margin: auto;
+	min-width: min-content;
 	padding: 0.75rem;
-	position: absolute;
-	right: 1rem;
-	top: 1rem;
+	text-align: center;
+	width: 100%;
 }
 
 #close:hover

@@ -44,10 +44,10 @@ if (isset($_SESSION['user_id'])) {
     header("Location: ../card-home.php");
     exit();
 }
-$servername = "127.0.0.1:5522";
-$username = "seanljvy_stslaug";
-$password = "Darkose123!";
-$database = "seanljvy_main_db";
+$servername = "";
+$username = "";
+$password = "";
+$database = "";
 
 // Database connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -61,19 +61,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $passwordInput = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT user_id, password FROM users WHERE username = ?");
+
+    $stmt = $conn->prepare("SELECT user_id, password, email, creationTimestamp, last_login, login_count FROM users WHERE username = ?");
 
     if ($stmt) {
         $stmt->bind_param("s", $username);
         $stmt->execute();
         $stmt->store_result();
-        $stmt->bind_result($userId, $hashedPassword);
+        $stmt->bind_result($userId, $hashedPassword, $email, $creation, $lastLogin, $loginCount);
 
         if ($stmt->num_rows === 1) {
             $stmt->fetch();
             if (password_verify($passwordInput, $hashedPassword)) {
+
+                $stmt = $conn->prepare("UPDATE users 
+                        SET login_count = login_count + 1, 
+                            last_login = CURRENT_TIMESTAMP 
+                        WHERE username = ?");
+                $stmt->bind_param("s", $username);
+                $stmt->execute();
                 $_SESSION['user_id'] = $userId;
                 $_SESSION['username'] = $username;
+                $_SESSION['email'] = $email;
+                $_SESSION['creation'] = $creation;
+                $_SESSION['last_login'] = $lastLogin;
+                $_SESSION['login_count'] = $loginCount + 1;
+
                 header("Location: ../card-home.php");
                 exit();
             } else {
@@ -121,7 +134,7 @@ $conn->close();
 			<h2>Magic the Gathering Card Viewer | Utilizing
 				<a href = "https://scryfall.com/docs/api" target = "_blank">Scryfall API</a></h2>
 			<div>
-				<a class = "nav-item" href = "#">Cards</a>
+				<a class = "nav-item" href = "../card-home.php">Cards</a>
 				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/about/about.php">About</a>
 				<a class = "nav-item" href = "/class-env/pages/project/Card-Database/pages/stats/stats.php">Stats</a>
                       <?php if (isset($_SESSION['username'])): ?>

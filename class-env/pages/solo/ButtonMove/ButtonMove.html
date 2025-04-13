@@ -34,8 +34,10 @@
 	<header id = "top">
 		<h1>Moving Buttons</h1>
 		<p>Add buttons, and then click them to see a combined total</p>
-		<button class = "btn" onClick = "makeButton()">Make Button</button>
-		<button class = "btn" onClick = "changeMove()">Move Button</button>
+		<div style = "display: flex; flex-direction: row; width: 50%; gap:2rem; margin: 1rem auto;">
+			<button class = "btn" onClick = "makeButton()">Make Button</button>
+			<button class = "btn" onClick = "changeMove()">Move Button</button>
+		</div>
 		<label for = "colors">Choose a color:</label>
 
 		<select class = "input" id = "colors" name = "colors" style = "max-width: 200px;"

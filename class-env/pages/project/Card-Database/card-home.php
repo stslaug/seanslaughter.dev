@@ -1,6 +1,10 @@
 <?php
 session_start();
+
 ?>
+<script>
+    const isLoggedIn = <?php echo isset($_SESSION['username']) ? 'true' : 'false'; ?>;
+</script>
 
 <!DOCTYPE html>
 <html lang = "en">
@@ -167,34 +171,21 @@ session_start();
 	<main>
 
 		<div class = "page" id = "card-viewer">
-			<table class = "table">
-				<thead>
-				<th class = "col">Card Name</th>
-				<th class = "col">Type</th>
-				<th class = "col">Colors</th>
-				<th class = "col">Rarity</th>
-				<th class = "col">Set</th>
+			<div style = " margin: auto;text-align: center;">
+				<h2>Make a search to view some cards!</h2>
+				<p>Vague searches may take a moment to load!</p>
+			</div>
 
-				</thead>
-				<tbody>
-				<tr>
-					<td colspan = "6" style = "text-align: center;">Make a search to view some cards!
-						Vague searches may take a moment to load!
-					</td>
-
-				</tr>
-
-				</tbody>
-			</table>
-			<div class = "hidden" id = "card-popup"></div>
 		</div>
 	</main>
+	<div class = "hidden" id = "card-popup"></div>
 
 	<footer id = "footer"></footer>
 
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
 	<script rel = "text/javascript" src = "./card.js"></script>
+	<script rel = "text/javascript" src = "pages/favorites/favorites.js"></script>
 
 </body>
 </html>
