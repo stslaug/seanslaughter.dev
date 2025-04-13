@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH="/home/seanljvy/dev_html/"
+    - export DEPLOYPATH="/home/seanljvy/public_html/"
 
     # Copy individual files
     - /bin/cp index.html $DEPLOYPATH
