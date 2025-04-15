@@ -12,8 +12,8 @@
 	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no" name = "viewport">
 	<meta content = "ie=edge" http-equiv = "X-UA-Compatible">
 
-	<link href = "u_style.css" rel = "stylesheet">
-	<link href = "style.css" rel = "stylesheet">
+	<link href = "css/style.css" rel = "stylesheet">
+	<link href = "css/u_style.css" rel = "stylesheet">
 	<link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel = "stylesheet">
 
 	<title>The Game | Most Likely To</title>
@@ -25,29 +25,39 @@
 
 		<div id = "game-nav" class = "container-fluid">
 			<div class = "d-flex justify-content-end py-2">
-				<a class = "btn btn-primary mx-2" href = "#">The Game</a>
-				<a class = "btn btn-primary mx-2" href = "./index.php">Proposal</a>
-				<a class = "btn btn-primary mx-2" href = "./settings.html">Profile</a>
+				<a class = "btn btn-primary mx-2" href = "game-landing.php">The Game</a>
+				<a class = "btn btn-primary mx-2" href = "index.php">Proposal</a>
+                      <?php if (isset($_SESSION['username'])): ?>
+				    <a class = "btn btn-primary mx-2" href = "../settings.html">Profile</a>
+				    <a class = "btn btn-primary mx-2" href = "user/logout.php">Logout</a>
+                      <?php else: ?>
+				    <a class = "btn btn-primary mx-2" href = "user/login.php">Login / Sign Up</a>
+                      <?php endif; ?>
 			</div>
 		</div>
 	</nav>
+
 	<main class = "game-container">
 		<div class = "container">
 			<h1>Most Likely To</h1>
 			<form action = "actions/join.php" method = "GET">
-				<input type = "text" class = "text" name = "room" placeholder = "Enter Room Code" required>
+				<input class = "form-control" type = "text" class = "text" name = "room" placeholder = "Enter Room Code" required>
 				<button type = "submit">Join Game</button>
 			</form>
+
 			<form action = "./actions/create.php" method = "POST">
-				<label for = "theme">Choose a theme:</label>
-				<select name = "theme" required>
-					<option value = "general">General</option>
-					<option value = "college">College</option>
-					<option value = "office">Office</option>
-				</select>
+				<div class = "form-group">
+					<label for = "theme">Choose a theme:</label>
+
+					<select class = "form-control" name = "theme" required>
+						<option value = "general">General</option>
+						<option value = "college">College</option>
+						<option value = "office">Office</option>
+					</select>
+				</div>
 				<div>
-					<label for = "mode_code" style = "margin: 10px;"> Secret Game:</label>
-					<input type = "text" placeholder = "Enter Secret Code" name = "mode_code"/>
+					<label for = "mode_code"> Secret Game:</label>
+					<input class = "form-control" type = "text" placeholder = "Enter Secret Code" name = "mode_code"/>
 				</div>
 				<button class = "btn btn-primary" type = "submit">Create Game</button>
 			</form>

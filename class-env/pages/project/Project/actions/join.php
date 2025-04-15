@@ -26,8 +26,8 @@ $data = json_decode(file_get_contents($path), true);
 <head>
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<title>Join Game - <?= htmlspecialchars($room) ?></title>
-	<link rel = "stylesheet" href = "../style.css">
-	<link rel = "stylesheet" href = "../u_style.css">
+	<link rel = "stylesheet" href = "../css/style.css">
+	<link rel = "stylesheet" href = "../css/u_style.css">
 
 </head>
 <body>

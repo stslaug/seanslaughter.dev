@@ -43,7 +43,7 @@ file_put_contents($path, json_encode($data));
 <head>
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<title>Waiting for Others</title>
-	<link rel = "stylesheet" href = "style.css">
+	<link rel = "stylesheet" href = "css/style.css">
 	<link rel = "stylesheet" href = "/styles/general.css">
 </head>
 <body>

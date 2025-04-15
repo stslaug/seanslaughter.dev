@@ -1,0 +1,23 @@
+
+.auth-box
+{
+	align-items: center;
+	border-radius: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+	text-align: center;
+}
+
+.login-register-link
+{
+	color: white;
+	margin-top: 1rem;
+}
+
+.auth-box .form-group
+{
+	margin-bottom: 1rem;
+}
+

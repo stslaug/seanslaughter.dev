@@ -58,18 +58,6 @@ body.dark-mode .game-container form
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
-.game-container input[type="text"],
-.game-container select
-{
-	border: none;
-	border-radius: 10px;
-	font-size: 1em;
-	margin-bottom: 2rem;
-	margin-top: 1rem;
-	padding: 1rem;
-	width: 100%;
-}
-
 .game-container button
 {
 	background: #ffce00;
@@ -97,24 +85,10 @@ body.dark-mode .game-container form
 .game-container form label
 {
 	align-items: center;
-	background: #555555;
-	border-radius: 12px;
 	color: #ffffff;
-	cursor: pointer;
-	display: flex;
 	font-size: 1.05em;
-	justify-content: flex-start;
-	margin: 1rem auto;
-	max-width: 400px;
-	padding: 1rem;
 	transition: transform 0.2s ease, background 0.3s ease;
 	width: 100%;
-}
-
-.game-container label:hover
-{
-	margin-right: 12px;
-	transform: scale(1.1);
 }
 
 .game-container ul
@@ -133,18 +107,6 @@ body.dark-mode .game-container form
 	min-width: 300px;
 	padding: 10px;
 	width: 80%;
-}
-
-.game-container input, .game-container select
-{
-	background-color: rgba(255, 255, 255, 0.1);
-	color: rgba(255, 255, 255, 0.5);
-}
-
-.game-container select option
-{
-	background-color: #3c3c3c;
-	color: rgba(255, 255, 255, 0.8);
 }
 
 .game-container input::placeholder

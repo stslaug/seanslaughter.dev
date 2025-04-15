@@ -1,0 +1,180 @@
+
+:root
+{
+	--blue: royalblue;
+	--curve: 1rem;
+	--font: 'Noto Sans Display';
+	--green: #60f160;
+	--grey: #eae3ff;
+	--plum: #342d45;
+	--primary: var(--yellow);
+	--purple: #663399;
+	--red: #cd5c5c;
+	--secondary: #be952e;
+	--white: #ffffff;
+	--yellow: #f4d01d;
+	--primary-hover: rgb(255, 236, 0);
+	--dark-purple: #4e357f;
+	--deep-purple: #1e1a28;
+	--off-white: #be952e;
+}
+
+/*
+	I need/like these colors
+ 	HOWEVER, we can change them later to something we more like
+
+	I will use the
+	--primary
+	--primary-hover
+	--secondary
+	--secondary-hover
+	--background-color
+
+ */
+*
+{
+	box-sizing: border-box;
+}
+
+body, html
+{
+	margin: 0;
+	padding: 0;
+}
+
+main
+{
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: var(--curve);
+	color: #333333;
+	display: flex;
+	flex-direction: column;
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	margin: 40px auto;
+	max-width: 800px;
+	padding: 20px;
+}
+
+main h1, h2
+{
+	color: #004080;
+}
+
+ul
+{
+	padding-left: 20px;
+}
+
+.section
+{
+	margin-bottom: 25px;
+}
+
+/*
+	Game Navbar
+
+ */
+#game-nav
+{
+	position: absolute; /*  Nothing should be able to go over this */
+}
+
+/*
+
+
+		Input styles
+
+
+
+ */
+/*
+	Default Input Focus styles (on click)
+ */
+main textarea:focus, /* To override bootstrap */
+main input[type="text"].form-control:focus,
+main input[type="datetime"].form-control:focus,
+main input[type="password"].form-control:focus,
+main input[type="datetime-local"].form-control:focus,
+main input[type="date"].form-control:focus,
+main input[type="month"].form-control:focus,
+main input[type="time"].form-control:focus,
+main input[type="week"].form-control:focus,
+main input[type="number"].form-control:focus,
+main input[type="email"].form-control:focus,
+main input[type="url"].form-control:focus,
+main input[type="search"].form-control:focus,
+main input[type="tel"].form-control:focus,
+main input[type="color"].form-control:focus,
+main .uneditable-input:focus,
+main select.form-control:focus
+{
+	background-color: #2b2b2b;
+	border-color: var(--primary) !important;
+	border-radius: 10px;
+	box-shadow: inset 0 1px 1px rgba(255, 236, 0, 0.75), 0 0 8px rgba(255, 236, 0.6) !important;
+	color: rgba(255, 255, 255, 0.5);
+	color: white;
+}
+
+/*
+	Default Input Styles
+ */
+.game-container input[type="text"].form-control,
+main input[type="datetime"].form-control,
+main input[type="password"].form-control,
+main input[type="datetime-local"].form-control,
+main input[type="date"].form-control,
+main input[type="month"].form-control,
+main input[type="time"].form-control,
+main input[type="week"].form-control,
+main input[type="number"].form-control,
+main input[type="email"].form-control,
+main input[type="url"].form-control,
+main input[type="search"].form-control,
+main input[type="tel"].form-control,
+main input[type="color"].form-control,
+main select.form-control
+{
+	border-radius: 10px;
+	color: rgba(255, 255, 255, 1);
+	font-size: 1em;
+	margin-bottom: 2rem;
+	margin-top: 1rem;
+	padding: 1rem;
+	width: 100%;
+}
+
+.game-container input.form-control, .game-container select.form-control
+{
+	background-color: rgba(255, 255, 255, 0.1);
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.game-container select.form-control option
+{
+	background-color: #3c3c3c;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+/*
+
+
+	Button Styles
+
+
+ */
+.btn-primary, #game-nav .btn-primary
+{
+	background-color: var(--primary);
+	border-color: var(--primary);
+	color: #464543;
+}
+
+.btn-primary:hover, #game-nav .btn-primary:hover
+{
+	background-color: var(--primary-hover);
+	border-color: var(--primary);
+	color: black;
+}
+

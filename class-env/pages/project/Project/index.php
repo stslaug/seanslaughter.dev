@@ -9,7 +9,7 @@ session_start();
 	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no" name = "viewport">
 	<meta content = "ie=edge" http-equiv = "X-UA-Compatible">
 
-	<link href = "u_style.css" rel = "stylesheet">
+	<link href = "css/u_style.css" rel = "stylesheet">
 	<link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel = "stylesheet">
 	<title>Proposal | Most Likely To</title>
 
@@ -20,9 +20,14 @@ session_start();
 
 		<div id = "game-nav" class = "container-fluid">
 			<div class = "d-flex justify-content-end py-2">
-				<a class = "btn btn-primary mx-2" href = "./game-landing.php">The Game</a>
-				<a class = "btn btn-primary mx-2" href = "#">Proposal</a>
-				<a class = "btn btn-primary mx-2" href = "/settings.html">Profile</a>
+				<a class = "btn btn-primary mx-2" href = "game-landing.php">The Game</a>
+				<a class = "btn btn-primary mx-2" href = "index.php">Proposal</a>
+                      <?php if (isset($_SESSION['username'])): ?>
+				    <a class = "btn btn-primary mx-2" href = "../settings.html">Profile</a>
+				    <a class = "btn btn-primary mx-2" href = "user/logout.php">Logout</a>
+                      <?php else: ?>
+				    <a class = "btn btn-primary mx-2" href = "user/login.php">Login / Sign Up</a>
+                      <?php endif; ?>
 			</div>
 		</div>
 	</nav>

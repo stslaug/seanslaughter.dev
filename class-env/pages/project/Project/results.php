@@ -33,7 +33,7 @@ $is_host = ($data['host'] === $name);
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 	<title>Round Results</title>
 	<link rel = "stylesheet" href = "/styles/general.css">
-	<link rel = "stylesheet" href = "style.css">
+	<link rel = "stylesheet" href = "css/style.css">
 	<link rel = "stylesheet" href = "style_game.css.css">
 </head>
 
