@@ -108,4 +108,10 @@ body.dark-mode .sidebar
 		padding: 1rem;
 		width: 100%;
 	}
+
+
+	.subnav h2
+	{
+		display: none;
+	}
 }

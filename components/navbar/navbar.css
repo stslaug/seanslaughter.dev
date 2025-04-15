@@ -281,12 +281,14 @@ body
 
 	#nav-items .nav-item
 	{
+		display: none;
 		visibility: hidden;
 	}
 
 
 	#nav-items.active .nav-item
 	{
+		display: block;
 		visibility: visible;
 	}
 
@@ -335,6 +337,20 @@ body
 	body.dark-mode #nav-items.active
 	{
 		background-color: var(--dark-purple);
+	}
+
+
+	div#nav-items
+	{
+		display: none;
+		visibility: hidden;
+	}
+
+
+	div#nav-items.active
+	{
+		display: block;
+		visibility: visible;
 	}
 
 
