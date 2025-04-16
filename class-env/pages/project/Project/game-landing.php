@@ -18,6 +18,12 @@
 
 	<title>The Game | Most Likely To</title>
 
+	<style>
+		  .game-container
+		  {
+			  max-width: 450px;
+		  }
+	</style>
 </head>
 <body>
 	<nav>

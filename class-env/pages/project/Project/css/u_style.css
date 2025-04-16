@@ -178,3 +178,23 @@ main select.form-control
 	color: black;
 }
 
+.pass-div
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.pass-div input
+{
+	width: calc(100% - 1.5rem);
+}
+
+.pass-div i
+{
+	cursor: pointer;
+	font-size: 1.5rem;
+	height: 25px;
+	margin: 34px 0 auto 1rem;
+	width: 25px;
+}
