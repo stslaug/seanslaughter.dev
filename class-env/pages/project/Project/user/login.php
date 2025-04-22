@@ -68,18 +68,7 @@ $conn->close();
 	<nav>
 		<div id = "navbar-container"></div>
 
-		<div id = "game-nav" class = "container-fluid">
-			<div class = "d-flex justify-content-end py-2">
-				<a class = "btn btn-primary mx-2" href = "../game-landing.php">The Game</a>
-				<a class = "btn btn-primary mx-2" href = "../index.php">Proposal</a>
-                      <?php if (isset($_SESSION['username'])): ?>
-				    <a class = "btn btn-primary mx-2" href = "../settings.html">Profile</a>
-				    <a class = "btn btn-primary mx-2" href = "logout.php">Logout</a>
-                      <?php else: ?>
-				    <a class = "btn btn-primary mx-2" href = "../user/register.php">Login / Sign Up</a>
-                      <?php endif; ?>
-			</div>
-		</div>
+		<div id = "game-nav" class = "container-fluid"></div>
 	</nav>
 
 	<main class = "game-container container-fluid">
@@ -106,9 +95,7 @@ $conn->close();
 		</div>
 	</main>
 
-	<footer id = "footer"></footer>
-	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-	<script rel = "text/javascript" src = "/nav-foot.js"></script>
+	<script rel = "text/javascript" src = "../scripts/includes.js"></script>
 </body>
 </html>
