@@ -24,6 +24,7 @@ body
 
 .game-container h1
 {
+	color: var(--primary);
 	font-size: 3rem;
 }
 
@@ -36,6 +37,11 @@ body
 .game-container h2 strong
 {
 	color: var(--primary);
+}
+
+.game-container p
+{
+	color: white;
 }
 
 .game-container form

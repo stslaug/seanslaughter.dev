@@ -1,68 +1,72 @@
 <?php
-/**
- * File: game.php
- * Description: Displays a "most likely to" question and allows players to vote.
- *
- */
+session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+require_once __DIR__ . '/db/db_connect.php';
+
 $room = $_GET['room'] ?? '';
-$name = $_GET['name'] ?? '';
 
-$path = "./rooms/$room.json";
-if (!file_exists($path)) {
-    die("Room not found.");
+if (!$room) {
+    die("Missing room code.");
 }
 
-$data = json_decode(file_get_contents($path), true);
+// Get game info
+$stmt = $conn->prepare("SELECT * FROM games WHERE id = ?");
+$stmt->bind_param("s", $room);
+$stmt->execute();
+$game = $stmt->get_result()->fetch_assoc();
 
-// Check for expiration (optional)
-if (time() - ($data['created_at'] ?? 0) > 600) {
-    unlink($path);
-    die("Room has expired.");
+if (!$game) {
+    die("Game not found.");
 }
 
-// Get question list and index
-$questions = $data['questions'] ?? [];
-$index = $data['question_index'] ?? 0;
-$current_question = $questions[$index] ?? null;
+$question_index = $game['current_question_index'];
+$question_set_id = $game['question_set_id'];
+
+// Get question list
+$stmt = $conn->prepare("SELECT question_text FROM questions WHERE question_set_id = ? ORDER BY id ASC");
+$stmt->bind_param("i", $question_set_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$questions = [];
+
+while ($row = $result->fetch_assoc()) {
+    $questions[] = $row['question_text'];
+}
+
+$current_question = $questions[$question_index - 1] ?? null;
 
 if (!$current_question) {
     echo "<h2>No more questions!</h2>";
     exit;
 }
 
-// ✅ Prevent early access to round
-if (!($data['round_started'] ?? false)) {
-    echo "<h2>Waiting for the host to start the round...</h2>";
-    echo "<script>
-        setTimeout(() => {
-            window.location.reload();
-        }, 1000); // Reload every second to check for round start
-    </script>";
-    exit;
+// Get players
+$stmt = $conn->prepare("SELECT nickname FROM game_players WHERE game_id = ?");
+$stmt->bind_param("s", $room);
+$stmt->execute();
+$result = $stmt->get_result();
+$players = [];
+
+while ($row = $result->fetch_assoc()) {
+    $players[] = $row['nickname'];
 }
-
-$players = $data['players'];
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-	<link rel = "stylesheet" href = "css/style.css">
-	<link rel = "stylesheet" href = "css/u_style.css">
+
 	<title>Most Likely To - Question</title>
 </head>
 <body>
-	<div class = "game-container">
-		<!-- Add timer container -->
-		<div class = "timer-container">
-			<div class = "timer-animation"></div>
-			<span id = "timer">15</span>
-		</div>
+	<nav>
+		<div id = "navbar-container"></div>
+		<div id = "game-nav" class = "container-fluid"></div>
+	</nav>
 
+	<div class = "game-container">
 		<h2>Question:</h2>
 		<h2 class = "current-question">
                 <?= preg_replace('/(most likely to)/i', '<span style="color:#ffd700;">$1</span>', htmlspecialchars($current_question)) ?>
@@ -70,16 +74,16 @@ $players = $data['players'];
 
 		<form action = "vote.php" method = "POST" id = "voteForm">
 			<input type = "hidden" name = "room" value = "<?= htmlspecialchars($room) ?>">
-			<input type = "hidden" name = "name" value = "<?= htmlspecialchars($name) ?>">
+			<input type = "hidden" name = "name" value = "<?= htmlspecialchars($_SESSION['player_name'] ?? 'anonymous') ?>">
 			<input type = "hidden" name = "question" value = "<?= htmlspecialchars($current_question) ?>">
 
 			<p>Vote for the player you think fits best:</p>
 			<div class = "radio-options">
                       <?php foreach ($players as $player): ?>
 				    <div class = "radio-option">
-					    <label>
-						    <input type = "radio" name = "vote" value = "<?= htmlspecialchars($player) ?>" required>
-						    <span><?= htmlspecialchars($player) ?></span>
+					    <label class = "radio-label">
+						    <input type = "radio" class = "" name = "vote" value = "<?= htmlspecialchars($player) ?>" required>
+						    <span> <?= htmlspecialchars($player) ?></span>
 					    </label>
 				    </div>
                       <?php endforeach; ?>
@@ -88,45 +92,32 @@ $players = $data['players'];
 		</form>
 	</div>
 
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script rel = "text/javascript" src = "scripts/includes.js"></script>
 	<script>
           document.addEventListener('DOMContentLoaded', function () {
               const form = document.getElementById('voteForm');
-              const timerDisplay = document.getElementById('timer');
-              let timeLeft = 15;
+              const timerDisplay = document.createElement('span');
+              timerDisplay.id = 'timer';
+              timerDisplay.style.color = 'white';
+              timerDisplay.textContent = 15;
+              form.style.color = 'white';
+              form.parentElement.insertBefore(timerDisplay, form);
 
-              // Update timer display every second
+              let timeLeft = 15;
               const timerInterval = setInterval(function () {
                   timeLeft--;
                   timerDisplay.textContent = timeLeft;
-
                   if (timeLeft <= 0) {
                       clearInterval(timerInterval);
-
-                      // Select a random option if none selected
-                      const radioButtons = form.querySelectorAll('input[type="radio"]');
-                      let isAnySelected = false;
-
-                      radioButtons.forEach(radio => {
-                          if (radio.checked) {
-                              isAnySelected = true;
-                          }
-                      });
-
-                      if (!isAnySelected) {
-                          // Select random option
-                          const randomIndex = Math.floor(Math.random() * radioButtons.length);
-                          radioButtons[randomIndex].checked = true;
+                      const radios = form.querySelectorAll('input[type="radio"]');
+                      const checked = Array.from(radios).some(r => r.checked);
+                      if (!checked) {
+                          radios[Math.floor(Math.random() * radios.length)].checked = true;
                       }
-
-                      // Submit the form
                       form.submit();
                   }
               }, 1000);
-
-              // Clear timer if form is submitted manually
-              form.addEventListener('submit', function () {
-                  clearInterval(timerInterval);
-              });
           });
 	</script>
 </body>

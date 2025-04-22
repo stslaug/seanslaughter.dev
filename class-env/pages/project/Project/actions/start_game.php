@@ -1,20 +1,33 @@
 <?php
-/**
- * File: start_game.php
- * Description: Host-only action that starts the game by setting the game and round state to true.
- *
- */
-$room = $_POST['room'] ?? '';
-$path = "../rooms/$room.json";
+session_start();
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-if (!file_exists($path)) {
-    die("Room not found.");
+require_once __DIR__ . '/../db/db_connect.php';
+
+$room = $_POST['room'] ?? '';
+
+if (!$room) {
+    die("Room code missing.");
 }
 
-$data = json_decode(file_get_contents($path), true);
-$data['game_started'] = true;
-$data['round_started'] = true;
+// Validate that the game exists
+$stmt = $conn->prepare("SELECT * FROM games WHERE id = ?");
+$stmt->bind_param("s", $room);
+$stmt->execute();
+$result = $stmt->get_result();
 
-file_put_contents($path, json_encode($data));
-header("Location: ../game.php?room=$room&name=" . urlencode($data['host']));
+if ($result->num_rows === 0) {
+    die("Room not found in database.");
+}
+
+// Optionally: mark the game as "started" in the database
+// You could use a `game_started` column or reuse existing fields
+$stmt = $conn->prepare("UPDATE games SET current_question_index = 1 WHERE id = ?");
+$stmt->bind_param("s", $room);
+$stmt->execute();
+
+// Redirect to the game page
+header("Location: ../game.php?room=$room");
 exit;
+?>

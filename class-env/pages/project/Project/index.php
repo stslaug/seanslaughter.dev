@@ -8,9 +8,7 @@ session_start();
 	<meta charset = "utf-8">
 	<meta content = "width=device-width, initial-scale=1, shrink-to-fit=no" name = "viewport">
 	<meta content = "ie=edge" http-equiv = "X-UA-Compatible">
-
-	<link href = "css/u_style.css" rel = "stylesheet">
-	<link href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel = "stylesheet">
+	<meta name = "description" content = "A game where players can vote on which player is most likely to do a given statement.">
 	<title>Proposal | Most Likely To</title>
 
 </head>
@@ -19,30 +17,24 @@ session_start();
 		<div id = "navbar-container"></div>
 
 		<div id = "game-nav" class = "container-fluid">
-			<div class = "d-flex justify-content-end py-2">
-				<a class = "btn btn-primary mx-2" href = "game-landing.php">The Game</a>
-				<a class = "btn btn-primary mx-2" href = "index.php">Proposal</a>
-                      <?php if (isset($_SESSION['username'])): ?>
-				    <a class = "btn btn-primary mx-2" href = "../settings.html">Profile</a>
-				    <a class = "btn btn-primary mx-2" href = "user/logout.php">Logout</a>
-                      <?php else: ?>
-				    <a class = "btn btn-primary mx-2" href = "user/login.php">Login / Sign Up</a>
-                      <?php endif; ?>
-			</div>
+
 		</div>
 	</nav>
 
-	<main style = "margin-top: 3rem;">
+	<main class = "game-container" style = "max-width: 1000px;">
+		<section style = "margin-bottom: 2rem;padding-bottom: 2rem; border-bottom: 1px solid #ccc;">
+                <?php if (isset($_SESSION['username'])): ?>
+			    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1><p>
+				    <a href = "user/logout.php">Logout</a>
+			    </p>
+                <?php else: ?>
+			    <h1>Most Likely To | Proposal </h1><p><a href = "user/login.php">Login</a> |
+				    <a href = "user/register.php">Register</a>
+			    </p>
+                <?php endif; ?>
 
-          <?php if (isset($_SESSION['username'])): ?>
-		    <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1><p>
-			    <a href = "user/logout.php">Logout</a>
-		    </p>
-          <?php else: ?>
-		    <h1>Most Likely To | Proposal </h1><p><a href = "user/login.php">Login</a> |
-			    <a href = "user/register.php">Register</a>
-		    </p>
-          <?php endif; ?>
+		</section>
+
 		<h1>Team Project Proposal</h1>
 		<h2>CPSC 3750 – Web App Development</h2>
 
@@ -133,26 +125,7 @@ session_start();
 
 	</main>
 
-	<footer id = "footer-container"></footer>
-
-	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-	<!--
-
-		Just for our navbar, and footers we will have to switch these out on each end.
-
-		<script>
-                fetch('/navbar.html')
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('navbar-container').innerHTML = data;
-                    });
-		</script>
-
-
-            Replace my script below with yours!
-	-->
-	<script rel = "text/javascript" src = "/nav-foot.js"></script>
+	<script rel = "text/javascript" src = "scripts/includes.js"></script>
 
 </body>

@@ -2,11 +2,14 @@
 
 /*
  * I intend to use this file to store all of my database queries
+ *
+ *
+ *  Honestly not sure if we need most of these.... (simply due to some session variables)
  */
 function getUserByUsername($username)
 {
 
-    require __DIR__ . './db_connect.php';
+    require_once __DIR__ . '/db_connect.php';
 
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
@@ -17,7 +20,7 @@ function getUserByUsername($username)
 
 function getUserById($id)
 {
-    require __DIR__ . './db_connect.php';
+    require_once __DIR__ . '/db_connect.php';
     $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -28,7 +31,7 @@ function getUserById($id)
 
 function getQuestionsForGame($gameId)
 {
-    require __DIR__ . '/db_connect.php';
+    require_once __DIR__ . '/db_connect.php';
 
     // Join games → question_sets → questions
     $stmt = $conn->prepare("
@@ -60,5 +63,14 @@ function getQuestionsForGame($gameId)
 
  */
 
+}
 
+function getGamePlayers($gameId)
+{
+    require_once __DIR__ . '/db_connect.php';
+    global $conn;
+    $stmt = $conn->prepare("SELECT nickname, user_id FROM game_players WHERE game_id = ?");
+    $stmt->bind_param("s", $gameId);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 }

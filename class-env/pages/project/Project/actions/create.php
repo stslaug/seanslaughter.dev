@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * File: create.php
  * Description: Handles game creation logic. Generates a room code and stores player and question data.
@@ -7,44 +8,38 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$room = substr(md5(uniqid()), 0, 6);
-$theme = $_POST['theme'] ?? 'general';
-$custom_input = trim($_POST['custom_questions'] ?? '');
-$mode_code = strtolower(trim($_POST['mode_code'] ?? ''));
+require_once __DIR__ . '/../db/db_connect.php';
+require_once __DIR__ . '/../db/queries.php';
+/*
+CREATE TABLE games (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    host_user_id INT,
+    question_set_id INT NOT NULL,
+    current_question_index INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (host_user_id) REFERENCES users(id) ON DELETE SET NULL,
+    FOREIGN KEY (question_set_id) REFERENCES question_sets(id) ON DELETE CASCADE
+);
 
-// Load question bank
-$allQuestions = json_decode(file_get_contents("questions.json"), true);
 
-// Determine questions to use
-if ($theme === 'custom' && !empty($custom_input)) {
-    // Manually entered questions
-    $questions = array_filter(array_map('trim', explode("\n", $custom_input)));
-    $mode = 'custom';
-} elseif (!empty($mode_code) && isset($allQuestions[$mode_code])) {
-    // Secret mode unlocked via code
-    $questions = $allQuestions[$mode_code];
-    $mode = $mode_code;
+ Below SHOULD be all we need to create a game.
+ */
+
+$question_set_id = $_POST['theme'] ?? '0'; /* Previously Theme: 0 = general, 1 = college, 2 = office */
+
+$game_id = substr(md5(uniqid()), 0, 6);// Random 5 byte string
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $stmt = $conn->prepare("INSERT INTO games (id, host_user_id, question_set_id) VALUES (?, ?, ?)");
+    $stmt->bind_param("sii", $game_id, $user_id, $question_set_id);
 } else {
-    // Normal public theme
-    $questions = $allQuestions[$theme] ?? $allQuestions['general'];
-    $mode = $theme;
+    $stmt = $conn->prepare("INSERT INTO games (id, question_set_id) VALUES (?, ?)");
+    $stmt->bind_param("si", $game_id, $question_set_id);
 }
+$stmt->execute();
+$room = $game_id;
 
-shuffle($questions);
-
-$data = [
-    "players" => [],
-    "question_index" => 0,
-    "votes" => [],
-    "voted" => [],
-    "created_at" => time(),
-    "game_started" => false,
-    "round_started" => false,
-    "questions" => $questions,
-    "mode" => $mode
-];
-
-file_put_contents("../rooms/$room.json", json_encode($data));
-
-header("Location: join.php?room=$room");
+header("Location: join.php?room=$game_id");
 exit;
+?>

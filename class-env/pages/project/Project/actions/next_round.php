@@ -1,27 +1,35 @@
 <?php
-/**
- * File: next_round.php
- * Description: Host-only action to move the game to the next question/round.
- *
- */
-$room = $_POST['room'] ?? '';
-$name = $_POST['name'] ?? '';
+session_start();
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+require_once __DIR__ . '/../db/db_connect.php';
 
-$path = "../rooms/$room.json";
-if (!file_exists($path)) {
-    die("Room not found.");
+$room = $_POST['room'] ?? '';
+
+if (!$room) {
+    die("Room code missing.");
 }
 
-$data = json_decode(file_get_contents($path), true);
+// Optional: verify the user is the host
+$stmt = $conn->prepare("SELECT host_user_id FROM games WHERE id = ?");
+$stmt->bind_param("s", $room);
+$stmt->execute();
+$game = $stmt->get_result()->fetch_assoc();
 
-// ✅ Advance round and set round_started to true
-$data['votes'] = [];
-$data['voted'] = [];
-$data['results_ready'] = false;
-$data['round_started'] = true;
-$data['question_index'] = ($data['question_index'] ?? 0) + 1;
+if (!$game) {
+    die("Game not found.");
+}
 
-file_put_contents($path, json_encode($data));
+$host_user_id = $game['host_user_id'];
+if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != $host_user_id) {
+    die("Only the host can start the next round.");
+}
 
-header("Location: ../game.php?room=$room&name=" . urlencode($name));
+// Increment the current question index
+$stmt = $conn->prepare("UPDATE games SET current_question_index = current_question_index + 1 WHERE id = ?");
+$stmt->bind_param("s", $room);
+$stmt->execute();
+
+// Redirect to game
+header("Location: ../game.php?room=" . urlencode($room));
 exit;

@@ -7,10 +7,10 @@
  *
  */
 
-$servername = "127.0.0.1:5522";
-$username = "seanljvy_seanljvy";
-$password = "MasterPass123!";
-$database = "seanljvy_mostlikely";
+$servername = "localhost:5522";
+$username = "seanljvy_seanljvy";      // default in XAMPP
+$password = "MasterPass123!";          // default is empty in XAMPP
+$database = "seanljvy_mostlikely";      // default is empty in XAMPP
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);

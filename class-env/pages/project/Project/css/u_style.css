@@ -19,18 +19,6 @@
 	--off-white: #be952e;
 }
 
-/*
-	I need/like these colors
- 	HOWEVER, we can change them later to something we more like
-
-	I will use the
-	--primary
-	--primary-hover
-	--secondary
-	--secondary-hover
-	--background-color
-
- */
 *
 {
 	box-sizing: border-box;
@@ -71,6 +59,11 @@ ul
 	margin-bottom: 25px;
 }
 
+.error
+{
+	color: white;
+}
+
 /*
 	Game Navbar
 
@@ -84,7 +77,6 @@ ul
 
 
 		Input styles
-
 
 
  */
@@ -197,4 +189,23 @@ main select.form-control
 	height: 25px;
 	margin: 34px 0 auto 1rem;
 	width: 25px;
+}
+
+span#timer
+{
+	color: white;
+}
+
+.game-container .radio-options .radio-option .radio-label
+{
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+	cursor: pointer;
+	margin-bottom: 0.5rem;
+	padding: 1rem;
+}
+
+.game-container .radio-options .radio-option .radio-label:hover
+{
+	background-color: rgba(255, 255, 255, 0.2);
 }
