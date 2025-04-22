@@ -26,6 +26,7 @@ CREATE TABLE games (
  Below SHOULD be all we need to create a game.
  */
 
+
 $question_set_id = $_POST['theme'] ?? '0'; /* Previously Theme: 0 = general, 1 = college, 2 = office */
 
 $game_id = substr(md5(uniqid()), 0, 6);// Random 5 byte string

@@ -74,3 +74,24 @@ function getGamePlayers($gameId)
     $stmt->execute();
     return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 }
+
+function getGameStatus($gameId)
+{
+    require_once __DIR__ . '/db_connect.php';
+    global $conn;
+    $stmt = $conn->prepare("SELECT is_active, round_active FROM games WHERE id = ?");
+    $stmt->bind_param("s", $gameId);
+    $stmt->execute();
+    return $stmt->get_result();
+}
+
+
+function setRoundInActive($gameId)
+{
+    //Expected 0 or 1 for $roundActive
+    require_once __DIR__ . '/db_connect.php';
+    global $conn;
+    $stmt = $conn->prepare("UPDATE games SET round_active = 0 WHERE id = ?");
+    $stmt->bind_param("s", $gameId);
+    $stmt->execute();
+}

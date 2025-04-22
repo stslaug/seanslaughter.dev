@@ -7,16 +7,26 @@
  */
 header('Content-Type: application/json');
 
-$room = $_GET['room'] ?? '';
-$path = "../rooms/$room.json";
 
-if (!file_exists($path)) {
-    echo json_encode(["started" => false, "round_started" => false]);
-    exit;
+require_once __DIR__ . '/../db/db_connect.php';
+require_once __DIR__ . '/../db/queries.php';
+
+$room = $_GET['room'] ?? '';
+
+$gameStatusRes = getGameStatus($room)->fetch_assoc();
+if ($gameStatusRes) {
+    // cast to boolean so MySQL 0/1 (or NULL) becomes true/false
+    echo json_encode([
+        'started' => $gameStatusRes['is_active'],
+        'round_active' => $gameStatusRes['round_active']
+    ]);
+} else {
+    // no row returned for that room
+    echo json_encode([
+        'started' => false,
+        'round_active' => false
+    ]);
 }
 
-$data = json_decode(file_get_contents($path), true);
-echo json_encode([
-    "started" => $data['game_started'] ?? false,
-    "round_started" => $data['round_started'] ?? false
-]);
+?>
+

@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require_once __DIR__ . '/db/db_connect.php';
+require_once __DIR__ . '/db/queries.php';
 
 $room = $_GET['room'] ?? '';
 $name = $_GET['name'] ?? '';
@@ -12,6 +13,7 @@ if (!$room || !$name) {
     die("Missing room or name.");
 }
 
+setRoundInActive($room);
 // Get game info
 $stmt = $conn->prepare("SELECT * FROM games WHERE id = ?");
 $stmt->bind_param("s", $room);
@@ -53,6 +55,7 @@ while ($row = $vote_results->fetch_assoc()) {
     $votes[$row['nickname']] = $row['vote_count'];
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -94,17 +97,33 @@ while ($row = $vote_results->fetch_assoc()) {
 		    <button type = "submit">➡️ Next Question</button>
 		    </form><?php else: ?><p><em>Waiting for the host to start the next round...</em></p>
 		    <script>
-                    function checkRoundStart() {
-                        fetch('get_status.php?room=<?= $room ?>')
-                            .then(res => res.json())
-                            .then(data => {
-                                if (data.round_started) {
-                                    window.location.href = "game.php?room=<?= $room ?>&name=<?= urlencode($name) ?>";
+                    function fetch_game_status() { //Check if game is started
+                        console.log('Fetching game status...');
+                        $.ajax({
+                            url: './actions/get_status.php',
+                            data: {
+                                room: "<?= $room ?>"
+                            },
+                            success: function (data) {
+                                console.log('Game status:', data);
+                                if (data.round_active) {
+                                    $('#game-status').html('Game Started');
+                                    window.location.href = "./game.php?room=<?= $room ?>";
+                                } else {
+                                    $('#game-status').html('Waiting for players...');
                                 }
-                            });
+                            },
+                            error: function (xhr, status, error) {
+                                console.error('Error fetching game status:', error);
+                            },
+                            complete: function () {
+                                console.log('Game status fetch complete.');
+                            },
+
+                        });
                     }
 
-                    setInterval(checkRoundStart, 1000);
+                    setInterval(fetch_game_status, 1000);
 		    </script><?php endif; ?><?php else: ?><h3>🏁 Game Over! Thanks for playing 🎉</h3>
 		    <form action = "index.php" method = "GET">
 			    <button type = "submit">🔁 Back to Start</button>
@@ -114,5 +133,7 @@ while ($row = $vote_results->fetch_assoc()) {
 
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script rel = "text/javascript" src = "scripts/includes.js"></script>
-</body>
-</html>
+
+	<script>
+          </body>
+          </html>

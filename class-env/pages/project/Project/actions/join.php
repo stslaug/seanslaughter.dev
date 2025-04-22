@@ -17,7 +17,7 @@ if (!$room) { /*  I love this... THis should help players join the game again */
 require_once __DIR__ . '/../db/db_connect.php';
 
 // Step 1: Check if room exists
-$stmt = $conn->prepare("SELECT * FROM games WHERE id = ? AND is_active = TRUE");
+$stmt = $conn->prepare("SELECT * FROM games WHERE id = ?");
 $stmt->bind_param("s", $room);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -101,7 +101,6 @@ if (isset($_POST['name'])) {
 		<p><a id = "back-btn" href = "../index.php">⬅️ Back to Start</a></p>
 	</main>
 
-	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script rel = "text/javascript" src = "../scripts/includes.js"></script>
 

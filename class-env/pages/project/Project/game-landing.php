@@ -36,19 +36,25 @@ session_start();
 				<button type = "submit">Join Game</button>
 			</form>
 
-			<form action = "./actions/create.php" method = "POST">
-				<div class = "form-group">
-					<label for = "theme">Choose a theme:</label>
+                <?php if (isset($_SESSION['username'])): ?>
+			    <form action = "./actions/create.php" method = "POST">
+				    <div class = "form-group">
+					    <label for = "theme">Choose a theme:</label>
 
-					<select class = "form-control" id = "theme" name = "theme" required>
-						<option value = "1">General</option>
-						<option value = "2">College</option>
-						<option value = "3">Office</option>
-						<!-- I think we should append player made options here. Instead of codes?-->z
-					</select>
-				</div>
-				<button class = "btn btn-primary" type = "submit">Create Game</button>
-			</form>
+					    <select class = "form-control" id = "theme" name = "theme" required>
+						    <option value = "1">General</option>
+						    <option value = "2">College</option>
+						    <option value = "3">Office</option>
+						    <!-- I think we should append player made options here. Instead of codes?-->z
+					    </select>
+				    </div>
+				    <button class = "btn btn-primary" type = "submit">Create Game</button>
+			    </form>
+                <?php else: ?>
+			    <p>You must be logged in to create a game.</p>
+			    <a href = "user/login.php">Login</a>
+                <?php endif; ?>
+
 		</div>
 	</main>
 

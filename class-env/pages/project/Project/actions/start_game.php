@@ -21,9 +21,8 @@ if ($result->num_rows === 0) {
     die("Room not found in database.");
 }
 
-// Optionally: mark the game as "started" in the database
-// You could use a `game_started` column or reuse existing fields
-$stmt = $conn->prepare("UPDATE games SET current_question_index = 1 WHERE id = ?");
+
+$stmt = $conn->prepare("UPDATE games SET current_question_index = 1, is_active = 1 WHERE id = ?");
 $stmt->bind_param("s", $room);
 $stmt->execute();
 

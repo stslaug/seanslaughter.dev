@@ -209,3 +209,9 @@ span#timer
 {
 	background-color: rgba(255, 255, 255, 0.2);
 }
+
+a.subnav-btn.active
+{
+	background-color: var(--purple);
+	color: white;
+}

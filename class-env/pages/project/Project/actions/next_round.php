@@ -26,7 +26,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != $host_user_id) {
 }
 
 // Increment the current question index
-$stmt = $conn->prepare("UPDATE games SET current_question_index = current_question_index + 1 WHERE id = ?");
+$stmt = $conn->prepare("UPDATE games SET round_active = 1, current_question_index = current_question_index + 1 WHERE id = ?");
 $stmt->bind_param("s", $room);
 $stmt->execute();
 
