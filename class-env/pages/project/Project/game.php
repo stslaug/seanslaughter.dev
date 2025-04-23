@@ -42,16 +42,19 @@ if (!$current_question) {
     exit;
 }
 
-// Get players
-$stmt = $conn->prepare("SELECT nickname FROM game_players WHERE game_id = ?");
+$stmt = $conn->prepare("SELECT id, nickname, user_id FROM game_players WHERE game_id = ?");
 $stmt->bind_param("s", $room);
 $stmt->execute();
 $result = $stmt->get_result();
 $players = [];
-
 while ($row = $result->fetch_assoc()) {
-    $players[] = $row['nickname'];
+    $players[] = [
+        'nickname' => $row['nickname'],
+        'id' => $row['id'],
+        'user_id' => $row['user_id']
+    ];
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,8 +85,9 @@ while ($row = $result->fetch_assoc()) {
                       <?php foreach ($players as $player): ?>
 				    <div class = "radio-option">
 					    <label class = "radio-label">
-						    <input type = "radio" class = "" name = "vote" value = "<?= htmlspecialchars($player) ?>" required>
-						    <span> <?= htmlspecialchars($player) ?></span>
+						    <input type = "radio" class = "" name = "vote" value = "<?= htmlspecialchars($player['nickname']) ?>" required>
+						    <input type = "hidden" name = "player_ids[<?= htmlspecialchars($player['nickname']) ?>]" value = "<?= htmlspecialchars($player['user_id'] ? $player['user_id'] : $player['id']) ?>">
+						    <span> <?= htmlspecialchars($player['nickname']) ?></span>
 					    </label>
 				    </div>
                       <?php endforeach; ?>

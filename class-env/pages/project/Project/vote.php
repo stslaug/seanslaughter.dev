@@ -7,6 +7,9 @@ require_once __DIR__ . '/db/db_connect.php';
 $room = $_POST['room'] ?? '';
 $voter_nickname = $_POST['name'] ?? '';
 $vote_for_nickname = $_POST['vote'] ?? '';
+$voter_id = $_SESSION['user_id'] ?? null;
+$player_ids = $_POST['player_ids'] ?? [];
+$vote_for_id = $player_ids[$vote_for_nickname] ?? null;
 
 if (!$room || !$voter_nickname || !$vote_for_nickname) {
     var_dump($_POST);
@@ -19,36 +22,27 @@ $stmt = $conn->prepare("SELECT id, current_question_index FROM games WHERE id = 
 $stmt->bind_param("s", $room);
 $stmt->execute();
 $game = $stmt->get_result()->fetch_assoc();
-
 if (!$game) {
     var_dump($_POST);
     exit;
     die("Game not found.");
 }
-
 $question_index = $game['current_question_index'];
 
-// Get voter ID
+// Get the voter's game_player id
 $stmt = $conn->prepare("SELECT id FROM game_players WHERE game_id = ? AND nickname = ?");
 $stmt->bind_param("ss", $room, $voter_nickname);
 $stmt->execute();
 $voter_row = $stmt->get_result()->fetch_assoc();
-$voter_id = $voter_row['id'] ?? null;
+$voter_game_player_id = $voter_row['id'] ?? null;
 
-// Get vote_for ID
-$stmt = $conn->prepare("SELECT id FROM game_players WHERE game_id = ? AND nickname = ?");
-$stmt->bind_param("ss", $room, $vote_for_nickname);
+
+$stmt = $conn->prepare("INSERT INTO votes (game_id, question_index, voter_id, vote_for_id) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("siii", $room, $question_index, $voter_id, $vote_for_id);
 $stmt->execute();
-$vote_for_row = $stmt->get_result()->fetch_assoc();
-$vote_for_id = $vote_for_row['id'] ?? null;
 
-// Insert vote
-if ($voter_id && $vote_for_id) {
-    $stmt = $conn->prepare("INSERT INTO votes (game_id, question_index, voter_id, vote_for_id) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("siii", $room, $question_index, $voter_id, $vote_for_id);
-    $stmt->execute();
-} else {
-    die("Invalid player(s).");
+if ($stmt->error) {
+    die("Error inserting vote: " . $stmt->error);
 }
 ?>
 <!DOCTYPE html>

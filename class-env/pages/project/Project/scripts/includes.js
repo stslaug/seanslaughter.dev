@@ -8,17 +8,20 @@ jQuery(function () {
     let wilson = 0;
     let tyler = 1;
     let choice = tyler;
-    let style_css, u_style_css, navbar, bootstrap_css;
+    let style_css, u_style_css, navbar, bootstrap_css, subnav;
 
     if (choice == wilson) {
         style_css = "/class-env/pages/project/Project/css/style.css";   /* CHANGE HERE */
         u_style_css = "/class-env/pages/project/Project/css/u_style.css"; /* CHANGE HERE */
         navbar = "/navbar.html";
+        subnav = "/class-env/pages/project/Project/components/subnav.php"
 
     } else {
         style_css = "/class-env/pages/project/Project/css/style.css";
         u_style_css = "/class-env/pages/project/Project/css/u_style.css";
         navbar = "/components/navbar/navbar.html";
+        subnav = "/class-env/pages/project/Project/components/subnav.php";
+
     }
 
     /*
@@ -86,7 +89,7 @@ jQuery(function () {
         }).fail(function (error) {
             console.error('Error loading navbar:', error);
         });
-        fetch('/class-env/pages/project/Project/components/subnav.php')
+        fetch(subnav)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('game-nav').innerHTML = data;

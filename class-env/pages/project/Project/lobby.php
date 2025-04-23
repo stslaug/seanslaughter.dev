@@ -131,8 +131,8 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $host_user_id) {
           fetch_game_status();
 
           // Set up polling intervals
-          setInterval(fetch_players, 3000);
-          setInterval(fetch_game_status, 3000);
+          setInterval(fetch_players, 1000);
+          setInterval(fetch_game_status, 1000);
 
 	</script>
 

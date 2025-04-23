@@ -1,6 +1,17 @@
 <?php
 session_start();
 ?>
+<style>
+	@media (max-width: 600px)
+	{
+		.game-nav .subnav-btn
+		{
+			align-items: center;
+			font-size: 5rem;
+			text-align: center;
+		}
+	}
+</style>
 <div id = "game-nav" style = " position: absolute; right: 0; top: 0;">
 	<div class = "d-flex justify-content-end py-2">
 		<a class = "btn btn-primary mx-2 subnav-btn" href = "/class-env/pages/project/Project/game-landing.php">The Game</a>

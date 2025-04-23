@@ -210,8 +210,12 @@ span#timer
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
-a.subnav-btn.active
+@media (max-width: 600px)
 {
-	background-color: var(--purple);
-	color: white;
+	.game-nav a.btn.btn-primary.mx-2.subnav-btn
+	{
+		align-items: center;
+		font-size: 5rem;
+		text-align: center;
+	}
 }

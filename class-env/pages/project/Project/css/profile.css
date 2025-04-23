@@ -1,0 +1,30 @@
+
+.profile-stats .stats-list
+{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.stats-list li
+{
+	flex: 0 0 45%;
+	margin: 0;
+	max-width: 100%;
+	min-width: min-content;
+	text-wrap: nowrap;
+	width: 100%;
+}
+
+*
+{
+	box-sizing: border-box;
+}
+
+@media (max-width: 800px)
+{
+	strong.long-date
+	{
+		font-size: 0.8em;
+	}
+}

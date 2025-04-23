@@ -45,7 +45,7 @@ session_start();
 						    <option value = "1">General</option>
 						    <option value = "2">College</option>
 						    <option value = "3">Office</option>
-						    <!-- I think we should append player made options here. Instead of codes?-->z
+						    <!-- I think we should append player made options here. Instead of codes?-->
 					    </select>
 				    </div>
 				    <button class = "btn btn-primary" type = "submit">Create Game</button>

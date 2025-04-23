@@ -39,14 +39,26 @@ $is_host = isset($_SESSION['user_id']) && $_SESSION['user_id'] == $host_user_id;
 
 // Count votes
 $stmt = $conn->prepare("
-    SELECT gp.nickname, COUNT(*) as vote_count
-    FROM votes v
-    JOIN game_players gp ON v.vote_for_id = gp.id
-    WHERE v.game_id = ? AND v.question_index = ?
-    GROUP BY v.vote_for_id
-    ORDER BY vote_count DESC
+    SELECT 
+        gp.nickname, 
+        gp.id as player_id,
+        gp.user_id,
+        COUNT(v.id) as vote_count
+    FROM 
+        game_players gp
+    LEFT JOIN 
+        votes v ON (v.vote_for_id = gp.id OR v.vote_for_id = gp.user_id) 
+        AND v.game_id = gp.game_id 
+        AND v.question_index = ?
+    WHERE 
+        gp.game_id = ?
+    GROUP BY 
+        gp.id, gp.nickname, gp.user_id
+    ORDER BY 
+        vote_count DESC
 ");
-$stmt->bind_param("si", $room, $question_index);
+
+$stmt->bind_param("is", $question_index, $room);
 $stmt->execute();
 $vote_results = $stmt->get_result();
 
@@ -78,7 +90,7 @@ while ($row = $vote_results->fetch_assoc()) {
                     <?php endforeach; ?>
 		    </ul>
           <?php else: ?>
-		    <p><em>No votes recorded.</em></p>
+		    <p><em>No votes recorded for this round.</em></p>
           <?php endif; ?>
 
           <?php
