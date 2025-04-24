@@ -12,7 +12,8 @@
 
 #hero-text
 {
-	z-index: 3;
+	display: flex;
+	z-index: 4;
 }
 
 #welcomePage header

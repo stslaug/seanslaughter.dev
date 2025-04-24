@@ -12,29 +12,85 @@
 	<link href = "/styles/general.css" rel = "stylesheet">
 	<link href = "/styles/buttons.css" rel = "stylesheet">
 	<link href = "/index.css" rel = "stylesheet">
+	<style>
+		  header .hero .grid
+		  {
+			  display: grid;
+			  grid-template-columns: repeat(50, 1fr);
+			  grid-template-rows: repeat(50, 1fr);
+			  margin-top: -100px;
+			  overflow: hidden;
+			  position: absolute;
+			  width: 100%;
+		  }
 
+		  header .grid .tile
+		  {
+			  border: 1px solid rgba(255, 255, 255, 0.03);
+			  color: green;
+			  height: 40px;
+			  min-height: 25px;
+			  min-width: 25px;
+			  transition: background-color 0.10s ease;
+			  width: 40px;
+		  }
+
+		  .hero
+		  {
+			  display: flex;
+			  flex-direction: row;
+			  justify-content: center;
+			  overflow: hidden;
+		  }
+
+		  #hero-text
+		  {
+			  display: flex;
+			  flex-direction: column;
+			  justify-content: center;
+			  margin: auto;
+			  max-width: 800px;
+			  min-width: min-content;
+			  pointer-events: none;
+			  position: relative;
+			  text-wrap: nowrap;
+			  width: min-content;
+		  }
+
+		  #hero-text a
+		  {
+			  pointer-events: auto;
+		  }
+	</style>
 </head>
 
 <body id = "welcomePage">
 	<nav id = "navbar"></nav>
 
-	<header>
+	<header id = "heroHeader">
+
 		<div class = "hero" id = "welcome">
+
 			<div class = "gradient-bg"></div>
+			<div class = "grid">
+				<div class = "tile"></div>
+			</div>
 			<div id = "hero-text">
 				<h1>Sean Slaughter</h1>
 				<h2>Web Developer & Problem Solver</h2>
 				<p>Crafting clean, efficient, and user-focused web experiences.</p>                        <br>
 				<a class = "btn" href = "#about">Learn More</a>
 			</div>
+
 		</div>
+
 	</header>
 
 	<main>
-		<section id = "about">
+		<section id = "about" style = "max-width: 1200px; margin: auto;">
 			<div class = "split">
 				<div>
-					<img alt = "Sean's headshot" src = "/assets/images/homepage/headshot_x500.webp">
+					<img alt = "Sean's headshot" src = "/assets/images/homepage/headshot.jpg">
 				</div>
 				<div>
 					<h2>About Me</h2>
@@ -98,7 +154,7 @@
 					</div>
 					<div class = "skill-card-container">
 						<div class = "skill-card">
-							<img alt = "C++ Language Logo" src = "/assets/images/homepage/CPPLang.webp">
+							<img alt = "C++ Language Logo" src = "/assets/images/homepage/c++.svg">
 							<h3>C++</h3>
 							<p>Managing <strong>memory efficiently</strong> and utilizing
 								<strong>object-oriented design</strong> for complex systems.</p>
@@ -106,7 +162,7 @@
 					</div>
 					<div class = "skill-card-container">
 						<div class = "skill-card">
-							<img alt = "C Language Logo" src = "/assets/images/homepage/CLang.webp">
+							<img alt = "C Language Logo" src = "/assets/images/homepage/icons8-c-programming.svg">
 							<h3>C</h3>
 							<p>I have a strong foundation in<strong> memory optimization</strong> and
 								<strong>pointer arithmetic</strong>, and understanding of
@@ -159,6 +215,39 @@
 
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script rel = "text/javascript" src = "/nav-foot.js"></script>
+	<script>
+          function getRandomColor() {
+              var letters = '0123456789ABCDEF';
+              var color = '#';
+              for (var i = 0; i < 6; i++) {
+                  color += letters[Math.floor(Math.random() * 16)];
+              }
+              return color;
+          }
+
+          const grid = $(".grid"),
+              tile = $(".tile");
+
+          for (let i = 0; i < 999; i++) {
+              let newTile = tile.clone();
+              newTile.on('mouseover',
+                  function () {
+                      $(this).css("background-color", getRandomColor());
+                  });
+              newTile.on('mouseout',
+                  function () {
+
+                      const tileElement = $(this);
+                      setTimeout(function () {
+                          tileElement.css("background-color", "");
+                      }, 200);
+
+                  });
+              grid.append(newTile);
+          }
+
+	</script>
+
 </body>
 
 </html>
