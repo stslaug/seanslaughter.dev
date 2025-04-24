@@ -19,6 +19,7 @@ session_start();
 		<a class = "btn btn-primary mx-2 subnav-btn" href = "/class-env/pages/project/Project/features.php">Features</a>
           <?php if (isset($_SESSION['username'])): ?>
 		    <a class = "btn btn-primary mx-2 subnav-btn" href = "/class-env/pages/project/Project/profile.php">Profile</a>
+		    <a class = "btn btn-primary mx-2 subnav-btn" href = "/class-env/pages/project/Project/create_set.php">Create Set</a>
 		    <a class = "btn btn-primary mx-2 subnav-btn" href = "/class-env/pages/project/Project/user/logout.php">Logout</a>
           <?php else: ?>
 		    <a class = "btn btn-primary mx-2 subnav-btn" href = "/class-env/pages/project/Project/user/login.php">Login / Sign Up</a>

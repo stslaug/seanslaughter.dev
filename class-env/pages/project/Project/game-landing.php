@@ -5,8 +5,21 @@ session_start();
  * Description: Landing page for the game. Lets users choose a theme and create a new game room.
  *
  */
+require_once __DIR__ . '/db/db_connect.php';
+
+$custom_sets = [];
+if (isset($_SESSION['user_id'])) {
+    $uid = $_SESSION['user_id'];
+    $res = $conn->prepare("SELECT id, set_name FROM question_sets WHERE user_id = ?");
+    $res->bind_param("i", $uid);
+    $res->execute();
+    $result = $res->get_result();
+    while ($row = $result->fetch_assoc()) {
+        $custom_sets[] = $row;
+    }
+}
 ?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang = "en">
 <head>
 	<meta charset = "utf-8">
@@ -45,7 +58,13 @@ session_start();
 						    <option value = "1">General</option>
 						    <option value = "2">College</option>
 						    <option value = "3">Office</option>
-						    <!-- I think we should append player made options here. Instead of codes?-->
+                                      <?php if (!empty($custom_sets)): ?>
+							  <optgroup label = "Your Custom Sets">
+                                                <?php foreach ($custom_sets as $set): ?>
+									<option value = "<?= $set['id'] ?>"><?= htmlspecialchars($set['set_name']) ?></option>
+                                                <?php endforeach; ?>
+							  </optgroup>
+                                      <?php endif; ?>
 					    </select>
 				    </div>
 				    <button class = "btn btn-primary" type = "submit">Create Game</button>

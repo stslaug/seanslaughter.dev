@@ -29,6 +29,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($passwordInput, $hashedPassword)) {
                 $_SESSION['user_id'] = $userId;
                 $_SESSION['username'] = $username;
+                /*
+             * On success -> Now insert last login time to database
+             *
+             */
+                $stmt = $conn->prepare("UPDATE users SET last_login = CURRENT_TIMESTAMP WHERE id = ?");
+                $stmt->bind_param("i", $userId);
+                $stmt->execute();
+                $stmt->close();
+
+
                 header("Location: ../index.php");
                 exit();
             } else {

@@ -115,6 +115,7 @@ if (!$votes_received) {
 			<h3>Options</h3>
 			<ul>
 				<li><a href = "user/logout.php">Logout</a></li>
+				<!-- Maybe we can add question set deletion/modification here?-->
 			</ul>
 
 		</section>
