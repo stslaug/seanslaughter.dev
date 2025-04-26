@@ -118,11 +118,6 @@ session_start();
 			</ul>
 		</div>
 
-		<div class = "section">
-			<h3>Questions or Risks</h3>
-			<p></p>
-		</div>
-
 	</main>
 
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

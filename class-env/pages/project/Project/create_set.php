@@ -19,7 +19,7 @@ if (!isset($_SESSION['user_id'])) {
 	</nav>
 
 	<main class = "game-container container mt-5" style = "max-width: 600px;">
-		<h1 class = "mb-4">Create a Custom Question Set</h1>
+		<h1 class = "mb-4">Custom Question Sets</h1>
 
 		<form style = "width: 100%;" action = "actions/save_set.php" method = "POST">
 			<div class = "mb-3">
@@ -32,8 +32,9 @@ if (!isset($_SESSION['user_id'])) {
 				<textarea class = "form-control" name = "questions" id = "questions" rows = "10" required></textarea>
 			</div>
 
-			<button type = "submit" class = "btn btn-primary">Save Question Set</button>
+			<button type = "submit" class = "btn btn-primary">Create Question Set</button>
 		</form>
+		<p>You can create as many question sets as you want. Sets will be displayed while logged in to your account within our game themes list at the game's landing page.</p>
 	</main>
 
 	<!-- JS scripts -->

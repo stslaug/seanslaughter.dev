@@ -19,7 +19,8 @@ if (isset($_SESSION['user_id'])) {
     }
 }
 ?>
-?><!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang = "en">
 <head>
 	<meta charset = "utf-8">

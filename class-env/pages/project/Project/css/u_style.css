@@ -210,6 +210,20 @@ span#timer
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
+.game-container textarea
+{
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 1rem;
+	color: white;
+}
+
+.game-container textarea:focus
+{
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 1rem;
+	color: white;
+}
+
 @media (max-width: 600px)
 {
 	.game-nav a.btn.btn-primary.mx-2.subnav-btn
@@ -218,4 +232,27 @@ span#timer
 		font-size: 5rem;
 		text-align: center;
 	}
+}
+
+/*
+ Helper from my stuff
+ 	- Tyler
+ */
+.split
+{ /*  Helper (used mainly for input groups to split them up) */
+	display: flex;
+	gap: 1rem;
+	padding: 0;
+	width: 100%;
+}
+
+.split .split
+{
+	margin: 0;
+}
+
+.split > *
+{
+	flex: 0 0 calc(50% - 0.5rem); /* Exact 50% minus half of the gap */
+	width: 50%;
 }
