@@ -1,5 +1,8 @@
 # Sean Slaughter's Website Portfolio
 
+# This version of the site is being phased out with a [React.js Implementation](https://github.com/stslaug/portfolio-react)
+
+
 ## About
 
 This repository contains the source code for my personal website portfolio, developed during Spring 2025 for the CPSC 3750 Web Development course at Clemson University. The website showcases my skills and experience as a web developer, featuring projects and assignments completed throughout the semester.
